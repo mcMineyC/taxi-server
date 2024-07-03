@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /opt/taxi/server
+unlink config
+git pull
+ln -s /mnt/storage/taxi/config config
