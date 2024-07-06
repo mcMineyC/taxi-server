@@ -19,7 +19,7 @@ addRxPlugin(RxDBJsonDumpPlugin);
 
 var dbName = "rxdb-taxi";
 
-await removeRxDatabase(dbName, getRxStorageMongoDB({connection: 'mongodb://rxdb-taxi:dexiewasbad@192.168.30.36:27017/?authSource=admin'}));  console.log("Removed database");
+// await removeRxDatabase(dbName, getRxStorageMongoDB({connection: 'mongodb://rxdb-taxi:dexiewasbad@192.168.30.36:27017/?authSource=admin'}));  console.log("Removed database");
 
 var db = await createRxDatabase({
   name: dbName,
@@ -31,13 +31,13 @@ var db = await createRxDatabase({
 await schemas.register(db, 0);
 console.log("Added collections");
 
-var playlists = [];
-var files = fs.readdirSync(path.join(__dirname, 'config', 'playlists'));
-for (const file of files) {
-  for (const list of JSON.parse(fs.readFileSync(path.join(__dirname, 'config', 'playlists', file)))["playlists"]){
-    playlists.push(list);
-  }
-}
+// var playlists = [];
+// var files = fs.readdirSync(path.join(__dirname, 'config', 'playlists'));
+// for (const file of files) {
+//   for (const list of JSON.parse(fs.readFileSync(path.join(__dirname, 'config', 'playlists', file)))["playlists"]){
+//     playlists.push(list);
+//   }
+// }
 
 // var songs = fs.readFileSync(path.join(__dirname, 'config', 'songs.json'));
 // songs = JSON.parse(songs);
@@ -47,10 +47,12 @@ for (const file of files) {
 //
 // var artists = fs.readFileSync(path.join(__dirname, 'config', 'artists.json'));
 // artists = JSON.parse(artists);
+
 //
 var auth = fs.readFileSync(path.join(__dirname, 'config', 'auth.json'));
 auth = JSON.parse(auth);
 //
+
 // var recentlyPlayed = fs.readFileSync(path.join(__dirname, 'config', 'recently-played.json'));
 // recentlyPlayed = JSON.parse(recentlyPlayed);
 //
@@ -184,7 +186,10 @@ console.log("Added collections for v3");
 //     break;
 // }
 
-console.log("Database migrated");
+// console.log("Database migrated");
+
+
+
 
 // console.log("0x01f21", await db.songs.findOne().exec());
 // var doc = await db.played.findOne({

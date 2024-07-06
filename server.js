@@ -671,8 +671,6 @@ io.on('connection', (socket) => {
 })
 
 async function main(){
-    await checkDirs()
-    console.log("Checked and ready to start")
     server.listen(port, () => {
         console.log(`App listening on port ${port}`)
     })
@@ -712,77 +710,6 @@ async function getArtistImageUrl(name, backupImageUrl){
   }
 }
 
-async function extractSongImage(file, dest){
-    if(!(fs.existsSync(dest))){
-        console.log("File doesn't exist, creating...");
-        var v = await new Promise((resolve, reject) => {
-            new jsmt.Reader(path.join(__dirname, file))
-              .read({
-                onSuccess: (tag) => {
-                  console.log('Success!');
-                  resolve(tag);
-                },
-                onError: (error) => {
-                  console.log('Error extracting metadata:', error);
-                  reject(error);
-                }
-            });
-        })
-        var resu = v
-        if(typeof(resu.tags.picture) == "undefined"){
-            console.log("No picture in metadata for "+file)
-            // return
-        }else{
-            const { data, format } = resu.tags.picture;
-            let base64String = "";
-            for (var i = 0; i < data.length; i++) {
-                base64String += String.fromCharCode(data[i]);
-            }
-            fs.writeFileSync(dest, Buffer.from(base64String, 'binary'), 'binary');    
-            console.log("Done!")
-        }
-    }
-}
-
-async function inferSongImage(id){
-    var albumid = "";
-        //Get album id
-        var song = await db.songs.findOne({selector: {"id": id}}).exec();
-        albumid = song.albumId;
-        song = await db.songs.findOne({
-                selector: {
-                    "albumId": albumid,
-                    "id": {$ne: id}
-                }
-            }).exec();
-        //Try to extract image
-        await extractSongImage(song.file, path.join(__dirname, "config", "images", "songs", id+".png"));
-}
-
-async function extractAlbumImage(id, dest){
-    var song = await db.songs.findOne({selector: {"albumId": id}}).exec();
-    var file = song.file;
-    await extractSongImage(file, (dest == undefined ? path.join(__dirname, "config", "images", "albums", id+".png") : dest));
-}
-
-function hash(string){
-    return crypto.createHash('sha256').update(string).digest('hex');
-}
-
-async function withTimeout(promise, timeoutMs) {
-    const timeoutPromise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        reject(new Error({"code": "ETIMEDOUT"}));
-      }, timeoutMs);
-    });
-  
-    try {
-      return await Promise.race([promise, timeoutPromise]);
-    } catch (err) {
-      throw err; // Rethrow the error for the caller to handle
-    }
-}
-
 async function checkAuth(token){
     if(typeof(token) == "undefined"){
         return Promise.resolve(false); 
@@ -813,68 +740,4 @@ async function addToRecentlyPlayed(user, songId){
         newRecent.songs.push(songId);
     }
     await db.played.upsert(newRecent);
-}
-
-async function downloadFile(fileUrl, outputLocationPath) {
-    const writer = fs.createWriteStream(outputLocationPath);
-  
-    return axios({
-      method: 'get',
-      url: fileUrl,
-      responseType: 'stream',
-    }).then(response => {
-  
-      //ensure that the user can call `then()` only when the file has
-      //been downloaded entirely.
-  
-      return new Promise((resolve, reject) => {
-        response.data.pipe(writer);
-        let error = null;
-        writer.on('error', err => {
-          error = err;
-          writer.close();
-          reject(err);
-        });
-        writer.on('close', () => {
-          if (!error) {
-            resolve(true);
-          }
-          //no need to call the reject here, as it will have been called in the
-          //'error' stream;
-        });
-      });
-    });
-}
-
-function getRandomInt(min, max) {
-    return (Math.floor(Math.pow(10,14)*Math.random()*Math.random())%(max-min+1))+min;
-}
-
-
-// Update functions
-// I should move 
-// Them to seperate
-// Files, but for
-// now, who cares
-
-
-async function checkDirs(){
-    if(!fs.existsSync(path.join(__dirname, "config"))){
-        fs.mkdirSync(path.join(__dirname, "config"));
-    }
-    if(!fs.existsSync(path.join(__dirname, "config", 'images'))){
-        fs.mkdirSync(path.join(__dirname, "config", 'images'));
-    }
-    if(!fs.existsSync(path.join(__dirname, "config", 'images', 'albums'))){
-        fs.mkdirSync(path.join(__dirname, "config", 'images', 'albums'));
-    }
-    if(!fs.existsSync(path.join(__dirname, "config", 'images', 'artists'))){
-        fs.mkdirSync(path.join(__dirname, "config", 'images', 'artists'));
-    }
-    if(!fs.existsSync(path.join(__dirname, "config", 'images', 'songs'))){
-        fs.mkdirSync(path.join(__dirname, "config", 'images', 'songs'));
-    }
-    if(!fs.existsSync(path.join(__dirname, 'music'))){
-        fs.mkdirSync(path.join(__dirname, 'music'));
-    }
 }
