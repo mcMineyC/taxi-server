@@ -54,7 +54,7 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json({limit: '50mb'}));
 
-app.use('/',express.static(path.join(__dirname, 'static')));
+// app.use('/',express.static(path.join(__dirname, 'static')));
 
 app.post('/latestCommit', async function (req, res) {
     exec('git rev-parse HEAD', (error, stdout, stderr) => {
