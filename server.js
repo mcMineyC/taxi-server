@@ -554,9 +554,10 @@ io.on('connection', (socket) => {
           console.log("artist: "+JSON.stringify(artistKeys, null, 2));
           console.log("album: "+JSON.stringify(albumKeys, null, 2));
           console.log("");
+          var artist = (x.type == "song" || x.type == "album") ? x.artist.split(",")[0] : "";
           switch(x.type){
             case "song":
-              var artistKey = hash(x.artist);
+              var artistKey = hash(artist);
               var albumKey = artistKey + "_" + hash(x.name);
               console.log(x.songs[0]["title"]);
               songs.push({
@@ -565,7 +566,7 @@ io.on('connection', (socket) => {
                 artistId: artistKey,
                 displayName: x.songs[0].title,
                 albumDisplayName: x.name,
-                artistDisplayName: x.artist,
+                artistDisplayName: artist,
                 duration: 0,
                 youtubeId: x.songs[0].id,
                 imageUrl: x.imageUrl,
@@ -577,7 +578,7 @@ io.on('connection', (socket) => {
                   id: albumKey,
                   artistId: artistKey,
                   displayName: x.name,
-                  artistDisplayName: x.artist,
+                  artistDisplayName: artist,
                   songCount: 1,
                   imageUrl: x.imageUrl,
                   added: Date.now(),
@@ -589,7 +590,7 @@ io.on('connection', (socket) => {
                 artistKeys.push(artistKey);
                 artists.push({
                   id: artistKey,
-                  displayName: x.artist,
+                  displayName: artist,
                   songCount: 1,
                   albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
                   imageUrl: "",
@@ -601,7 +602,7 @@ io.on('connection', (socket) => {
               }
               break;
             case "album":
-              var artistKey = hash(x.artist);
+              var artistKey = hash(artist);
               var albumKey = artistKey + "_" + hash(x.name);
               x.songs.forEach((y) => {
                 songs.push({
@@ -610,7 +611,7 @@ io.on('connection', (socket) => {
                   artistId: artistKey,
                   displayName: y.title,
                   albumDisplayName: x.name,
-                  artistDisplayName: x.artist,
+                  artistDisplayName: artist,
                   duration: 0,
                   youtubeId: y.id,
                   imageUrl: x.imageUrl,
@@ -623,7 +624,7 @@ io.on('connection', (socket) => {
                   id: albumKey,
                   artistId: artistKey,
                   displayName: x.name,
-                  artistDisplayName: x.artist,
+                  artistDisplayName: artist,
                   songCount: x.songs.length,
                   imageUrl: x.imageUrl,
                   added: Date.now(),
@@ -635,7 +636,7 @@ io.on('connection', (socket) => {
                 artistKeys.push(artistKey);
                 artists.push({
                   id: artistKey,
-                  displayName: x.artist,
+                  displayName: artist,
                   songCount: x.songs.length,
                   albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
                   imageUrl: "",
@@ -647,7 +648,7 @@ io.on('connection', (socket) => {
               }
               break;
           }
-          console.log("artist "+x.artist+": "+JSON.stringify(artistKeys, null, 2));
+          console.log("artist "+artist+": "+JSON.stringify(artistKeys, null, 2));
           console.log("album: "+JSON.stringify(albumKeys, null, 2));
           console.log("____________________________");
           iterated++;
@@ -662,9 +663,9 @@ io.on('connection', (socket) => {
           iterated++;
         });
         await waitUntil(() => {return iterated == artists.length}, {timeout: Number.POSITIVE_INFINITY});
-        await db.artists.bulkInsert(artists);
-        await db.albums.bulkInsert(albums);
-        await db.songs.bulkInsert(songs);
+        await db.artists.bulkUpsert(artists);
+        await db.albums.bulkUpsert(albums);
+        await db.songs.bulkUpsert(songs);
         console.log("Finished adding songs, albums and artists.");
         socket.emit("addresult", {"success": true, "count": {"artists": artists.length, "albums": albums.length, "songs": songs.length}});
     });

@@ -19,7 +19,7 @@ addRxPlugin(RxDBJsonDumpPlugin);
 
 var dbName = "rxdb-taxi";
 
-await removeRxDatabase(dbName, getRxStorageMongoDB({connection: 'mongodb://rxdb-taxi:dexiewasbad@192.168.30.36:27017/?authSource=admin'}));  console.log("Removed database");
+// await removeRxDatabase(dbName, getRxStorageMongoDB({connection: 'mongodb://rxdb-taxi:dexiewasbad@192.168.30.36:27017/?authSource=admin'}));  console.log("Removed database");
 
 var db = await createRxDatabase({
   name: dbName,
