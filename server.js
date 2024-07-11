@@ -191,13 +191,43 @@ app.post('/info/songs', async function (req, res) {
     res.send({"authed": true, "songs": data});
 });
 
+app.post('/info/artist/:id', async function (req, res) {
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "artist": {}});
+    return;
+  }
+
+  const data = await db.artists.findOne({selector: {id: req.params.id}}).exec();
+  res.send({"authed": true, "artist": data});
+});
+
+app.post('/info/album/:id', async function (req, res) {
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "album": {}});
+    return
+  }
+  
+  const data = await db.albums.findOne({selector: {id: req.params.id}}).exec();
+  res.send({"authed": true, "album": data});
+});
+
+app.post('/info/albums/by/artist/:id', async function (req, res) {
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "albums": []});
+    return;
+  }
+
+  const data = await db.albums.find({selector: {artistId: req.params.id}, sort: [{added: "desc"}]}).exec();
+  res.send({"authed": true, "albums": data});
+});
+
 app.post('/info/songs/by/album/:id', async function (req, res) {
     if((await checkAuth(req.body.authtoken)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
 
-    const data = await db.songs.find({selector: {albumId: req.params.id}, sort: [{"artistId": "asc"}, {"albumId": "asc"}]}).exec();
+    const data = await db.songs.find({selector: {albumId: req.params.id}, sort: [{"trackNumber": "asc"}]}).exec();
     res.send({"authed": true, "songs": data});
 });
 
