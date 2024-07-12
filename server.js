@@ -771,3 +771,7 @@ async function addToRecentlyPlayed(user, songId){
     }
     await db.played.upsert(newRecent);
 }
+
+function hash(string){
+    return crypto.createHash('sha256').update(string).digest('hex');
+}
