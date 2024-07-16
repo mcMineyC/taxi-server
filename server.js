@@ -217,8 +217,31 @@ app.post('/info/albums/by/artist/:id', async function (req, res) {
     return;
   }
 
-  const data = await db.albums.find({selector: {artistId: req.params.id}, sort: [{added: "desc"}]}).exec();
-  res.send({"authed": true, "albums": data});
+  var albumsData = [];
+  if(req.query.excludeSingles == "true"){
+    const data = await db.albums.find({selector: {artistId: req.params.id, songCount: 1}, sort: [{added: "desc"}]}).exec();
+    var excludeIds = data.map(a => a.id);
+    console.log(data.map(a => a.id));
+    var abD = await db.albums.find(
+      {
+        selector: {artistId: req.params.id},
+        sort: [
+          {added: "desc"}
+        ]
+      }
+    ).exec();
+    albumsData = abD.filter(a => !excludeIds.includes(a.id));
+  }else{
+    albumsData = await db.albums.find(
+      {
+        selector: {artistId: req.params.id},
+        sort: [
+          {added: "desc"}
+        ]
+      }
+    ).exec();
+  }
+  res.send({"authed": true, "albums": albumsData});
 });
 
 app.post('/info/singles/by/artist/:id', async function (req, res) {
