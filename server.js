@@ -221,6 +221,24 @@ app.post('/info/albums/by/artist/:id', async function (req, res) {
   res.send({"authed": true, "albums": data});
 });
 
+app.post('/info/singles/by/artist/:id', async function (req, res) {
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "songs": []});
+    return;
+  }
+
+  const data = await db.albums.find({selector: {artistId: req.params.id, songCount: 1}, sort: [{added: "desc"}]}).exec();
+  var songs = data.map(a => ({artistId: {$eq: a.id}}));
+  console.log(songs);
+  const songsData = await db.songs.find({
+    selector: {
+      $or: [{artistId: {$in: data.map(a => a.artistId)}}],
+    },
+    sort: [{"added": "desc"}],
+  }).exec();
+  res.send({"authed": true, "songs": songsData});
+});
+
 app.post('/info/songs/by/album/:id', async function (req, res) {
     if((await checkAuth(req.body.authtoken)) == false){
         res.send({"authed": false, "songs": []});
