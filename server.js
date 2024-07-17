@@ -233,11 +233,9 @@ app.post('/info/singles/by/artist/:id', async function (req, res) {
   }
 
   const data = await db.albums.find({selector: {artistId: req.params.id, songCount: 1}, sort: [{added: "desc"}]}).exec();
-  var songs = data.map(a => ({artistId: {$eq: a.id}}));
-  console.log(songs);
   const songsData = await db.songs.find({
     selector: {
-      $or: [{artistId: {$in: data.map(a => a.artistId)}}],
+      albumId: {$in: data.map(a => a.id)},
     },
     sort: [{"added": "desc"}],
   }).exec();
