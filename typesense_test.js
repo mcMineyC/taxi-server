@@ -1,33 +1,6 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
+import ts_mod from "./typesense_module.js";
 
-const path = require('path');
-import {fileURLToPath} from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const fs = require('fs');
-import schemas from './schemas.js';
-
-const { RxDBDevModePlugin } = require('rxdb/plugins/dev-mode');
-const { createRxDatabase, removeRxDatabase, addRxPlugin } = require('rxdb');
-import { getRxStorageMongoDB } from 'rxdb/plugins/storage-mongodb';
-import { RxDBJsonDumpPlugin } from 'rxdb/plugins/json-dump';
-import { RxDBMigrationSchemaPlugin } from 'rxdb/plugins/migration-schema';
-addRxPlugin(RxDBMigrationSchemaPlugin);
-addRxPlugin(RxDBJsonDumpPlugin);
-
-var dbName = "rxdb-taxi";
-
-var db = await createRxDatabase({
-  name: dbName,
-  storage: getRxStorageMongoDB({
-    connection: 'mongodb://admin:supersecure123@192.168.30.36:27017/?authSource=admin',
-  }),
-});
-await schemas.register(db, 3);
-console.log("Added schemas");
-
-
-
-await db.destroy();
+// await ts_mod.purge();
+console.log("Starting test");
+console.table((await ts_mod.searchSong("mario mart ii")).map((x) => x.displayName+": "+x.artistDisplayName));
+await ts_mod.destroy()

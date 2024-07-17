@@ -10,12 +10,8 @@ const __dirname = path.dirname(__filename);
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const fs = require('fs');
-const jsmt = require('jsmediatags');
-import schemas from './schemas.js';
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const axios = require('axios');
 const crypto = require('crypto');
 const SpottyDL = require('spottydl-better');
 const http = require('http');
@@ -25,22 +21,8 @@ const clientID = "0a65ebdec6ec4983870a7d2f51af2aa1";
 const secretKey = "22714014e04f46cebad7e03764beeac8";
 const { waitUntil } = require('async-wait-until');
 
-const { RxDBDevModePlugin } = require('rxdb/plugins/dev-mode');
-const { createRxDatabase, addRxPlugin } = require('rxdb');
-import { getRxStorageMongoDB } from 'rxdb/plugins/storage-mongodb';
-import { RxDBMigrationSchemaPlugin } from 'rxdb/plugins/migration-schema';
-import { RxDBQueryBuilderPlugin } from 'rxdb/plugins/query-builder';
-addRxPlugin(RxDBMigrationSchemaPlugin);
-addRxPlugin(RxDBQueryBuilderPlugin);
-
-const db = await createRxDatabase({
-  name: 'rxdb-taxi',
-  storage: getRxStorageMongoDB({
-    connection: 'mongodb://rxdb-taxi:dexiewasbad@192.168.30.36:27017/?authSource=admin',
-  }),
-});
-
-await schemas.register(db, 3);
+import db from './db.js';
+import ts from './typesense_module.js';
 console.log("Added collections");
 
 const app = express();
@@ -56,7 +38,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 
 // app.use('/',express.static(path.join(__dirname, 'static')));
 
-app.post('/latestCommit', async function (req, res) {
+app.post('/latestCommit', async function (_, res) {
     exec('git rev-parse HEAD', (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -72,15 +54,15 @@ app.post('/latestCommit', async function (req, res) {
     })
 })
 
-app.post('/status', function (req, res) {
+app.post('/status', function (_, res) {
     res.send({"status": "ok"})
 })
 
-app.get('/status', function (req, res) {
+app.get('/status', function (_, res) {
     res.send({"status": "ok"})
 })
 
-app.post('/auth', async function (req, res) {
+app.post('/auth', async function (_, res) {
     var authed = false
     var authtoken = "";
     var result = await db.auth.findOne({selector: {"loginName": req.body.username}}).exec();
@@ -460,6 +442,41 @@ app.post('/favorites/:user', async function(req, res){
         await db.favorites.upsert(favorite)
     }
     res.send({"songs": favorite.songs || [], "count": favorite.songs.length, "authed": true, "success": true})
+})
+
+app.post('/search', async function(req, res){
+  var allowedSearchTypes = [
+    "song",
+    "album",
+    "artist",
+  ]
+  var type = req.body.type
+  if(type == null || !allowedSearchTypes.includes(type)){
+    res.send({"authed": true, "error": "Invalid search type"})
+    return
+  }else if(req.body.query == ""){
+    res.send({"authed": true, "type": type, "results": []});
+    return
+  }
+
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "error": "Invalid authtoken", results: []});
+    return;
+  }
+  
+  var data = [];
+  switch(type){
+    case "song":
+      data = await ts.searchSong(req.body.query);
+      break;
+    case "album":
+      data = await ts.searchAlbum(req.body.query);
+      break;
+    case "artist":
+      data = await ts.searchArtist(req.body.query);
+      break;
+  }
+  res.send({"authed": true, "type": type, "results": data,});
 })
 
 io.on('connection', (socket) => {

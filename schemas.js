@@ -462,5 +462,52 @@ export default {
         schema: scam.favoriteSchema
       }
     });
-  }
+  },
+
+  typesenseCollections: [
+    {
+      "name": "taxi-songs",
+      "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "albumId", "type": "string"},
+        {"name": "artistId", "type": "string"},
+        {"name": "displayName", "type": "string", "facet": true},
+        {"name": "albumDisplayName", "type": "string", "facet": true},
+        {"name": "artistDisplayName", "type": "string", "facet": true},
+        {"name": "duration", "type": "float"},
+        {"name": "youtubeId", "type": "string"},
+        {"name": "imageUrl", "type": "string"},
+        {"name": "added", "type": "int32", "facet": true},
+      ],
+      "default_sorting_field": "added",
+      "default_sorting_order": "desc",
+    },
+    {
+      "name": "taxi-albums",
+      "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "artistId", "type": "string"},
+        {"name": "displayName", "type": "string", "facet": true},
+        {"name": "artistDisplayName", "type": "string", "facet": true},
+        {"name": "songCount", "type": "int32"},
+        {"name": "imageUrl", "type": "string"},
+        {"name": "added", "type": "int32", "facet": true},
+      ],
+      "default_sorting_field": "added",
+      "default_sorting_order": "desc",
+    },
+    {
+      "name": "taxi-artists",
+      "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "displayName", "type": "string", "facet": true},
+        {"name": "albumCount", "type": "int32"},
+        {"name": "songCount", "type": "int32"},
+        {"name": "imageUrl", "type": "string"},
+        {"name": "added", "type": "int32", "facet": true},
+      ],
+      "default_sorting_field": "added",
+      "default_sorting_order": "desc",
+    },
+  ]
 }
