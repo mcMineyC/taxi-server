@@ -509,7 +509,7 @@ app.post('/searchAll', async function(req, res){
   if(!relevancy.includes("song")) relevancy.push("song")
   if(!relevancy.includes("album")) relevancy.push("album")
   if(!relevancy.includes("artist")) relevancy.push("artist")
-  console.log("relevancy 2", relevancy.length)
+  console.log("relevancy2", relevancy.length)
   var singles = []
   // var singles = albums.filter(r => r.songCount = 1)
   // albums  = albums.filter(r => r.songCount > 1)
@@ -520,7 +520,8 @@ app.post('/searchAll', async function(req, res){
   artists.map(r => r.type = "artist")
     
   res.send({"authed": true, "relevancy": relevancy, "songs": songs, "singles": singles, "albums": albums, "artists": artists});
-})
+});
+
 
 io.on('connection', (socket) => {
     console.log('a user connected');
@@ -797,9 +798,9 @@ io.on('connection', (socket) => {
         await db.artists.bulkUpsert(artists);
         await db.albums.bulkUpsert(albums);
         await db.songs.bulkUpsert(songs);
-        await ts_mod.updateSongs(songs);
-        await ts_mod.updateAlbums(albums);
-        await ts_mod.updateArtists(artists);
+        await ts.updateSongs(songs);
+        await ts.updateAlbums(albums);
+        await ts.updateArtists(artists);
         console.log("Finished adding songs, albums and artists.");
         socket.emit("addresult", {"success": true, "count": {"artists": artists.length, "albums": albums.length, "songs": songs.length}});
     });
