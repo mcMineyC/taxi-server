@@ -505,11 +505,14 @@ app.post('/searchAll', async function(req, res){
     if(r.type == "song" && firstSong != i) return undefined
     return r 
   }).map(r => r.type)
+  console.log("relevancy", relevancy.length)
   if(!relevancy.includes("song")) relevancy.push("song")
   if(!relevancy.includes("album")) relevancy.push("album")
   if(!relevancy.includes("artist")) relevancy.push("artist")
-  var singles = albums.filter(r => r.songCount = 1)
-  albums  = albums.filter(r => r.songCount > 1)
+  console.log("relevancy 2", relevancy.length)
+  var singles = []
+  // var singles = albums.filter(r => r.songCount = 1)
+  // albums  = albums.filter(r => r.songCount > 1)
 
   songs.map(r => r.type = "song")
   singles.map(r => r.type = "song")
