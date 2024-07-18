@@ -62,7 +62,7 @@ app.get('/status', function (_, res) {
     res.send({"status": "ok"})
 })
 
-app.post('/auth', async function (_, res) {
+app.post('/auth', async function (req, res) {
     var authed = false
     var authtoken = "";
     var result = await db.auth.findOne({selector: {"loginName": req.body.username}}).exec();
