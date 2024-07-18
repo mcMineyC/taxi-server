@@ -509,5 +509,14 @@ export default {
       "default_sorting_field": "added",
       "default_sorting_order": "desc",
     },
+    {
+      "name": "taxi-relevance",
+      "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "displayName", "type": "string", "facet": true},
+        {"name": "imageUrl", "type": "string"},
+        {"name": "type", "type": "string"},
+      ]
+    }
   ]
 }

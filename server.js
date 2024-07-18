@@ -474,7 +474,49 @@ app.post('/search', async function(req, res){
       data = await ts.searchArtist(req.body.query);
       break;
   }
-  res.send({"authed": true, "type": type, "results": data,});
+  res.send({"authed": true, "type": type, "results": data});
+})
+
+
+app.post('/searchAll', async function(req, res){
+  if(req.body.query == ""){
+    res.send({"authed": true, "results": []});
+    return
+  }
+
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "error": "Invalid authtoken", results: []});
+    return;
+  }
+  
+  var songs = await ts.searchSong(req.body.query);
+  var albums = await ts.searchAlbum(req.body.query);
+  var artists = await ts.searchArtist(req.body.query);
+  var relevancy = await ts.relevancy(req.body.query);
+  var firstArtist = -1;
+  var firstAlbum = -1;
+  var firstSong = -1;
+  relevancy = relevancy.filter((r, i) => {
+    if(r.type == "artist" && firstArtist == -1) firstArtist = i
+    if(r.type == "album" && firstAlbum == -1) firstAlbum = i
+    if(r.type == "song" && firstSong == -1) firstSong = i
+    if(r.type == "artist" && firstArtist != i) return undefined
+    if(r.type == "album" && firstAlbum != i) return undefined
+    if(r.type == "song" && firstSong != i) return undefined
+    return r 
+  }).map(r => r.type)
+  if(!relevancy.includes("song")) relevancy.push("song")
+  if(!relevancy.includes("album")) relevancy.push("album")
+  if(!relevancy.includes("artist")) relevancy.push("artist")
+  var singles = albums.filter(r => r.songCount = 1)
+  albums  = albums.filter(r => r.songCount > 1)
+
+  songs.map(r => r.type = "song")
+  singles.map(r => r.type = "song")
+  albums.map(r => r.type = "album")
+  artists.map(r => r.type = "artist")
+    
+  res.send({"authed": true, "relevancy": relevancy, "songs": songs, "singles": singles, "albums": albums, "artists": artists});
 })
 
 io.on('connection', (socket) => {
