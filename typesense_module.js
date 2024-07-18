@@ -94,6 +94,12 @@ export default {
       "query_by": "displayName",
     })).hits.map(x => x.document);
   },
+  searchRelevancy: async (query) => {
+    return (await client.collections('taxi-relevance').documents().search({
+      "q": query,
+      "query_by": "displayName",
+    })).hits.map(x => x.document);
+  },
   relevancy: async (query) => {
     return (await client.collections('taxi-relevance').documents().search({
       "q": query,
@@ -102,11 +108,32 @@ export default {
   },
   updateSong: async (song) => {
     await client.collections('taxi-songs').documents().upsert(song);
+    song.type = 'song';
+    await client.collections('taxi-relevance').documents().upsert(song);
   },
   updateAlbum: async (album) => {
     await client.collections('taxi-albums').documents().upsert(album);
+    album.type = 'album';
+    await client.collections('taxi-relevance').documents().upsert(album);
   },
   updateArtist: async (artist) => {
     await client.collections('taxi-artists').documents().upsert(artist);
+    artist.type = 'artist';
+    await client.collections('taxi-relevance').documents().upsert(artist);
   },
+  updateSongs: async (songs) => {
+    await client.collections('taxi-songs').documents().import(songs, {"action": "upsert"});
+    songs.forEach(x => x.type = 'song');
+    await client.collections('taxi-relevance').documents().import(songs, {"action": "upsert"});
+  },
+  updateAlbums: async (albums) => {
+    await client.collections('taxi-albums').documents().import(albums, {"action": "upsert"});
+    albums.forEach(x => x.type = 'album');
+    await client.collections('taxi-relevance').documents().import(albums, {"action": "upsert"});
+  },
+  updateArtists: async (artists) => {
+    await client.collections('taxi-artists').documents().import(artists, {"action": "upsert"});
+    artists.forEach(x => x.type = 'artist');
+    await client.collections('taxi-relevance').documents().import(artists, {"action": "upsert"});
+  }
 }

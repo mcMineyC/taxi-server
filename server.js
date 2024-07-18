@@ -794,6 +794,9 @@ io.on('connection', (socket) => {
         await db.artists.bulkUpsert(artists);
         await db.albums.bulkUpsert(albums);
         await db.songs.bulkUpsert(songs);
+        await ts_mod.updateSongs(songs);
+        await ts_mod.updateAlbums(albums);
+        await ts_mod.updateArtists(artists);
         console.log("Finished adding songs, albums and artists.");
         socket.emit("addresult", {"success": true, "count": {"artists": artists.length, "albums": albums.length, "songs": songs.length}});
     });
