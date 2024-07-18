@@ -8,6 +8,7 @@ export default {
       await client.collections("taxi-songs").delete();
       await client.collections("taxi-albums").delete();
       await client.collections("taxi-artists").delete();
+      await client.collections("taxi-relevance").delete();
     }catch(e){
       console.log("No collections to delete");
     }
@@ -27,10 +28,30 @@ export default {
     await client.collections('taxi-songs').documents().import(songs, {action: "upsert"});
     await client.collections('taxi-albums').documents().import(albums, {action: "upsert"});
     await client.collections('taxi-artists').documents().import(artists, {action: "upsert"});
+    
+    await client.collections('taxi-relevance').documents().import(songs.map(x => ({
+      id: x.id,
+      displayName: x.displayName,
+      imageUrl: x.imageUrl,
+      type: 'song'
+    })), {action: "upsert"});
+    await client.collections('taxi-relevance').documents().import(albums.map(x => ({
+      id: x.id,
+      displayName: x.displayName,
+      imageUrl: x.imageUrl,
+      type: 'album'
+    })), {"action": "upsert"});
+    await client.collections('taxi-relevance').documents().import(artists.map(x => ({
+      id: x.id,
+      displayName: x.displayName,
+      imageUrl: x.imageUrl,
+      type: 'artist'
+    })), {"action": "upsert"});
 
     var songC = (await client.collections('taxi-songs').retrieve()).num_documents;
     var albumC = (await client.collections('taxi-albums').retrieve()).num_documents;
     var artistC = (await client.collections('taxi-artists').retrieve()).num_documents;
+    var relevanceC = (await client.collections('taxi-relevance').retrieve()).num_documents;
 
     console.log("Imported the following:");
     console.table([
@@ -45,6 +66,10 @@ export default {
       {
         name: "artists",
         count: artistC
+      },
+      {
+        name: "relevancy",
+        count: relevanceC
       }
     ]);
   },
@@ -69,6 +94,12 @@ export default {
       "query_by": "displayName",
     })).hits.map(x => x.document);
   },
+  relevancy: async (query) => {
+    return (await client.collections('taxi-relevance').documents().search({
+      "q": query,
+      "query_by": "displayName",
+    })).hits.map(x => x.document);
+  },
   updateSong: async (song) => {
     await client.collections('taxi-songs').documents().upsert(song);
   },
@@ -77,5 +108,5 @@ export default {
   },
   updateArtist: async (artist) => {
     await client.collections('taxi-artists').documents().upsert(artist);
-  }
+  },
 }
