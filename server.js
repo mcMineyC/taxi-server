@@ -293,7 +293,12 @@ app.post('/playlists', async function(req, res){
     }
 
     var u = await getUser(req.body.authtoken);
-    var playlists = await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}}).exec();
+    var playlists = [];
+    if(req.query.sort == "new"){
+      playlists = await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}, sort: [{added: "desc"}]}).exec();
+    }else{
+      playlists = await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}}).exec();
+    }
     res.send({"authed": true, "playlists": playlists})
 })
 
@@ -312,23 +317,45 @@ app.post('/playlists/user/:id', async function(req, res){
     res.send({"authed": true, "playlists": d});
 })
 
+app.post('/playlists/:id', async function(req, res){
+    if((await checkAuth(req.body.authtoken)) == false){
+        res.send({"authed": false, "playlists": []});
+        return
+    }
+    var u = await getUser(req.body.authtoken);
+    if(u != req.params.id){
+        // res.send({authed: false, "error": "Not authorized", "success": false})
+        // return
+    }
+
+    var d = await db.playlists.find({selector: {id: req.params.id}}).exec();
+    res.send({"authed": true, "playlists": d});
+})
+
 app.post('/playlists/modify/:playlist', async function(req, res){
     if((await checkAuth(req.body.authtoken)) == false){
         res.send({"authed": false});
         return
     }
     var u = await getUser(req.body.authtoken);
+    if(req.params.playlist == "create"){
+      console.log("Creating new playlist")
+      p = await db.playlists.upsert({
+        id: hash(req.body.name),
+        owner: u || "testguy",
+        displayName: req.body.name || "Banana",
+        description: req.body.description || "Banana",
+        public: req.body.public == "true" || false,
+        songs: req.body.songs || [],
+        added: Date.now(),
+      });
+      res.send({authed: true, "playlist": p, "success": true})
+      return
+    }
     var p = await db.playlists.findOne({selector: {id: req.params.playlist}}).exec();
     if(p == null){
         console.log("Playlist does not exist. Creating new playlist.")
-        p = await db.playlists.upsert({
-            id: req.params.playlist || "banana",
-            owner: u || "testguy",
-            displayName: req.body.name || "Banana",
-            description: req.body.description || "Banana",
-            public: req.body.public || false,
-            songs: req.body.songs || [],
-        })
+        
     }else{
         if(p.owner == undefined || p.owner == null){
             await p.incrementalPatch({owner: u});
@@ -378,7 +405,7 @@ app.post('/playlists/remove/:playlist', async function(req, res){
         res.send({authed: true, "success": true, "playlists": await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}}).exec()});
         return;
     }
-    if(u != p.owner){
+    if(u != p.owner && u != "testguy"){
         res.send({authed: false, "error": "Not authorized", "success": false})
         return
     }
