@@ -1,5 +1,7 @@
 import db from './db.js';
 import readline from 'readline-sync';
+import waitUntilPkg from 'async-wait-until';
+const waitUntil = waitUntilPkg.waitUntil;
 
 while (true) {
   var length = (await db.checklist.find().exec()).length
@@ -29,6 +31,34 @@ while (true) {
       var list = await db.checklist.find().exec();
       console.table(list.map(x => ({id: x.id, name: x.name, requestedBy: x.requestedBy, completed: x.completed })));
       break;
+    // case 'move':
+    //   var list = await db.checklist.find({sort: [{id: 'asc'}]}).exec();
+    //   console.table(list.map(x => ({id: x.id, name: x.name, requestedBy: x.requestedBy, completed: x.completed })));
+    //   var from = parseInt(readline.question("From: "));
+    //   var to = parseInt(readline.question("To: "));
+    //   if (from > list.length || to > list.length || from < 0 || to < 0) {
+    //     console.log("Invalid selection");
+    //     continue;
+    //   }
+    //   let t = list.splice(from-1, 1)[0];
+    //   console.log(t.name);
+    //   list.splice(to-1, 0, t);
+    //   await db.checklist.bulkUpsert(list);
+    //   console.log("Moved");
+    //   console.table(list.map(x => ({id: x.id, name: x.name, requestedBy: x.requestedBy, completed: x.completed })));
+    //   break;
+    case 'delete':
+      var list = await db.checklist.find().exec();
+      console.table(list.map(x => ({id: x.id, name: x.name, requestedBy: x.requestedBy, completed: x.completed })));
+      var id = parseInt(readline.question("ID: "));
+      var task = await db.checklist.findOne({
+        selector: {
+          id: id
+        },
+      }).exec();
+      await task.remove();
+      console.log("Deleted", task.name);
+      break;
     case 'help':
       console.table([
         {
@@ -56,5 +86,8 @@ while (true) {
     case 'exit':
       await db.destroy();
       process.exit();
+    default:
+      console.log("Command not found: \""+act+"\"");
+      break;;
   }
 }

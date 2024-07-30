@@ -560,6 +560,23 @@ app.post('/checklist', async function(req, res){
   console.log("sent todos", todo.length)
 });
 
+app.post('/checklist/add', async function(req, res){
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "error": "Invalid authtoken", "success": false});
+    return;
+  }
+
+  var todo = {
+    id: (await db.checklist.find().exec()).length+1,
+    name: req.body.name,
+    requestedBy: req.body.requestedBy,
+    description: req.body.description || "No description",
+    completed: false,
+  }
+  await db.checklist.upsert(todo)
+  res.send({"authed": true, "todo": todo, "success": true});
+})
+
 app.post('/bugs', async function(req, res){
   if((await checkAuth(req.body.authtoken)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", bugs: []});
