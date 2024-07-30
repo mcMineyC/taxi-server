@@ -549,6 +549,26 @@ app.post('/searchAll', async function(req, res){
   res.send({"authed": true, "relevancy": relevancy, "songs": songs, "singles": singles, "albums": albums, "artists": artists});
 });
 
+app.post('/checklist', async function(req, res){
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "error": "Invalid authtoken", todo: []});
+    return;
+  }
+
+  var todo = await db.checklist.find().exec();
+  res.send({"authed": true, "todos": todo});
+  console.log("sent todos", todo.length)
+});
+
+app.post('/bugs', async function(req, res){
+  if((await checkAuth(req.body.authtoken)) == false){
+    res.send({"authed": false, "error": "Invalid authtoken", bugs: []});
+    return;
+  }
+
+  var bugs = await db.bugs.find().exec();
+  res.send({"authed": true, "bugs": bugs});
+});
 
 io.on('connection', (socket) => {
     console.log('a user connected');
