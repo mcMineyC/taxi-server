@@ -11,8 +11,9 @@ while (true) {
       console.log();
       var name = readline.question("Name: ");
       var requestedBy = readline.question("Requested by: ");
+      var description = readline.question("Description: ")
       var id = (await db.checklist.find().exec()).length + 1; 
-      await db.checklist.insert({id: id, name: name, requestedBy: requestedBy, completed: false});
+      await db.checklist.insert({id: id, name: name, requestedBy: requestedBy, description: description, completed: false});
       console.log("Added");
       break;
     case 'complete':
