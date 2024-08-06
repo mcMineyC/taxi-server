@@ -20,6 +20,7 @@ const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
 const clientID = "0a65ebdec6ec4983870a7d2f51af2aa1";
 const secretKey = "22714014e04f46cebad7e03764beeac8";
 const { waitUntil } = require('async-wait-until');
+const fs = require('fs');
 
 import db from './db.js';
 import ts from './typesense_module.js';
@@ -682,6 +683,7 @@ io.on('connection', (socket) => {
                 case "song":
                   console.log("Getting song: "+url);
                   var track = await SpottyDL.getTrack(url);
+                  console.log("Got track: "+track.title);
                   result = {
                     title: track.album,
                     album: track.album,
@@ -746,6 +748,8 @@ io.on('connection', (socket) => {
         var albumKeys = [];
         var songs = [];
         var iterated = 0;
+        artistKeys = await db.artists.find().exec();
+        albumKeys = await db.albums.find().exec();
         msg.items.forEach(async (x) => {
           console.log("artist: "+JSON.stringify(artistKeys, null, 2));
           console.log("album: "+JSON.stringify(albumKeys, null, 2));
@@ -844,8 +848,8 @@ io.on('connection', (socket) => {
               }
               break;
           }
-          console.log("artist "+artist+": "+JSON.stringify(artistKeys, null, 2));
-          console.log("album: "+JSON.stringify(albumKeys, null, 2));
+          // console.log("artist "+artist+": "+JSON.stringify(artistKeys, null, 2));
+          // console.log("album: "+JSON.stringify(albumKeys, null, 2));
           console.log("____________________________");
           iterated++;
         });
@@ -859,6 +863,8 @@ io.on('connection', (socket) => {
           iterated++;
         });
         await waitUntil(() => {return iterated == artists.length}, {timeout: Number.POSITIVE_INFINITY});
+        // var json = JSON.stringify({"songs": songs, "albums": albums, "artists": artists});
+        // fs.writeFileSync("data.json", json);
         await db.artists.bulkUpsert(artists);
         await db.albums.bulkUpsert(albums);
         await db.songs.bulkUpsert(songs);
