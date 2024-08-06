@@ -752,8 +752,42 @@ io.on('connection', (socket) => {
         var albumKeys = [];
         var songs = [];
         var iterated = 0;
-        artistKeys = await db.artists.find().exec();
-        albumKeys = await db.albums.find().exec();
+        var addedArtists = 0;
+        var addedAlbums = 0;
+        var addedSongs = 0;
+        artists = await db.artists.find().exec();
+        albums = await db.albums.find().exec();
+        artistKeys = artists.map((e) => e.id);
+        albumKeys = albums.map((e) => e.id);
+        songs = songs.map((e) => ({
+          id: e.id,
+          albumId: e.albumId,
+          artistId: e.artistId,
+          displayName: e.displayName,
+          albumDisplayName: e.albumDisplayName,
+          artistDisplayName: e.artistDisplayName,
+          duration: e.duration,
+          youtubeId: e.youtubeId,
+          imageUrl: e.imageUrl,
+          added: e.added,
+        }))
+        albums = albums.map((e) => ({
+          id: e.id,
+          artistId: e.artistId,
+          displayName: e.displayName,
+          artistDisplayName: e.artistDisplayName,
+          songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
+          imageUrl: e.imageUrl,
+          added: e.added,
+        }));
+        artists = artists.map((e) => ({
+          id: e.id,
+          displayName: e.displayName,
+          albumCount: e.albumCount == null || e.albumCount !== e.albumCount ? 0 : e.albumCount,
+          songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
+          imageUrl: e.imageUrl,
+          added: e.added,
+        }))
         msg.items.forEach(async (x) => {
           console.log("artist: "+JSON.stringify(artistKeys, null, 2));
           console.log("album: "+JSON.stringify(albumKeys, null, 2));
@@ -776,6 +810,7 @@ io.on('connection', (socket) => {
                 imageUrl: x.imageUrl,
                 added: Date.now(),
               });
+              addedSongs++;
               if(albumKeys.indexOf(albumKey) == -1){
                 albumKeys.push(albumKey);
                 albums.push({
@@ -787,6 +822,7 @@ io.on('connection', (socket) => {
                   imageUrl: x.imageUrl,
                   added: Date.now(),
                 });
+                addedAlbums++;
               }else{
                 albums[albumKeys.indexOf(albumKey)].songCount++;
               }
@@ -800,9 +836,10 @@ io.on('connection', (socket) => {
                   imageUrl: "",
                   added: Date.now(),
                 });
+                addedArtists++;
               }else{
                 artists[artistKeys.indexOf(artistKey)].songCount++;
-                artists[artistKeys.indexOf(artistKey)].albumCount = artists[artistKeys.indexOf(artistKey)].albumCount + (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
+                artists[artistKeys.indexOf(artistKey)].albumCount += (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
               }
               break;
             case "album":
@@ -821,6 +858,7 @@ io.on('connection', (socket) => {
                   imageUrl: x.imageUrl,
                   added: Date.now(),
                 });
+                addedSongs += x.songs.length;
               });
               if(albumKeys.indexOf(albumKey) == -1){
                 albumKeys.push(albumKey);
@@ -833,8 +871,9 @@ io.on('connection', (socket) => {
                   imageUrl: x.imageUrl,
                   added: Date.now(),
                 });
+                addedAlbums++;
               }else{
-                albums[albumKeys.indexOf(albumKey)].songCount += x.songs.length ;
+                albums[albumKeys.indexOf(albumKey)].songCount += x.songs.length;
               }
               if(artistKeys.indexOf(artistKey) == -1){
                 artistKeys.push(artistKey);
@@ -846,9 +885,10 @@ io.on('connection', (socket) => {
                   imageUrl: "",
                   added: Date.now(),
                 });
+                addedArtists++;
               }else{
-                artists[artistKeys.indexOf(artistKey)].songCount += x.songs.length;
-                artists[artistKeys.indexOf(artistKey)].albumCount = artists[artistKeys.indexOf(artistKey)].albumCount + (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
+                artists[artistKeys.indexOf(artistKey)].songCount += x.songs.length
+                artists[artistKeys.indexOf(artistKey)].albumCount += (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
               }
               break;
           }
@@ -869,6 +909,13 @@ io.on('connection', (socket) => {
         await waitUntil(() => {return iterated == artists.length}, {timeout: Number.POSITIVE_INFINITY});
         // var json = JSON.stringify({"songs": songs, "albums": albums, "artists": artists});
         // fs.writeFileSync("data.json", json);
+        albums.forEach((e)=>{
+          console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
+        });
+        artists.forEach((e)=>{
+          console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
+          console.log("Albumcount for", e.displayName, e.albumCount, typeof e.albumCount);
+        })
         await db.artists.bulkUpsert(artists);
         await db.albums.bulkUpsert(albums);
         await db.songs.bulkUpsert(songs);
@@ -876,7 +923,7 @@ io.on('connection', (socket) => {
         await ts.updateAlbums(albums);
         await ts.updateArtists(artists);
         console.log("Finished adding songs, albums and artists.");
-        socket.emit("addresult", {"success": true, "count": {"artists": artists.length, "albums": albums.length, "songs": songs.length}});
+        socket.emit("addresult", {"success": true, "count": {"artists": addedArtists, "albums": addedAlbums, "songs": addedSongs}});
     });
 })
 
