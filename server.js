@@ -168,9 +168,13 @@ app.post('/info/songs', async function (req, res) {
         res.send({"authed": false, "songs": []});
         return
     }
-    
-    const data = await db.songs.find({sort: [{"added": "desc"}]}).exec();
-    console.log(data[0]);
+    var data = [];
+    if(typeof(req.query.limit) == "int" || typeof req.query.limit == "string"){
+      data = await db.songs.find({sort: [{"added": "desc"}], limit: parseInt(req.query.limit)}).exec();
+    }else{
+      data = await db.songs.find({sort: [{"added": "desc"}]}).exec();
+    }
+    // console.log(data[0]);
     res.send({"authed": true, "songs": data});
 });
 
