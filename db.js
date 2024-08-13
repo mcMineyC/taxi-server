@@ -19,6 +19,6 @@ var db = await createRxDatabase({
     connection: 'mongodb://admin:supersecure123@192.168.30.36:27017/?authSource=admin',
   }),
 });
-await schemas.register(db, 6);
+await schemas.register(db, 7);
 
 export default db
