@@ -60,6 +60,17 @@ while (true) {
       await task.remove();
       console.log("Deleted", task.name);
       break;
+    case 'show':
+      var list = await db.checklist.find().exec();
+      console.table(list.map(x => ({id: x.id, name: x.name, completed: x.completed })));
+      var id = parseInt(readline.question("ID: "));
+      var task = await db.checklist.findOne({
+        selector: {
+          id: id
+        },
+      }).exec();
+      console.table([{id: task.id, name: task.name, requestedBy: task.requestedBy, description: task.description, completed: task.completed}]);
+      break;
     case 'help':
       console.table([
         {
@@ -73,6 +84,14 @@ while (true) {
         {
           "command": "list",
           "description": "List all tasks"
+        },
+        {
+          "command": "show",
+          "description": "Show a task"
+        },
+        {
+          "command": "delete",
+          "description": "Delete a task (CURRENTLY BROKEN)"
         },
         {
           "command": "exit",
