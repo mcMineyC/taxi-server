@@ -824,6 +824,139 @@ const scheme = {
         expires: 'int',
       },
     }
+  },
+  "8": {
+    songSchema: {
+      version: 7,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        albumId: 'string',
+        artistId: 'string',
+        displayName: 'string',
+        albumDisplayName: 'string',
+        artistDisplayName: 'string',
+        duration: 'double',
+        youtubeId: 'string',
+        imageUrl: 'string',
+        added: 'int',
+        addedBy: "string",
+      }
+    },
+    albumSchema: {
+      version: 5,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        artistId: 'string',
+        displayName: 'string',
+        artistDisplayName: 'string',
+        songCount: 'int',
+        imageUrl: 'string',
+        added: 'int',
+      }
+    },
+    artistSchema: {
+      version: 5,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        displayName: 'string',
+        albumCount: 'int',
+        songCount: 'int',
+        imageUrl: 'string',
+        added: 'int',
+      }
+    },
+    playlistSchema: {
+      version: 5,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        owner: 'string',
+        displayName: 'string',
+        public: 'boolean',
+        songs: {
+          type: 'array',
+          items: 'string',
+        },
+        songCount: 'int',
+        added: 'int',
+      }
+    },
+    authSchema: {
+      version: 7,
+      primaryKey: 'loginName',
+      type: 'object',
+      properties: {
+        loginName: {type: 'string', maxLength: 16},
+        displayName: 'string',
+        password: 'string',
+        authtoken: 'string',
+        role: {
+          type: 'array',
+          items: 'string',
+        },
+      }
+    },
+    playedSchema: {
+      version: 5,
+      primaryKey: 'owner',
+      type: 'object',
+      properties: {
+        owner: {type: 'string', maxLength: 16},
+        songs: {type: 'array', items: 'string'},
+      }
+    },
+    favoriteSchema: {
+      version: 5,
+      primaryKey: 'owner',
+      type: 'object',
+      properties: {
+        owner: {type: 'string', maxLength: 16},
+        songs: {type: 'array', items: {type: 'string'}},
+        count: 'int',
+      }
+    },
+    checklistSchema: {
+      version: 0,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        name: 'string',
+        description: 'string',
+        requestedBy: 'string',
+        completed: 'boolean',
+      },
+    },
+    buggySchema: {
+      version: 6,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        description: 'string',
+        platform: "string",
+        error: "string",
+        reportedBy: 'string',
+        fixed: 'boolean',
+      },
+    },
+    authtokenSchema: {
+      version: 0,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        token: 'string',
+        expires: 'int',
+      },
+    }
   }
 }
 
@@ -864,7 +997,10 @@ export default {
           },
           4: (doc) => doc,
           5: (doc) => doc,
-          6: (doc) => doc,
+          7: (doc) => {
+            doc.addedBy = "jedi";
+            return doc;
+          },
         },
         schema: scam.songSchema
       },
@@ -926,6 +1062,14 @@ export default {
       auth: {
         migrationStrategies:{
           1: (doc) => doc,
+          6: (doc) => {
+            doc.roles = [
+              "view",
+              "add",
+              "dj",
+            ];
+            return doc;
+          },
         },
         schema: scam.authSchema,
       },

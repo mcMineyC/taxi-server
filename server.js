@@ -10,20 +10,15 @@ const __dirname = path.dirname(__filename);
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
-const crypto = require('crypto');
-const SpottyDL = require('spottydl-better');
 const http = require('http');
 const { Server } = require("socket.io");
-const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
-const clientID = "0a65ebdec6ec4983870a7d2f51af2aa1";
-const secretKey = "22714014e04f46cebad7e03764beeac8";
-const { waitUntil } = require('async-wait-until');
-const fs = require('fs');
+
+import crypto from 'crypto';
 
 import db from './db.js';
 import ts from './typesense_module.js';
+import adderConnection from './adder.js';
+import utils from './utils.js';
 console.log("Added collections");
 
 const app = express();
@@ -140,7 +135,7 @@ app.get('/placeholder', function (req, res) {
 })
 
 app.post('/info/albums', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "albums": []});
         return
     }
@@ -150,7 +145,7 @@ app.post('/info/albums', async function (req, res) {
 });
 
 app.post('/info/artists', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "artists": []});
         return
     }
@@ -164,7 +159,7 @@ app.post('/info/artists', async function (req, res) {
 });
 
 app.post('/info/songs', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
@@ -179,7 +174,7 @@ app.post('/info/songs', async function (req, res) {
 });
 
 app.post('/info/artist/:id', async function (req, res) {
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "artist": {}});
     return;
   }
@@ -189,7 +184,7 @@ app.post('/info/artist/:id', async function (req, res) {
 });
 
 app.post('/info/album/:id', async function (req, res) {
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "album": {}});
     return
   }
@@ -199,7 +194,7 @@ app.post('/info/album/:id', async function (req, res) {
 });
 
 app.post('/info/albums/by/artist/:id', async function (req, res) {
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "albums": []});
     return;
   }
@@ -232,7 +227,7 @@ app.post('/info/albums/by/artist/:id', async function (req, res) {
 });
 
 app.post('/info/singles/by/artist/:id', async function (req, res) {
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "songs": []});
     return;
   }
@@ -248,7 +243,7 @@ app.post('/info/singles/by/artist/:id', async function (req, res) {
 });
 
 app.post('/info/songs/by/album/:id', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
@@ -258,7 +253,7 @@ app.post('/info/songs/by/album/:id', async function (req, res) {
 });
 
 app.post('/info/songs/by/artist/:id', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
@@ -268,7 +263,7 @@ app.post('/info/songs/by/artist/:id', async function (req, res) {
 });
 
 app.post('/info/songs/batch', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "results": {}});
         return;
     }
@@ -282,7 +277,7 @@ app.post('/info/songs/batch', async function (req, res) {
 });
 
 app.post('/info/songs/:id', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
@@ -292,12 +287,12 @@ app.post('/info/songs/:id', async function (req, res) {
 });
 
 app.post('/playlists', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "playlists": []});
         return
     }
 
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
     var playlists = [];
     if(req.query.sort == "new"){
       playlists = await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}, sort: [{added: "desc"}]}).exec();
@@ -308,11 +303,11 @@ app.post('/playlists', async function(req, res){
 })
 
 app.post('/playlists/user/:id', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "playlists": []});
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
     if(u != req.params.id){
         // res.send({authed: false, "error": "Not authorized", "success": false})
         // return
@@ -323,11 +318,11 @@ app.post('/playlists/user/:id', async function(req, res){
 })
 
 app.post('/playlists/:id', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "playlists": []});
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
     if(u != req.params.id){
         // res.send({authed: false, "error": "Not authorized", "success": false})
         // return
@@ -338,11 +333,11 @@ app.post('/playlists/:id', async function(req, res){
 })
 
 app.post('/playlists/modify/:playlist', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false});
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
     if(req.params.playlist == "create"){
       console.log("Creating new playlist")
       p = await db.playlists.upsert({
@@ -400,11 +395,11 @@ app.post('/playlists/modify/:playlist', async function(req, res){
 })
 
 app.post('/playlists/remove/:playlist', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken), db) == false){
         res.send({"authed": false, "songs": []});
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
     var p = await db.playlists.findOne({selector: {id: req.params.playlist}}).exec();
     if(p == null){
         res.send({authed: true, "success": true, "playlists": await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}}).exec()});
@@ -419,32 +414,25 @@ app.post('/playlists/remove/:playlist', async function(req, res){
 })
 
 app.post('/recently-played/:user/add', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "success": false})
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
     var user = req.params.user;
     console.log(user, "r==a", u);
     if(user != u){
         res.send({"error": "Unauthorized", "authed": true, "success": false})
         return
     }
-    await addToRecentlyPlayed(user, req.body.id);
+    await utils.addToRecentlyPlayed(user, req.body.id, db);
     res.send({"authed": true, "success": true})
 })
 
 app.post('/recently-played/:user', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, played: []});
         return
-    }
-    var u = await getUser(req.body.authtoken);
-    var user = req.params.user;
-    console.log(user, "r==a" ,u)
-    if(user != u){
-        // res.send({"error": "Not authorized", "authed": false, "success": false, "played": []})
-        // return
     }
     var played = await db.played.findOne({selector: {owner: req.params.user}}).exec();
     if(played == null){
@@ -455,16 +443,9 @@ app.post('/recently-played/:user', async function(req, res){
 });
 
 app.post('/favorites/:user', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, songs: []});
         return
-    }
-    var u = await getUser(req.body.authtoken);
-    var user = req.params.user;
-    console.log(user,"r==a",u)
-    if(user != u){
-        // res.send({"error": "Not authorized", "authed": false, "success": false, "songs": []})
-        // return
     }
     var favorite = await db.favorites.findOne({selector: {owner: user}}).exec();
     if(favorite == null){
@@ -489,7 +470,7 @@ app.post('/search', async function(req, res){
     return
   }
 
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", results: []});
     return;
   }
@@ -516,7 +497,7 @@ app.post('/searchAll', async function(req, res){
     return
   }
 
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", results: []});
     return;
   }
@@ -555,7 +536,7 @@ app.post('/searchAll', async function(req, res){
 });
 
 app.post('/checklist', async function(req, res){
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", todo: []});
     return;
   }
@@ -566,7 +547,7 @@ app.post('/checklist', async function(req, res){
 });
 
 app.post('/checklist/add', async function(req, res){
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", "success": false});
     return;
   }
@@ -583,7 +564,7 @@ app.post('/checklist/add', async function(req, res){
 })
 
 app.post('/bugs', async function(req, res){
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", bugs: []});
     return;
   }
@@ -593,339 +574,8 @@ app.post('/bugs', async function(req, res){
 });
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.emit("authprompt", "3141592653589793238464")
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
-    var authed = false
-    socket.on("auth", async (msg) => {
-        if(typeof(msg) == "string"){
-            msg = JSON.parse(msg);
-        }
-        var aut = await checkAuth(msg.authtoken);
-        console.log(aut, msg.authtoken, typeof(msg));
-        if(!aut){
-            socket.emit("authresult", {"success": false, "error": "Invalid authtoken", "authorized": false})
-            return
-        }
-        socket.emit("authresult", {"success": true, "authorized": true})
-        authed = true;
-    })
-    socket.on("search", async (msg) => {
-        if(!authed){
-            socket.emit("message", {"type": "auth", "success": false, "error": "Invalid authtoken", "authorized": false})
-            return
-        }
-        if(typeof(msg) == "string"){
-            msg = JSON.parse(msg);
-        }
-        if(msg.source == "spotify"){
-            if(msg.query == ""){
-                socket.emit("message", {"type": "error", "success": false, "error": "No query provided", "authorized": true})
-                return
-            }
-            const api = SpotifyApi.withClientCredentials(
-                clientID,
-                secretKey
-            );
-            var page = 0
-            if(typeof(msg.page) == "number"){
-                page = msg.page
-            }
-            var items = []
-            if(msg.mediaType == "all"){
-                const trackItems = await api.search(msg.query, "track", undefined, 50, page);
-                items = trackItems.tracks.items
-            }else{
-                items = await api.search(msg.query, msg.mediaType, undefined, 50, page);
-                items = items[msg.mediaType+"s"].items
-            }
-
-            items = items.map((item) => item.type == "track" ? ({
-                id: typeof(item.id) == "string" ? item.id : "",
-                name: typeof(item.name) == "string" ? item.name : "",
-                artist: typeof(item.artists) == "object" && typeof(item.artists[0].name) == "string" ? item.artists[0].name : "",
-                album: typeof(item.album) == "object" && typeof(item.album.name) == "string" ? item.album.name : "",
-                imageUrl: typeof(item.album) == "object" && item.album.images[0] ? (item.album.images.sort((a, b) => b.width - a.width)[0].url) : "",
-                type: "song",
-            }) : (item.type == "album" ? ({
-                id: typeof(item.id) == "string" ? item.id : "",
-                name: typeof(item.name) == "string" ? item.name : "",
-                album: "",
-                artist: typeof(item.artists) == "object" && typeof(item.artists[0].name) == "string" ? item.artists[0].name : "",
-                imageUrl: typeof(item.images) == "object" && item.images[0] ? item.images[0].url : "",
-                type: "album"
-            }) : (item.type == "artist" ? ({
-                id: typeof(item.id) == "string" ? item.id : "",
-                name: typeof(item.name) == "string" ? item.name : "",
-                album: "",
-                artist: "",
-                imageUrl: typeof(item.images) == "object" && item.images[0] ? item.images[0].url : "",
-                type: "artist",
-            }) : item)));
-            socket.emit("searchresults", {"type": msg.mediaType, "results": items})
-        }else if (msg.source == "youtube"){
-            socket.emit("searchresults", [])
-        }
-    })
-    socket.on("find", async (msg) => {
-        if(!authed){
-            socket.emit("message", {"type": "auth", "success": false, "error": "Invalid authtoken", "authorized": false})
-            return
-        }
-        if(typeof(msg) == "string"){
-            msg = JSON.parse(msg);
-        }
-        if(msg.source == "spotify"){
-            var found = [];
-            msg.selected.forEach(async (x) => {
-              console.log(`Found: ${x.type} ${x.id}`);
-              var result = {};
-              var url = `https://open.spotify.com/${(x.type == "song") ? "track" : x.type}/${x.id}`;
-              switch(x.type){
-                case "song":
-                  console.log("Getting song: "+url);
-                  var track = await SpottyDL.getTrack(url);
-                  console.log("Got track: "+track.title);
-                  result = {
-                    title: track.album,
-                    album: track.album,
-                    artist: track.artist,
-                    albumCoverURL: track.albumCoverURL,
-                    songs: [{
-                      title: track.title,
-                      id: track.id,
-                      trackNumber: track.trackNumber
-                    }],
-                  }
-                  result.type = "song";
-                  break;
-                case "album":
-                  console.log("Getting album: "+url);
-                  result = await SpottyDL.getAlbum(url);
-                  // if(typeof(result.playlistVideoRenderer) != "undefined") delete result.playlistVideoRenderer  //doesn't seem to do anything, probably a bug in the library
-                  result.type = "album";
-                  result.songs = result.tracks;
-                  delete result.tracks
-                  break;
-                case "playlist":
-                  result = await SpottyDL.getPlaylist(url);
-                  result.type = "playlist";
-                  result.songs = result.tracks;
-                  delete result.tracks;
-                  break;
-                default:
-                  console.log(`${x.type} Not implemented`);
-              }
-              found.push(result);
-            });
-            await waitUntil(() => {return found.length == msg.selected.length}, {timeout: Number.POSITIVE_INFINITY});
-            found = found.map((x) => ({
-              name: typeof(x.title) == "string" ? x.title : typeof(x.name) == "string" ? x.name : "",
-              album: typeof(x.album) == "string" ? x.album : "",
-              artist: typeof(x.artist) == "string" ? x.artist : "",
-              imageUrl: typeof(x.albumCoverURL) == "string" ? x.albumCoverURL : typeof(x.playlistCoverURL) == "string" ? x.playlistCoverURL : "",
-              type: x.type,
-              songs: x.songs
-            }));
-            console.log(`Sending ${found.length} results.`);
-            socket.emit("findresults", {"results": found});
-        }
-        else if(msg.source == "youtube"){
-            socket.emit("message", {"type": "auth", "success": false, "error": "Not implemented", "authorized": true}) // Not implemented
-            return
-        }
-    });
-    
-    socket.on("add", async (msg) => {
-        if(!authed){
-            socket.emit("message", {"type": "auth", "success": false, "error": "Invalid authtoken", "authorized": false})
-            return
-        }
-        if(typeof(msg) == "string"){
-            msg = JSON.parse(msg);
-        }
-        var artists = [];
-        var artistKeys = [];
-        var albums = [];
-        var albumKeys = [];
-        var songs = [];
-        var iterated = 0;
-        var addedArtists = 0;
-        var addedAlbums = 0;
-        var addedSongs = 0;
-        artists = await db.artists.find().exec();
-        albums = await db.albums.find().exec();
-        artistKeys = artists.map((e) => e.id);
-        albumKeys = albums.map((e) => e.id);
-        songs = songs.map((e) => ({
-          id: e.id,
-          albumId: e.albumId,
-          artistId: e.artistId,
-          displayName: e.displayName,
-          albumDisplayName: e.albumDisplayName,
-          artistDisplayName: e.artistDisplayName,
-          duration: e.duration,
-          youtubeId: e.youtubeId,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }))
-        albums = albums.map((e) => ({
-          id: e.id,
-          artistId: e.artistId,
-          displayName: e.displayName,
-          artistDisplayName: e.artistDisplayName,
-          songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }));
-        artists = artists.map((e) => ({
-          id: e.id,
-          displayName: e.displayName,
-          albumCount: e.albumCount == null || e.albumCount !== e.albumCount ? 0 : e.albumCount,
-          songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }))
-        msg.items.forEach(async (x) => {
-          console.log("artist: "+JSON.stringify(artistKeys, null, 2));
-          console.log("album: "+JSON.stringify(albumKeys, null, 2));
-          console.log("");
-          var artist = (x.type == "song" || x.type == "album") ? x.artist.split(",")[0] : "";
-          switch(x.type){
-            case "song":
-              var artistKey = hash(artist);
-              var albumKey = artistKey + "_" + hash(x.name);
-              console.log(x.songs[0]["title"]);
-              songs.push({
-                id: albumKey + "_" + hash(x.songs[0].id),
-                albumId: albumKey,
-                artistId: artistKey,
-                displayName: x.songs[0].title,
-                albumDisplayName: x.name,
-                artistDisplayName: artist,
-                duration: 0,
-                youtubeId: x.songs[0].id,
-                imageUrl: x.imageUrl,
-                added: Date.now(),
-              });
-              addedSongs++;
-              if(albumKeys.indexOf(albumKey) == -1){
-                albumKeys.push(albumKey);
-                albums.push({
-                  id: albumKey,
-                  artistId: artistKey,
-                  displayName: x.name,
-                  artistDisplayName: artist,
-                  songCount: 1,
-                  imageUrl: x.imageUrl,
-                  added: Date.now(),
-                });
-                addedAlbums++;
-              }else{
-                albums[albumKeys.indexOf(albumKey)].songCount++;
-              }
-              if(artistKeys.indexOf(artistKey) == -1){
-                artistKeys.push(artistKey);
-                artists.push({
-                  id: artistKey,
-                  displayName: artist,
-                  songCount: 1,
-                  albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
-                  imageUrl: "",
-                  added: Date.now(),
-                });
-                addedArtists++;
-              }else{
-                artists[artistKeys.indexOf(artistKey)].songCount++;
-                artists[artistKeys.indexOf(artistKey)].albumCount += (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
-              }
-              break;
-            case "album":
-              var artistKey = hash(artist);
-              var albumKey = artistKey + "_" + hash(x.name);
-              x.songs.forEach((y) => {
-                songs.push({
-                  id: albumKey + "_" + hash(y.id),
-                  albumId: albumKey,
-                  artistId: artistKey,
-                  displayName: y.title,
-                  albumDisplayName: x.name,
-                  artistDisplayName: artist,
-                  duration: 0,
-                  youtubeId: y.id,
-                  imageUrl: x.imageUrl,
-                  added: Date.now(),
-                });
-                addedSongs += x.songs.length;
-              });
-              if(albumKeys.indexOf(albumKey) == -1){
-                albumKeys.push(albumKey);
-                albums.push({
-                  id: albumKey,
-                  artistId: artistKey,
-                  displayName: x.name,
-                  artistDisplayName: artist,
-                  songCount: x.songs.length,
-                  imageUrl: x.imageUrl,
-                  added: Date.now(),
-                });
-                addedAlbums++;
-              }else{
-                albums[albumKeys.indexOf(albumKey)].songCount += x.songs.length;
-              }
-              if(artistKeys.indexOf(artistKey) == -1){
-                artistKeys.push(artistKey);
-                artists.push({
-                  id: artistKey,
-                  displayName: artist,
-                  songCount: x.songs.length,
-                  albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
-                  imageUrl: "",
-                  added: Date.now(),
-                });
-                addedArtists++;
-              }else{
-                artists[artistKeys.indexOf(artistKey)].songCount += x.songs.length
-                artists[artistKeys.indexOf(artistKey)].albumCount += (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
-              }
-              break;
-          }
-          // console.log("artist "+artist+": "+JSON.stringify(artistKeys, null, 2));
-          // console.log("album: "+JSON.stringify(albumKeys, null, 2));
-          console.log("____________________________");
-          iterated++;
-        });
-        await waitUntil(() => {return iterated == msg.items.length}, {timeout: Number.POSITIVE_INFINITY});
-        console.log(`Adding ${songs.length} songs, ${albums.length} albums and ${artists.length} artists.`);
-        iterated = 0;
-        artists.forEach(async (x) => {
-          if(x.imageUrl == ""){
-            x.imageUrl = await getArtistImageUrl(x.displayName.split(",")[0], "https://commons.wikimedia.org/wiki/File:Apple_Music_Icon.svg");
-          }
-          iterated++;
-        });
-        await waitUntil(() => {return iterated == artists.length}, {timeout: Number.POSITIVE_INFINITY});
-        // var json = JSON.stringify({"songs": songs, "albums": albums, "artists": artists});
-        // fs.writeFileSync("data.json", json);
-        albums.forEach((e)=>{
-          console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
-        });
-        artists.forEach((e)=>{
-          console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
-          console.log("Albumcount for", e.displayName, e.albumCount, typeof e.albumCount);
-        })
-        await db.artists.bulkUpsert(artists);
-        await db.albums.bulkUpsert(albums);
-        await db.songs.bulkUpsert(songs);
-        await ts.updateSongs(songs);
-        await ts.updateAlbums(albums);
-        await ts.updateArtists(artists);
-        console.log("Finished adding songs, albums and artists.");
-        socket.emit("addresult", {"success": true, "count": {"artists": addedArtists, "albums": addedAlbums, "songs": addedSongs}});
-    });
-})
+  adderConnection(socket, db, ts);
+});
 
 async function main(){
     server.listen(port, () => {
@@ -946,59 +596,3 @@ try{
 // yet because modules and requiring
 // is annoying so I probably
 // won't move them anytime soon
-
-async function getArtistImageUrl(name, backupImageUrl){
-  console.log("Getting image for "+name)
-  const { stdout, stderr } = await exec('python3 find_artist_profile_url.py "'+name+'"')
-  var data = {}
-  console.log(stdout)
-  try{
-    data = JSON.parse(stdout)
-            
-    if(data["success"]){
-      return data["url"];
-    }
-    if(!data["success"]){
-      return backupImageUrl
-    }
-  }catch (err){
-    console.log(err)
-    return backupImageUrl
-  }
-}
-
-async function checkAuth(token){
-    if(typeof(token) == "undefined"){
-        return Promise.resolve(false); 
-    }else{
-        const result = await db.auth.findOne({selector: {"authtoken": token}}).exec()
-        return Promise.resolve(result != null);
-    }
-}
-
-async function getUser(authtoken){
-    var result = await db.auth.findOne({selector: {"authtoken": authtoken}}).exec()
-    return (result == 0) ? "" : result.loginName
-}
-
-async function addToRecentlyPlayed(user, songId){
-    console.log("Adding to recent: ",user, songId)
-    var recent = await db.played.findOne({selector: {"owner": user}}).exec();
-    var newRecent = {owner: user, songs: []};
-    if(recent == null){
-        console.log("Recent is null")
-        newRecent = {owner: user, songs: [songId]}
-    }else{
-        newRecent.songs = recent.songs;
-        if(recent.songs.length >= 10){
-            console.log("Too long")
-            newRecent.songs.splice(0, 1);
-        }
-        newRecent.songs.push(songId);
-    }
-    await db.played.upsert(newRecent);
-}
-
-function hash(string){
-    return crypto.createHash('sha256').update(string).digest('hex');
-}
