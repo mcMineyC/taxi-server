@@ -827,7 +827,7 @@ const scheme = {
   },
   "8": {
     songSchema: {
-      version: 7,
+      version: 0,
       primaryKey: 'id',
       type: 'object',
       properties: {
@@ -842,10 +842,14 @@ const scheme = {
         imageUrl: 'string',
         added: 'int',
         addedBy: "string",
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        }
       }
     },
     albumSchema: {
-      version: 5,
+      version: 0,
       primaryKey: 'id',
       type: 'object',
       properties: {
@@ -856,10 +860,15 @@ const scheme = {
         songCount: 'int',
         imageUrl: 'string',
         added: 'int',
+        addedBy: "string",
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        }
       }
     },
     artistSchema: {
-      version: 5,
+      version: 0,
       primaryKey: 'id',
       type: 'object',
       properties: {
@@ -869,10 +878,15 @@ const scheme = {
         songCount: 'int',
         imageUrl: 'string',
         added: 'int',
+        addedBy: "string",
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        }
       }
     },
     playlistSchema: {
-      version: 5,
+      version: 0,
       primaryKey: 'id',
       type: 'object',
       properties: {
@@ -886,10 +900,14 @@ const scheme = {
         },
         songCount: 'int',
         added: 'int',
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        }
       }
     },
     authSchema: {
-      version: 7,
+      version: 0,
       primaryKey: 'loginName',
       type: 'object',
       properties: {
@@ -897,14 +915,14 @@ const scheme = {
         displayName: 'string',
         password: 'string',
         authtoken: 'string',
-        role: {
+        roles: {
           type: 'array',
           items: 'string',
         },
       }
     },
     playedSchema: {
-      version: 5,
+      version: 0,
       primaryKey: 'owner',
       type: 'object',
       properties: {
@@ -913,13 +931,17 @@ const scheme = {
       }
     },
     favoriteSchema: {
-      version: 5,
+      version: 0,
       primaryKey: 'owner',
       type: 'object',
       properties: {
         owner: {type: 'string', maxLength: 16},
         songs: {type: 'array', items: {type: 'string'}},
         count: 'int',
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        },
       }
     },
     checklistSchema: {
@@ -935,7 +957,7 @@ const scheme = {
       },
     },
     buggySchema: {
-      version: 6,
+      version: 0,
       primaryKey: 'id',
       type: 'object',
       properties: {
@@ -954,6 +976,7 @@ const scheme = {
       properties: {
         id: {type: 'string', maxLength: 256},
         token: 'string',
+        used: "int",
         expires: 'int',
       },
     }
@@ -980,151 +1003,151 @@ export default {
     }
     return db.addCollections({
       songs: {
-        migrationStrategies:{
-          1: (doc) => {
-            doc.albumDisplayName = "IGOTTAFIXTHISASAP";
-            doc.artistDisplayName = "IGOTTAFIXTHISASAP";
-            doc.added = Date.now();
-            return doc;
-          },
-          2: (doc) => {
-            doc.youtubeId = 'SHRUG';
-            return doc;
-          },
-          3: (doc) => {
-            doc.imageUrl = 'https://cdn4.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/AppleMusic.png';
-            return doc;
-          },
-          4: (doc) => doc,
-          5: (doc) => doc,
-          7: (doc) => {
-            doc.addedBy = "jedi";
-            return doc;
-          },
-        },
+        //migrationStrategies:{
+          //1: (doc) => {
+          //  doc.albumDisplayName = "IGOTTAFIXTHISASAP";
+          //  doc.artistDisplayName = "IGOTTAFIXTHISASAP";
+          //  doc.added = Date.now();
+          //  return doc;
+          //},
+          //2: (doc) => {
+          //  doc.youtubeId = 'SHRUG';
+          //  return doc;
+          //},
+          //3: (doc) => {
+          //  doc.imageUrl = 'https://cdn4.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/AppleMusic.png';
+          //  return doc;
+          //},
+          //4: (doc) => doc,
+          //5: (doc) => doc,
+          //7: (doc) => {
+          //  doc.addedBy = "jedi";
+          //  return doc;
+          //},
+        //},
         schema: scam.songSchema
       },
       albums: {
-        migrationStrategies:{
-          1: (doc) => {
-            doc.artistDisplayName = "IGOTTAFIXTHISASAP";
-            doc.songCount = 0;
-            doc.added = Date.now();
-            return doc;
-          },
-          2: (doc) => doc,
-          3: (doc) => {
-            doc.imageUrl = 'https://cdn4.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/AppleMusic.png';
-            return doc;
-          },
-          4: (doc) => doc,
-          5: (doc) => doc,
-          6: (doc) => doc,
-        },
+        //migrationStrategies:{
+        //  1: (doc) => {
+        //    doc.artistDisplayName = "IGOTTAFIXTHISASAP";
+        //    doc.songCount = 0;
+        //    doc.added = Date.now();
+        //    return doc;
+        //  },
+        //  2: (doc) => doc,
+        //  3: (doc) => {
+        //    doc.imageUrl = 'https://cdn4.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/AppleMusic.png';
+        //    return doc;
+        //  },
+        //  4: (doc) => doc,
+        //  5: (doc) => doc,
+        //  6: (doc) => doc,
+        //},
         schema: scam.albumSchema
       },
       artists: {
-        migrationStrategies:{
-          1: (doc) => {
-            doc.albumCount = 0;
-            doc.songCount = 0;
-            doc.added = Date.now();
-            return doc;
-          },
-          2: (doc) => doc,
-          3: (doc) => {
-            doc.imageUrl = 'https://cdn4.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/AppleMusic.png';
-            doc.added = Date.now();
-            return doc;
-          },
-          4: (doc) => doc,
-          5: (doc) => doc,
-          6: (doc) => doc,
-        },
+        //migrationStrategies:{
+        //  1: (doc) => {
+        //    doc.albumCount = 0;
+        //    doc.songCount = 0;
+        //    doc.added = Date.now();
+        //    return doc;
+        //  },
+        //  2: (doc) => doc,
+        //  3: (doc) => {
+        //    doc.imageUrl = 'https://cdn4.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/AppleMusic.png';
+        //    doc.added = Date.now();
+        //    return doc;
+        //  },
+        //  4: (doc) => doc,
+        //  5: (doc) => doc,
+        //  6: (doc) => doc,
+        //},
         schema: scam.artistSchema,
       },
       playlists: {
-        migrationStrategies:{
-          1: (doc) => {
-            // doc.songCount = 0;
-            doc.songCount = doc.songs.length;
-            doc.added = Date.now();
-            return doc;
-          },
-          2: (doc) => doc,
-          3: (doc) => doc,
-          4: (doc) => doc,
-          5: (doc) => doc,
-          6: (doc) => doc,
-        },
+        //migrationStrategies:{
+        //  1: (doc) => {
+        //    // doc.songCount = 0;
+        //    doc.songCount = doc.songs.length;
+        //    doc.added = Date.now();
+        //    return doc;
+        //  },
+        //  2: (doc) => doc,
+        //  3: (doc) => doc,
+        //  4: (doc) => doc,
+        //  5: (doc) => doc,
+        //  6: (doc) => doc,
+        //},
         schema: scam.playlistSchema,
       },
       auth: {
-        migrationStrategies:{
-          1: (doc) => doc,
-          6: (doc) => {
-            doc.roles = [
-              "view",
-              "add",
-              "dj",
-            ];
-            return doc;
-          },
-        },
+        //migrationStrategies:{
+        //  1: (doc) => doc,
+        //  6: (doc) => {
+        //    doc.roles = [
+        //      "view",
+        //      "add",
+        //      "dj",
+        //    ];
+        //    return doc;
+        //  },
+        //},
         schema: scam.authSchema,
       },
       played: {
-        migrationStrategies:{
-          1: (doc) => doc,
-        },
+        //migrationStrategies:{
+        //  1: (doc) => doc,
+        //},
         schema: scam.playedSchema,
       },
       favorites: {
-        migrationStrategies: {
-          1: (doc) => {
-            // doc.count = 0;
-            doc.count = doc.songs.length;
-            return doc;
-          },
-        },
+        //migrationStrategies: {
+        //  1: (doc) => {
+        //    // doc.count = 0;
+        //    doc.count = doc.songs.length;
+        //    return doc;
+        //  },
+        //},
         schema: scam.favoriteSchema
       },
       checklist: {
-        migrationStrategies: {
-          5: function(doc)  {
-            if (doc.completed === undefined) {
-              doc.completed = false;
-            }
-            if(doc.description == undefined){
-              doc.description = "";
-            }
-            return doc;
-          },
-          6: function(doc)  {
-            return doc;
-          },
-          7: function(doc) {return doc},
-          8: function(doc){return doc},
-        },
+        //migrationStrategies: {
+        //  5: function(doc)  {
+        //    if (doc.completed === undefined) {
+        //      doc.completed = false;
+        //    }
+        //    if(doc.description == undefined){
+        //      doc.description = "";
+        //    }
+        //    return doc;
+        //  },
+        //  6: function(doc)  {
+        //    return doc;
+        //  },
+        //  7: function(doc) {return doc},
+        //  8: function(doc){return doc},
+        //},
         schema: scam.checklistSchema,
       },
       bugnana: {
-        migrationStrategies: {
-          4: (doc) => doc,
-          5: (doc) => doc,
-          6: (doc) => {
-            if (doc.fixed === undefined) {
-              doc.fixed = false;
-            }
-            if(typeof doc.id == "string"){
-              doc.id = parseInt(doc.id);
-            }
-            return doc; 
-          },
-        },
+        //migrationStrategies: {
+        //  4: (doc) => doc,
+        //  5: (doc) => doc,
+        //  6: (doc) => {
+        //    if (doc.fixed === undefined) {
+        //      doc.fixed = false;
+        //    }
+        //    if(typeof doc.id == "string"){
+        //      doc.id = parseInt(doc.id);
+        //    }
+        //    return doc; 
+        //  },
+        //},
         schema: scam.buggySchema,
       },
-      authtokeens: {
+      authtokens: {
         schema: scam.authtokenSchema,
       }
     });

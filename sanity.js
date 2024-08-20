@@ -24,9 +24,9 @@ for (const album of albums){
 //     console.log("Removed", album.displayName);
 //   }
 // }
-var bugs = await db.bugnana.find().exec();
-console.log(bugs.length, "bugs reported");
-for (const bug of bugs) {
-  console.log(bug.id, ":", bug.displayName);
-}
+//var bugs = await db.bugnana.find().exec();
+//console.log(bugs.length, "bugs reported");
+//for (const bug of bugs) {
+//  console.log(bug.id, ":", bug.displayName);
+//}
 await db.destroy();
