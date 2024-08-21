@@ -16,7 +16,10 @@ console.log("Added collections");
 // }
 var albums = await db.albums.find().exec();
 for (const album of albums){
-  console.log(album.displayName, "has", album.songCount, "songs");
+  console.log(album.displayName);
+  console.log("\thas", album.songCount, "songs");
+  console.log("\twas added by", album.addedBy);
+  console.log("\tis visible to", JSON.stringify(album.visibleTo));
 }
 // for(const album of albums){
 //   if(album.displayName.includes("Chipbreak")){

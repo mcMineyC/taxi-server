@@ -24,6 +24,7 @@ export default {
     var songs = await db.songs.find().exec();
     var albums = await db.albums.find().exec();
     var artists = await db.artists.find().exec();
+    //var playlists = await db.playlists.find().exec();
 
     await client.collections('taxi-songs').documents().import(songs, {action: "upsert"});
     await client.collections('taxi-albums').documents().import(albums, {action: "upsert"});
@@ -33,20 +34,29 @@ export default {
       id: x.id,
       displayName: x.displayName,
       imageUrl: x.imageUrl,
-      type: 'song'
+      type: 'song',
+      visibleTo: x.visibleTo,
     })), {action: "upsert"});
     await client.collections('taxi-relevance').documents().import(albums.map(x => ({
       id: x.id,
       displayName: x.displayName,
       imageUrl: x.imageUrl,
-      type: 'album'
+      type: 'album',
+      visibleTo: x.visibleTo,
     })), {"action": "upsert"});
     await client.collections('taxi-relevance').documents().import(artists.map(x => ({
       id: x.id,
       displayName: x.displayName,
       imageUrl: x.imageUrl,
-      type: 'artist'
+      type: 'artist',
+      visibleTo: x.visibleTo,
     })), {"action": "upsert"});
+    //await client.collections('taxi-relevance').documents().import(playlists.map(x => ({
+    //  id: x.id,
+    //  displayName: x.displayName,
+    //  imageUrl: x.imageUrl,
+    //  type: 'playlist'
+    //})));
 
     var songC = (await client.collections('taxi-songs').retrieve()).num_documents;
     var albumC = (await client.collections('taxi-albums').retrieve()).num_documents;

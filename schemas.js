@@ -1167,6 +1167,7 @@ export default {
         {"name": "youtubeId", "type": "string"},
         {"name": "imageUrl", "type": "string"},
         {"name": "added", "type": "int32", "facet": true},
+        {"name": "visibleTo", "type": "string[]"},
       ],
       "default_sorting_field": "added",
       "default_sorting_order": "desc",
@@ -1181,6 +1182,7 @@ export default {
         {"name": "songCount", "type": "int32"},
         {"name": "imageUrl", "type": "string"},
         {"name": "added", "type": "int32", "facet": true},
+        {"name": "visibleTo", "type": "string[]"},
       ],
       "default_sorting_field": "added",
       "default_sorting_order": "desc",
@@ -1194,6 +1196,7 @@ export default {
         {"name": "songCount", "type": "int32"},
         {"name": "imageUrl", "type": "string"},
         {"name": "added", "type": "int32", "facet": true},
+        {"name": "visibleTo", "type": "string[]"},
       ],
       "default_sorting_field": "added",
       "default_sorting_order": "desc",
@@ -1205,6 +1208,7 @@ export default {
         {"name": "displayName", "type": "string", "facet": true},
         {"name": "imageUrl", "type": "string"},
         {"name": "type", "type": "string"},
+        {"name": "visibleTo", "type": "string[]"},
       ]
     }
   ]

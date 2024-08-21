@@ -20,5 +20,6 @@ var db = await createRxDatabase({
   }),
 });
 await schemas.register(db, 8);
+//console.log("Registered schemas");
 
 export default db

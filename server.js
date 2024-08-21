@@ -130,17 +130,25 @@ app.post('/username', async function (req, res) {
     res.send({"authorized": authed, "authtoken": authtoken, "username": username})
 })
 
-app.get('/placeholder', function (req, res) {
-    res.sendFile(path.join(__dirname, "config", 'images', 'placeholder.jpg'));
-})
-
 app.post('/info/albums', async function (req, res) {
     if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "albums": []});
         return
     }
+    var user = await utils.getUser(req.body.authtoken, db);
 
-    const data = await db.albums.find({sort: [{artistId: "asc"}, {added: "asc"}]}).exec();
+    const data = await db.albums.find({
+      selector: {
+        $or: [
+          {visibleTo: user},
+          {visibleTo: "all"}
+        ]
+      },
+      sort: [
+        {artistId: "asc"},
+        {added: "asc"}
+      ]
+    }).exec();
    res.send({"authed": true, "albums": data});
 });
 
@@ -150,7 +158,14 @@ app.post('/info/artists', async function (req, res) {
         return
     }
     
+    var user = await utils.getUser(req.body.authtoken, db);
     const data = await db.artists.find({
+        selector: {
+          $or: [
+            {visibleTo: user}, 
+            {visibleTo: "all"}
+          ]
+        }, 
         sort: [
             {displayName: "asc"}
         ]
@@ -163,11 +178,23 @@ app.post('/info/songs', async function (req, res) {
         res.send({"authed": false, "songs": []});
         return
     }
+    var user = await utils.getUser(req.body.authtoken, db);
     var data = [];
     if(typeof(req.query.limit) == "int" || typeof req.query.limit == "string"){
-      data = await db.songs.find({sort: [{"added": "desc"}], limit: parseInt(req.query.limit)}).exec();
+      data = await db.songs.find({
+        selector: {
+          $or: [
+            {visibleTo: user},
+            {visibleTo: "all"}
+          ]
+        },
+        sort: [
+          {"added": "desc"}
+        ],
+        limit: parseInt(req.query.limit)
+      }).exec();
     }else{
-      data = await db.songs.find({sort: [{"added": "desc"}]}).exec();
+      data = await db.songs.find({selector: {$or: [{visibleTo: user}, {visibleTo: "all"}]}, sort: [{"added": "desc"}]}).exec();
     }
     // console.log(data[0]);
     res.send({"authed": true, "songs": data});
@@ -178,8 +205,17 @@ app.post('/info/artist/:id', async function (req, res) {
     res.send({"authed": false, "artist": {}});
     return;
   }
+  var user = await utils.getUser(req.body.authtoken, db);
 
-  const data = await db.artists.findOne({selector: {id: req.params.id}}).exec();
+  const data = await db.artists.findOne({
+    selector: {
+      id: req.params.id, 
+      $or: [
+        {visibleTo: user},
+        {visibleTo: "all"}
+      ]
+    }
+  }).exec();
   res.send({"authed": true, "artist": data});
 });
 
@@ -188,8 +224,17 @@ app.post('/info/album/:id', async function (req, res) {
     res.send({"authed": false, "album": {}});
     return
   }
+  var user = await utils.getUser(req.body.authtoken, db);
   
-  const data = await db.albums.findOne({selector: {id: req.params.id}}).exec();
+  const data = await db.albums.findOne({
+    selector: {
+      id: req.params.id,
+      $or: [
+        {visibleTo: user},
+        {visibleTo: "all"}
+      ]
+    }
+  }).exec();
   res.send({"authed": true, "album": data});
 });
 
@@ -198,15 +243,30 @@ app.post('/info/albums/by/artist/:id', async function (req, res) {
     res.send({"authed": false, "albums": []});
     return;
   }
+  var user = await utils.getUser(req.body.authtoken, db);
 
   var albumsData = [];
   if(req.query.excludeSingles == "true"){
-    const data = await db.albums.find({selector: {artistId: req.params.id, songCount: 1}, sort: [{added: "desc"}]}).exec();
+    const data = await db.albums.find({
+      selector: {
+        artistId: req.params.id,
+        songCount: 1
+      },
+      sort: [
+        {added: "desc"}
+      ]
+    }).exec();
     var excludeIds = data.map(a => a.id);
     console.log(data.map(a => a.id));
     var abD = await db.albums.find(
       {
-        selector: {artistId: req.params.id},
+        selector: {
+          artistId: req.params.id,
+          $or: [
+            {visibleTo: user},
+            {visibleTo: "all"},
+          ],
+        },
         sort: [
           {added: "desc"}
         ]
@@ -216,7 +276,13 @@ app.post('/info/albums/by/artist/:id', async function (req, res) {
   }else{
     albumsData = await db.albums.find(
       {
-        selector: {artistId: req.params.id},
+        selector: {
+          artistId: req.params.id,
+          $or: [
+            {visibleTo: user},
+            {visibleTo: "all"},
+          ],
+        },
         sort: [
           {added: "desc"}
         ]
@@ -231,11 +297,28 @@ app.post('/info/singles/by/artist/:id', async function (req, res) {
     res.send({"authed": false, "songs": []});
     return;
   }
+  var user = await utils.getUser(req.body.authtoken, db);
 
-  const data = await db.albums.find({selector: {artistId: req.params.id, songCount: 1}, sort: [{added: "desc"}]}).exec();
+  const data = await db.albums.find({
+    selector: {
+      artistId: req.params.id,
+      songCount: 1,
+      $or: [
+        {visibleTo: user},
+        {visibleTo: "all"},
+      ]
+    },
+    sort: [
+      {added: "desc"}
+    ]
+  }).exec();
   const songsData = await db.songs.find({
     selector: {
       albumId: {$in: data.map(a => a.id)},
+      $or: [
+        {visibleTo: user},
+        {visibleTo: "all"},
+      ],
     },
     sort: [{"added": "desc"}],
   }).exec();
@@ -247,8 +330,20 @@ app.post('/info/songs/by/album/:id', async function (req, res) {
         res.send({"authed": false, "songs": []});
         return
     }
+    var user = await utils.getUser(req.body.authtoken, db);
 
-    const data = await db.songs.find({selector: {albumId: req.params.id}, sort: [{"trackNumber": "asc"}]}).exec();
+    const data = await db.songs.find({
+      selector: {
+        albumId: req.params.id,
+        $or: [
+          {visibleTo: user},
+          {visibleTo: "all"},
+        ]
+      },
+      sort: [
+        {"trackNumber": "asc"}
+      ]
+    }).exec();
     res.send({"authed": true, "songs": data});
 });
 
@@ -257,8 +352,21 @@ app.post('/info/songs/by/artist/:id', async function (req, res) {
         res.send({"authed": false, "songs": []});
         return
     }
+    var user = await utils.getUser(req.body.authtoken, db);
 
-    const data = await db.songs.find({selector: {artistId: req.params.id}, sort: [{"artistId": "asc"}, {"albumId": "asc"}]}).exec();
+    const data = await db.songs.find({
+      selector: {
+        artistId: req.params.id,
+        $or: [
+          {visibleTo: user},
+          {visibleTo: "all"},
+        ]
+      },
+      sort: [
+        {"artistId": "asc"},
+        {"albumId": "asc"}
+      ]
+    }).exec();
     res.send({"authed": true, "songs": data});
 });
 
@@ -267,11 +375,20 @@ app.post('/info/songs/batch', async function (req, res) {
         res.send({"authed": false, "results": {}});
         return;
     }
+    var user = await utils.getUser(req.body.authtoken, db);
     
     var ids = req.body.ids
     var results = {}
     for(var i = 0; i < ids.length; i++){
-        results[ids[i]] = await db.songs.findOne({selector: {"id": ids[i]}}).exec();
+        results[ids[i]] = await db.songs.findOne({
+          selector: {
+            "id": ids[i],
+            $or: [
+              {visibleTo: user},
+              {visibleTo: "all"},
+            ]
+          }
+        }).exec();
     }
     res.send({"authed": true, "results": results});
 });
@@ -281,8 +398,17 @@ app.post('/info/songs/:id', async function (req, res) {
         res.send({"authed": false, "songs": []});
         return
     }
+    var user = await utils.getUser(req.body.authtoken, db);
 
-    const result = await db.songs.findOne({selector: {"id": req.params.id}}).exec();
+    const result = await db.songs.findOne({
+      selector: {
+        "id": req.params.id,
+        $or: [
+          {visibleTo: user},
+          {visibleTo: "all"},
+        ]
+      }
+    }).exec();
     res.send({"authed": true, "song": (result) ? result : {} }); 
 });
 
@@ -291,6 +417,7 @@ app.post('/playlists', async function(req, res){
         res.send({"authed": false, "playlists": []});
         return
     }
+    var user = await utils.getUser(req.body.authtoken, db);
 
     var u = await utils.getUser(req.body.authtoken, db);
     var playlists = [];
@@ -341,7 +468,7 @@ app.post('/playlists/modify/:playlist', async function(req, res){
     if(req.params.playlist == "create"){
       console.log("Creating new playlist")
       p = await db.playlists.upsert({
-        id: hash(req.body.name),
+        id: utils.hash(req.body.name),
         owner: u || "testguy",
         displayName: req.body.name || "Banana",
         description: req.body.description || "Banana",
@@ -474,6 +601,7 @@ app.post('/search', async function(req, res){
     res.send({"authed": false, "error": "Invalid authtoken", results: []});
     return;
   }
+  var user = await utils.getUser(req.body.authtoken, db);
   
   var data = [];
   switch(type){
@@ -487,6 +615,7 @@ app.post('/search', async function(req, res){
       data = await ts.searchArtist(req.body.query);
       break;
   }
+  data = data.filter((x) => x.visibleTo.includes(user) || x.visibleTo.includes("all"));
   res.send({"authed": true, "type": type, "results": data});
 })
 
@@ -501,11 +630,13 @@ app.post('/searchAll', async function(req, res){
     res.send({"authed": false, "error": "Invalid authtoken", results: []});
     return;
   }
+  var user = await utils.getUser(req.body.authtoken, db);
   
   var songs = await ts.searchSong(req.body.query);
   var albums = await ts.searchAlbum(req.body.query);
   var artists = await ts.searchArtist(req.body.query);
   var relevancy = await ts.relevancy(req.body.query);
+  relevancy = relevancy.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
   var firstArtist = -1;
   var firstAlbum = -1;
   var firstSong = -1;
@@ -523,15 +654,22 @@ app.post('/searchAll', async function(req, res){
   if(!relevancy.includes("album")) relevancy.push("album")
   if(!relevancy.includes("artist")) relevancy.push("artist")
   console.log("relevancy2", relevancy.length)
+  console.log("Last relevancy", relevancy)
   var singles = []
-  // var singles = albums.filter(r => r.songCount = 1)
-  // albums  = albums.filter(r => r.songCount > 1)
+  var singleAlbums = albums.filter(r => r.songCount == 1)
+  singles = songs.filter(r => singleAlbums.includes(r.albumId))
 
-  songs.map(r => r.type = "song")
-  singles.map(r => r.type = "song")
-  albums.map(r => r.type = "album")
-  artists.map(r => r.type = "artist")
-    
+  albums = albums.filter(r => r.songCount > 1)
+
+  //songs.map(r => r.type = "song")
+  //singles.map(r => r.type = "song")
+  //albums.map(r => r.type = "album")
+  //artists.map(r => r.type = "artist")
+  singles = singles.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  songs = songs.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  albums = albums.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  artists = artists.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+
   res.send({"authed": true, "relevancy": relevancy, "songs": songs, "singles": singles, "albums": albums, "artists": artists});
 });
 
