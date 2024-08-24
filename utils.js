@@ -45,7 +45,7 @@ async function getUser(authtoken, db){
 
 async function addToRecentlyPlayed(user, songId, db){
     var recent = await db.played.findOne({selector: {"owner": user}}).exec();
-    if(recent.songs[recent.songs.length-1] == songId) return;
+    if(recent == null && recent.songs[recent.songs.length-1] == songId) return;
     console.log("Adding to recent: ",user, songId)
     var newRecent = {owner: user, songs: []};
     if(recent == null){
