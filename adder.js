@@ -185,6 +185,9 @@ function adderConnection(socket, db, ts){
         albums = await db.albums.find().exec();
         artistKeys = artists.map((e) => e.id);
         albumKeys = albums.map((e) => e.id);
+        songs = JSON.parse(JSON.stringify(songs));
+        artists = JSON.parse(JSON.stringify(artists));
+        albums = JSON.parse(JSON.stringify(albums));
         //songs = songs.map((e) => ({
         //  id: e.id,
         //  albumId: e.albumId,

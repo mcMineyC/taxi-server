@@ -137,10 +137,9 @@ app.post('/info/albums', async function (req, res) {
     }
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
-
     const data = await db.albums.find({
       selector: {
-        $or: [
+        $or: ignore ? [] : [
           {visibleTo: user},
           {visibleTo: "all"}
         ]
@@ -209,7 +208,6 @@ app.post('/info/artist/:id', async function (req, res) {
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
 
   const data = await db.artists.findOne({
     selector: {
@@ -229,7 +227,6 @@ app.post('/info/album/:id', async function (req, res) {
     return
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
   
   const data = await db.albums.findOne({
     selector: {
@@ -249,7 +246,6 @@ app.post('/info/albums/by/artist/:id', async function (req, res) {
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
 
   var albumsData = [];
   if(req.query.excludeSingles == "true"){
@@ -304,7 +300,6 @@ app.post('/info/singles/by/artist/:id', async function (req, res) {
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
 
   const data = await db.albums.find({
     selector: {
@@ -338,7 +333,6 @@ app.post('/info/songs/by/album/:id', async function (req, res) {
         return
     }
     var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
 
     const data = await db.songs.find({
       selector: {
@@ -362,7 +356,6 @@ app.post('/info/songs/by/artist/:id', async function (req, res) {
         return
     }
     var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
 
     const data = await db.songs.find({
       selector: {
@@ -386,7 +379,6 @@ app.post('/info/songs/batch', async function (req, res) {
         return;
     }
     var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
     
     var ids = req.body.ids
     var results = {}
@@ -410,7 +402,6 @@ app.post('/info/songs/:id', async function (req, res) {
         return
     }
     var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
 
     const result = await db.songs.findOne({
       selector: {
@@ -430,10 +421,8 @@ app.post('/playlists', async function(req, res){
         return
     }
     var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
 
     var u = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
     var playlists = [];
     if(req.query.sort == "new"){
       playlists = await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}, sort: [{added: "desc"}]}).exec();
@@ -449,7 +438,6 @@ app.post('/playlists/user/:id', async function(req, res){
         return
     }
     var u = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
     if(u != req.params.id){
         // res.send({authed: false, "error": "Not authorized", "success": false})
         // return
@@ -465,7 +453,6 @@ app.post('/playlists/:id', async function(req, res){
         return
     }
     var u = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
     if(u != req.params.id){
         // res.send({authed: false, "error": "Not authorized", "success": false})
         // return
@@ -481,7 +468,6 @@ app.post('/playlists/modify/:playlist', async function(req, res){
         return
     }
     var u = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
     if(req.params.playlist == "create"){
       console.log("Creating new playlist")
       p = await db.playlists.upsert({
@@ -544,7 +530,6 @@ app.post('/playlists/remove/:playlist', async function(req, res){
         return
     }
     var u = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
     var p = await db.playlists.findOne({selector: {id: req.params.playlist}}).exec();
     if(p == null){
         res.send({authed: true, "success": true, "playlists": await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}}).exec()});
@@ -564,7 +549,6 @@ app.post('/recently-played/:user/add', async function(req, res){
         return
     }
     var u = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
     var user = req.params.user;
     console.log(user, "r==a", u);
     if(user != u){
@@ -621,7 +605,6 @@ app.post('/search', async function(req, res){
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
   
   var data = [];
   switch(type){
@@ -651,7 +634,6 @@ app.post('/searchAll', async function(req, res){
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
   
   var songs = await ts.searchSong(req.body.query);
   var albums = await ts.searchAlbum(req.body.query);
