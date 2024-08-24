@@ -21,6 +21,7 @@ function adderConnection(socket, db, ts){
         console.log('user disconnected');
     });
     var authed = false
+    var user = "";
     socket.on("auth", async (msg) => {
         if(typeof(msg) == "string"){
             msg = JSON.parse(msg);
@@ -32,6 +33,8 @@ function adderConnection(socket, db, ts){
             return
         }
         socket.emit("authresult", {"success": true, "authorized": true})
+        user = await utils.getUser(msg.authtoken, db);
+        console.log("Allowing", user, "to add songs");
         authed = true;
     })
     socket.on("search", async (msg) => {
@@ -177,43 +180,44 @@ function adderConnection(socket, db, ts){
         var addedArtists = 0;
         var addedAlbums = 0;
         var addedSongs = 0;
+        songs = await db.songs.find().exec();
         artists = await db.artists.find().exec();
         albums = await db.albums.find().exec();
         artistKeys = artists.map((e) => e.id);
         albumKeys = albums.map((e) => e.id);
-        songs = songs.map((e) => ({
-          id: e.id,
-          albumId: e.albumId,
-          artistId: e.artistId,
-          displayName: e.displayName,
-          albumDisplayName: e.albumDisplayName,
-          artistDisplayName: e.artistDisplayName,
-          duration: e.duration,
-          youtubeId: e.youtubeId,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }))
-        albums = albums.map((e) => ({
-          id: e.id,
-          artistId: e.artistId,
-          displayName: e.displayName,
-          artistDisplayName: e.artistDisplayName,
-          songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }));
-        artists = artists.map((e) => ({
-          id: e.id,
-          displayName: e.displayName,
-          albumCount: e.albumCount == null || e.albumCount !== e.albumCount ? 0 : e.albumCount,
-          songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }))
+        //songs = songs.map((e) => ({
+        //  id: e.id,
+        //  albumId: e.albumId,
+        //  artistId: e.artistId,
+        //  displayName: e.displayName,
+        //  albumDisplayName: e.albumDisplayName,
+        //  artistDisplayName: e.artistDisplayName,
+        //  duration: e.duration,
+        //  youtubeId: e.youtubeId,
+        //  imageUrl: e.imageUrl,
+        //  added: e.added,
+        //}))
+        //albums = albums.map((e) => ({
+        //  id: e.id,
+        //  artistId: e.artistId,
+        //  displayName: e.displayName,
+        //  artistDisplayName: e.artistDisplayName,
+        //  songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
+        //  imageUrl: e.imageUrl,
+        //  added: e.added,
+        //}));
+        //artists = artists.map((e) => ({
+        //  id: e.id,
+        //  displayName: e.displayName,
+        //  albumCount: e.albumCount == null || e.albumCount !== e.albumCount ? 0 : e.albumCount,
+        //  songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
+        //  imageUrl: e.imageUrl,
+        //  added: e.added,
+        //}))
         msg.items.forEach(async (x) => {
-          console.log("artist: "+JSON.stringify(artistKeys, null, 2));
-          console.log("album: "+JSON.stringify(albumKeys, null, 2));
-          console.log("");
+          //console.log("artist: "+JSON.stringify(artistKeys, null, 2));
+          //console.log("album: "+JSON.stringify(albumKeys, null, 2));
+          //console.log("");
           var artist = (x.type == "song" || x.type == "album") ? x.artist.split(",")[0] : "";
           switch(x.type){
             case "song":
@@ -231,6 +235,8 @@ function adderConnection(socket, db, ts){
                 youtubeId: x.songs[0].id,
                 imageUrl: x.imageUrl,
                 added: Date.now(),
+                visibleTo: ["all"],
+                addedBy: user,
               });
               addedSongs++;
               if(albumKeys.indexOf(albumKey) == -1){
@@ -243,6 +249,8 @@ function adderConnection(socket, db, ts){
                   songCount: 1,
                   imageUrl: x.imageUrl,
                   added: Date.now(),
+                  visibleTo: ["all"],
+                  addedBy: user,
                 });
                 addedAlbums++;
               }else{
@@ -257,6 +265,8 @@ function adderConnection(socket, db, ts){
                   albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
                   imageUrl: "",
                   added: Date.now(),
+                  visibleTo: ["all"],
+                  addedBy: user,
                 });
                 addedArtists++;
               }else{
@@ -279,6 +289,8 @@ function adderConnection(socket, db, ts){
                   youtubeId: y.id,
                   imageUrl: x.imageUrl,
                   added: Date.now(),
+                  visibleTo: ["all"],
+                  addedBy: user,
                 });
                 addedSongs += x.songs.length;
               });
@@ -292,6 +304,8 @@ function adderConnection(socket, db, ts){
                   songCount: x.songs.length,
                   imageUrl: x.imageUrl,
                   added: Date.now(),
+                  visibleTo: ["all"],
+                  addedBy: user,
                 });
                 addedAlbums++;
               }else{
@@ -306,6 +320,8 @@ function adderConnection(socket, db, ts){
                   albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
                   imageUrl: "",
                   added: Date.now(),
+                  visibleTo: ["all"],
+                  addedBy: user,
                 });
                 addedArtists++;
               }else{

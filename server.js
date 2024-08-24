@@ -711,6 +711,99 @@ app.post('/bugs', async function(req, res){
   res.send({"authed": true, "bugs": bugs});
 });
 
+app.post('/edit/:type/:id', async function(req, res){
+  var u = await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "admin"}}).exec();
+  //console.log(u)
+  if(u == null){
+    res.send({authed: false, "error": "Not authorized", "success": false})
+    return
+  }
+  res.send({authed: true, "success": false});
+  return
+
+  switch(req.params.type){
+    case "song":
+      var s = await db.songs.findOne({selector: {id: req.params.id}}).exec();
+      var bdy = {
+        displayName: req.body.displayName == null ? s.displayName : req.body.displayName,
+        albumDisplayName: req.body.albumDisplayName == null ? s.albumDisplayName : req.body.albumDisplayName,
+        artistDisplayName: req.body.artistDisplayName == null ? s.artistDisplayName : req.body.artistDisplayName,
+        youtubeId: req.body.youtubeId == null ? s.youtubeId : req.body.youtubeId,
+        imageUrl: req.body.imageUrl == null ? s.imageUrl : req.body.imageUrl,
+        visibleTo: req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,
+      };
+      await s.incrementalPatch(bdy);
+      s = await db.songs.findOne({selector: {id: req.params.id}}).exec();
+      s = JSON.parse(JSON.stringify(s));
+      s.type = "song";
+      await ts.updateSong(s);
+      break;
+    case "album":
+      var songs = await db.songs.find({selector: {albumId: req.params.id}}).exec();
+      var s = await db.albums.findOne({selector: {id: req.params.id}}).exec();
+      var bdy = {
+        //id: req.params.id,
+        //artistId: req.body.artistId,
+        displayName: req.body.displayName == null ? s.displayName : req.body.displayName,
+        artistDisplayName: req.body.artistDisplayName == null ? s.artistDisplayName : req.body.artistDisplayName,
+        visibleTo: req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,
+        songCount: req.body.songCount == null ? s.songCount : req.body.songs.length
+      }
+      await s.incrementalPatch(bdy);
+      if(songs != null && req.body.songs != null) songs.forEach(async song => {
+        if(!req.body.songs.includes(song.id)){
+          await song.delete();
+        }
+      });
+      break;
+    case "artist":
+      var albums = await db.albums.find({selector: {artistId: req.params.id}}).exec();
+      var songs = await db.songs.find({selector: {artistId: req.params.id}}).exec();
+      var s = await db.artists.findOne({selector: {id: req.params.id}}).exec();
+      var bdy = {
+        displayName: req.body.displayName == null ? s.displayName : req.body.displayName,
+        visibleTo: req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,
+        songCount: req.body.songCount == null ? s.songCount : req.body.songCount,
+        albumCount: req.body.albumCount == null ? s.albumCount : req.body.albumCount
+      }
+      await s.incrementalPatch(bdy);
+      songs.forEach(async song => {
+        if((req.body.songs != null) && !req.body.songs.includes(song.id)){
+          await song.delete();
+        }
+      });
+      albums.forEach(async album => {
+        if(req.body.albums != null && !req.body.albums.includes(album.id)){
+          await album.delete();
+        }
+      });
+      break;
+  };
+  res.send({authed: true, "success": true})
+});
+
+app.post('/edit/:type/:id/delete', async (req, res) => {
+  if((await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "admin"}}).exec()) == null){
+    res.send({authed: false, "error": "Not authorized", "success": false})
+    return
+  }
+  res.send({authed: true, "success": false});
+  return
+
+  switch(req.params.type){
+    case "song":
+      (await db.songs.findOne({selector: {id: req.params.id}}).exec()).delete();
+      break;
+    case "album":
+      (await db.albums.findOne({selector: {id: req.params.id}}).exec()).delete();
+      break;
+    case "artist":
+      (await db.artists.findOne({selector: {id: req.params.id}}).exec()).delete();
+      break;
+  };
+  res.send({authed: true, "success": true})
+})
+
 io.on('connection', (socket) => {
   adderConnection(socket, db, ts);
 });
