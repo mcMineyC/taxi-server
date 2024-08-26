@@ -58,6 +58,33 @@ app.get('/status', function (_, res) {
     res.send({"status": "ok"})
 })
 
+app.post('/signup', async function (req, res) {
+  var u = await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "recruiter"}}).exec();
+  if(u == null){
+    res.send({authed: false, success: false});
+    return
+  }
+  var roles = ["view", "add", "dj", "admin", "recruiter"];
+  if(u.roles.includes("sudoadmin") && req.body.trusted) roles.push("sudoadmin");
+
+  await db.changelog.upsert({
+    time: Date.now(),
+    user: u.loginName,
+    type: "signup",
+    field: "all",
+    old: null,
+    new: req.body.name
+  });
+  await db.auth.upsert({
+    loginName: (req.body.name.substring(0,1).upperCase() + req.body.name.substring(1)),
+    displayName: req.body.name,
+    password: "",
+    authtoken: "",
+    roles: roles,
+  });
+  res.send({authed: true, success: true});
+})
+
 app.post('/auth', async function (req, res) {
     var authed = false
     var authtoken = "";
@@ -138,18 +165,20 @@ app.post('/info/albums', async function (req, res) {
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
 
-    const data = await db.albums.find({
+    var query = {
       selector: {
-        $or: [
-          {visibleTo: user},
-          {visibleTo: "all"}
-        ]
+        
       },
       sort: [
         {artistId: "asc"},
         {added: "asc"}
       ]
-    }).exec();
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const data = await db.albums.find(query).exec();
    res.send({"authed": true, "albums": data});
 });
 
@@ -161,17 +190,17 @@ app.post('/info/artists', async function (req, res) {
     
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
-    const data = await db.artists.find({
-        selector: {
-          $or: [
-            {visibleTo: user}, 
-            {visibleTo: "all"}
-          ]
-        }, 
-        sort: [
-            {displayName: "asc"}
-        ]
-    }).exec();
+    var query = {
+      selector: {},
+      sort: [
+        {displayName: "asc"}
+      ]
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const data = await db.artists.find(query).exec();
     res.send({"authed": true, "artists": data});
 });
 
@@ -183,23 +212,20 @@ app.post('/info/songs', async function (req, res) {
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
     var data = [];
-    if(typeof(req.query.limit) == "int" || typeof req.query.limit == "string"){
-      data = await db.songs.find({
-        selector: {
-          $or: [
-            {visibleTo: user},
-            {visibleTo: "all"}
-          ]
-        },
-        sort: [
-          {"added": "desc"}
-        ],
-        limit: parseInt(req.query.limit)
-      }).exec();
-    }else{
-      data = await db.songs.find({selector: {$or: [{visibleTo: user}, {visibleTo: "all"}]}, sort: [{"added": "desc"}]}).exec();
-    }
+    var query = {
+      selector: {},
+      sort: [
+        {"added": "desc"},
+      ],
+    };
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    if(typeof(req.query.limit) == "int" || typeof req.query.limit == "string") query.limit = parseInt(req.query.limit);
+    data = await db.songs.find(query).exec();
     // console.log(data[0]);
+    console.log("Sending songs")
     res.send({"authed": true, "songs": data});
 });
 
@@ -209,17 +235,17 @@ app.post('/info/artist/:id', async function (req, res) {
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
-
-  const data = await db.artists.findOne({
+  var ignore = req.query.ignore || false;
+  var query = {
     selector: {
       id: req.params.id, 
-      $or: [
-        {visibleTo: user},
-        {visibleTo: "all"}
-      ]
     }
-  }).exec();
+  }
+  if(!ignore) query.selector.$or = [
+    {visibleTo: user},
+    {visibleTo: "all"},
+  ]
+  const data = await db.artists.findOne(query).exec();
   res.send({"authed": true, "artist": data});
 });
 
@@ -234,9 +260,9 @@ app.post('/info/album/:id', async function (req, res) {
   const data = await db.albums.findOne({
     selector: {
       id: req.params.id,
-      $or: [
+      $or: ignore ? [] : [
         {visibleTo: user},
-        {visibleTo: "all"}
+        {visibleTo: "all"},
       ]
     }
   }).exec();
@@ -249,7 +275,7 @@ app.post('/info/albums/by/artist/:id', async function (req, res) {
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
+  var ignore = req.query.ignore || false;
 
   var albumsData = [];
   if(req.query.excludeSingles == "true"){
@@ -264,36 +290,34 @@ app.post('/info/albums/by/artist/:id', async function (req, res) {
     }).exec();
     var excludeIds = data.map(a => a.id);
     console.log(data.map(a => a.id));
-    var abD = await db.albums.find(
-      {
+    var query = {
         selector: {
           artistId: req.params.id,
-          $or: [
-            {visibleTo: user},
-            {visibleTo: "all"},
-          ],
         },
         sort: [
           {added: "desc"}
         ]
-      }
-    ).exec();
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    var abD = await db.albums.find(query).exec();
     albumsData = abD.filter(a => !excludeIds.includes(a.id));
   }else{
-    albumsData = await db.albums.find(
-      {
-        selector: {
-          artistId: req.params.id,
-          $or: [
-            {visibleTo: user},
-            {visibleTo: "all"},
-          ],
-        },
-        sort: [
-          {added: "desc"}
-        ]
-      }
-    ).exec();
+    var query = {
+      selector: {
+        artistId: req.params.id,
+      },
+      sort: [
+        {added: "desc"}
+      ]
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    albumsData = await db.albums.find(query).exec();
   }
   res.send({"authed": true, "albums": albumsData});
 });
@@ -304,31 +328,32 @@ app.post('/info/singles/by/artist/:id', async function (req, res) {
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
-
-  const data = await db.albums.find({
+  var ignore = req.query.ignore || false;
+  var query = {
     selector: {
       artistId: req.params.id,
       songCount: 1,
-      $or: [
-        {visibleTo: user},
-        {visibleTo: "all"},
-      ]
     },
     sort: [
       {added: "desc"}
     ]
-  }).exec();
-  const songsData = await db.songs.find({
+  }
+  if(!ignore) query.selector.$or = [
+    {visibleTo: user},
+    {visibleTo: "all"},
+  ]
+  const data = await db.albums.find(query).exec();
+  query = {
     selector: {
       albumId: {$in: data.map(a => a.id)},
-      $or: [
-        {visibleTo: user},
-        {visibleTo: "all"},
-      ],
     },
     sort: [{"added": "desc"}],
-  }).exec();
+  }
+  if(!ignore) query.selector.$or = [
+    {visibleTo: user},
+    {visibleTo: "all"},
+  ]
+  const songsData = await db.songs.find(query).exec();
   res.send({"authed": true, "songs": songsData});
 });
 
@@ -339,19 +364,19 @@ app.post('/info/songs/by/album/:id', async function (req, res) {
     }
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
-
-    const data = await db.songs.find({
+    var query = {
       selector: {
         albumId: req.params.id,
-        $or: [
-          {visibleTo: user},
-          {visibleTo: "all"},
-        ]
       },
       sort: [
         {"trackNumber": "asc"}
       ]
-    }).exec();
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const data = await db.songs.find(query).exec();
     console.log("Sending songs")
     res.send({"authed": true, "songs": data});
 });
@@ -363,20 +388,20 @@ app.post('/info/songs/by/artist/:id', async function (req, res) {
     }
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
-
-    const data = await db.songs.find({
+    var query = {
       selector: {
         artistId: req.params.id,
-        $or: [
-          {visibleTo: user},
-          {visibleTo: "all"},
-        ]
       },
       sort: [
         {"artistId": "asc"},
         {"albumId": "asc"}
       ]
-    }).exec();
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const data = await db.songs.find(query).exec();
     res.send({"authed": true, "songs": data});
 });
 
@@ -387,20 +412,18 @@ app.post('/info/songs/batch', async function (req, res) {
     }
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
-    
-    var ids = req.body.ids
-    var results = {}
-    for(var i = 0; i < ids.length; i++){
-        results[ids[i]] = await db.songs.findOne({
-          selector: {
-            "id": ids[i],
-            $or: [
-              {visibleTo: user},
-              {visibleTo: "all"},
-            ]
-          }
-        }).exec();
+    var query = {
+      selector: {
+        id: {$in: req.body.ids}
+      }
     }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    var data = await db.songs.find(query).exec();
+    var results = {}
+    data.forEach((d) => results[d.id] = d)
     res.send({"authed": true, "results": results});
 });
 
@@ -411,16 +434,16 @@ app.post('/info/songs/:id', async function (req, res) {
     }
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
-
-    const result = await db.songs.findOne({
+    var query = {
       selector: {
-        "id": req.params.id,
-        $or: [
-          {visibleTo: user},
-          {visibleTo: "all"},
-        ]
+        id: req.params.id
       }
-    }).exec();
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const result = await db.songs.findOne(query).exec();
     res.send({"authed": true, "song": (result) ? result : {} }); 
 });
 
@@ -429,8 +452,6 @@ app.post('/playlists', async function(req, res){
         res.send({"authed": false, "playlists": []});
         return
     }
-    var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
 
     var u = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
@@ -564,7 +585,6 @@ app.post('/recently-played/:user/add', async function(req, res){
         return
     }
     var u = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
     var user = req.params.user;
     console.log(user, "r==a", u);
     if(user != u){
@@ -601,6 +621,28 @@ app.post('/favorites/:user', async function(req, res){
     res.send({"songs": favorite.songs || [], "count": favorite.songs.length, "authed": true, "success": true})
 })
 
+app.post('/favorites/:user/add', async function(req, res){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
+        res.send({"authed": false, "success": false})
+        return
+    }
+    var u = await utils.getUser(req.body.authtoken, db);
+    var user = req.params.user;
+    //console.log(user, "r==a", u);
+    if(user != u){
+        res.send({"error": "Unauthorized", "authed": true, "success": false})
+        return
+    }
+    var favorite = await db.favorites.findOne({selector: {owner: user}}).exec();
+    if(favorite == null){
+        favorite = {owner: user, songs: [], count: 0}
+    }
+    favorite.songs.push(req.body.id);
+    favorite.count = favorite.songs.length
+    await db.favorites.upsert(favorite)
+    res.send({"authed": true, "success": true})
+})
+
 app.post('/search', async function(req, res){
   var allowedSearchTypes = [
     "song",
@@ -621,7 +663,8 @@ app.post('/search', async function(req, res){
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
+  var ignore = req.query.ignore || false;
+  console.log("ignore", ignore)
   
   var data = [];
   switch(type){
@@ -635,7 +678,8 @@ app.post('/search', async function(req, res){
       data = await ts.searchArtist(req.body.query);
       break;
   }
-  data = data.filter((x) => x.visibleTo.includes(user) || x.visibleTo.includes("all"));
+  if(!ignore) data = data.filter((x) => (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  console.log("Sending results", data.length)
   res.send({"authed": true, "type": type, "results": data});
 })
 
@@ -651,13 +695,14 @@ app.post('/searchAll', async function(req, res){
     return;
   }
   var user = await utils.getUser(req.body.authtoken, db);
-    var ignore = req.query.ignore || false;
+  var ignore = req.query.ignore || false;
+  console.log("ignore", ignore)
   
   var songs = await ts.searchSong(req.body.query);
   var albums = await ts.searchAlbum(req.body.query);
   var artists = await ts.searchArtist(req.body.query);
   var relevancy = await ts.relevancy(req.body.query);
-  relevancy = relevancy.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  if(!ignore) relevancy = relevancy.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
   var firstArtist = -1;
   var firstAlbum = -1;
   var firstSong = -1;
@@ -686,10 +731,10 @@ app.post('/searchAll', async function(req, res){
   //singles.map(r => r.type = "song")
   //albums.map(r => r.type = "album")
   //artists.map(r => r.type = "artist")
-  singles = singles.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
-  songs = songs.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
-  albums = albums.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
-  artists = artists.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  if(!ignore) singles = singles.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  if(!ignore) songs = songs.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  if(!ignore) albums = albums.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  if(!ignore) artists = artists.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
 
   res.send({"authed": true, "relevancy": relevancy, "songs": songs, "singles": singles, "albums": albums, "artists": artists});
 });
@@ -722,15 +767,15 @@ app.post('/checklist/add', async function(req, res){
   res.send({"authed": true, "todo": todo, "success": true});
 })
 
-app.post('/bugs', async function(req, res){
-  if((await utils.checkAuth(req.body.authtoken, db)) == false){
-    res.send({"authed": false, "error": "Invalid authtoken", bugs: []});
-    return;
-  }
-
-  var bugs = await db.bugs.find().exec();
-  res.send({"authed": true, "bugs": bugs});
-});
+//app.post('/bugs', async function(req, res){
+//  if((await utils.checkAuth(req.body.authtoken, db)) == false){
+//    res.send({"authed": false, "error": "Invalid authtoken", bugs: []});
+//    return;
+//  }
+//
+//  var bugs = await db.bugs.find().exec();
+//  res.send({"authed": true, "bugs": bugs});
+//});
 
 app.post('/edit/:type/:id', async function(req, res){
   var u = await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "admin"}}).exec();
@@ -742,10 +787,10 @@ app.post('/edit/:type/:id', async function(req, res){
 
   //res.send({authed: true, "success": false});
   //return
-
   switch(req.params.type){
     case "song":
       var s = await db.songs.findOne({selector: {id: req.params.id}}).exec();
+      var old = JSON.parse(JSON.stringify(s));
       var bdy = {
         displayName: req.body.displayName == null ? s.displayName : req.body.displayName,
         albumDisplayName: req.body.albumDisplayName == null ? s.albumDisplayName : req.body.albumDisplayName,
@@ -759,10 +804,20 @@ app.post('/edit/:type/:id', async function(req, res){
       s = JSON.parse(JSON.stringify(s));
       s.type = "song";
       await ts.updateSong(s);
+      await db.changelog.upsert({
+        time: Date.now(),
+        user: u.loginName,
+        type: "song",
+        field: "all",
+        old: JSON.stringify(old),
+        new: JSON.stringify(bdy)
+      })
       break;
     case "album":
       var songs = await db.songs.find({selector: {albumId: req.params.id}}).exec();
       var s = await db.albums.findOne({selector: {id: req.params.id}}).exec();
+      var old = JSON.parse(JSON.stringify(s));
+      console.log("OLD", old.displayName, "NEW", req.body.displayName);
       var bdy = {
         //id: req.params.id,
         //artistId: req.body.artistId,
@@ -775,16 +830,32 @@ app.post('/edit/:type/:id', async function(req, res){
       console.log(req.body.songs);
       if(songs != null && req.body.songs != null) songs.forEach(async song => {
         if(!req.body.songs.includes(song.id)){
+          await db.changelog.upsert({
+            time: Date.now(),
+            user: u.loginName,
+            type: "song",
+            field: "all",
+            old: JSON.stringify(song),
+            new: "null"
+          })
           await song.remove();
         }
       });
-      console.log("New album data")
-      console.log(bdy);
+      await db.changelog.upsert({
+        time: Date.now(),
+        user: u.loginName,
+        type: "album",
+        field: "all",
+        old: JSON.stringify(old),
+        new: JSON.stringify(bdy)
+      })
       break;
     case "artist":
+      break;
       var albums = await db.albums.find({selector: {artistId: req.params.id}}).exec();
       var songs = await db.songs.find({selector: {artistId: req.params.id}}).exec();
       var s = await db.artists.findOne({selector: {id: req.params.id}}).exec();
+      var old = JSON.parse(JSON.stringify(s));
       var bdy = {
         displayName: req.body.displayName == null ? s.displayName : req.body.displayName,
         visibleTo: req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,
@@ -792,16 +863,64 @@ app.post('/edit/:type/:id', async function(req, res){
         albumCount: req.body.albumCount == null ? s.albumCount : req.body.albumCount
       }
       await s.incrementalPatch(bdy);
+      await db.changelog.upsert({
+        time: Date.now(),
+        user: u.loginName,
+        type: "artist",
+        field: "all",
+        old: JSON.stringify(old),
+        new: JSON.stringify(bdy)
+      })
       songs.forEach(async song => {
         if((req.body.songs != null) && !req.body.songs.includes(song.id)){
-          await song.delete();
+          await db.changelog.upsert({
+            time: Date.now(),
+            user: u.loginName,
+            type: "song",
+            field: "all",
+            old: JSON.stringify(song),
+            new: "null"
+          })
+          await song.remove();
         }
       });
       albums.forEach(async album => {
         if(req.body.albums != null && !req.body.albums.includes(album.id)){
-          await album.delete();
+          await db.changelog.upsert({
+            time: Date.now(),
+            user: u.loginName,
+            type: "album",
+            field: "all",
+            old: JSON.stringify(album),
+            new: "null"
+          })
+          await album.remove();
         }
       });
+      break;
+    case "user":
+      if(!u.roles.includes("sudoadmin")){
+        res.send({authed: true, "success": false})
+        return
+      }
+      var oldU = await db.auth.findOne({selector: {loginName: req.params.id}}).exec();
+      var old = JSON.parse(JSON.stringify(oldU));
+      var bdy = {
+        loginName: req.params.id,
+        displayName: req.body.displayName || old.displayName,
+        password: req.body.password || old.password,
+        authtoken: (req.body.invalidateAuthtoken || false) ? "" : old.authtoken,
+        roles: req.body.roles || old.roles
+      }
+      await db.changelog.upsert({
+        time: Date.now(),
+        user: u.loginName,
+        type: "usermod",
+        field: "all",
+        old: JSON.stringify(old),
+        new: JSON.stringify(bdy),
+      })
+      await db.auth.upsert(bdy);
       break;
   };
   res.send({authed: true, "success": true})
@@ -812,19 +931,17 @@ app.post('/edit/:type/:id/delete', async (req, res) => {
     res.send({authed: false, "error": "Not authorized", "success": false})
     return
   }
-
-  //res.send({authed: true, "success": false});
-  //return
+  var u = await utils.getUser(req.body.authtoken, db);
 
   switch(req.params.type){
     case "song":
-      (await db.songs.findOne({selector: {id: req.params.id}}).exec()).delete();
+      await utils.deleteSong(req.params.id, u, db, ts);
       break;
     case "album":
-      (await db.albums.findOne({selector: {id: req.params.id}}).exec()).delete();
+      await utils.deleteAlbum(req.params.id, u, db, ts);
       break;
     case "artist":
-      (await db.artists.findOne({selector: {id: req.params.id}}).exec()).delete();
+      await utils.deleteArtist(req.params.id, u, db, ts);
       break;
   };
   res.send({authed: true, "success": true})
@@ -835,15 +952,15 @@ io.on('connection', (socket) => {
 });
 
 async function main(){
-    server.listen(port, () => {
-        console.log(`App listening on port ${port}`)
-    })
+  server.listen(port, () => {
+    console.log(`App listening on port ${port}`)
+  })
 }
 
 try{
-    main()
+  main()
 }catch (e){
-    console.log("Error: "+e)
+  console.log("Error: "+e)
 }
 
 

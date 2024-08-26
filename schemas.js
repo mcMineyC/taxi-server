@@ -980,6 +980,162 @@ const scheme = {
         expires: 'int',
       },
     }
+  },
+  "9": {
+    songSchema: {
+      version: 0,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        albumId: 'string',
+        artistId: 'string',
+        displayName: 'string',
+        albumDisplayName: 'string',
+        artistDisplayName: 'string',
+        duration: 'double',
+        youtubeId: 'string',
+        imageUrl: 'string',
+        added: 'int',
+        addedBy: "string",
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        }
+      }
+    },
+    albumSchema: {
+      version: 0,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        artistId: 'string',
+        displayName: 'string',
+        artistDisplayName: 'string',
+        songCount: 'int',
+        imageUrl: 'string',
+        added: 'int',
+        addedBy: "string",
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        }
+      }
+    },
+    artistSchema: {
+      version: 0,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        displayName: 'string',
+        albumCount: 'int',
+        songCount: 'int',
+        imageUrl: 'string',
+        added: 'int',
+        addedBy: "string",
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        }
+      }
+    },
+    playlistSchema: {
+      version: 0,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        owner: 'string',
+        displayName: 'string',
+        public: 'boolean',
+        songs: {
+          type: 'array',
+          items: 'string',
+        },
+        songCount: 'int',
+        added: 'int',
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        }
+      }
+    },
+    authSchema: {
+      version: 0,
+      primaryKey: 'loginName',
+      type: 'object',
+      properties: {
+        loginName: {type: 'string', maxLength: 16},
+        displayName: 'string',
+        password: 'string',
+        authtoken: 'string',
+        roles: {
+          type: 'array',
+          items: 'string',
+        },
+      }
+    },
+    playedSchema: {
+      version: 0,
+      primaryKey: 'owner',
+      type: 'object',
+      properties: {
+        owner: {type: 'string', maxLength: 16},
+        songs: {type: 'array', items: 'string'},
+      }
+    },
+    favoriteSchema: {
+      version: 0,
+      primaryKey: 'owner',
+      type: 'object',
+      properties: {
+        owner: {type: 'string', maxLength: 16},
+        songs: {type: 'array', items: {type: 'string'}},
+        count: 'int',
+        visibleTo: {
+          type: 'array',
+          items: 'string'
+        },
+      }
+    },
+    checklistSchema: {
+      version: 0,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        name: 'string',
+        description: 'string',
+        requestedBy: 'string',
+        completed: 'boolean',
+      },
+    },
+    authtokenSchema: {
+      version: 0,
+      primaryKey: 'id',
+      type: 'object',
+      properties: {
+        id: {type: 'string', maxLength: 256},
+        token: 'string',
+        used: "int",
+        expires: 'int',
+      },
+    },
+    changelogSchema: {
+      version: 0,
+      primaryKey: 'time',
+      type: "object",
+      properties: {
+        time: {type: "int"},
+        user: "string",
+        type: "string",
+        field: "string",
+        old: "string",
+        new: "string",
+      },
+    }
   }
 }
 
@@ -1131,25 +1287,12 @@ export default {
         //},
         schema: scam.checklistSchema,
       },
-      bugnana: {
-        //migrationStrategies: {
-        //  4: (doc) => doc,
-        //  5: (doc) => doc,
-        //  6: (doc) => {
-        //    if (doc.fixed === undefined) {
-        //      doc.fixed = false;
-        //    }
-        //    if(typeof doc.id == "string"){
-        //      doc.id = parseInt(doc.id);
-        //    }
-        //    return doc; 
-        //  },
-        //},
-        schema: scam.buggySchema,
-      },
       authtokens: {
         schema: scam.authtokenSchema,
-      }
+      },
+      changelog: {
+        schema: scam.changelogSchema
+      },
     });
   },
 
@@ -1200,6 +1343,17 @@ export default {
       ],
       "default_sorting_field": "added",
       "default_sorting_order": "desc",
+    },
+    {
+      "name": "taxi-playlists",
+      "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "displayName", "type": "string", "facet": true},
+        {"name": "owner", "type": "string", "facet": true},
+        {"name": "songCount", "type": "int32"},
+        {"name": "songIds", "type": "string[]"},
+        {"name": "visibleTo", "type": "string[]"},
+      ]
     },
     {
       "name": "taxi-relevance",

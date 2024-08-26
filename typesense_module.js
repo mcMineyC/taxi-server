@@ -145,5 +145,17 @@ export default {
     await client.collections('taxi-artists').documents().import(artists, {"action": "upsert"});
     artists.forEach(x => x.type = 'artist');
     await client.collections('taxi-relevance').documents().import(artists, {"action": "upsert"});
+  },
+  deleteSong: async (id) => {
+    await client.collections('taxi-songs').documents(id).delete();
+    await client.collections('taxi-relevance').documents(id).delete();
+  },
+  deleteAlbum: async (id) => {
+    await client.collections('taxi-albums').documents(id).delete();
+    await client.collections('taxi-relevance').documents(id).delete();
+  },
+  deleteArtist: async (id) => {
+    await client.collections('taxi-artists').documents(id).delete();
+    await client.collections('taxi-relevance').documents(id).delete();
   }
 }

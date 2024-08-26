@@ -66,10 +66,74 @@ function hash(string){
     return crypto.createHash('sha256').update(string).digest('hex');
 }
 
+async function deleteSong(id, user, db, ts){
+  var song = await db.songs.findOne({selector: {id: id}}).exec()
+  if(song == null) return
+  await db.changelog.upsert({
+    time: Date.now(),
+    user: user,
+    type: "song",
+    field: "all",
+    old: JSON.stringify(song),
+    new: "null"
+  })
+  var album = await db.albums.findOne({selector: {id: song.albumId}}).exec();
+  if(album.songCount == 1) await deleteAlbum(album.id, user, db)
+  var artist = await db.artists.findOne({selector: {id: song.artistId}}).exec();
+  if(artist.songCount == 1 && artist.albumCount == 1) await deleteArtist(artist.id, user, db)
+  try{
+    await ts.deleteSong(song.id);
+  }catch(e){}
+  try{
+    await song.remove();
+  }catch(e){}
+}
+
+async function deleteAlbum(id, user, db, ts){
+  var album = await db.albums.findOne({selector: {id: id}}).exec()
+  if(album == null) return
+  await db.changelog.upsert({
+    time: Date.now(),
+    user: user,
+    type: "album",
+    field: "all",
+    old: JSON.stringify(album),
+    new: "null"
+  })
+  try{
+    await ts.deleteAlbum(album.id);
+  }catch(e){}
+  try{
+    await album.delete();
+  }catch(e){}
+}
+
+async function deleteArtist(id, user, db, ts){
+  var artist = await db.artists.findOne({selector: {id: id}}).exec()
+  if(artist == null) return
+  await db.changelog.upsert({
+    time: Date.now(),
+    user: user,
+    type: "artist",
+    field: "all",
+    old: JSON.stringify(artist),
+    new: "null"
+  })
+  try{
+    await ts.deleteArtist(artist.id);
+  }catch(e){}
+  try{
+    await artist.delete();
+  }catch(e){}
+}
+
 export default {
   hash: hash,
   getArtistImageUrl: getArtistImageUrl,
   checkAuth: checkAuth,
   getUser: getUser,
   addToRecentlyPlayed: addToRecentlyPlayed,
+  deleteSong: deleteSong,
+  deleteAlbum: deleteAlbum,
+  deleteArtist: deleteArtist
 }
