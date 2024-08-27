@@ -104,7 +104,7 @@ async function deleteAlbum(id, user, db, ts){
     await ts.deleteAlbum(album.id);
   }catch(e){}
   try{
-    await album.delete();
+    await album.remove();
   }catch(e){}
 }
 
@@ -123,7 +123,7 @@ async function deleteArtist(id, user, db, ts){
     await ts.deleteArtist(artist.id);
   }catch(e){}
   try{
-    await artist.delete();
+    await artist.remove();
   }catch(e){}
 }
 

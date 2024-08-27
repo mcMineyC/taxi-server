@@ -14,6 +14,7 @@ const http = require('http');
 const { Server } = require("socket.io");
 
 import crypto from 'crypto';
+const { waitUntil } = require('async-wait-until');
 
 import db from './db.js';
 import ts from './typesense_module.js';
@@ -926,6 +927,75 @@ app.post('/edit/:type/:id', async function(req, res){
   res.send({authed: true, "success": true})
 });
 
+app.post('/edit/:type/:id/visibility', async (req, res) => {
+  if((await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "admin"}}).exec()) == null){
+    res.send({authed: false, "error": "Not authorized", "success": false})
+    return
+  }
+  var u = await utils.getUser(req.body.authtoken, db);
+  var data = [];
+  var ne = {};
+  if(req.params.type != "song" && req.params.type != "album" && req.params.type != "artist"){
+    res.send({authed: true, "success": false, "error": "Invalid type"});
+    return
+  }
+  switch(req.params.type){
+    case "song":
+      data = await db.songs.find({selector: {id: req.params.id}}).exec();
+      break;
+    case "album":
+      var songs = await db.songs.find({selector: {albumId: req.params.id}}).exec();
+      var da    = await db.albums.find({selector: {id: req.params.id}}).exec();
+      songs.forEach(s => {s.type = "song"; data.push(s)});
+      da.forEach(a => {a.type = "album"; data.push(a)});
+      break;
+    case "artist":
+      var songs  = await db.songs.find({selector: {artistId: req.params.id}}).exec();
+      var albums = await db.albums.find({selector: {artistId: req.params.id}}).exec();
+      var da     = await db.artists.find({selector: {id: req.params.id}}).exec();
+      songs.forEach(s => {s.type = "song"; data.push(s)});
+      albums.forEach(a => {a.type = "album"; data.push(a)});
+      da.forEach(a => {a.type = "artist"; data.push(a)});
+      break;
+  };
+  if(data == null || data.length == 0) {
+    res.send({authed: true, "success": false})
+    return
+  }
+  var counter = 0;
+  data.forEach(async (d) => {
+    var n = JSON.parse(JSON.stringify(d));
+    n.visibleTo = req.body.visibleTo;
+    ne = n;
+    await db.changelog.upsert({
+      time: Date.now(),
+      user: u,
+      type: req.params.type,
+      field: "visibility",
+      old: JSON.stringify(d),
+      new: JSON.stringify(n)
+    });
+    await d.patch({visibleTo: req.body.visibleTo});
+    switch(d.type){
+      case "song":
+        await ts.updateSong(n);
+        break;
+      case "album":
+        await ts.updateAlbum(n);
+        break;
+      case "artist":
+        await ts.updateArtist(n);
+        break;
+    }
+    counter++;
+    console.log("Finished updating visibility for", d.type, ":", d.displayName, req.body.visibleTo)
+  });
+  await waitUntil(() => {return counter == data.length}, {timeout: Number.POSITIVE_INFINITY});
+  console.log("Finished updating visibility for", data.length, "elements");
+  res.send({authed: true, "success": true, "data": ne})
+
+});
+
 app.post('/edit/:type/:id/delete', async (req, res) => {
   if((await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "admin"}}).exec()) == null){
     res.send({authed: false, "error": "Not authorized", "success": false})
@@ -945,6 +1015,15 @@ app.post('/edit/:type/:id/delete', async (req, res) => {
       break;
   };
   res.send({authed: true, "success": true})
+})
+
+app.post('/info/usernames', async function(req, res){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
+    res.send({"authed": false, "error": "Invalid authtoken", "success": false})
+    return
+  }
+  var users = await db.auth.find().exec();
+  res.send({authed: true, "usernames": users.map(u => u.loginName)})
 })
 
 io.on('connection', (socket) => {
