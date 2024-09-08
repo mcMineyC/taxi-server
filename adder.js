@@ -2,19 +2,19 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-const path = require('path');
-import {fileURLToPath} from 'url';
-const __filename = fileURLToPath(import.meta.url);
-
 import utils from "./utils.js";
 
 const SpottyDL = require('spottydl-better');
-const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
 const clientID = "0a65ebdec6ec4983870a7d2f51af2aa1";
 const secretKey = "22714014e04f46cebad7e03764beeac8";
 const { waitUntil } = require('async-wait-until');
 
-function adderConnection(socket, db, ts){
+import YTMusic from "ytmusic-api";
+
+const yt = new YTMusic()
+await yt.initialize()
+
+function adderConnection(socket, db, ts, spotifyApi){
     console.log('a user connected');
     socket.emit("authprompt", "3141592653589793238464")
     socket.on('disconnect', () => {
@@ -50,20 +50,16 @@ function adderConnection(socket, db, ts){
                 socket.emit("message", {"type": "error", "success": false, "error": "No query provided", "authorized": true})
                 return
             }
-            const api = SpotifyApi.withClientCredentials(
-                clientID,
-                secretKey
-            );
             var page = 0
             if(typeof(msg.page) == "number"){
                 page = msg.page
             }
             var items = []
             if(msg.mediaType == "all"){
-                const trackItems = await api.search(msg.query, "track", undefined, 50, page);
+                const trackItems = await spotifyApi.search(msg.query, "track", undefined, 50, page);
                 items = trackItems.tracks.items
             }else{
-                items = await api.search(msg.query, msg.mediaType, undefined, 50, page);
+                items = await spotifyApi.search(msg.query, msg.mediaType, undefined, 50, page);
                 items = items[msg.mediaType+"s"].items
             }
 
@@ -111,34 +107,50 @@ function adderConnection(socket, db, ts){
               switch(x.type){
                 case "song":
                   console.log("Getting song: "+url);
-                  var track = await SpottyDL.getTrack(url);
-                  console.log("Got track: "+track.title);
+                  var track = await spotifyApi.tracks.get(x.id);
+                  var youtubeInfo = await yt.searchSongs(`${track.name} ${track.artists[0].name}`);
+                  console.log("Got track: "+track.name);
                   result = {
-                    title: track.album,
-                    album: track.album,
-                    artist: track.artist,
-                    albumCoverURL: track.albumCoverURL,
+                    title: track.album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                    album: track.album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                    artist: track.artists[0].name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                    albumCoverURL: track.album.images[0].url,
                     songs: [{
-                      title: track.title,
-                      id: track.id,
-                      trackNumber: track.trackNumber
+                      title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                      id: typeof(youtubeInfo[0].videoId) == "undefined" ? youtubeInfo[0].browseId : youtubeInfo[0].videoId || "",
+                      trackNumber: track.track_number
                     }],
                   }
                   result.type = "song";
                   break;
                 case "album":
                   console.log("Getting album: "+url);
-                  result = await SpottyDL.getAlbum(url);
-                  // if(typeof(result.playlistVideoRenderer) != "undefined") delete result.playlistVideoRenderer  //doesn't seem to do anything, probably a bug in the library
+                  var album = await spotifyApi.albums.get(x.id);
+                  var youtubeInfo = await yt.searchAlbums(`${album.name} ${album.artists[0].name}`);
+                  console.log(JSON.stringify(youtubeInfo, null, 2));
+                  if(youtubeInfo.length == 0) return;
+                  var youtubeAlbum = await yt.getAlbum(youtubeInfo[0].albumId);
+                  console.log(JSON.stringify(youtubeInfo, null, 2));
+                  console.log("Got album: "+youtubeAlbum.name);
+                  console.log(JSON.stringify(youtubeAlbum, null, 2));
+                  result = ({
+                    title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                    album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                    artist: album.artists[0].name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                    albumCoverURL: album.images[0].url,
+                    songs: youtubeAlbum.songs.map((x, index) => ({
+                      title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                      id: typeof(x.videoId) == "undefined" ? x.browseId : x.videoId,
+                      trackNumber: index
+                    })),
+                  });
                   result.type = "album";
-                  result.songs = result.tracks;
-                  delete result.tracks
                   break;
                 case "playlist":
-                  result = await SpottyDL.getPlaylist(url);
-                  result.type = "playlist";
-                  result.songs = result.tracks;
-                  delete result.tracks;
+                  //result = await SpottyDL.getPlaylist(url);
+                  //result.type = "playlist";
+                  //result.songs = result.tracks;
+                  //delete result.tracks;
                   break;
                 default:
                   console.log(`${x.type} Not implemented`);
@@ -155,6 +167,7 @@ function adderConnection(socket, db, ts){
               songs: x.songs
             }));
             console.log(`Sending ${found.length} results.`);
+            console.log(JSON.stringify(found, null, 0));
             socket.emit("findresults", {"results": found});
         }
         else if(msg.source == "youtube"){
@@ -168,6 +181,7 @@ function adderConnection(socket, db, ts){
             socket.emit("message", {"type": "auth", "success": false, "error": "Invalid authtoken", "authorized": false})
             return
         }
+      console.log("Into add message")
         if(typeof(msg) == "string"){
             msg = JSON.parse(msg);
         }
@@ -176,6 +190,7 @@ function adderConnection(socket, db, ts){
         var albums = [];
         var albumKeys = [];
         var songs = [];
+        var songKeys = [];
         var iterated = 0;
         var addedArtists = 0;
         var addedAlbums = 0;
@@ -185,187 +200,204 @@ function adderConnection(socket, db, ts){
         albums = await db.albums.find().exec();
         artistKeys = artists.map((e) => e.id);
         albumKeys = albums.map((e) => e.id);
+        songKeys = songs.map((e) => e.id);
         songs = JSON.parse(JSON.stringify(songs));
         artists = JSON.parse(JSON.stringify(artists));
         albums = JSON.parse(JSON.stringify(albums));
-        //songs = songs.map((e) => ({
-        //  id: e.id,
-        //  albumId: e.albumId,
-        //  artistId: e.artistId,
-        //  displayName: e.displayName,
-        //  albumDisplayName: e.albumDisplayName,
-        //  artistDisplayName: e.artistDisplayName,
-        //  duration: e.duration,
-        //  youtubeId: e.youtubeId,
-        //  imageUrl: e.imageUrl,
-        //  added: e.added,
-        //}))
-        //albums = albums.map((e) => ({
-        //  id: e.id,
-        //  artistId: e.artistId,
-        //  displayName: e.displayName,
-        //  artistDisplayName: e.artistDisplayName,
-        //  songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
-        //  imageUrl: e.imageUrl,
-        //  added: e.added,
-        //}));
-        //artists = artists.map((e) => ({
-        //  id: e.id,
-        //  displayName: e.displayName,
-        //  albumCount: e.albumCount == null || e.albumCount !== e.albumCount ? 0 : e.albumCount,
-        //  songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
-        //  imageUrl: e.imageUrl,
-        //  added: e.added,
-        //}))
-        msg.items.forEach(async (x) => {
-          //console.log("artist: "+JSON.stringify(artistKeys, null, 2));
-          //console.log("album: "+JSON.stringify(albumKeys, null, 2));
-          //console.log("");
+        var modifiedSongs = {};
+        var modifiedAlbums = {};
+        var modifiedArtists = {};
+        msg.items.forEach((x) => {
+          var oldSongsSet = new Set(songs.map((i) => i.id));
           var artist = (x.type == "song" || x.type == "album") ? x.artist.split(",")[0] : "";
           switch(x.type){
             case "song":
               var artistKey = utils.hash(artist);
               var albumKey = artistKey + "_" + utils.hash(x.name);
-              console.log(x.songs[0]["title"]);
-              songs.push({
-                id: albumKey + "_" + utils.hash(x.songs[0].id),
+              var songKey = albumKey + "_" + utils.hash(x.songs[0].title);
+              var newSong = false;
+              if(songKeys.indexOf(songKey) != -1 && modifiedSongs[songKey] == undefined){
+                modifiedSongs[songKey] = songs[songKeys.indexOf(songKey)];
+                console.log("song didn't exist in array")
+              }
+              if(modifiedSongs[songKey] == undefined){
+                newSong = true;
+              }
+              if(albumKeys.indexOf(albumKey) != -1 && modifiedAlbums[albumKey] == undefined){
+                modifiedAlbums[albumKey] = albums[albumKeys.indexOf(albumKey)];
+                console.log("album didn't exist in array")
+              }
+              if(artistKeys.indexOf(artistKey) != -1 && modifiedArtists[artistKey] == undefined){
+                modifiedArtists[artistKey] = artists[artistKeys.indexOf(artistKey)];
+                console.log("artist didn't exist in array")
+              }
+              var newAlbum = false;
+              if(modifiedAlbums[albumKey] == undefined){
+                modifiedAlbums[albumKey] = {
+                  id: albumKey,
+                  artistId: artistKey,
+                  displayName: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  artistDisplayName: artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  songCount: 1,
+                  imageUrl: x.imageUrl,
+                  added: Date.now(),
+                  visibleTo: ["all"],
+                  addedBy: user,
+                };
+                newAlbum = true;
+                addedAlbums++;
+              }else{
+                if(newSong) modifiedAlbums[albumKey].songCount++;
+              }
+              if(modifiedArtists[artistKey] == undefined){
+                modifiedArtists[artistKey] = {
+                  id: artistKey,
+                  displayName: artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  songCount: 1,
+                  albumCount: newAlbum ? 1 : -1,
+                  imageUrl: "",
+                  added: Date.now(),
+                  visibleTo: ["all"],
+                  addedBy: user,
+                };
+                addedArtists++;
+              }else{
+                if(newSong) modifiedArtists[artistKey].songCount++;
+                if(newAlbum) modifiedArtists[artistKey].albumCount++;
+              }
+              modifiedSongs[songKey] = {
+                id: songKey,
                 albumId: albumKey,
                 artistId: artistKey,
-                displayName: x.songs[0].title,
-                albumDisplayName: x.name,
-                artistDisplayName: artist,
+                displayName: x.songs[0].title.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                albumDisplayName: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                artistDisplayName: artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
                 duration: 0,
                 youtubeId: x.songs[0].id,
                 imageUrl: x.imageUrl,
                 added: Date.now(),
                 visibleTo: ["all"],
                 addedBy: user,
-              });
-              addedSongs++;
-              if(albumKeys.indexOf(albumKey) == -1){
-                albumKeys.push(albumKey);
-                albums.push({
-                  id: albumKey,
-                  artistId: artistKey,
-                  displayName: x.name,
-                  artistDisplayName: artist,
-                  songCount: 1,
-                  imageUrl: x.imageUrl,
-                  added: Date.now(),
-                  visibleTo: ["all"],
-                  addedBy: user,
-                });
-                addedAlbums++;
-              }else{
-                albums[albumKeys.indexOf(albumKey)].songCount++;
-              }
-              if(artistKeys.indexOf(artistKey) == -1){
-                artistKeys.push(artistKey);
-                artists.push({
-                  id: artistKey,
-                  displayName: artist,
-                  songCount: 1,
-                  albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
-                  imageUrl: "",
-                  added: Date.now(),
-                  visibleTo: ["all"],
-                  addedBy: user,
-                });
-                addedArtists++;
-              }else{
-                artists[artistKeys.indexOf(artistKey)].songCount++;
-                artists[artistKeys.indexOf(artistKey)].albumCount += (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
-              }
+              };
+              if(newSong) addedSongs++;
               break;
             case "album":
               var artistKey = utils.hash(artist);
               var albumKey = artistKey + "_" + utils.hash(x.name);
-              x.songs.forEach((y) => {
-                songs.push({
-                  id: albumKey + "_" + utils.hash(y.id),
-                  albumId: albumKey,
-                  artistId: artistKey,
-                  displayName: y.title,
-                  albumDisplayName: x.name,
-                  artistDisplayName: artist,
-                  duration: 0,
-                  youtubeId: y.id,
-                  imageUrl: x.imageUrl,
-                  added: Date.now(),
-                  visibleTo: ["all"],
-                  addedBy: user,
-                });
-                addedSongs += x.songs.length;
+              if(albumKeys.indexOf(albumKey) != -1 && modifiedAlbums[albumKey] == undefined){
+                modifiedAlbums[albumKey] = albums[albumKeys.indexOf(albumKey)];
+                console.log("album didn't exist in array")
+              }
+              if(artistKeys.indexOf(artistKey) != -1 && modifiedArtists[artistKey] == undefined){
+                modifiedArtists[artistKey] = artists[artistKeys.indexOf(artistKey)];
+                console.log("artist didn't exist in array")
+              }
+              var newAlbum = false;
+              var newSongCount = 0;
+              x.songs.forEach((song) => {
+                var songKey = albumKey + "_" + utils.hash(song.title);
+                if(songKeys.indexOf(songKey) == -1) newSongCount++;
               });
-              if(albumKeys.indexOf(albumKey) == -1){
-                albumKeys.push(albumKey);
-                albums.push({
+              if(modifiedAlbums[albumKey] == undefined){
+                modifiedAlbums[albumKey] = {
                   id: albumKey,
                   artistId: artistKey,
-                  displayName: x.name,
-                  artistDisplayName: artist,
-                  songCount: x.songs.length,
+                  displayName: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  artistDisplayName: artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  songCount: newSongCount,
                   imageUrl: x.imageUrl,
                   added: Date.now(),
                   visibleTo: ["all"],
                   addedBy: user,
-                });
+                };
+                newAlbum = true;
                 addedAlbums++;
               }else{
-                albums[albumKeys.indexOf(albumKey)].songCount += x.songs.length;
+                if(newSong) modifiedAlbums[albumKey].songCount += newSongCount;
               }
-              if(artistKeys.indexOf(artistKey) == -1){
-                artistKeys.push(artistKey);
-                artists.push({
+              if(modifiedArtists[artistKey] == undefined){
+                modifiedArtists[artistKey] = {
                   id: artistKey,
-                  displayName: artist,
-                  songCount: x.songs.length,
-                  albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
+                  displayName: artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  songCount: newSongCount,
+                  albumCount: newAlbum ? 1 : -1,
                   imageUrl: "",
                   added: Date.now(),
                   visibleTo: ["all"],
                   addedBy: user,
-                });
+                };
                 addedArtists++;
               }else{
-                artists[artistKeys.indexOf(artistKey)].songCount += x.songs.length
-                artists[artistKeys.indexOf(artistKey)].albumCount += (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
+                if(newAlbum) modifiedArtists[artistKey].albumCount++;
+                modifiedArtists[artistKey].songCount += newSongCount;
               }
+              console.log("Adding songs:", x.songs.length);
+              x.songs.forEach((song) => {
+                console.log(song.title);
+                var songKey = albumKey + "_" + utils.hash(song.title);
+                modifiedSongs[songKey] = {
+                  id: songKey,
+                  albumId: albumKey,
+                  artistId: artistKey,
+                  displayName: song.title.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  albumDisplayName: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  artistDisplayName: artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+                  duration: 0,
+                  youtubeId: x.songs[0].id,
+                  imageUrl: x.imageUrl,
+                  added: Date.now(),
+                  visibleTo: ["all"],
+                  addedBy: user,
+                };
+              });
+              addedSongs += newSongCount;
               break;
           }
-          // console.log("artist "+artist+": "+JSON.stringify(artistKeys, null, 2));
-          // console.log("album: "+JSON.stringify(albumKeys, null, 2));
           console.log("____________________________");
-          iterated++;
+          //iterated++;
         });
-        await waitUntil(() => {return iterated == msg.items.length}, {timeout: Number.POSITIVE_INFINITY});
+        //await waitUntil(() => {return iterated == msg.items.length}, {timeout: Number.POSITIVE_INFINITY});
         console.log(`Adding ${songs.length} songs, ${albums.length} albums and ${artists.length} artists.`);
         iterated = 0;
-        artists.forEach(async (x) => {
+        var modifiedSongsList = Object.values(modifiedSongs);
+        var modifiedAlbumsList = Object.values(modifiedAlbums);
+        var modifiedArtistsList = Object.values(modifiedArtists);
+        modifiedArtistsList.forEach(async (x) => {
           if(x.imageUrl == ""){
             x.imageUrl = await utils.getArtistImageUrl(x.displayName.split(",")[0], "https://commons.wikimedia.org/wiki/File:Apple_Music_Icon.svg");
           }
           iterated++;
         });
-        await waitUntil(() => {return iterated == artists.length}, {timeout: Number.POSITIVE_INFINITY});
+        await waitUntil(() => {return iterated == modifiedArtistsList.length}, {timeout: Number.POSITIVE_INFINITY});
+        console.log(JSON.stringify(modifiedArtists, null, 2));
+        console.log("Albums")
+        console.log(JSON.stringify(modifiedAlbums, null, 2));
+        console.log("Songs")
+        console.log(JSON.stringify(modifiedSongs, null, 2));
         // var json = JSON.stringify({"songs": songs, "albums": albums, "artists": artists});
         // fs.writeFileSync("data.json", json);
-        albums.forEach((e)=>{
-          console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
-        });
-        artists.forEach((e)=>{
-          console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
-          console.log("Albumcount for", e.displayName, e.albumCount, typeof e.albumCount);
-        })
-        await db.artists.bulkUpsert(artists);
-        await db.albums.bulkUpsert(albums);
-        await db.songs.bulkUpsert(songs);
-        await ts.updateSongs(songs);
-        await ts.updateAlbums(albums);
-        await ts.updateArtists(artists);
+        //albums.forEach((e)=>{
+        //  console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
+        //});
+        //artists.forEach((e)=>{
+        //  console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
+        //  console.log("Albumcount for", e.displayName, e.albumCount, typeof e.albumCount);
+        //})
+        console.log("DB upsert")
+        await db.artists.bulkUpsert(modifiedArtistsList);
+        await db.albums.bulkUpsert(modifiedAlbumsList);
+        await db.songs.bulkUpsert(modifiedSongsList);
+        console.log("Typesense update")
+        await ts.updateSongs(modifiedSongsList);
+        await ts.updateAlbums(modifiedAlbumsList);
+        await ts.updateArtists(modifiedArtistsList);
         console.log("Finished adding songs, albums and artists.");
         socket.emit("addresult", {"success": true, "count": {"artists": addedArtists, "albums": addedAlbums, "songs": addedSongs}});
     });
 }
 
-export default adderConnection;
+export default {
+  adderConnection: adderConnection,
+  clientId: clientID,
+  clientSecret: secretKey,
+};

@@ -14,13 +14,20 @@ console.log("Added collections");
 //       console.group("Updated mileys image");
 //     }
 // }
-var albums = await db.albums.find().exec();
-for (const album of albums){
-  console.log(album.displayName);
-  console.log("\thas", album.songCount, "songs");
-  console.log("\twas added by", album.addedBy);
-  console.log("\tis visible to", JSON.stringify(album.visibleTo));
-}
+//var albums = await db.songs.find().exec();
+//console.table(JSON.parse(JSON.stringify(albums)));
+//console.table(albums.map((album) => 
+//  ({
+//    displayName: album.displayName,
+//    addedBy: album.addedBy,
+//  })
+//));
+//for (const album of albums){
+//  console.log(album.displayName);
+//  //console.log("\thas", album.songCount, "songs");
+//  console.log("\twas added by", album.addedBy);
+//  //console.log("\tis visible to", JSON.stringify(album.visibleTo));
+//}
 // for(const album of albums){
 //   if(album.displayName.includes("Chipbreak")){
 //     await album.remove();
@@ -32,4 +39,15 @@ for (const album of albums){
 //for (const bug of bugs) {
 //  console.log(bug.id, ":", bug.displayName);
 //}
+//var played = await db.played.find({selector: {"owner": "jedi"}}).exec();
+//console.log(JSON.stringify(played, null, 2));
+var uu = await db.auth.findOne({selector: {"loginName": "testguy"}}).exec();
+console.log(JSON.stringify(uu, null, 2));
+//var testGuyUser = {
+//  loginName: "testguy",
+//  displayName: "Test Account",
+//  password: "test1234",
+//  authtoken: "1234567890",
+//  roles: ["view", "dj", "admin", "add", "recruiter"]
+//};
 await db.destroy();

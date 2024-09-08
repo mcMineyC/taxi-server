@@ -16,9 +16,11 @@ const { Server } = require("socket.io");
 import crypto from 'crypto';
 const { waitUntil } = require('async-wait-until');
 
+//import Spotify from './spotify.js';
+const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
 import db from './db.js';
 import ts from './typesense_module.js';
-import adderConnection from './adder.js';
+import adder from './adder.js';
 import utils from './utils.js';
 console.log("Added collections");
 
@@ -32,6 +34,11 @@ const io = new Server(server, {
 const port = 3000;
 app.use(cors());
 app.use(bodyParser.json({limit: '50mb'}));
+//const spotify = new Spotify(adder.clientId, adder.clientSecret);
+const api = SpotifyApi.withClientCredentials(
+  adder.clientId,
+  adder.clientSecret,
+);
 
 // app.use('/',express.static(path.join(__dirname, 'static')));
 
@@ -68,21 +75,22 @@ app.post('/signup', async function (req, res) {
   var roles = ["view", "add", "dj", "admin", "recruiter"];
   if(u.roles.includes("sudoadmin") && req.body.trusted) roles.push("sudoadmin");
 
+  var newUser = {
+    loginName: (req.body.name.substring(0,1).lowercase() + req.body.name.substring(1)),
+    displayName: req.body.name,
+    password: "",
+    authtoken: "",
+    roles: roles,
+  };
   await db.changelog.upsert({
     time: Date.now(),
     user: u.loginName,
     type: "signup",
     field: "all",
     old: null,
-    new: req.body.name
+    new: newUser, 
   });
-  await db.auth.upsert({
-    loginName: (req.body.name.substring(0,1).upperCase() + req.body.name.substring(1)),
-    displayName: req.body.name,
-    password: "",
-    authtoken: "",
-    roles: roles,
-  });
+  await db.auth.upsert(newUser);
   res.send({authed: true, success: true});
 })
 
@@ -120,7 +128,7 @@ app.post('/auth', async function (req, res) {
     if(authed == false){
         console.log("Failed to authorize user "+req.body.username)
     }
-    res.send({"authorized": authed, "authtoken": authtoken, "username": username})
+    res.send({"authorized": authed, "authtoken": authtoken, "username": username, "roles": result.roles})
 });
 
 app.post('/authtoken', async function (req, res) {
@@ -139,7 +147,7 @@ app.post('/authtoken', async function (req, res) {
         return Promise.resolve(true);
     })();
     
-    res.send({"authorized": authed, "authtoken": authtoken, "username": username})
+    res.send({"authorized": authed, "authtoken": authtoken, "username": username, "roles": result.roles})
 })
 
 app.post('/username', async function (req, res) {
@@ -156,6 +164,72 @@ app.post('/username', async function (req, res) {
     })();
     
     res.send({"authorized": authed, "authtoken": authtoken, "username": username})
+})
+
+app.post('/info/users/:username/roles', async function (req, res) {
+  var u = await db.auth.findOne({
+    selector: {
+      authtoken: req.body.authtoken
+    }
+  }).exec();
+  if(u == null || (u.roles.includes("sudoadmin") == false && req.params.username != u.loginName)){
+    res.send({authed: false, "error": "Not authorized", "success": false, roles: []});
+    return;
+  }
+  var queried = await db.auth.findOne({selector: {loginName: req.params.username}}).exec();
+  if(queried == null){
+    res.send({authed: true, "error": "User not found", "success": false, roles: []});
+    return;
+  }
+  res.send({authed: true, "success": true, roles: queried.roles})
+})
+
+app.post('/info/users', async function (req, res) {
+  var u = await db.auth.findOne({selector: {"authtoken": req.body.authtoken}}).exec();
+  if(u == null){
+    res.send({authed: false, "error": "Not authorized", "success": false, users: []});
+    return;
+  }
+  var results = [];
+  var dbResults = await db.auth.find().exec();
+  if(u.roles.includes("sudoadmin")){
+    results = dbResults.map((U) => ({
+      loginName: U.loginName,
+      displayName: U.displayName,
+      authtoken: U.authtoken,
+      password: U.password,
+      roles: U.roles
+    }));
+  }else{
+    results = dbResults.map((U) => ({
+      loginName: U.loginName,
+      displayName: U.displayName,
+      roles: U.roles,
+    }));
+  }
+  res.send({authed: true, "success": true, users: results});
+})
+
+app.post('/info/users/:username', async function (req, res) {
+    var u = await db.auth.findOne({selector: {"authtoken": req.body.authtoken}}).exec();
+    if(u == null || (u.roles.includes("sudoadmin") == false && req.params.username != u.loginName)){
+        res.send({"authed": false, "user": {}});
+        return
+    }
+    var sudoadmin = u.roles.includes("sudoadmin");
+    var queried = await db.auth.findOne({selector: {loginName: req.params.username}}).exec();
+    if(queried == null){
+        res.send({"authed": true, "success": false, "user": {}});
+        return
+    }
+    res.send({"authed": true, "user": {
+      type: sudoadmin ? "full" : "incomplete",
+      loginName: queried.loginName,
+      displayName: queried.displayName,
+      password: sudoadmin ? queried.password : "",
+      authtoken: sudoadmin ? queried.authtoken : "",
+      roles: queried.roles,
+    }});
 })
 
 app.post('/info/albums', async function (req, res) {
@@ -1002,18 +1076,24 @@ app.post('/edit/:type/:id/delete', async (req, res) => {
     return
   }
   var u = await utils.getUser(req.body.authtoken, db);
+  var deleteSongs = req.query.deleteSongs || false;
+  var deleteAlbums = req.query.deleteAlbums || false;
 
   switch(req.params.type){
     case "song":
       await utils.deleteSong(req.params.id, u, db, ts);
       break;
     case "album":
-      await utils.deleteAlbum(req.params.id, u, db, ts);
+      await utils.deleteAlbum(req.params.id, u, deleteSongs, db, ts);
       break;
     case "artist":
-      await utils.deleteArtist(req.params.id, u, db, ts);
+      await utils.deleteArtist(req.params.id, u, deleteSongs, deleteAlbums, db, ts);
+      break;
+    default:
+      console.log("Unknown type", req.params.type);
       break;
   };
+  console.log("Successfully failed")
   res.send({authed: true, "success": true})
 })
 
@@ -1027,7 +1107,7 @@ app.post('/info/usernames', async function(req, res){
 })
 
 io.on('connection', (socket) => {
-  adderConnection(socket, db, ts);
+  adder.adderConnection(socket, db, ts, api);
 });
 
 async function main(){
@@ -1041,11 +1121,3 @@ try{
 }catch (e){
   console.log("Error: "+e)
 }
-
-
-// This is just all the random
-// functions that I need to move
-// to seperate files but haven't
-// yet because modules and requiring
-// is annoying so I probably
-// won't move them anytime soon

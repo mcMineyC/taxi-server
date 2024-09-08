@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const util = require('util');
 import crypto from 'crypto';
 const exec = util.promisify(require('child_process').exec);
+const { waitUntil } = require('async-wait-until');
 
 async function getArtistImageUrl(name, backupImageUrl){
   console.log("Getting image for "+name)
@@ -45,7 +46,7 @@ async function getUser(authtoken, db){
 
 async function addToRecentlyPlayed(user, songId, db){
     var recent = await db.played.findOne({selector: {"owner": user}}).exec();
-    if(recent == null && recent.songs[recent.songs.length-1] == songId) return;
+    if(recent != null && recent.songs[recent.songs.length-1] == songId) return;
     console.log("Adding to recent: ",user, songId)
     var newRecent = {owner: user, songs: []};
     if(recent == null){
@@ -89,42 +90,64 @@ async function deleteSong(id, user, db, ts){
   }catch(e){}
 }
 
-async function deleteAlbum(id, user, db, ts){
+async function deleteAlbum(id, user, deleteSongs, db, ts){
   var album = await db.albums.findOne({selector: {id: id}}).exec()
   if(album == null) return
-  await db.changelog.upsert({
-    time: Date.now(),
-    user: user,
-    type: "album",
-    field: "all",
-    old: JSON.stringify(album),
-    new: "null"
-  })
-  try{
-    await ts.deleteAlbum(album.id);
-  }catch(e){}
-  try{
-    await album.remove();
-  }catch(e){}
+  album.type = "album";
+  var data = [];
+  var songs = [];
+  if(deleteSongs) songs = await db.songs.find({selector: {albumId: id}}).exec();
+  var da    = await db.albums.find({selector: {id: id}}).exec();
+  songs.forEach(s => {s.type = "song"; data.push(s)});
+  da.forEach(a => {a.type = "album"; data.push(a)});
+  await batchDeleteItems(data, user, db, ts)
 }
 
-async function deleteArtist(id, user, db, ts){
+async function deleteArtist(id, user, deleteSongs, deleteAlbums, db, ts){
   var artist = await db.artists.findOne({selector: {id: id}}).exec()
   if(artist == null) return
-  await db.changelog.upsert({
-    time: Date.now(),
-    user: user,
-    type: "artist",
-    field: "all",
-    old: JSON.stringify(artist),
-    new: "null"
-  })
-  try{
-    await ts.deleteArtist(artist.id);
-  }catch(e){}
-  try{
-    await artist.remove();
-  }catch(e){}
+  artist.type = "artist";
+  var data = [artist];
+  var albums = [];
+  var songs = [];
+  if(deleteSongs)  songs  = await db.songs.find({selector: {artistId: id}}).exec();
+  if(deleteAlbums) albums = await db.albums.find({selector: {artistId: id}}).exec();
+  songs.forEach((e) => {e.type = "song"; data.push(e)});
+  albums.forEach((e) => {e.type = "album"; data.push(e)});
+  console.log("Deleting a total of", data.length, "items");
+  await batchDeleteItems(data, user, db, ts);
+}
+
+async function batchDeleteItems(data, user, db, ts){
+  var iterated = 0;
+  data.forEach(async (x) => {
+    await db.changelog.upsert({
+      time: Date.now(),
+      user: user,
+      type: x.type,
+      field: "all",
+      old: JSON.stringify(x),
+      new: null
+    });
+    switch(x.type){
+      case "song":
+        await ts.deleteSong(x.id);
+        break;
+      case "album":
+        await ts.deleteAlbum(x.id);
+        break;
+      case "artist":
+        await ts.deleteArtist(x.id);
+        break;
+      default:
+        console.log("Unknown type", x.type)
+        break
+    }
+    await x.remove();
+    iterated++;
+  });
+  await waitUntil(() => {return iterated == data.length}, {timeout: Number.POSITIVE_INFINITY});
+  console.log("Finished deleting items")
 }
 
 export default {
