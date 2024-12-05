@@ -24,6 +24,7 @@ export default {
     var songs = await db.songs.find().exec();
     var albums = await db.albums.find().exec();
     var artists = await db.artists.find().exec();
+    //var playlists = await db.playlists.find().exec();
 
     await client.collections('taxi-songs').documents().import(songs, {action: "upsert"});
     await client.collections('taxi-albums').documents().import(albums, {action: "upsert"});
@@ -33,20 +34,29 @@ export default {
       id: x.id,
       displayName: x.displayName,
       imageUrl: x.imageUrl,
-      type: 'song'
+      type: 'song',
+      visibleTo: x.visibleTo,
     })), {action: "upsert"});
     await client.collections('taxi-relevance').documents().import(albums.map(x => ({
       id: x.id,
       displayName: x.displayName,
       imageUrl: x.imageUrl,
-      type: 'album'
+      type: 'album',
+      visibleTo: x.visibleTo,
     })), {"action": "upsert"});
     await client.collections('taxi-relevance').documents().import(artists.map(x => ({
       id: x.id,
       displayName: x.displayName,
       imageUrl: x.imageUrl,
-      type: 'artist'
+      type: 'artist',
+      visibleTo: x.visibleTo,
     })), {"action": "upsert"});
+    //await client.collections('taxi-relevance').documents().import(playlists.map(x => ({
+    //  id: x.id,
+    //  displayName: x.displayName,
+    //  imageUrl: x.imageUrl,
+    //  type: 'playlist'
+    //})));
 
     var songC = (await client.collections('taxi-songs').retrieve()).num_documents;
     var albumC = (await client.collections('taxi-albums').retrieve()).num_documents;
@@ -135,5 +145,17 @@ export default {
     await client.collections('taxi-artists').documents().import(artists, {"action": "upsert"});
     artists.forEach(x => x.type = 'artist');
     await client.collections('taxi-relevance').documents().import(artists, {"action": "upsert"});
+  },
+  deleteSong: async (id) => {
+    await client.collections('taxi-songs').documents(id).delete();
+    await client.collections('taxi-relevance').documents(id).delete();
+  },
+  deleteAlbum: async (id) => {
+    await client.collections('taxi-albums').documents(id).delete();
+    await client.collections('taxi-relevance').documents(id).delete();
+  },
+  deleteArtist: async (id) => {
+    await client.collections('taxi-artists').documents(id).delete();
+    await client.collections('taxi-relevance').documents(id).delete();
   }
 }

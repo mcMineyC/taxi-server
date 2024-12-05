@@ -10,20 +10,18 @@ const __dirname = path.dirname(__filename);
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
-const crypto = require('crypto');
-const SpottyDL = require('spottydl-better');
 const http = require('http');
 const { Server } = require("socket.io");
-const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
-const clientID = "0a65ebdec6ec4983870a7d2f51af2aa1";
-const secretKey = "22714014e04f46cebad7e03764beeac8";
-const { waitUntil } = require('async-wait-until');
-const fs = require('fs');
 
+import crypto from 'crypto';
+const { waitUntil } = require('async-wait-until');
+
+//import Spotify from './spotify.js';
+const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
 import db from './db.js';
 import ts from './typesense_module.js';
+import adder from './adder.js';
+import utils from './utils.js';
 console.log("Added collections");
 
 const app = express();
@@ -36,6 +34,11 @@ const io = new Server(server, {
 const port = 3000;
 app.use(cors());
 app.use(bodyParser.json({limit: '50mb'}));
+//const spotify = new Spotify(adder.clientId, adder.clientSecret);
+const api = SpotifyApi.withClientCredentials(
+  adder.clientId,
+  adder.clientSecret,
+);
 
 // app.use('/',express.static(path.join(__dirname, 'static')));
 
@@ -61,6 +64,34 @@ app.post('/status', function (_, res) {
 
 app.get('/status', function (_, res) {
     res.send({"status": "ok"})
+})
+
+app.post('/signup', async function (req, res) {
+  var u = await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "recruiter"}}).exec();
+  if(u == null){
+    res.send({authed: false, success: false});
+    return
+  }
+  var roles = ["view", "add", "dj", "admin", "recruiter"];
+  if(u.roles.includes("sudoadmin") && req.body.trusted) roles.push("sudoadmin");
+
+  var newUser = {
+    loginName: (req.body.name.substring(0,1).lowercase() + req.body.name.substring(1)),
+    displayName: req.body.name,
+    password: "",
+    authtoken: "",
+    roles: roles,
+  };
+  await db.changelog.upsert({
+    time: Date.now(),
+    user: u.loginName,
+    type: "signup",
+    field: "all",
+    old: null,
+    new: newUser, 
+  });
+  await db.auth.upsert(newUser);
+  res.send({authed: true, success: true});
 })
 
 app.post('/auth', async function (req, res) {
@@ -97,7 +128,7 @@ app.post('/auth', async function (req, res) {
     if(authed == false){
         console.log("Failed to authorize user "+req.body.username)
     }
-    res.send({"authorized": authed, "authtoken": authtoken, "username": username})
+    res.send({"authorized": authed, "authtoken": authtoken, "username": username, "roles": result.roles})
 });
 
 app.post('/authtoken', async function (req, res) {
@@ -116,7 +147,7 @@ app.post('/authtoken', async function (req, res) {
         return Promise.resolve(true);
     })();
     
-    res.send({"authorized": authed, "authtoken": authtoken, "username": username})
+    res.send({"authorized": authed, "authtoken": authtoken, "username": username, "roles": result.roles})
 })
 
 app.post('/username', async function (req, res) {
@@ -135,169 +166,370 @@ app.post('/username', async function (req, res) {
     res.send({"authorized": authed, "authtoken": authtoken, "username": username})
 })
 
-app.get('/placeholder', function (req, res) {
-    res.sendFile(path.join(__dirname, "config", 'images', 'placeholder.jpg'));
+app.post('/info/users/:username/roles', async function (req, res) {
+  var u = await db.auth.findOne({
+    selector: {
+      authtoken: req.body.authtoken
+    }
+  }).exec();
+  if(u == null || (u.roles.includes("sudoadmin") == false && req.params.username != u.loginName)){
+    res.send({authed: false, "error": "Not authorized", "success": false, roles: []});
+    return;
+  }
+  var queried = await db.auth.findOne({selector: {loginName: req.params.username}}).exec();
+  if(queried == null){
+    res.send({authed: true, "error": "User not found", "success": false, roles: []});
+    return;
+  }
+  res.send({authed: true, "success": true, roles: queried.roles})
+})
+
+app.post('/info/users', async function (req, res) {
+  var u = await db.auth.findOne({selector: {"authtoken": req.body.authtoken}}).exec();
+  if(u == null){
+    res.send({authed: false, "error": "Not authorized", "success": false, users: []});
+    return;
+  }
+  var results = [];
+  var dbResults = await db.auth.find().exec();
+  if(u.roles.includes("sudoadmin")){
+    results = dbResults.map((U) => ({
+      loginName: U.loginName,
+      displayName: U.displayName,
+      authtoken: U.authtoken,
+      password: U.password,
+      roles: U.roles
+    }));
+  }else{
+    results = dbResults.map((U) => ({
+      loginName: U.loginName,
+      displayName: U.displayName,
+      roles: U.roles,
+    }));
+  }
+  res.send({authed: true, "success": true, users: results});
+})
+
+app.post('/info/users/:username', async function (req, res) {
+    var u = await db.auth.findOne({selector: {"authtoken": req.body.authtoken}}).exec();
+    if(u == null || (u.roles.includes("sudoadmin") == false && req.params.username != u.loginName)){
+        res.send({"authed": false, "user": {}});
+        return
+    }
+    var sudoadmin = u.roles.includes("sudoadmin");
+    var queried = await db.auth.findOne({selector: {loginName: req.params.username}}).exec();
+    if(queried == null){
+        res.send({"authed": true, "success": false, "user": {}});
+        return
+    }
+    res.send({"authed": true, "user": {
+      type: sudoadmin ? "full" : "incomplete",
+      loginName: queried.loginName,
+      displayName: queried.displayName,
+      password: sudoadmin ? queried.password : "",
+      authtoken: sudoadmin ? queried.authtoken : "",
+      roles: queried.roles,
+    }});
 })
 
 app.post('/info/albums', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "albums": []});
         return
     }
+    var user = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
 
-    const data = await db.albums.find({sort: [{artistId: "asc"}, {added: "asc"}]}).exec();
+    var query = {
+      selector: {
+        
+      },
+      sort: [
+        {artistId: "asc"},
+        {added: "asc"}
+      ]
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const data = await db.albums.find(query).exec();
    res.send({"authed": true, "albums": data});
 });
 
 app.post('/info/artists', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "artists": []});
         return
     }
     
-    const data = await db.artists.find({
-        sort: [
-            {displayName: "asc"}
-        ]
-    }).exec();
+    var user = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
+    var query = {
+      selector: {},
+      sort: [
+        {displayName: "asc"}
+      ]
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const data = await db.artists.find(query).exec();
     res.send({"authed": true, "artists": data});
 });
 
 app.post('/info/songs', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
+    var user = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
     var data = [];
-    if(typeof(req.query.limit) == "int" || typeof req.query.limit == "string"){
-      data = await db.songs.find({sort: [{"added": "desc"}], limit: parseInt(req.query.limit)}).exec();
-    }else{
-      data = await db.songs.find({sort: [{"added": "desc"}]}).exec();
-    }
+    var query = {
+      selector: {},
+      sort: [
+        {"added": "desc"},
+      ],
+    };
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    if(typeof(req.query.limit) == "int" || typeof req.query.limit == "string") query.limit = parseInt(req.query.limit);
+    data = await db.songs.find(query).exec();
     // console.log(data[0]);
+    console.log("Sending songs")
     res.send({"authed": true, "songs": data});
 });
 
 app.post('/info/artist/:id', async function (req, res) {
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "artist": {}});
     return;
   }
-
-  const data = await db.artists.findOne({selector: {id: req.params.id}}).exec();
+  var user = await utils.getUser(req.body.authtoken, db);
+  var ignore = req.query.ignore || false;
+  var query = {
+    selector: {
+      id: req.params.id, 
+    }
+  }
+  if(!ignore) query.selector.$or = [
+    {visibleTo: user},
+    {visibleTo: "all"},
+  ]
+  const data = await db.artists.findOne(query).exec();
   res.send({"authed": true, "artist": data});
 });
 
 app.post('/info/album/:id', async function (req, res) {
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "album": {}});
     return
   }
+  var user = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
   
-  const data = await db.albums.findOne({selector: {id: req.params.id}}).exec();
+  const data = await db.albums.findOne({
+    selector: {
+      id: req.params.id,
+      $or: ignore ? [] : [
+        {visibleTo: user},
+        {visibleTo: "all"},
+      ]
+    }
+  }).exec();
   res.send({"authed": true, "album": data});
 });
 
 app.post('/info/albums/by/artist/:id', async function (req, res) {
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "albums": []});
     return;
   }
+  var user = await utils.getUser(req.body.authtoken, db);
+  var ignore = req.query.ignore || false;
 
   var albumsData = [];
   if(req.query.excludeSingles == "true"){
-    const data = await db.albums.find({selector: {artistId: req.params.id, songCount: 1}, sort: [{added: "desc"}]}).exec();
+    const data = await db.albums.find({
+      selector: {
+        artistId: req.params.id,
+        songCount: 1
+      },
+      sort: [
+        {added: "desc"}
+      ]
+    }).exec();
     var excludeIds = data.map(a => a.id);
     console.log(data.map(a => a.id));
-    var abD = await db.albums.find(
-      {
-        selector: {artistId: req.params.id},
+    var query = {
+        selector: {
+          artistId: req.params.id,
+        },
         sort: [
           {added: "desc"}
         ]
-      }
-    ).exec();
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    var abD = await db.albums.find(query).exec();
     albumsData = abD.filter(a => !excludeIds.includes(a.id));
   }else{
-    albumsData = await db.albums.find(
-      {
-        selector: {artistId: req.params.id},
-        sort: [
-          {added: "desc"}
-        ]
-      }
-    ).exec();
+    var query = {
+      selector: {
+        artistId: req.params.id,
+      },
+      sort: [
+        {added: "desc"}
+      ]
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    albumsData = await db.albums.find(query).exec();
   }
   res.send({"authed": true, "albums": albumsData});
 });
 
 app.post('/info/singles/by/artist/:id', async function (req, res) {
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "songs": []});
     return;
   }
-
-  const data = await db.albums.find({selector: {artistId: req.params.id, songCount: 1}, sort: [{added: "desc"}]}).exec();
-  const songsData = await db.songs.find({
+  var user = await utils.getUser(req.body.authtoken, db);
+  var ignore = req.query.ignore || false;
+  var query = {
+    selector: {
+      artistId: req.params.id,
+      songCount: 1,
+    },
+    sort: [
+      {added: "desc"}
+    ]
+  }
+  if(!ignore) query.selector.$or = [
+    {visibleTo: user},
+    {visibleTo: "all"},
+  ]
+  const data = await db.albums.find(query).exec();
+  query = {
     selector: {
       albumId: {$in: data.map(a => a.id)},
     },
     sort: [{"added": "desc"}],
-  }).exec();
+  }
+  if(!ignore) query.selector.$or = [
+    {visibleTo: user},
+    {visibleTo: "all"},
+  ]
+  const songsData = await db.songs.find(query).exec();
   res.send({"authed": true, "songs": songsData});
 });
 
 app.post('/info/songs/by/album/:id', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
-
-    const data = await db.songs.find({selector: {albumId: req.params.id}, sort: [{"trackNumber": "asc"}]}).exec();
+    var user = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
+    var query = {
+      selector: {
+        albumId: req.params.id,
+      },
+      sort: [
+        {"trackNumber": "asc"}
+      ]
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const data = await db.songs.find(query).exec();
+    console.log("Sending songs")
     res.send({"authed": true, "songs": data});
 });
 
 app.post('/info/songs/by/artist/:id', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
-
-    const data = await db.songs.find({selector: {artistId: req.params.id}, sort: [{"artistId": "asc"}, {"albumId": "asc"}]}).exec();
+    var user = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
+    var query = {
+      selector: {
+        artistId: req.params.id,
+      },
+      sort: [
+        {"artistId": "asc"},
+        {"albumId": "asc"}
+      ]
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const data = await db.songs.find(query).exec();
     res.send({"authed": true, "songs": data});
 });
 
 app.post('/info/songs/batch', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "results": {}});
         return;
     }
-    
-    var ids = req.body.ids
-    var results = {}
-    for(var i = 0; i < ids.length; i++){
-        results[ids[i]] = await db.songs.findOne({selector: {"id": ids[i]}}).exec();
+    var user = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
+    var query = {
+      selector: {
+        id: {$in: req.body.ids}
+      }
     }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    var data = await db.songs.find(query).exec();
+    var results = {}
+    data.forEach((d) => results[d.id] = d)
     res.send({"authed": true, "results": results});
 });
 
 app.post('/info/songs/:id', async function (req, res) {
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "songs": []});
         return
     }
-
-    const result = await db.songs.findOne({selector: {"id": req.params.id}}).exec();
+    var user = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
+    var query = {
+      selector: {
+        id: req.params.id
+      }
+    }
+    if(!ignore) query.selector.$or = [
+      {visibleTo: user},
+      {visibleTo: "all"},
+    ]
+    const result = await db.songs.findOne(query).exec();
     res.send({"authed": true, "song": (result) ? result : {} }); 
 });
 
 app.post('/playlists', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "playlists": []});
         return
     }
 
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
     var playlists = [];
     if(req.query.sort == "new"){
       playlists = await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}, sort: [{added: "desc"}]}).exec();
@@ -308,11 +540,12 @@ app.post('/playlists', async function(req, res){
 })
 
 app.post('/playlists/user/:id', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "playlists": []});
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
     if(u != req.params.id){
         // res.send({authed: false, "error": "Not authorized", "success": false})
         // return
@@ -323,11 +556,12 @@ app.post('/playlists/user/:id', async function(req, res){
 })
 
 app.post('/playlists/:id', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "playlists": []});
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
     if(u != req.params.id){
         // res.send({authed: false, "error": "Not authorized", "success": false})
         // return
@@ -338,15 +572,16 @@ app.post('/playlists/:id', async function(req, res){
 })
 
 app.post('/playlists/modify/:playlist', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false});
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
     if(req.params.playlist == "create"){
       console.log("Creating new playlist")
       p = await db.playlists.upsert({
-        id: hash(req.body.name),
+        id: utils.hash(req.body.name),
         owner: u || "testguy",
         displayName: req.body.name || "Banana",
         description: req.body.description || "Banana",
@@ -400,11 +635,12 @@ app.post('/playlists/modify/:playlist', async function(req, res){
 })
 
 app.post('/playlists/remove/:playlist', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken), db) == false){
         res.send({"authed": false, "songs": []});
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
+    var ignore = req.query.ignore || false;
     var p = await db.playlists.findOne({selector: {id: req.params.playlist}}).exec();
     if(p == null){
         res.send({authed: true, "success": true, "playlists": await db.playlists.find({selector: {$or: [{owner: u}, {public: true}]}}).exec()});
@@ -419,32 +655,25 @@ app.post('/playlists/remove/:playlist', async function(req, res){
 })
 
 app.post('/recently-played/:user/add', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "success": false})
         return
     }
-    var u = await getUser(req.body.authtoken);
+    var u = await utils.getUser(req.body.authtoken, db);
     var user = req.params.user;
     console.log(user, "r==a", u);
     if(user != u){
         res.send({"error": "Unauthorized", "authed": true, "success": false})
         return
     }
-    await addToRecentlyPlayed(user, req.body.id);
+    await utils.addToRecentlyPlayed(user, req.body.id, db);
     res.send({"authed": true, "success": true})
 })
 
 app.post('/recently-played/:user', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, played: []});
         return
-    }
-    var u = await getUser(req.body.authtoken);
-    var user = req.params.user;
-    console.log(user, "r==a" ,u)
-    if(user != u){
-        // res.send({"error": "Not authorized", "authed": false, "success": false, "played": []})
-        // return
     }
     var played = await db.played.findOne({selector: {owner: req.params.user}}).exec();
     if(played == null){
@@ -455,16 +684,9 @@ app.post('/recently-played/:user', async function(req, res){
 });
 
 app.post('/favorites/:user', async function(req, res){
-    if((await checkAuth(req.body.authtoken)) == false){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, songs: []});
         return
-    }
-    var u = await getUser(req.body.authtoken);
-    var user = req.params.user;
-    console.log(user,"r==a",u)
-    if(user != u){
-        // res.send({"error": "Not authorized", "authed": false, "success": false, "songs": []})
-        // return
     }
     var favorite = await db.favorites.findOne({selector: {owner: user}}).exec();
     if(favorite == null){
@@ -472,6 +694,28 @@ app.post('/favorites/:user', async function(req, res){
         await db.favorites.upsert(favorite)
     }
     res.send({"songs": favorite.songs || [], "count": favorite.songs.length, "authed": true, "success": true})
+})
+
+app.post('/favorites/:user/add', async function(req, res){
+    if((await utils.checkAuth(req.body.authtoken, db)) == false){
+        res.send({"authed": false, "success": false})
+        return
+    }
+    var u = await utils.getUser(req.body.authtoken, db);
+    var user = req.params.user;
+    //console.log(user, "r==a", u);
+    if(user != u){
+        res.send({"error": "Unauthorized", "authed": true, "success": false})
+        return
+    }
+    var favorite = await db.favorites.findOne({selector: {owner: user}}).exec();
+    if(favorite == null){
+        favorite = {owner: user, songs: [], count: 0}
+    }
+    favorite.songs.push(req.body.id);
+    favorite.count = favorite.songs.length
+    await db.favorites.upsert(favorite)
+    res.send({"authed": true, "success": true})
 })
 
 app.post('/search', async function(req, res){
@@ -489,10 +733,13 @@ app.post('/search', async function(req, res){
     return
   }
 
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", results: []});
     return;
   }
+  var user = await utils.getUser(req.body.authtoken, db);
+  var ignore = req.query.ignore || false;
+  console.log("ignore", ignore)
   
   var data = [];
   switch(type){
@@ -506,6 +753,8 @@ app.post('/search', async function(req, res){
       data = await ts.searchArtist(req.body.query);
       break;
   }
+  if(!ignore) data = data.filter((x) => (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  console.log("Sending results", data.length)
   res.send({"authed": true, "type": type, "results": data});
 })
 
@@ -516,15 +765,19 @@ app.post('/searchAll', async function(req, res){
     return
   }
 
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", results: []});
     return;
   }
+  var user = await utils.getUser(req.body.authtoken, db);
+  var ignore = req.query.ignore || false;
+  console.log("ignore", ignore)
   
   var songs = await ts.searchSong(req.body.query);
   var albums = await ts.searchAlbum(req.body.query);
   var artists = await ts.searchArtist(req.body.query);
   var relevancy = await ts.relevancy(req.body.query);
+  if(!ignore) relevancy = relevancy.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
   var firstArtist = -1;
   var firstAlbum = -1;
   var firstSong = -1;
@@ -542,20 +795,27 @@ app.post('/searchAll', async function(req, res){
   if(!relevancy.includes("album")) relevancy.push("album")
   if(!relevancy.includes("artist")) relevancy.push("artist")
   console.log("relevancy2", relevancy.length)
+  console.log("Last relevancy", relevancy)
   var singles = []
-  // var singles = albums.filter(r => r.songCount = 1)
-  // albums  = albums.filter(r => r.songCount > 1)
+  var singleAlbums = albums.filter(r => r.songCount == 1)
+  singles = songs.filter(r => singleAlbums.includes(r.albumId))
 
-  songs.map(r => r.type = "song")
-  singles.map(r => r.type = "song")
-  albums.map(r => r.type = "album")
-  artists.map(r => r.type = "artist")
-    
+  albums = albums.filter(r => r.songCount > 1)
+
+  //songs.map(r => r.type = "song")
+  //singles.map(r => r.type = "song")
+  //albums.map(r => r.type = "album")
+  //artists.map(r => r.type = "artist")
+  if(!ignore) singles = singles.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  if(!ignore) songs = songs.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  if(!ignore) albums = albums.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+  if(!ignore) artists = artists.filter((x) => x.visibleTo != undefined && (x.visibleTo.includes(user) || x.visibleTo.includes("all")));
+
   res.send({"authed": true, "relevancy": relevancy, "songs": songs, "singles": singles, "albums": albums, "artists": artists});
 });
 
 app.post('/checklist', async function(req, res){
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", todo: []});
     return;
   }
@@ -566,7 +826,7 @@ app.post('/checklist', async function(req, res){
 });
 
 app.post('/checklist/add', async function(req, res){
-  if((await checkAuth(req.body.authtoken)) == false){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", "success": false});
     return;
   }
@@ -582,423 +842,282 @@ app.post('/checklist/add', async function(req, res){
   res.send({"authed": true, "todo": todo, "success": true});
 })
 
-app.post('/bugs', async function(req, res){
-  if((await checkAuth(req.body.authtoken)) == false){
-    res.send({"authed": false, "error": "Invalid authtoken", bugs: []});
-    return;
+//app.post('/bugs', async function(req, res){
+//  if((await utils.checkAuth(req.body.authtoken, db)) == false){
+//    res.send({"authed": false, "error": "Invalid authtoken", bugs: []});
+//    return;
+//  }
+//
+//  var bugs = await db.bugs.find().exec();
+//  res.send({"authed": true, "bugs": bugs});
+//});
+
+app.post('/edit/:type/:id', async function(req, res){
+  var u = await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "admin"}}).exec();
+  //console.log(u)
+  if(u == null){
+    res.send({authed: false, "error": "Not authorized", "success": false})
+    return
   }
 
-  var bugs = await db.bugs.find().exec();
-  res.send({"authed": true, "bugs": bugs});
+  //res.send({authed: true, "success": false});
+  //return
+  switch(req.params.type){
+    case "song":
+      var s = await db.songs.findOne({selector: {id: req.params.id}}).exec();
+      var old = JSON.parse(JSON.stringify(s));
+      var bdy = {
+        displayName: req.body.displayName == null ? s.displayName : req.body.displayName,
+        albumDisplayName: req.body.albumDisplayName == null ? s.albumDisplayName : req.body.albumDisplayName,
+        artistDisplayName: req.body.artistDisplayName == null ? s.artistDisplayName : req.body.artistDisplayName,
+        youtubeId: req.body.youtubeId == null ? s.youtubeId : req.body.youtubeId,
+        imageUrl: req.body.imageUrl == null ? s.imageUrl : req.body.imageUrl,
+        visibleTo: req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,
+      };
+      await s.incrementalPatch(bdy);
+      s = await db.songs.findOne({selector: {id: req.params.id}}).exec();
+      s = JSON.parse(JSON.stringify(s));
+      s.type = "song";
+      await ts.updateSong(s);
+      await db.changelog.upsert({
+        time: Date.now(),
+        user: u.loginName,
+        type: "song",
+        field: "all",
+        old: JSON.stringify(old),
+        new: JSON.stringify(bdy)
+      })
+      break;
+    case "album":
+      var songs = await db.songs.find({selector: {albumId: req.params.id}}).exec();
+      var s = await db.albums.findOne({selector: {id: req.params.id}}).exec();
+      var old = JSON.parse(JSON.stringify(s));
+      console.log("OLD", old.displayName, "NEW", req.body.displayName);
+      var bdy = {
+        //id: req.params.id,
+        //artistId: req.body.artistId,
+        displayName: req.body.displayName == null ? s.displayName : req.body.displayName,
+        artistDisplayName: req.body.artistDisplayName == null ? s.artistDisplayName : req.body.artistDisplayName,
+        visibleTo: req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,
+        songCount: req.body.songCount == null ? s.songCount : req.body.songs.length
+      }
+      await s.incrementalPatch(bdy);
+      console.log(req.body.songs);
+      if(songs != null && req.body.songs != null) songs.forEach(async song => {
+        if(!req.body.songs.includes(song.id)){
+          await db.changelog.upsert({
+            time: Date.now(),
+            user: u.loginName,
+            type: "song",
+            field: "all",
+            old: JSON.stringify(song),
+            new: "null"
+          })
+          await song.remove();
+        }
+      });
+      await db.changelog.upsert({
+        time: Date.now(),
+        user: u.loginName,
+        type: "album",
+        field: "all",
+        old: JSON.stringify(old),
+        new: JSON.stringify(bdy)
+      })
+      break;
+    case "artist":
+      break;
+      var albums = await db.albums.find({selector: {artistId: req.params.id}}).exec();
+      var songs = await db.songs.find({selector: {artistId: req.params.id}}).exec();
+      var s = await db.artists.findOne({selector: {id: req.params.id}}).exec();
+      var old = JSON.parse(JSON.stringify(s));
+      var bdy = {
+        displayName: req.body.displayName == null ? s.displayName : req.body.displayName,
+        visibleTo: req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,
+        songCount: req.body.songCount == null ? s.songCount : req.body.songCount,
+        albumCount: req.body.albumCount == null ? s.albumCount : req.body.albumCount
+      }
+      await s.incrementalPatch(bdy);
+      await db.changelog.upsert({
+        time: Date.now(),
+        user: u.loginName,
+        type: "artist",
+        field: "all",
+        old: JSON.stringify(old),
+        new: JSON.stringify(bdy)
+      })
+      songs.forEach(async song => {
+        if((req.body.songs != null) && !req.body.songs.includes(song.id)){
+          await db.changelog.upsert({
+            time: Date.now(),
+            user: u.loginName,
+            type: "song",
+            field: "all",
+            old: JSON.stringify(song),
+            new: "null"
+          })
+          await song.remove();
+        }
+      });
+      albums.forEach(async album => {
+        if(req.body.albums != null && !req.body.albums.includes(album.id)){
+          await db.changelog.upsert({
+            time: Date.now(),
+            user: u.loginName,
+            type: "album",
+            field: "all",
+            old: JSON.stringify(album),
+            new: "null"
+          })
+          await album.remove();
+        }
+      });
+      break;
+    case "user":
+      if(!u.roles.includes("sudoadmin")){
+        res.send({authed: true, "success": false})
+        return
+      }
+      var oldU = await db.auth.findOne({selector: {loginName: req.params.id}}).exec();
+      var old = JSON.parse(JSON.stringify(oldU));
+      var bdy = {
+        loginName: req.params.id,
+        displayName: req.body.displayName || old.displayName,
+        password: req.body.password || old.password,
+        authtoken: (req.body.invalidateAuthtoken || false) ? "" : old.authtoken,
+        roles: req.body.roles || old.roles
+      }
+      await db.changelog.upsert({
+        time: Date.now(),
+        user: u.loginName,
+        type: "usermod",
+        field: "all",
+        old: JSON.stringify(old),
+        new: JSON.stringify(bdy),
+      })
+      await db.auth.upsert(bdy);
+      break;
+  };
+  res.send({authed: true, "success": true})
 });
 
-io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.emit("authprompt", "3141592653589793238464")
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
+app.post('/edit/:type/:id/visibility', async (req, res) => {
+  if((await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "admin"}}).exec()) == null){
+    res.send({authed: false, "error": "Not authorized", "success": false})
+    return
+  }
+  var u = await utils.getUser(req.body.authtoken, db);
+  var data = [];
+  var ne = {};
+  if(req.params.type != "song" && req.params.type != "album" && req.params.type != "artist"){
+    res.send({authed: true, "success": false, "error": "Invalid type"});
+    return
+  }
+  switch(req.params.type){
+    case "song":
+      data = await db.songs.find({selector: {id: req.params.id}}).exec();
+      break;
+    case "album":
+      var songs = await db.songs.find({selector: {albumId: req.params.id}}).exec();
+      var da    = await db.albums.find({selector: {id: req.params.id}}).exec();
+      songs.forEach(s => {s.type = "song"; data.push(s)});
+      da.forEach(a => {a.type = "album"; data.push(a)});
+      break;
+    case "artist":
+      var songs  = await db.songs.find({selector: {artistId: req.params.id}}).exec();
+      var albums = await db.albums.find({selector: {artistId: req.params.id}}).exec();
+      var da     = await db.artists.find({selector: {id: req.params.id}}).exec();
+      songs.forEach(s => {s.type = "song"; data.push(s)});
+      albums.forEach(a => {a.type = "album"; data.push(a)});
+      da.forEach(a => {a.type = "artist"; data.push(a)});
+      break;
+  };
+  if(data == null || data.length == 0) {
+    res.send({authed: true, "success": false})
+    return
+  }
+  var counter = 0;
+  data.forEach(async (d) => {
+    var n = JSON.parse(JSON.stringify(d));
+    n.visibleTo = req.body.visibleTo;
+    ne = n;
+    await db.changelog.upsert({
+      time: Date.now(),
+      user: u,
+      type: req.params.type,
+      field: "visibility",
+      old: JSON.stringify(d),
+      new: JSON.stringify(n)
     });
-    var authed = false
-    socket.on("auth", async (msg) => {
-        if(typeof(msg) == "string"){
-            msg = JSON.parse(msg);
-        }
-        var aut = await checkAuth(msg.authtoken);
-        console.log(aut, msg.authtoken, typeof(msg));
-        if(!aut){
-            socket.emit("authresult", {"success": false, "error": "Invalid authtoken", "authorized": false})
-            return
-        }
-        socket.emit("authresult", {"success": true, "authorized": true})
-        authed = true;
-    })
-    socket.on("search", async (msg) => {
-        if(!authed){
-            socket.emit("message", {"type": "auth", "success": false, "error": "Invalid authtoken", "authorized": false})
-            return
-        }
-        if(typeof(msg) == "string"){
-            msg = JSON.parse(msg);
-        }
-        if(msg.source == "spotify"){
-            if(msg.query == ""){
-                socket.emit("message", {"type": "error", "success": false, "error": "No query provided", "authorized": true})
-                return
-            }
-            const api = SpotifyApi.withClientCredentials(
-                clientID,
-                secretKey
-            );
-            var page = 0
-            if(typeof(msg.page) == "number"){
-                page = msg.page
-            }
-            var items = []
-            if(msg.mediaType == "all"){
-                const trackItems = await api.search(msg.query, "track", undefined, 50, page);
-                items = trackItems.tracks.items
-            }else{
-                items = await api.search(msg.query, msg.mediaType, undefined, 50, page);
-                items = items[msg.mediaType+"s"].items
-            }
+    await d.patch({visibleTo: req.body.visibleTo});
+    switch(d.type){
+      case "song":
+        await ts.updateSong(n);
+        break;
+      case "album":
+        await ts.updateAlbum(n);
+        break;
+      case "artist":
+        await ts.updateArtist(n);
+        break;
+    }
+    counter++;
+    console.log("Finished updating visibility for", d.type, ":", d.displayName, req.body.visibleTo)
+  });
+  await waitUntil(() => {return counter == data.length}, {timeout: Number.POSITIVE_INFINITY});
+  console.log("Finished updating visibility for", data.length, "elements");
+  res.send({authed: true, "success": true, "data": ne})
 
-            items = items.map((item) => item.type == "track" ? ({
-                id: typeof(item.id) == "string" ? item.id : "",
-                name: typeof(item.name) == "string" ? item.name : "",
-                artist: typeof(item.artists) == "object" && typeof(item.artists[0].name) == "string" ? item.artists[0].name : "",
-                album: typeof(item.album) == "object" && typeof(item.album.name) == "string" ? item.album.name : "",
-                imageUrl: typeof(item.album) == "object" && item.album.images[0] ? (item.album.images.sort((a, b) => b.width - a.width)[0].url) : "",
-                type: "song",
-            }) : (item.type == "album" ? ({
-                id: typeof(item.id) == "string" ? item.id : "",
-                name: typeof(item.name) == "string" ? item.name : "",
-                album: "",
-                artist: typeof(item.artists) == "object" && typeof(item.artists[0].name) == "string" ? item.artists[0].name : "",
-                imageUrl: typeof(item.images) == "object" && item.images[0] ? item.images[0].url : "",
-                type: "album"
-            }) : (item.type == "artist" ? ({
-                id: typeof(item.id) == "string" ? item.id : "",
-                name: typeof(item.name) == "string" ? item.name : "",
-                album: "",
-                artist: "",
-                imageUrl: typeof(item.images) == "object" && item.images[0] ? item.images[0].url : "",
-                type: "artist",
-            }) : item)));
-            socket.emit("searchresults", {"type": msg.mediaType, "results": items})
-        }else if (msg.source == "youtube"){
-            socket.emit("searchresults", [])
-        }
-    })
-    socket.on("find", async (msg) => {
-        if(!authed){
-            socket.emit("message", {"type": "auth", "success": false, "error": "Invalid authtoken", "authorized": false})
-            return
-        }
-        if(typeof(msg) == "string"){
-            msg = JSON.parse(msg);
-        }
-        if(msg.source == "spotify"){
-            var found = [];
-            msg.selected.forEach(async (x) => {
-              console.log(`Found: ${x.type} ${x.id}`);
-              var result = {};
-              var url = `https://open.spotify.com/${(x.type == "song") ? "track" : x.type}/${x.id}`;
-              switch(x.type){
-                case "song":
-                  console.log("Getting song: "+url);
-                  var track = await SpottyDL.getTrack(url);
-                  console.log("Got track: "+track.title);
-                  result = {
-                    title: track.album,
-                    album: track.album,
-                    artist: track.artist,
-                    albumCoverURL: track.albumCoverURL,
-                    songs: [{
-                      title: track.title,
-                      id: track.id,
-                      trackNumber: track.trackNumber
-                    }],
-                  }
-                  result.type = "song";
-                  break;
-                case "album":
-                  console.log("Getting album: "+url);
-                  result = await SpottyDL.getAlbum(url);
-                  // if(typeof(result.playlistVideoRenderer) != "undefined") delete result.playlistVideoRenderer  //doesn't seem to do anything, probably a bug in the library
-                  result.type = "album";
-                  result.songs = result.tracks;
-                  delete result.tracks
-                  break;
-                case "playlist":
-                  result = await SpottyDL.getPlaylist(url);
-                  result.type = "playlist";
-                  result.songs = result.tracks;
-                  delete result.tracks;
-                  break;
-                default:
-                  console.log(`${x.type} Not implemented`);
-              }
-              found.push(result);
-            });
-            await waitUntil(() => {return found.length == msg.selected.length}, {timeout: Number.POSITIVE_INFINITY});
-            found = found.map((x) => ({
-              name: typeof(x.title) == "string" ? x.title : typeof(x.name) == "string" ? x.name : "",
-              album: typeof(x.album) == "string" ? x.album : "",
-              artist: typeof(x.artist) == "string" ? x.artist : "",
-              imageUrl: typeof(x.albumCoverURL) == "string" ? x.albumCoverURL : typeof(x.playlistCoverURL) == "string" ? x.playlistCoverURL : "",
-              type: x.type,
-              songs: x.songs
-            }));
-            console.log(`Sending ${found.length} results.`);
-            socket.emit("findresults", {"results": found});
-        }
-        else if(msg.source == "youtube"){
-            socket.emit("message", {"type": "auth", "success": false, "error": "Not implemented", "authorized": true}) // Not implemented
-            return
-        }
-    });
-    
-    socket.on("add", async (msg) => {
-        if(!authed){
-            socket.emit("message", {"type": "auth", "success": false, "error": "Invalid authtoken", "authorized": false})
-            return
-        }
-        if(typeof(msg) == "string"){
-            msg = JSON.parse(msg);
-        }
-        var artists = [];
-        var artistKeys = [];
-        var albums = [];
-        var albumKeys = [];
-        var songs = [];
-        var iterated = 0;
-        var addedArtists = 0;
-        var addedAlbums = 0;
-        var addedSongs = 0;
-        artists = await db.artists.find().exec();
-        albums = await db.albums.find().exec();
-        artistKeys = artists.map((e) => e.id);
-        albumKeys = albums.map((e) => e.id);
-        songs = songs.map((e) => ({
-          id: e.id,
-          albumId: e.albumId,
-          artistId: e.artistId,
-          displayName: e.displayName,
-          albumDisplayName: e.albumDisplayName,
-          artistDisplayName: e.artistDisplayName,
-          duration: e.duration,
-          youtubeId: e.youtubeId,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }))
-        albums = albums.map((e) => ({
-          id: e.id,
-          artistId: e.artistId,
-          displayName: e.displayName,
-          artistDisplayName: e.artistDisplayName,
-          songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }));
-        artists = artists.map((e) => ({
-          id: e.id,
-          displayName: e.displayName,
-          albumCount: e.albumCount == null || e.albumCount !== e.albumCount ? 0 : e.albumCount,
-          songCount: e.songCount == null || e.songCount !== e.songCount ? 0 : e.songCount,
-          imageUrl: e.imageUrl,
-          added: e.added,
-        }))
-        msg.items.forEach(async (x) => {
-          console.log("artist: "+JSON.stringify(artistKeys, null, 2));
-          console.log("album: "+JSON.stringify(albumKeys, null, 2));
-          console.log("");
-          var artist = (x.type == "song" || x.type == "album") ? x.artist.split(",")[0] : "";
-          switch(x.type){
-            case "song":
-              var artistKey = hash(artist);
-              var albumKey = artistKey + "_" + hash(x.name);
-              console.log(x.songs[0]["title"]);
-              songs.push({
-                id: albumKey + "_" + hash(x.songs[0].id),
-                albumId: albumKey,
-                artistId: artistKey,
-                displayName: x.songs[0].title,
-                albumDisplayName: x.name,
-                artistDisplayName: artist,
-                duration: 0,
-                youtubeId: x.songs[0].id,
-                imageUrl: x.imageUrl,
-                added: Date.now(),
-              });
-              addedSongs++;
-              if(albumKeys.indexOf(albumKey) == -1){
-                albumKeys.push(albumKey);
-                albums.push({
-                  id: albumKey,
-                  artistId: artistKey,
-                  displayName: x.name,
-                  artistDisplayName: artist,
-                  songCount: 1,
-                  imageUrl: x.imageUrl,
-                  added: Date.now(),
-                });
-                addedAlbums++;
-              }else{
-                albums[albumKeys.indexOf(albumKey)].songCount++;
-              }
-              if(artistKeys.indexOf(artistKey) == -1){
-                artistKeys.push(artistKey);
-                artists.push({
-                  id: artistKey,
-                  displayName: artist,
-                  songCount: 1,
-                  albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
-                  imageUrl: "",
-                  added: Date.now(),
-                });
-                addedArtists++;
-              }else{
-                artists[artistKeys.indexOf(artistKey)].songCount++;
-                artists[artistKeys.indexOf(artistKey)].albumCount += (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
-              }
-              break;
-            case "album":
-              var artistKey = hash(artist);
-              var albumKey = artistKey + "_" + hash(x.name);
-              x.songs.forEach((y) => {
-                songs.push({
-                  id: albumKey + "_" + hash(y.id),
-                  albumId: albumKey,
-                  artistId: artistKey,
-                  displayName: y.title,
-                  albumDisplayName: x.name,
-                  artistDisplayName: artist,
-                  duration: 0,
-                  youtubeId: y.id,
-                  imageUrl: x.imageUrl,
-                  added: Date.now(),
-                });
-                addedSongs += x.songs.length;
-              });
-              if(albumKeys.indexOf(albumKey) == -1){
-                albumKeys.push(albumKey);
-                albums.push({
-                  id: albumKey,
-                  artistId: artistKey,
-                  displayName: x.name,
-                  artistDisplayName: artist,
-                  songCount: x.songs.length,
-                  imageUrl: x.imageUrl,
-                  added: Date.now(),
-                });
-                addedAlbums++;
-              }else{
-                albums[albumKeys.indexOf(albumKey)].songCount += x.songs.length;
-              }
-              if(artistKeys.indexOf(artistKey) == -1){
-                artistKeys.push(artistKey);
-                artists.push({
-                  id: artistKey,
-                  displayName: artist,
-                  songCount: x.songs.length,
-                  albumCount: (albumKeys.indexOf(albumKey) == -1) ? 0 : 1,
-                  imageUrl: "",
-                  added: Date.now(),
-                });
-                addedArtists++;
-              }else{
-                artists[artistKeys.indexOf(artistKey)].songCount += x.songs.length
-                artists[artistKeys.indexOf(artistKey)].albumCount += (albumKeys.indexOf(albumKey) == -1 ? 1 : 0);
-              }
-              break;
-          }
-          // console.log("artist "+artist+": "+JSON.stringify(artistKeys, null, 2));
-          // console.log("album: "+JSON.stringify(albumKeys, null, 2));
-          console.log("____________________________");
-          iterated++;
-        });
-        await waitUntil(() => {return iterated == msg.items.length}, {timeout: Number.POSITIVE_INFINITY});
-        console.log(`Adding ${songs.length} songs, ${albums.length} albums and ${artists.length} artists.`);
-        iterated = 0;
-        artists.forEach(async (x) => {
-          if(x.imageUrl == ""){
-            x.imageUrl = await getArtistImageUrl(x.displayName.split(",")[0], "https://commons.wikimedia.org/wiki/File:Apple_Music_Icon.svg");
-          }
-          iterated++;
-        });
-        await waitUntil(() => {return iterated == artists.length}, {timeout: Number.POSITIVE_INFINITY});
-        // var json = JSON.stringify({"songs": songs, "albums": albums, "artists": artists});
-        // fs.writeFileSync("data.json", json);
-        albums.forEach((e)=>{
-          console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
-        });
-        artists.forEach((e)=>{
-          console.log("Songcount for", e.displayName, e.songCount, typeof e.songCount);
-          console.log("Albumcount for", e.displayName, e.albumCount, typeof e.albumCount);
-        })
-        await db.artists.bulkUpsert(artists);
-        await db.albums.bulkUpsert(albums);
-        await db.songs.bulkUpsert(songs);
-        await ts.updateSongs(songs);
-        await ts.updateAlbums(albums);
-        await ts.updateArtists(artists);
-        console.log("Finished adding songs, albums and artists.");
-        socket.emit("addresult", {"success": true, "count": {"artists": addedArtists, "albums": addedAlbums, "songs": addedSongs}});
-    });
+});
+
+app.post('/edit/:type/:id/delete', async (req, res) => {
+  if((await db.auth.findOne({selector: {authtoken: req.body.authtoken, roles: "admin"}}).exec()) == null){
+    res.send({authed: false, "error": "Not authorized", "success": false})
+    return
+  }
+  var u = await utils.getUser(req.body.authtoken, db);
+  var deleteSongs = req.query.deleteSongs || false;
+  var deleteAlbums = req.query.deleteAlbums || false;
+
+  switch(req.params.type){
+    case "song":
+      await utils.deleteSong(req.params.id, u, db, ts);
+      break;
+    case "album":
+      await utils.deleteAlbum(req.params.id, u, deleteSongs, db, ts);
+      break;
+    case "artist":
+      await utils.deleteArtist(req.params.id, u, deleteSongs, deleteAlbums, db, ts);
+      break;
+    default:
+      console.log("Unknown type", req.params.type);
+      break;
+  };
+  console.log("Successfully failed")
+  res.send({authed: true, "success": true})
 })
 
+app.post('/info/usernames', async function(req, res){
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
+    res.send({"authed": false, "error": "Invalid authtoken", "success": false})
+    return
+  }
+  var users = await db.auth.find().exec();
+  res.send({authed: true, "usernames": users.map(u => u.loginName)})
+})
+
+io.on('connection', (socket) => {
+  adder.adderConnection(socket, db, ts, api);
+});
+
 async function main(){
-    server.listen(port, () => {
-        console.log(`App listening on port ${port}`)
-    })
+  server.listen(port, () => {
+    console.log(`App listening on port ${port}`)
+  })
 }
 
 try{
-    main()
+  main()
 }catch (e){
-    console.log("Error: "+e)
-}
-
-
-// This is just all the random
-// functions that I need to move
-// to seperate files but haven't
-// yet because modules and requiring
-// is annoying so I probably
-// won't move them anytime soon
-
-async function getArtistImageUrl(name, backupImageUrl){
-  console.log("Getting image for "+name)
-  const { stdout, stderr } = await exec('python3 find_artist_profile_url.py "'+name+'"')
-  var data = {}
-  console.log(stdout)
-  try{
-    data = JSON.parse(stdout)
-            
-    if(data["success"]){
-      return data["url"];
-    }
-    if(!data["success"]){
-      return backupImageUrl
-    }
-  }catch (err){
-    console.log(err)
-    return backupImageUrl
-  }
-}
-
-async function checkAuth(token){
-    if(typeof(token) == "undefined"){
-        return Promise.resolve(false); 
-    }else{
-        const result = await db.auth.findOne({selector: {"authtoken": token}}).exec()
-        return Promise.resolve(result != null);
-    }
-}
-
-async function getUser(authtoken){
-    var result = await db.auth.findOne({selector: {"authtoken": authtoken}}).exec()
-    return (result == 0) ? "" : result.loginName
-}
-
-async function addToRecentlyPlayed(user, songId){
-    console.log("Adding to recent: ",user, songId)
-    var recent = await db.played.findOne({selector: {"owner": user}}).exec();
-    var newRecent = {owner: user, songs: []};
-    if(recent == null){
-        console.log("Recent is null")
-        newRecent = {owner: user, songs: [songId]}
-    }else{
-        newRecent.songs = recent.songs;
-        if(recent.songs.length >= 10){
-            console.log("Too long")
-            newRecent.songs.splice(0, 1);
-        }
-        newRecent.songs.push(songId);
-    }
-    await db.played.upsert(newRecent);
-}
-
-function hash(string){
-    return crypto.createHash('sha256').update(string).digest('hex');
+  console.log("Error: "+e)
 }

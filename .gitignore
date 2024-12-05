@@ -1,9 +1,5 @@
 creds.json
-auth.json
 all.json
-artists.json
-albums.json
-songs.json
 .cache
 music/*
 unsorted/*
@@ -17,3 +13,4 @@ config/images/artists/*
 config/images/albums/*
 config/images/songs/*
 spottydl
+backup/auth.json
