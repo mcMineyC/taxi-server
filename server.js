@@ -127,6 +127,8 @@ app.post('/auth', async function (req, res) {
     
     if(authed == false){
         console.log("Failed to authorize user "+req.body.username)
+        res.send({"authorized": authed, "error": "Invalid username or password"})
+        return
     }
     res.send({"authorized": authed, "authtoken": authtoken, "username": username, "roles": result.roles})
 });
@@ -146,6 +148,10 @@ app.post('/authtoken', async function (req, res) {
         });
         return Promise.resolve(true);
     })();
+    if(!authed){
+      res.send({authorized: authed, "error": "Invalid authtoken"});
+      return
+    }
     
     res.send({"authorized": authed, "authtoken": authtoken, "username": username, "roles": result.roles})
 })
@@ -163,6 +169,10 @@ app.post('/username', async function (req, res) {
         return Promise.resolve(true);
     })();
     
+    if(!authed){
+      res.send({authorized: authed, "error": "Invalid authtoken", "username": ""});
+      return
+    }
     res.send({"authorized": authed, "authtoken": authtoken, "username": username})
 })
 
