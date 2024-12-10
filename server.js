@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const express = require('express');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const http = require('http');
@@ -34,6 +35,7 @@ const io = new Server(server, {
 const port = 3000;
 app.use(cors());
 app.use(bodyParser.json({limit: '50mb'}));
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 //const spotify = new Spotify(adder.clientId, adder.clientSecret);
 const api = SpotifyApi.withClientCredentials(
   adder.clientId,

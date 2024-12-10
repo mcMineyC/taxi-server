@@ -21,6 +21,7 @@
     "fluent-ffmpeg": "^2.1.2",
     "fs-extra": "^11.2.0",
     "jsmediatags": "^3.9.7",
+    "morgan": "^1.10.0",
     "music-metadata": "^7.14.0",
     "python-shell": "^5.0.0",
     "qs": "^6.11.2",

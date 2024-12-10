@@ -280,21 +280,14 @@ function adderConnection(socket, db, ts, spotifyApi) {
       msg = JSON.parse(msg);
     }
     var artists = [];
-    var artistKeys = [];
     var albums = [];
-    var albumKeys = [];
     var songs = [];
-    var songKeys = [];
-    var iterated = 0;
     var addedArtists = 0;
     var addedAlbums = 0;
     var addedSongs = 0;
     songs = await db.songs.find().exec();
     artists = await db.artists.find().exec();
     albums = await db.albums.find().exec();
-    artistKeys = artists.map((e) => e.id);
-    albumKeys = albums.map((e) => e.id);
-    songKeys = songs.map((e) => e.id);
     songs = JSON.parse(JSON.stringify(songs));
     artists = JSON.parse(JSON.stringify(artists));
     albums = JSON.parse(JSON.stringify(albums));
@@ -304,166 +297,47 @@ function adderConnection(socket, db, ts, spotifyApi) {
         flattenData(msg.items);
 
     // Create dictionaries to track modified songs, albums, and artists
-    var modifiedSongs = {};
-    var modifiedAlbums = {};
-    var modifiedArtists = {};
+    const mergedOutput =
+        adderMergeLogic(artists, albums, songs, msg.hierarchy, user);
+    var modifiedArtists = mergedOutput.artists;
+    var modifiedAlbums = mergedOutput.albums;
+    var modifiedSongs = mergedOutput.songs;
+    addedArtists = mergedOutput.artistCount;
+    addedAlbums = mergedOutput.albumCount;
+    addedSongs = mergedOutput.songCount;
+    console.log("Adding", addedArtists, "artists,", addedAlbums, "albums,",
+                addedSongs, "songs");
 
-    flattenedSongs.forEach((songData) => {
-      // Extract artist, album, and song information from the flattened data
-      const artistKey = utils.hash(songData.artist);
-      const albumKey = artistKey + "_" + utils.hash(songData.album);
-      const songKey = albumKey + "_" + utils.hash(songData.name);
-      if (!modifiedArtists[artistKey]) {
-        modifiedArtists[artistKey] = {
-          id : artistKey,
-          displayName :
-              songData.artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-          songCount : 0,
-          albumCount : 1,
-          imageUrl :
-              "", // Use a placeholder or the actual artist image if available
-          added : Date.now(),
-          visibleTo : [ "all" ],
-          addedBy : user,
-        };
-        artistKeys.push(artistKey);
-      } else {
-        if (!albumKeys[albumKey]) {
-          modifiedArtists[artistKey].albumCount++;
-        }
-        if (!songKeys[songKey]) {
-          modifiedArtists[artistKey].songCount++;
-          modifiedAlbums[albumKey].songCount++;
-        }
-      }
-    });
+    // console.log(JSON.stringify(modifiedArtists, null, 2));
+    // console.log("Albums")
+    // console.log(JSON.stringify(modifiedAlbums, null, 2));
+    // console.log("Songs")
+    // console.log(JSON.stringify(modifiedSongs, null, 2));
+    //  var json = JSON.stringify({"songs": songs, "albums": albums, "artists":
+    //  artists}); fs.writeFileSync("data.json", json);
+    //  albums.forEach((e)=>{
+    //   console.log("Songcount for", e.displayName, e.songCount, typeof
+    //   e.songCount);
+    // });
+    //  artists.forEach((e)=>{
+    //   console.log("Songcount for", e.displayName, e.songCount, typeof
+    //   e.songCount); console.log("Albumcount for", e.displayName,
+    //   e.albumCount, typeof e.albumCount);
+    // })
+    // console.log("DB upsert");
+    // await db.artists.bulkUpsert(modifiedArtists);
+    // await db.albums.bulkUpsert(modifiedAlbums);
+    // await db.songs.bulkUpsert(modifiedSongs);
+    // console.log("Typesense update");
+    // await ts.updateSongs(modifiedSongs);
+    // await ts.updateAlbums(modifiedAlbums);
+    // await ts.updateArtists(modifiedArtists);
+    fs.writeFileSync('./backup/new_songs.json', JSON.stringify(songs, null, 2));
+    fs.writeFileSync('./backup/new_albums.json',
+                     JSON.stringify(albums, null, 2));
+    fs.writeFileSync('./backup/new_artists.json',
+                     JSON.stringify(artists, null, 2));
 
-    /// THIS IS HERE FOR REFERENCE I THINK
-    // Loop through the flattened albums
-    flattenedAlbums.forEach((albumData) => {
-      // Extract artist, album, and song information from the flattened data
-      const artistKey = albumData.artistId;
-      const albumKey = albumData.albumId;
-
-      // Ensure the artist exists in the modifiedArtists dictionary
-      if (!modifiedArtists[artistKey]) {
-        modifiedArtists[artistKey] = {
-          id : artistKey,
-          displayName : albumData.artistDisplayName.normalize("NFD").replace(
-              /[\u0300-\u036f]/g, ""),
-          songCount : 0,
-          albumCount : 1,
-          imageUrl :
-              "", // Use a placeholder or the actual artist image if available
-          added : Date.now(),
-          visibleTo : [ "all" ],
-          addedBy : user,
-        };
-      } else {
-        modifiedArtists[artistKey].albumCount++;
-      }
-
-      // Ensure the album exists in the modifiedAlbums dictionary
-      if (!modifiedAlbums[albumKey]) {
-        modifiedAlbums[albumKey] = {
-          id : albumKey,
-          artistId : artistKey,
-          displayName : albumData.albumDisplayName.normalize("NFD").replace(
-              /[\u0300-\u036f]/g, ""),
-          artistDisplayName :
-              albumData.artistDisplayName.normalize("NFD").replace(
-                  /[\u0300-\u036f]/g, ""),
-          songCount : albumData.songs.length,
-          imageUrl : albumData.imageUrl,
-          added : Date.now(),
-          visibleTo : [ "all" ],
-          addedBy : user,
-        };
-      } else {
-        modifiedAlbums[albumKey].songCount += albumData.songs.length;
-      }
-
-      // Process each song in the album
-      albumData.songs.forEach((songData) => {
-        const songKey = albumKey + "_" + songData.songId;
-
-        // Ensure the song exists in the modifiedSongs dictionary
-        if (!modifiedSongs[songKey]) {
-          modifiedSongs[songKey] = {
-            id : songKey,
-            albumId : albumKey,
-            artistId : artistKey,
-            displayName : songData.songDisplayName.normalize("NFD").replace(
-                /[\u0300-\u036f]/g, ""),
-            albumDisplayName :
-                albumData.albumDisplayName.normalize("NFD").replace(
-                    /[\u0300-\u036f]/g, ""),
-            artistDisplayName :
-                albumData.artistDisplayName.normalize("NFD").replace(
-                    /[\u0300-\u036f]/g, ""),
-            duration :
-                0, // You can adjust duration based on your data if needed
-            youtubeId : songData.songYoutubeId,
-            imageUrl : albumData.imageUrl,
-            added : Date.now(),
-            visibleTo : [ "all" ],
-            addedBy : user,
-          };
-        }
-      });
-    });
-
-    // Convert modified dictionaries to arrays
-    var modifiedSongsList = Object.values(modifiedSongs);
-    var modifiedAlbumsList = Object.values(modifiedAlbums);
-    var modifiedArtistsList = Object.values(modifiedArtists);
-
-    console.log(`Adding ${modifiedSongsList.length} songs, ${
-        modifiedAlbumsList.length} albums and ${
-        modifiedArtistsList.length} artists.`);
-
-    // Continue with your existing logic here if needed
-    // await waitUntil(() => {return iterated == msg.items.length}, {timeout:
-    // Number.POSITIVE_INFINITY}); console.log(`Adding ${songs.length} songs,
-    // ${albums.length} albums and ${artists.length} artists.`);
-    iterated = 0;
-    // var modifiedSongsList = Object.values(modifiedSongs);
-    // var modifiedAlbumsList = Object.values(modifiedAlbums);
-    // var modifiedArtistsList = Object.values(modifiedArtists);
-    modifiedArtistsList.forEach(async (x) => {
-      if (x.imageUrl == "") {
-        x.imageUrl = await utils.getArtistImageUrl(
-            x.displayName.split(",")[0],
-            "https://commons.wikimedia.org/wiki/File:Apple_Music_Icon.svg");
-      }
-      iterated++;
-    });
-    await waitUntil(() => {return iterated == modifiedArtistsList.length},
-                    {timeout : Number.POSITIVE_INFINITY});
-    console.log(JSON.stringify(modifiedArtists, null, 2));
-    console.log("Albums")
-    console.log(JSON.stringify(modifiedAlbums, null, 2));
-    console.log("Songs")
-    console.log(JSON.stringify(modifiedSongs, null, 2));
-    // var json = JSON.stringify({"songs": songs, "albums": albums, "artists":
-    // artists}); fs.writeFileSync("data.json", json);
-    // albums.forEach((e)=>{
-    //  console.log("Songcount for", e.displayName, e.songCount, typeof
-    //  e.songCount);
-    //});
-    // artists.forEach((e)=>{
-    //  console.log("Songcount for", e.displayName, e.songCount, typeof
-    //  e.songCount); console.log("Albumcount for", e.displayName,
-    //  e.albumCount, typeof e.albumCount);
-    //})
-    console.log("DB upsert");
-    await db.artists.bulkUpsert(modifiedArtistsList);
-    await db.albums.bulkUpsert(modifiedAlbumsList);
-    await db.songs.bulkUpsert(modifiedSongsList);
-    console.log("Typesense update");
-    await ts.updateSongs(modifiedSongsList);
-    await ts.updateAlbums(modifiedAlbumsList);
-    await ts.updateArtists(modifiedArtistsList);
     console.log("Finished adding songs, albums and artists.");
     socket.emit("addresult", {
       "success" : true,
@@ -476,9 +350,8 @@ function adderConnection(socket, db, ts, spotifyApi) {
   });
 }
 
-async function adderMergeLogic(oldArtists, oldAlbums, oldSongs,
-                               hierearchyData) {
-  var user = "jedi";
+async function adderMergeLogic(oldArtists, oldAlbums, oldSongs, hierearchyData,
+                               user) {
   console.log("Into add message")
   var artists = [];
   var artistKeys = [];
@@ -502,15 +375,18 @@ async function adderMergeLogic(oldArtists, oldAlbums, oldSongs,
   const flattenedSongs = flattenedData.songs;
   const flattenedAlbums = flattenedData.albums;
   const flattenedArtists = flattenedData.artists;
+  console.log(flattenedArtists);
 
   // Create dictionaries to track modified songs, albums, and artists
   var modifiedSongs = {};
   var modifiedAlbums = {};
   var modifiedArtists = {};
   flattenedArtists.forEach((artistData) => {
+    console.log(artistData);
     const artistKey = utils.hash(artistData.name);
     if (artistKeys.includes(artistKey)) {
-      modifiedArtists[artistKey] = artists[artistKey];
+      console.log("artistKey already exists");
+      modifiedArtists[artistKey] = artists[artistKeys.indexOf(artistKey)];
       return;
     }
     modifiedArtists[artistData.id] = {
@@ -531,7 +407,7 @@ async function adderMergeLogic(oldArtists, oldAlbums, oldSongs,
     const artistKey = utils.hash(albumData.artist);
     const albumKey = artistKey + "_" + utils.hash(albumData.name);
     if (albumKeys.includes(albumKey)) {
-      modifiedAlbums[albumKey] = albums[albumKey];
+      modifiedAlbums[albumKey] = albums[albumKeys.indexOf(albumKey)];
       return;
     }
     modifiedAlbums[albumKey] = {
@@ -547,7 +423,6 @@ async function adderMergeLogic(oldArtists, oldAlbums, oldSongs,
       visibleTo : albumData.visibleTo,
       addedBy : user,
     };
-    console.log("Hey look, we have a new album: ", albumData);
     albumKeys.push(albumKey);
     addedAlbums++;
     modifiedArtists[artistKey].albumCount++;
@@ -555,10 +430,11 @@ async function adderMergeLogic(oldArtists, oldAlbums, oldSongs,
 
   flattenedSongs.forEach((songData) => {
     console.log(songData);
-    // Extract artist, album, and song information from the flattened data
     const artistKey = utils.hash(songData.artist);
     const albumKey = artistKey + "_" + utils.hash(songData.album);
-    const songKey = albumKey + "_" + utils.hash(songData.name);
+    const songKey = albumKey + "_" +
+                    utils.hash(songData.name.normalize("NFD").replace(
+                        /[\u0300-\u036f]/g, ""));
     modifiedSongs[songKey] = {
       id : songKey,
       albumId : albumKey,
@@ -577,7 +453,15 @@ async function adderMergeLogic(oldArtists, oldAlbums, oldSongs,
       addedBy : user,
     };
     if (!songKeys.includes(songKey)) {
+      console.log("Incrementing counts")
       addedSongs++;
+      // console.log("Keys:")
+      // console.log("\tsongKey:", songKey);
+      // console.log("\t\tsongData =", modifiedSongs[songKey]);
+      // console.log("\talbumKey:", albumKey);
+      // console.log("\t\talbumData =", modifiedAlbums[albumKey]);
+      // console.log("\tartistKey:", artistKey);
+      // console.log("\t\tartistData =", modifiedArtists[artistKey]);
       modifiedAlbums[albumKey].songCount++;
       modifiedArtists[artistKey].songCount++;
     }
@@ -646,10 +530,6 @@ async function adderMergeLogic(oldArtists, oldAlbums, oldSongs,
   var modifiedAlbumsList = Object.values(modifiedAlbums);
   var modifiedArtistsList = Object.values(modifiedArtists);
 
-  console.log(`Adding ${modifiedSongsList.length} songs, ${
-      modifiedAlbumsList.length} albums and ${
-      modifiedArtistsList.length} artists.`);
-
   // Continue with your existing logic here if needed
   // await waitUntil(() => {return iterated == msg.items.length}, {timeout:
   // Number.POSITIVE_INFINITY}); console.log(`Adding ${songs.length} songs,
@@ -676,7 +556,10 @@ async function adderMergeLogic(oldArtists, oldAlbums, oldSongs,
   return {
     artists : modifiedArtistsList,
     albums : modifiedAlbumsList,
-    songs : modifiedSongsList
+    songs : modifiedSongsList,
+    artistCount : modifiedArtistsList.length,
+    albumCount : modifiedAlbumsList.length,
+    songCount : modifiedSongsList.length
   };
 }
 
