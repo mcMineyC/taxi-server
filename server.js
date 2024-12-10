@@ -493,10 +493,12 @@ app.post('/info/songs/by/artist/:id', async function (req, res) {
 });
 
 app.post('/info/songs/batch', async function (req, res) {
+    console.log("/info/songs/batch - Checking auth");
     if((await utils.checkAuth(req.body.authtoken, db)) == false){
         res.send({"authed": false, "results": {}});
         return;
     }
+    console.log("/info/songs/batch - Authed");
     var user = await utils.getUser(req.body.authtoken, db);
     var ignore = req.query.ignore || false;
     var query = {
@@ -508,9 +510,13 @@ app.post('/info/songs/batch', async function (req, res) {
       {visibleTo: user},
       {visibleTo: "all"},
     ]
+    console.log("/info/songs/batch - Querying");
     var data = await db.songs.find(query).exec();
+    console.log("/info/songs/batch - Query done");
     var results = {}
+    console.log("/info/songs/batch - Mapping");
     data.forEach((d) => results[d.id] = d)
+    console.log("/info/songs/batch - Sending results");
     res.send({"authed": true, "results": results});
 });
 
