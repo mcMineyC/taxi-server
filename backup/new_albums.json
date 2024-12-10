@@ -1,0 +1,40 @@
+[
+  {
+    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051",
+    "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+    "displayName": "Year 7",
+    "artistDisplayName": "Qumu",
+    "songCount": 21,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734366c48ae7d8dce239c62c47",
+    "added": 1725227802466,
+    "visibleTo": [
+      "all"
+    ],
+    "addedBy": "jedi",
+    "_meta": {
+      "lwt": 1725725938232.01
+    },
+    "_deleted": false,
+    "_attachments": {},
+    "_rev": "112-kqiswvbgjn"
+  },
+  {
+    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c",
+    "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+    "displayName": "Year 4",
+    "artistDisplayName": "Qumu",
+    "songCount": 25,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
+    "added": 1725227802466,
+    "visibleTo": [
+      "all"
+    ],
+    "addedBy": "jedi",
+    "_meta": {
+      "lwt": 1725725938232.01
+    },
+    "_deleted": false,
+    "_attachments": {},
+    "_rev": "112-kqiswvbgjn"
+  }
+]
