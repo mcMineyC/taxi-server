@@ -17,7 +17,7 @@ var db = await createRxDatabase({
   name : dbName,
   storage : getRxStorageMongoDB({
     connection :
-        'mongodb://admin:supersecure123@192.168.196.122:27017/?authSource=admin',
+        'mongodb://admin:supersecure123@192.168.30.36:27017/?authSource=admin',
   }),
 });
 await schemas.register(db, 9);
