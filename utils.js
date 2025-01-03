@@ -150,6 +150,9 @@ async function batchDeleteItems(data, user, db, ts){
   console.log("Finished deleting items")
 }
 
+const spotifyUrlRegex = /https:\/\/open\.spotify\.com\/(track|album|artist|playlist)\/([^?]*)(\?si=.*)?/;
+
+
 export default {
   hash: hash,
   getArtistImageUrl: getArtistImageUrl,
@@ -158,5 +161,6 @@ export default {
   addToRecentlyPlayed: addToRecentlyPlayed,
   deleteSong: deleteSong,
   deleteAlbum: deleteAlbum,
-  deleteArtist: deleteArtist
+  deleteArtist: deleteArtist,
+  spotifyUrlRegex: spotifyUrlRegex,
 }

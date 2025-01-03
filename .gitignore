@@ -14,3 +14,4 @@ config/images/albums/*
 config/images/songs/*
 spottydl
 backup/auth.json
+userToken.json
