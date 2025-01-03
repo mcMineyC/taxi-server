@@ -52,6 +52,7 @@ function adderConnection(socket, db, ts, spotifyApi) {
     if (typeof (msg) == "string") {
       msg = JSON.parse(msg);
     }
+    console.log("Search", msg);
     if (msg.source == "spotify") {
       if (msg.query == "") {
         socket.emit("message", {
@@ -76,58 +77,44 @@ function adderConnection(socket, db, ts, spotifyApi) {
                                         page);
         items = items[msg.mediaType + "s"].items
       }
+      console.log("Adder.js: got", items.length, "results");
 
       items = items.map(
-          (item) => item.type == "track"
-                        ? ({
-                            id : typeof (item.id) == "string" ? item.id : "",
-                            name : typeof (item.name) == "string" ? item.name
-                                                                  : "",
-                            artist : typeof (item.artists) == "object" &&
-                                             typeof (item.artists[0].name) ==
-                                                 "string"
-                                         ? item.artists[0].name
-                                         : "",
-                            album : typeof (item.album) == "object" &&
-                                            typeof (item.album.name) == "string"
-                                        ? item.album.name
-                                        : "",
-                            imageUrl : typeof (item.album) == "object" &&
-                                               item.album.images[0]
-                                           ? (item.album.images
-                                                  .sort((a, b) => b.width -
-                                                                  a.width)[0]
-                                                  .url)
-                                           : "",
-                            type : "song",
-                          })
-                        : (item.type == "album"
-                               ? ({
-                                   id : typeof (item.id) ==
-                                                "string"
-                                            ? item.id
-                                            : "",
-                                   name : typeof (item.name) ==
-                                                  "string"
-                                              ? item.name
-                                              : "",
-                                   album : "",
-                                   artist :
-                                       typeof (item.artists) ==
-                                                   "object" &&
-                                               typeof (item.artists[0].name) ==
-                                                   "string"
-                                           ? item.artists[0].name
-                                           : "",
-                                   imageUrl : typeof (item.images) ==
-                                                          "object" &&
-                                                      item.images[0]
-                                                  ? item.images[0]
-                                                        .url
-                                                  : "",
-                                   type : "album"
-                                 })
-                               : (item.type == "artist" ? ({
+        (item) => item.type == "track"
+          ? ({
+              id: typeof (item.id) == "string" ? item.id : "",
+              name: typeof (item.name) == "string" ? item.name : "",
+              artist: typeof (item.artists) == "object" &&
+                      typeof (item.artists[0].name) == "string"
+                        ? item.artists[0].name
+                        : "",
+              album: typeof (item.album) == "object" &&
+                     typeof (item.album.name) == "string"
+                       ? item.album.name
+                       : "",
+              imageUrl: typeof (item.album) == "object" &&
+                        item.album.images[0]
+                          ? (item.album.images.sort(
+                              (a, b) => b.width - a.width)[0]
+                            .url)
+                          : "",
+              type : "song",
+            })
+          : (item.type == "album" ? ({
+                id: typeof (item.id) == "string" ? item.id : "",
+                name: typeof (item.name) == "string" ? item.name : "",
+                album: "",
+                artist: typeof (item.artists) == "object" &&
+                        typeof (item.artists[0].name) == "string"
+                          ? item.artists[0].name
+                          : "",
+                imageUrl : typeof (item.images) =="object" &&
+                           item.images[0]
+                             ? item.images[0].url
+                             : "",
+                type : "album"
+              })
+          : (item.type == "artist" ? ({
                                    id : typeof (item.id) == "string" ? item.id
                                                                      : "",
                                    name :
@@ -144,7 +131,9 @@ function adderConnection(socket, db, ts, spotifyApi) {
                                    type : "artist",
                                  })
                                                         : item)));
+      //console.log("Adder.js: Mapped items");
       socket.emit("searchresults", {"type" : msg.mediaType, "results" : items})
+      //console.log("Adder.js: Sent results");
     } else if (msg.source == "youtube") {
       socket.emit("searchresults", [])
     }
