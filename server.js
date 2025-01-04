@@ -26,8 +26,8 @@ import utils from "./utils.js";
 console.log("Added collections");
 
 const spotifyHandler = new SpotifyHandler(
-  adder.clientID,
-  adder.secretKey,
+  adder.clientId,
+  adder.clientSecret,
   "http://localhost:8080/callback",
 );
 await spotifyHandler.initialize();

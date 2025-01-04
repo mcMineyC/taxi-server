@@ -47,7 +47,6 @@ class SpotifyHandler {
   // Generate authorization URL for user login
   getAuthorizationUrl(userId) {
     const state = require("crypto").randomBytes(16).toString("hex");
-    this.pendingStates.set(state, userId);
 
     const scope = [
       "user-read-private",
@@ -102,10 +101,7 @@ class SpotifyHandler {
         expirationTime: Date.now() + data.expires_in * 1000,
       };
 
-      this.pendingStates.delete(state);
-
-      // Initialize API instance for this user
-      await this.initializeUserApi("main");
+      await this.initializeUserApi();
 
       return "main";
     } catch (error) {
@@ -115,8 +111,7 @@ class SpotifyHandler {
   }
 
   // Initialize or refresh API instance for a specific user
-  async initializeUserApi(userId) {
-    console.log(this.userToken);
+  async initializeUserApi() {
     const userToken = this.userToken;
     if (!userToken) {
       throw new Error("User not authenticated");
@@ -131,13 +126,14 @@ class SpotifyHandler {
   }
 
   // Refresh user's access token
-  async refreshUserToken(userId) {
+  async refreshUserToken() {
     const userToken = this.userToken;
     if (!userToken) {
       throw new Error("User not authenticated");
     }
 
     try {
+      const refreshToken = userToken.refreshToken;
       const response = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
@@ -150,7 +146,7 @@ class SpotifyHandler {
         },
         body: new URLSearchParams({
           grant_type: "refresh_token",
-          refresh_token: userToken.refreshToken,
+          refresh_token: refreshToken,
         }),
       });
 
@@ -159,14 +155,13 @@ class SpotifyHandler {
       }
 
       const data = await response.json();
-
       this.userToken = {
         accessToken: data.access_token,
         refreshToken: data.refresh_token || userToken.refreshToken, // Some implementations don't return a new refresh token
         expirationTime: Date.now() + data.expires_in * 1000,
       };
 
-      await this.initializeUserApi(userId);
+      await this.initializeUserApi();
     } catch (error) {
       console.error("Error refreshing user token:", error);
       throw error;
@@ -174,7 +169,7 @@ class SpotifyHandler {
   }
 
   // Execute API call with automatic token refresh
-  async executeUserAction(userId, apiCall) {
+  async executeUserAction(apiCall) {
     try {
       const userToken = this.userToken;
       if (!userToken) {
@@ -183,14 +178,14 @@ class SpotifyHandler {
 
       // Check if token is expired or about to expire
       if (Date.now() >= userToken.expirationTime - 60000) {
-        await this.refreshUserToken(userId);
+        await this.refreshUserToken();
       }
 
-      await this.initializeUserApi(userId);
+      await this.initializeUserApi();
       return await apiCall();
     } catch (error) {
       if (error.status === 401) {
-        await this.refreshUserToken(userId);
+        await this.refreshUserToken();
         return await apiCall();
       }
       throw error;
@@ -199,20 +194,20 @@ class SpotifyHandler {
 
   // Get user's profile
   async getUserProfile() {
-    return this.executeUserAction(this.userToken, async () => {
+    return this.executeUserAction(async () => {
       return await this.api.currentUser.profile();
     });
   }
 
   // Get user's playlists
   async getUserPlaylists() {
-    return this.executeUserAction(this.userToken, async () => {
+    return this.executeUserAction(async () => {
       return await this.api.currentUser.playlists.playlists();
     });
   }
 
   async getFullPlaylist(playlistId) {
-    return this.executeUserAction(this.userToken, async () => {
+    return this.executeUserAction(async () => {
       let allTracks = []; // Store all tracks
       var limit = 100; // Spotify API limit per request
       var offset = 0; // Start from the first track
@@ -220,11 +215,11 @@ class SpotifyHandler {
       const playlist = await this.api.playlists.getPlaylist(playlistId);
       console.log("SpotifyHandler: Fetched playlist", playlist.name);
       //console.log(
-        //"Playlist has",
-        //playlist.tracks.total,
-        //"tracks, but only",
-        //playlist.tracks.items.length,
-        //"are visible",
+      //"Playlist has",
+      //playlist.tracks.total,
+      //"tracks, but only",
+      //playlist.tracks.items.length,
+      //"are visible",
       //);
 
       //allTracks = playlist.tracks.items.map((item) => item.track);
@@ -232,7 +227,13 @@ class SpotifyHandler {
 
       do {
         // Fetch playlist tracks with pagination
-        const response = await this.api.playlists.getPlaylistItems(playlistId, null, null, limit, offset);
+        const response = await this.api.playlists.getPlaylistItems(
+          playlistId,
+          null,
+          null,
+          limit,
+          offset,
+        );
         //console.log(playlist.tracks.total - offset, "tracks remaining");
         //console.log("Fetching", limit, "tracks from offset", offset);
         if (response.items && response.items.length > 0) {
@@ -265,9 +266,50 @@ class SpotifyHandler {
     });
   }
 
+  async getFullArtist(artistId) {
+    return this.executeUserAction(async () => {
+      let allAlbums = []; // Store all albums
+      var limit = 50; // Spotify API limit per request
+      var offset = 0; // Start from the first album
+      var totalAlbums = 0;
+      const artist = await this.api.artists.get(artistId);
+      console.log("SpotifyHandler: Fetched artist", artist.name);
+
+      do {
+        // Fetch artist albums with pagination
+        const response = await this.api.artists.albums(
+          artistId,
+          ["album", "single"],
+          null,
+          limit,
+          offset,
+        );
+
+        if (response.items && response.items.length > 0) {
+          allAlbums.push(...response.items);
+          offset += response.items.length;
+        } else {
+          break; // Exit if no more items returned
+        }
+
+        totalAlbums = response.total;
+      } while (offset <= totalAlbums);
+
+      return {
+        id: artist.id,
+        name: artist.name,
+        imageUrl: artist.images[0].url,
+        followers: artist.followers.total,
+        genres: artist.genres,
+        albums: allAlbums,
+        type: "artist",
+      };
+    });
+  }
+
   // Search with user context
-  async search(userId, query, mediaType, page = 0) {
-    return this.executeUserAction(userId, async () => {
+  async search(query, mediaType, page = 0) {
+    return this.executeUserAction(async () => {
       try {
         if (query === "") {
           return [];
@@ -294,19 +336,20 @@ class SpotifyHandler {
           if (["track", "album", "artist"].includes(type)) {
             items = [await this.api[type + "s"].get(id)];
           } else if (type === "playlist") {
-            const playlist = await this.getFullPlaylist(id);
-            console.log(JSON.stringify(playlist,null,2));
-            return { type: "playlist", items: [playlist] };
+            items = [await this.getFullPlaylist(id)];
+            //const mappedPlaylist = this.mapSpotifyResults([playlist]);
+            //console.log(JSON.stringify(mappedPlaylist, null, 2));
+            //return { type: "playlist", results: [mappedPlaylist] };
           }
-        } else {
-          const results = await this.api.search(
+        } else if (["track", "album", "artist"].includes(mediaType)) {
+          const trackItems = await this.api.search(
             query,
-            [mediaType],
-            undefined,
+            mediaType,
+            null,
             50,
-            page,
+            page * 50,
           );
-          items = results[mediaType + "s"].items;
+          items = trackItems[mediaType + "s"].items;
         }
 
         return this.mapSpotifyResults(items);
@@ -328,97 +371,160 @@ class SpotifyHandler {
   }
 
   async findItems(selected) {
-    return this.executeWithRetry(async () => {
-      const found = [];
+    const found = [];
 
-      for (const x of selected) {
-        try {
-          let result = {};
-          const url = `https://open.spotify.com/${x.type === "song" ? "track" : x.type}/${x.id}`;
+    // Group items by type
+    const songs = [];
+    const albumIds = [];
+    const artistIds = [];
 
-          switch (x.type) {
-            case "song":
-              result = await this.findSong(x.id);
-              break;
-            case "album":
-              result = await this.findAlbum(x.id);
-              break;
-            case "playlist":
-              // Not implemented
-              break;
-            default:
-              break;
-          }
-          if (result) {
-            found.push(result);
-          }
-        } catch (error) {
-          console.error(`Error finding item ${x.id}:`, error);
-        }
+    selected.forEach((item) => {
+      switch (item.type) {
+        case "song":
+          songs.push(item);
+          break;
+        case "album":
+          albums.push(item);
+          break;
+        case "artist":
+          artists.push(item);
+          break;
       }
-
-      await waitUntil(() => found.length === selected.length, {
-        timeout: Number.POSITIVE_INFINITY,
-      });
-
-      return this.mapFoundResults(found);
     });
+
+    // Batch fetch songs // TODO still needs work
+    if (songs.length > 0) {
+      const songPromises = songs.map(async (track) => {
+        const youtubeInfo = await this.yt.searchSongs(
+          `${track.name} ${track.artist}`,
+        );
+        console.log(track)
+        return {
+          title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          album: track.album
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, ""),
+          artist: track.artist
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, ""),
+          albumCoverURL: track.imageUrl,
+          songs: [
+            {
+              title: track.name
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, ""),
+              id: youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || "",
+              trackNumber: track.track_number,
+            },
+          ],
+          type: "song",
+        };
+      });
+      const songResults = await Promise.all(songPromises);
+      found.push(...songResults);
+    }
+
+    // Batch fetch albums
+    if (albumIds.length > 0) {
+      const albums = await this.api.albums.get(albumIds);
+      const albumPromises = albums.map(async (album) => {
+        const youtubeInfo = await this.yt.searchAlbums(
+          `${album.name} ${album.artists[0].name}`,
+        );
+
+        if (youtubeInfo.length === 0) return null;
+
+        const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
+
+        return {
+          title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          artist: album.artists[0].name
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, ""),
+          albumCoverURL: album.images[0].url,
+          songs: youtubeAlbum.songs.map((x, index) => ({
+            title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+            id: x.videoId || x.browseId || "",
+            trackNumber: index + 1,
+          })),
+          type: "album",
+        };
+      });
+      const albumResults = await Promise.all(albumPromises);
+      found.push(...albumResults.filter((r) => r !== null));
+    }
+
+    // Batch fetch artists
+    if (artistIds.length > 0) {
+      const artistPromises = artistIds.map(async (artistId) => {
+        const fullArtist = await this.getFullArtist(artistId);
+        const albums = [];
+        const albumPromises = fullArtist.albums.map(async (a) => {
+          const album = await this.findAlbum(a.id);
+          if (album != null) {
+            albums.push(album);
+          }
+        });
+        await Promise.all(albumPromises);
+        return albums;
+      });
+      const artistResults = await Promise.all(artistPromises);
+      artistResults.forEach((albums) => found.push(...albums));
+    }
+
+    return this.mapFoundResults(found);
   }
 
   async findSong(id) {
-    return this.executeWithRetry(async () => {
-      const track = await this.api.tracks.get(id);
-      const youtubeInfo = await this.yt.searchSongs(
-        `${track.name} ${track.artists[0].name}`,
-      );
+    const track = await this.api.tracks.get(id);
+    const youtubeInfo = await this.yt.searchSongs(
+      `${track.name} ${track.artists[0].name}`,
+    );
 
-      return {
-        title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-        album: track.album.name
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, ""),
-        artist: track.artists[0].name
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, ""),
-        albumCoverURL: track.album.images[0].url,
-        songs: [
-          {
-            title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-            id: youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || "",
-            trackNumber: track.track_number,
-          },
-        ],
-        type: "song",
-      };
-    });
+    return {
+      title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+      album: track.album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+      artist: track.artists[0].name
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""),
+      albumCoverURL: track.album.images[0].url,
+      songs: [
+        {
+          title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          id: youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || "",
+          trackNumber: track.track_number,
+        },
+      ],
+      type: "song",
+    };
   }
 
   async findAlbum(id) {
-    return this.executeWithRetry(async () => {
-      const album = await this.api.albums.get(id);
-      const youtubeInfo = await this.yt.searchAlbums(
-        `${album.name} ${album.artists[0].name}`,
-      );
+    const album = await this.api.albums.get(id);
+    const youtubeInfo = await this.yt.searchAlbums(
+      `${album.name} ${album.artists[0].name}`,
+    );
+    console.log(youtubeInfo.length, "youtube results found");
 
-      if (youtubeInfo.length === 0) return null;
+    if (youtubeInfo.length === 0) return null;
 
-      const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
+    const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
 
-      return {
-        title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-        album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-        artist: album.artists[0].name
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, ""),
-        albumCoverURL: album.images[0].url,
-        songs: youtubeAlbum.songs.map((x, index) => ({
-          title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-          id: x.videoId || x.browseId || "",
-          trackNumber: index + 1,
-        })),
-        type: "album",
-      };
-    });
+    return {
+      title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+      album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+      artist: album.artists[0].name
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""),
+      albumCoverURL: album.images[0].url,
+      songs: youtubeAlbum.songs.map((x, index) => ({
+        title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+        id: x.videoId || x.browseId || "",
+        trackNumber: index + 1,
+      })),
+      type: "album",
+    };
   }
 
   mapSpotifyResults(items) {
@@ -437,8 +543,8 @@ class SpotifyHandler {
           id: item.id || "",
           name: item.name || "",
           album: "",
-          artist: item.artists?.[0]?.name || "",
-          imageUrl: item.images?.[0]?.url || "",
+          artist: item.artists[0].name || "",
+          imageUrl: item.images[0].url || "",
           type: "album",
         };
       } else if (item.type === "artist") {
@@ -450,20 +556,43 @@ class SpotifyHandler {
           imageUrl: item.images?.[0]?.url || "",
           type: "artist",
         };
+      } else if (item.type === "playlist") {
+        return {
+          id: item.id || "",
+          name: item.name || "",
+          album: "",
+          artist: item.owner,
+          imageUrl: item.imageUrl || "",
+          tracks: item.tracks.map((x) => ({
+            name: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+            album: x.album.name
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, ""),
+            artist: x.artists[0].name
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, ""),
+            imageUrl: x.album.images[0].url,
+            type: "song",
+          })),
+          type: "playlist",
+        };
       }
       return item;
     });
   }
 
   mapFoundResults(found) {
-    return found.map((x) => ({
-      name: x.title || x.name || "",
-      album: x.album || "",
-      artist: x.artist || "",
-      imageUrl: x.albumCoverURL || x.playlistCoverURL || "",
-      type: x.type,
-      songs: x.songs || [],
-    }));
+    return found.map((x) => {
+      console.log("Found item", x);
+      return {
+        name: x.title || x.name || "",
+        album: x.album || "",
+        artist: x.artist || "",
+        imageUrl: x.albumCoverURL || x.playlistCoverURL || "",
+        type: x.type,
+        songs: x.songs || [],
+      };
+    });
   }
 
   // Helper method to check if token is expired or about to expire

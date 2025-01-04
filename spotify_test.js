@@ -39,6 +39,13 @@ app.get("/getplaylist", async (req, res) => {
 app.get("/getplaylists", async (req, res) => {
   res.send(await spotifyHandler.getUserPlaylists());
 });
+app.get("/findstuff", async (req, res) => {
+  res.send(
+    await spotifyHandler.findItems([
+      { type: "artist", id: "0LzeyDrlLtuyBqMSBN4z3U" },
+    ]),
+  );
+});
 
 app.listen(8080, () => {
   console.log("Server running on port 8080");

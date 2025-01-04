@@ -85,13 +85,12 @@ function adderConnection(socket, db, ts, spotifyHandler) {
           page = msg.page;
         }
 
-        const items = await spotifyHandler.search(
-          user,
+        const results = await spotifyHandler.search(
           msg.query,
           msg.mediaType,
           page,
         );
-        socket.emit("searchresults", { type: msg.mediaType, results: items });
+        socket.emit("searchresults", {"type": msg.mediaType, "results": results});
       } catch (error) {
         console.error("Spotify search error:", error);
         socket.emit("message", {
@@ -102,7 +101,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
         });
       }
     } else if (msg.source == "youtube") {
-      socket.emit("searchresults", []);
+      socket.emit("searchresults", {type: msg.mediaType, results: []});
     }
   });
 
@@ -133,6 +132,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
         }
 
         const found = await spotifyHandler.findItems(msg.selected);
+        console.log(found);
         socket.emit("findresults", { results: found });
       } catch (error) {
         console.error("Error finding items:", error);
