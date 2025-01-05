@@ -3,12 +3,10 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 import utils from "./utils.js";
-import SpotifyHandler from "./spotify.js";
 
-const SpottyDL = require("spottydl-better");
 const clientID = "0a65ebdec6ec4983870a7d2f51af2aa1";
 const secretKey = "22714014e04f46cebad7e03764beeac8";
-const { waitUntil } = require("async-wait-until");
+const fs = require("fs");
 
 import YTMusic from "ytmusic-api";
 
@@ -23,7 +21,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
   });
   var authed = false;
   var user = "";
-  socket.on("auth", async (msg) => {
+  socket.on("auth", async (msg) => { // TODO make sure user has adder role
     if (typeof msg == "string") {
       msg = JSON.parse(msg);
     }
@@ -131,7 +129,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
           return;
         }
 
-        const found = await spotifyHandler.findItems(msg.selected);
+        const found = await spotifyHandler.findItems(msg.selected, user);
         console.log(found);
         socket.emit("findresults", { results: found });
       } catch (error) {
@@ -167,6 +165,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     if (typeof msg == "string") {
       msg = JSON.parse(msg);
     }
+    console.log("MSG:",JSON.stringify(msg,null,2));
     var artists = [];
     var albums = [];
     var songs = [];
@@ -181,12 +180,13 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     albums = JSON.parse(JSON.stringify(albums));
     // Assuming that `flattenData` function already exists and returns flattened
     // arrays
-    const { flattenedSongs, flattenedAlbums, flattenedArtists } = flattenData(
-      msg.items,
-    );
+    //
+    //const { flattenedSongs, flattenedAlbums, flattenedArtists } = flattenData(
+    //  msg.items,
+    //);
 
     // Create dictionaries to track modified songs, albums, and artists
-    const mergedOutput = adderMergeLogic(
+    const mergedOutput = await adderMergeLogic(
       artists,
       albums,
       songs,
@@ -209,39 +209,39 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       "songs",
     );
 
-    // console.log(JSON.stringify(modifiedArtists, null, 2));
-    // console.log("Albums")
-    // console.log(JSON.stringify(modifiedAlbums, null, 2));
-    // console.log("Songs")
-    // console.log(JSON.stringify(modifiedSongs, null, 2));
+     console.log(JSON.stringify(modifiedArtists, null, 2));
+     console.log("Albums")
+     console.log(JSON.stringify(modifiedAlbums, null, 2));
+     console.log("Songs")
+     console.log(JSON.stringify(modifiedSongs, null, 2));
     var json = JSON.stringify({
       songs: songs,
       albums: albums,
       artists: artists,
-    });
+    }, null, 2);
     fs.writeFileSync("data.json", json);
-    albums.forEach((e) => {
-      console.log(
-        "Songcount for",
-        e.displayName,
-        e.songCount,
-        typeof e.songCount,
-      );
-    });
-    artists.forEach((e) => {
-      console.log(
-        "Songcount for",
-        e.displayName,
-        e.songCount,
-        typeof e.songCount,
-      );
-      console.log(
-        "Albumcount for",
-        e.displayName,
-        e.albumCount,
-        typeof e.albumCount,
-      );
-    });
+    //albums.forEach((e) => {
+    //  console.log(
+    //    "Songcount for",
+    //    e.displayName,
+    //    e.songCount,
+    //    typeof e.songCount,
+    //  );
+    //});
+    //artists.forEach((e) => {
+    //  console.log(
+    //    "Songcount for",
+    //    e.displayName,
+    //    e.songCount,
+    //    typeof e.songCount,
+    //  );
+    //  console.log(
+    //    "Albumcount for",
+    //    e.displayName,
+    //    e.albumCount,
+    //    typeof e.albumCount,
+    //  );
+    //});
     // console.log("DB upsert");
     // await db.artists.bulkUpsert(modifiedArtists);
     // await db.albums.bulkUpsert(modifiedAlbums);
@@ -280,6 +280,7 @@ async function adderMergeLogic(
   user,
 ) {
   console.log("Into add message");
+  //console.log(JSON.stringify(hierearchyData, null, 2));
   var artists = [];
   var artistKeys = [];
   var albums = [];
@@ -310,15 +311,16 @@ async function adderMergeLogic(
   var modifiedArtists = {};
   flattenedArtists.forEach((artistData) => {
     console.log(artistData);
-    const artistKey = utils.hash(artistData.name);
+    const artistKey = utils.hash(artistData.displayName);
     if (artistKeys.includes(artistKey)) {
       console.log("artistKey already exists");
       modifiedArtists[artistKey] = artists[artistKeys.indexOf(artistKey)];
+      //addedArtists--;
       return;
     }
-    modifiedArtists[artistData.id] = {
+    modifiedArtists[artistKey] = {
       id: artistData.id,
-      displayName: artistData.name
+      displayName: artistData.displayName
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
       imageUrl: artistData.imageUrl,
@@ -332,16 +334,17 @@ async function adderMergeLogic(
     addedArtists++;
   });
   flattenedAlbums.forEach((albumData) => {
-    const artistKey = utils.hash(albumData.artist);
-    const albumKey = artistKey + "_" + utils.hash(albumData.name);
+    const artistKey = utils.hash(albumData.artistDisplayName);
+    const albumKey = artistKey + "_" + utils.hash(albumData.displayName);
     if (albumKeys.includes(albumKey)) {
       modifiedAlbums[albumKey] = albums[albumKeys.indexOf(albumKey)];
+      //addedAlbums--;
       return;
     }
     modifiedAlbums[albumKey] = {
       id: albumKey,
       artistId: artistKey,
-      displayName: albumData.albumDisplayName
+      displayName: albumData.displayName
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
       artistDisplayName: albumData.artistDisplayName
@@ -359,26 +362,25 @@ async function adderMergeLogic(
   });
 
   flattenedSongs.forEach((songData) => {
-    console.log(songData);
-    const artistKey = utils.hash(songData.artist);
-    const albumKey = artistKey + "_" + utils.hash(songData.album);
+    const artistKey = utils.hash(songData.artistDisplayName);
+    const albumKey = artistKey + "_" + utils.hash(songData.albumDisplayName);
     const songKey =
       albumKey +
       "_" +
       utils.hash(
-        songData.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+        songData.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
       );
     modifiedSongs[songKey] = {
       id: songKey,
       albumId: albumKey,
       artistId: artistKey,
-      displayName: songData.name
+      displayName: songData.displayName
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
-      albumDisplayName: songData.album
+      albumDisplayName: songData.albumDisplayName
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
-      artistDisplayName: songData.artist
+      artistDisplayName: songData.artistDisplayName
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
       duration: 0,
@@ -474,21 +476,22 @@ async function adderMergeLogic(
   // var modifiedSongsList = Object.values(modifiedSongs);
   // var modifiedAlbumsList = Object.values(modifiedAlbums);
   // var modifiedArtistsList = Object.values(modifiedArtists);
-  modifiedArtistsList.forEach(async (x) => {
+  await Promise.all(modifiedArtistsList.map(async (x) => {
     if (x.imageUrl == "") {
       x.imageUrl = await utils.getArtistImageUrl(
         x.displayName.split(",")[0],
-        "https://commons.wikimedia.org/wiki/File:Apple_Music_Icon.svg",
+        //"https://commons.wikimedia.org/wiki/File:Apple_Music_Icon.svg",
+        "https://www.pngarts.com/files/8/Apple-Music-Logo-PNG-Photo.png",
       );
     }
     iterated++;
-  });
-  await waitUntil(
-    () => {
-      return iterated == modifiedArtistsList.length;
-    },
-    { timeout: Number.POSITIVE_INFINITY },
-  );
+  }));
+  //await waitUntil(
+  //  () => {
+  //    return iterated == modifiedArtistsList.length;
+  //  },
+  //  { timeout: Number.POSITIVE_INFINITY },
+  //);
   // console.log(JSON.stringify(modifiedArtists, null, 2));
   // console.log("Albums")
   // console.log(JSON.stringify(modifiedAlbums, null, 2));
@@ -498,9 +501,9 @@ async function adderMergeLogic(
     artists: modifiedArtistsList,
     albums: modifiedAlbumsList,
     songs: modifiedSongsList,
-    artistCount: modifiedArtistsList.length,
-    albumCount: modifiedAlbumsList.length,
-    songCount: modifiedSongsList.length,
+    artistCount: addedArtists,
+    albumCount: addedSongs,
+    songCount: addedSongs,
   };
 }
 
@@ -508,46 +511,50 @@ function flattenData(input) {
   const artists = [];
   const albums = [];
   const songs = [];
+  console.log(`Flattening ${input} items...`);
 
   input.forEach((artistData) => {
-    // Flatten artists
+    var artistPublic = false;
+    // Flatten artist
     const artistName = artistData.name;
-    artists.push({
-      name: artistName,
-      visibleTo:
-        artistData.visibleTo == undefined ? ["all"] : artistData.visibleTo,
-      albumCount: artistData.albums.length,
-      songCount: artistData.albums.reduce(
-        (total, album) => total + album.songs.length,
-        0,
-      ),
-    });
-
     artistData.albums.forEach((albumData) => {
       // Flatten albums
       const albumName = albumData.name;
       const albumImageUrl = albumData.imageUrl;
       albums.push({
-        name: albumName,
-        artist: artistName,
+        displayName: albumName,
+        artistDisplayName: artistName,
         imageUrl: albumImageUrl,
         visibleTo:
           albumData.visibleTo == undefined ? ["all"] : albumData.visibleTo,
         songCount: albumData.songs.length,
       });
+      if (albumData.visibleTo != undefined && albumData.visibleTo.includes("all"))
+        artistPublic = true;
 
       albumData.songs.forEach((songData) => {
         // Flatten songs
         songs.push({
-          name: songData.name,
+          displayName: songData.name,
           videoId: songData.videoId,
           imageUrl: songData.imageUrl,
-          album: albumName,
-          artist: artistName,
+          albumDisplayName: albumName,
+          artistDisplayName: artistName,
           visibleTo:
             songData.visibleTo == undefined ? ["all"] : songData.visibleTo,
         });
       });
+    });
+
+    artists.push({
+      displayName: artistName,
+      visibleTo:
+        artistData.visibleTo == undefined || artistPublic ? ["all"] : artistData.visibleTo,
+      albumCount: artistData.albums.length,
+      songCount: artistData.albums.reduce(
+        (total, album) => total + album.songs.length,
+        0,
+      ),
     });
   });
 

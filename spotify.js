@@ -370,13 +370,13 @@ class SpotifyHandler {
     this.userToken = null;
   }
 
-  async findItems(selected) {
+  async findItems(selected, username) {
     const found = [];
 
     // Group items by type
     const songs = [];
-    const albumIds = [];
-    const artistIds = [];
+    var albums = [];
+    const artists = [];
 
     selected.forEach((item) => {
       switch (item.type) {
@@ -408,13 +408,14 @@ class SpotifyHandler {
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, ""),
           albumCoverURL: track.imageUrl,
+          visibleTo: username,
           songs: [
             {
               title: track.name
                 .normalize("NFD")
                 .replace(/[\u0300-\u036f]/g, ""),
               id: youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || "",
-              trackNumber: track.track_number,
+              trackNumber: track.track_number || 0,
             },
           ],
           type: "song",
@@ -423,55 +424,58 @@ class SpotifyHandler {
       const songResults = await Promise.all(songPromises);
       found.push(...songResults);
     }
+    
+    // Batch fetch artists
+    if (artists.length > 0) {
+      const artistPromises = artists.map(async (artist) => {
+        const fullArtist = await this.getFullArtist(artist.id);
+        const abums = this.mapSpotifyResults(fullArtist.albums);
+        console.log("SpotifyHandler: Fetched artist", artist.name, "adding", abums.length, "albums");
+        return abums;
+      });
+      const artistResults = await Promise.all(artistPromises);
+      console.log("SpotifyHandler: Fetched artists, adding", artistResults[0].length, "artist albums");
+      artistResults.forEach((aAlbums) => albums = [albums, ...aAlbums]);
+    }
+    console.log("SpotifyHandler: going to iterate over", albums.length, "albums");
 
     // Batch fetch albums
-    if (albumIds.length > 0) {
-      const albums = await this.api.albums.get(albumIds);
+    if (albums.length > 0) {
       const albumPromises = albums.map(async (album) => {
         const youtubeInfo = await this.yt.searchAlbums(
-          `${album.name} ${album.artists[0].name}`,
+          `${album.name} ${album.artist}`,
         );
 
         if (youtubeInfo.length === 0) return null;
 
         const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
+        console.log("ALBUM: ",album)
 
-        return {
-          title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-          album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-          artist: album.artists[0].name
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, ""),
-          albumCoverURL: album.images[0].url,
-          songs: youtubeAlbum.songs.map((x, index) => ({
-            title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-            id: x.videoId || x.browseId || "",
-            trackNumber: index + 1,
-          })),
-          type: "album",
-        };
+        try{
+          return {
+            title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+            album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+            artist: album.artist
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, ""),
+            albumCoverURL: album.imageUrl,
+            visibleTo: username,
+            songs: youtubeAlbum.songs.map((x, index) => ({
+              title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+              id: x.videoId || x.browseId || "",
+              trackNumber: index + 1,
+            })),
+            type: "album",
+          };
+        }catch(e){
+          console.log("Error with album", album, e);
+          return null;
+        }
       });
       const albumResults = await Promise.all(albumPromises);
       found.push(...albumResults.filter((r) => r !== null));
     }
 
-    // Batch fetch artists
-    if (artistIds.length > 0) {
-      const artistPromises = artistIds.map(async (artistId) => {
-        const fullArtist = await this.getFullArtist(artistId);
-        const albums = [];
-        const albumPromises = fullArtist.albums.map(async (a) => {
-          const album = await this.findAlbum(a.id);
-          if (album != null) {
-            albums.push(album);
-          }
-        });
-        await Promise.all(albumPromises);
-        return albums;
-      });
-      const artistResults = await Promise.all(artistPromises);
-      artistResults.forEach((albums) => found.push(...albums));
-    }
 
     return this.mapFoundResults(found);
   }
