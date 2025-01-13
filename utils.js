@@ -2,134 +2,167 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-const path = require('path');
-import {fileURLToPath} from 'url';
+const path = require("path");
+import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
-const util = require('util');
-import crypto from 'crypto';
-const exec = util.promisify(require('child_process').exec);
-const { waitUntil } = require('async-wait-until');
+const util = require("util");
+import crypto from "crypto";
+const exec = util.promisify(require("child_process").exec);
+const { waitUntil } = require("async-wait-until");
 
-async function getArtistImageUrl(name, backupImageUrl){
-  console.log("Getting image for "+name)
-  const { stdout, stderr } = await exec('python3 find_artist_profile_url.py "'+name+'"')
-  var data = {}
-  console.log(stdout)
-  try{
-    data = JSON.parse(stdout)
-            
-    if(data["success"]){
+async function getArtistImageUrl(name, backupImageUrl) {
+  console.log("Getting image for " + name);
+  const { stdout, stderr } = await exec(
+    'python3 find_artist_profile_url.py "' + name + '"',
+  );
+  var data = {};
+  console.log(stdout);
+  try {
+    data = JSON.parse(stdout);
+
+    if (data["success"]) {
       return data["url"];
     }
-    if(!data["success"]){
-      return backupImageUrl
+    if (!data["success"]) {
+      return backupImageUrl;
     }
-  }catch (err){
-    console.log(err)
-    return backupImageUrl
+  } catch (err) {
+    console.log(err);
+    return backupImageUrl;
   }
 }
 
-async function checkAuth(token, db){
-    if(typeof(token) == "undefined"){
-        return Promise.resolve(false); 
-    }else{
-        const result = await db.auth.findOne({selector: {"authtoken": token}}).exec()
-        return Promise.resolve(result != null);
+async function checkAuth(token, db) {
+  if (typeof token == "undefined") {
+    return Promise.resolve(false);
+  } else {
+    const result = await db.collection("auth").findOne({ authtoken: token });
+    return Promise.resolve(result != null);
+  }
+}
+
+async function getUser(authtoken, db) {
+  var result = await db.collection("auth").findOne({ authtoken: authtoken });
+  return result == 0 ? "" : result.loginName;
+}
+
+async function addToRecentlyPlayed(user, songId, db) {
+  // TODO NEED TO FIX
+  var recent = await db.collection("played").findOne({ owner: user });
+  if (recent != null && recent.songs[recent.songs.length - 1] == songId) return;
+  console.log("Adding to recent: ", user, songId);
+  var newRecent = { owner: user, songs: [] };
+  if (recent == null) {
+    console.log("Recent is null");
+    newRecent = { owner: user, songs: [songId] };
+  } else {
+    newRecent.songs = recent.songs;
+    if (recent.songs.length >= 10) {
+      console.log("Too long");
+      newRecent.songs.splice(0, 1);
     }
+    newRecent.songs.push(songId);
+  }
+  await db
+    .collection("played")
+    .updateOne({ owner: user }, { $set: newRecent }, { upsert: true });
 }
 
-async function getUser(authtoken, db){
-    var result = await db.auth.findOne({selector: {"authtoken": authtoken}}).exec()
-    return (result == 0) ? "" : result.loginName
+function hash(string) {
+  return crypto.createHash("sha256").update(string).digest("hex");
 }
-
-async function addToRecentlyPlayed(user, songId, db){
-    var recent = await db.played.findOne({selector: {"owner": user}}).exec();
-    if(recent != null && recent.songs[recent.songs.length-1] == songId) return;
-    console.log("Adding to recent: ",user, songId)
-    var newRecent = {owner: user, songs: []};
-    if(recent == null){
-        console.log("Recent is null")
-        newRecent = {owner: user, songs: [songId]}
-    }else{
-        newRecent.songs = recent.songs;
-        if(recent.songs.length >= 10){
-            console.log("Too long")
-            newRecent.songs.splice(0, 1);
-        }
-        newRecent.songs.push(songId);
-    }
-    await db.played.upsert(newRecent);
-}
-
-function hash(string){
-    return crypto.createHash('sha256').update(string).digest('hex');
-}
-
-async function deleteSong(id, user, db, ts){
-  var song = await db.songs.findOne({selector: {id: id}}).exec()
-  if(song == null) return
-  await db.changelog.upsert({
-    time: Date.now(),
-    user: user,
-    type: "song",
-    field: "all",
-    old: JSON.stringify(song),
-    new: "null"
-  })
-  var album = await db.albums.findOne({selector: {id: song.albumId}}).exec();
-  if(album.songCount == 1) await deleteAlbum(album.id, user, db)
-  var artist = await db.artists.findOne({selector: {id: song.artistId}}).exec();
-  if(artist.songCount == 1 && artist.albumCount == 1) await deleteArtist(artist.id, user, db)
-  try{
+//TODO make all stuff below work
+async function deleteSong(id, user, db, ts) {
+  var song = await db.collection("songs").findOne({ id: id });
+  if (song == null) return;
+  await db.collection("changelog").updateOne(
+    { time: Date.now(), user: user, type: "song" },
+    {
+      $set: {
+        time: Date.now(),
+        user: user,
+        type: "song",
+        field: "all",
+        old: JSON.stringify(song),
+        new: "null",
+      },
+    },
+    { upsert: true },
+  );
+  var album = await db.collection("albums").findOne({ id: song.albumId });
+  if (album.songCount == 1) await deleteAlbum(album.id, user, db);
+  var artist = await db.collection("artists").findOne({ id: song.artistId });
+  if (artist.songCount == 1 && artist.albumCount == 1)
+    await deleteArtist(artist.id, user, db);
+  try {
     await ts.deleteSong(song.id);
-  }catch(e){}
-  try{
-    await song.remove();
-  }catch(e){}
+  } catch (e) {}
+  try {
+    await db.collection("songs").deleteOne({ id: song.id });
+  } catch (e) {}
 }
 
-async function deleteAlbum(id, user, deleteSongs, db, ts){
-  var album = await db.albums.findOne({selector: {id: id}}).exec()
-  if(album == null) return
+async function deleteAlbum(id, user, deleteSongs, db, ts) {
+  var album = await db.collection("albums").findOne({ id: id });
+  if (album == null) return;
   album.type = "album";
   var data = [];
   var songs = [];
-  if(deleteSongs) songs = await db.songs.find({selector: {albumId: id}}).exec();
-  var da    = await db.albums.find({selector: {id: id}}).exec();
-  songs.forEach(s => {s.type = "song"; data.push(s)});
-  da.forEach(a => {a.type = "album"; data.push(a)});
-  await batchDeleteItems(data, user, db, ts)
+  if (deleteSongs)
+    songs = await db.collection("songs").find({ albumId: id }).toArray();
+  var da = await db.collection("albums").find({ id: id }).toArray();
+  songs.forEach((s) => {
+    s.type = "song";
+    data.push(s);
+  });
+  da.forEach((a) => {
+    a.type = "album";
+    data.push(a);
+  });
+  await batchDeleteItems(data, user, db, ts);
 }
 
-async function deleteArtist(id, user, deleteSongs, deleteAlbums, db, ts){
-  var artist = await db.artists.findOne({selector: {id: id}}).exec()
-  if(artist == null) return
+async function deleteArtist(id, user, deleteSongs, deleteAlbums, db, ts) {
+  var artist = await db.collection("artists").findOne({ id: id });
+  if (artist == null) return;
   artist.type = "artist";
   var data = [artist];
   var albums = [];
   var songs = [];
-  if(deleteSongs)  songs  = await db.songs.find({selector: {artistId: id}}).exec();
-  if(deleteAlbums) albums = await db.albums.find({selector: {artistId: id}}).exec();
-  songs.forEach((e) => {e.type = "song"; data.push(e)});
-  albums.forEach((e) => {e.type = "album"; data.push(e)});
+  if (deleteSongs)
+    songs = await db.collection("songs").find({ artistId: id }).toArray();
+  if (deleteAlbums)
+    albums = await db.collection("albums").find({ artistId: id }).toArray();
+  songs.forEach((e) => {
+    e.type = "song";
+    data.push(e);
+  });
+  albums.forEach((e) => {
+    e.type = "album";
+    data.push(e);
+  });
   console.log("Deleting a total of", data.length, "items");
   await batchDeleteItems(data, user, db, ts);
 }
 
-async function batchDeleteItems(data, user, db, ts){
+async function batchDeleteItems(data, user, db, ts) {
   var iterated = 0;
   data.forEach(async (x) => {
-    await db.changelog.upsert({
-      time: Date.now(),
-      user: user,
-      type: x.type,
-      field: "all",
-      old: JSON.stringify(x),
-      new: null
-    });
-    switch(x.type){
+    await db.collection("changelog").updateOne(
+      { time: Date.now(), user: user, type: x.type },
+      {
+        $set: {
+          time: Date.now(),
+          user: user,
+          type: x.type,
+          field: "all",
+          old: JSON.stringify(x),
+          new: null,
+        },
+      },
+      { upsert: true },
+    );
+    switch (x.type) {
       case "song":
         await ts.deleteSong(x.id);
         break;
@@ -140,18 +173,23 @@ async function batchDeleteItems(data, user, db, ts){
         await ts.deleteArtist(x.id);
         break;
       default:
-        console.log("Unknown type", x.type)
-        break
+        console.log("Unknown type", x.type);
+        break;
     }
-    await x.remove();
+    await db.collection(x.type + "s").deleteOne({ id: x.id });
     iterated++;
   });
-  await waitUntil(() => {return iterated == data.length}, {timeout: Number.POSITIVE_INFINITY});
-  console.log("Finished deleting items")
+  await waitUntil(
+    () => {
+      return iterated == data.length;
+    },
+    { timeout: Number.POSITIVE_INFINITY },
+  );
+  console.log("Finished deleting items");
 }
 
-const spotifyUrlRegex = /https:\/\/open\.spotify\.com\/(track|album|artist|playlist)\/([^?]*)(\?si=.*)?/;
-
+const spotifyUrlRegex =
+  /https:\/\/open\.spotify\.com\/(track|album|artist|playlist)\/([^?]*)(\?si=.*)?/;
 
 export default {
   hash: hash,
@@ -163,4 +201,4 @@ export default {
   deleteAlbum: deleteAlbum,
   deleteArtist: deleteArtist,
   spotifyUrlRegex: spotifyUrlRegex,
-}
+};

@@ -173,9 +173,9 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     var addedArtists = 0;
     var addedAlbums = 0;
     var addedSongs = 0;
-    songs = await db.songs.find().exec();
-    artists = await db.artists.find().exec();
-    albums = await db.albums.find().exec();
+    songs = await db.collection("songs").find().toArray();
+    artists = await db.collection("artists").find().toArray();
+    albums = await db.collection("albums").find().toArray();
     songs = JSON.parse(JSON.stringify(songs));
     artists = JSON.parse(JSON.stringify(artists));
     albums = JSON.parse(JSON.stringify(albums));
@@ -236,14 +236,54 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     );
     fs.writeFileSync("modifiedData.json", json);
 
-    // console.log("DB upsert");
-    // await db.artists.bulkUpsert(modifiedArtists);
-    // await db.albums.bulkUpsert(modifiedAlbums);
-    // await db.songs.bulkUpsert(modifiedSongs);
-    // console.log("Typesense update");
-    // await ts.updateSongs(modifiedSongs);
-    // await ts.updateAlbums(modifiedAlbums);
-    // await ts.updateArtists(modifiedArtists);
+    console.log("DB upsert");
+    // Delete _id field from objects before updating
+    const artistsToUpdate = modifiedArtists.map((artist) => {
+      const { _id, ...artistWithoutId } = artist;
+      return artistWithoutId;
+    });
+    const albumsToUpdate = modifiedAlbums.map((album) => {
+      const { _id, ...albumWithoutId } = album;
+      return albumWithoutId;
+    });
+    const songsToUpdate = modifiedSongs.map((song) => {
+      const { _id, ...songWithoutId } = song;
+      return songWithoutId;
+    });
+
+    await db.collection("artists").bulkWrite(
+      artistsToUpdate.map((artist) => ({
+        updateOne: {
+          filter: { id: artist.id },
+          update: { $set: artist },
+          upsert: true,
+        },
+      })),
+    );
+
+    await db.collection("albums").bulkWrite(
+      albumsToUpdate.map((album) => ({
+        updateOne: {
+          filter: { id: album.id },
+          update: { $set: album },
+          upsert: true,
+        },
+      })),
+    );
+
+    await db.collection("songs").bulkWrite(
+      songsToUpdate.map((song) => ({
+        updateOne: {
+          filter: { id: song.id },
+          update: { $set: song },
+          upsert: true,
+        },
+      })),
+    );
+    //console.log("Typesense update");
+    //await ts.updateSongs(modifiedSongs);
+    //await ts.updateAlbums(modifiedAlbums);
+    //await ts.updateArtists(modifiedArtists);
     fs.writeFileSync("./backup/new_songs.json", JSON.stringify(songs, null, 2));
     fs.writeFileSync(
       "./backup/new_albums.json",
@@ -331,7 +371,7 @@ async function adderMergeLogic(
       displayName: artistData.displayName
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
-      imageUrl: artistData.imageUrl,
+      imageUrl: "",
       added: Date.now(),
       visibleTo: artistData.visibleTo,
       addedBy: user,
@@ -449,11 +489,13 @@ async function adderMergeLogic(
   await Promise.all(
     modifiedArtistsList.map(async (x) => {
       if (x.imageUrl == "") {
+        console.log("No image url for", x.displayName);
         x.imageUrl = await utils.getArtistImageUrl(
           x.displayName.split(",")[0],
           //"https://commons.wikimedia.org/wiki/File:Apple_Music_Icon.svg",
           "https://www.pngarts.com/files/8/Apple-Music-Logo-PNG-Photo.png",
         );
+        console.log("Updated image url for", x.displayName);
       }
       //iterated++;
     }),

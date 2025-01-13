@@ -1,6 +1,7 @@
 import db from './db.js';
 import ts from "./typesense_module.js";
 console.log("Added collections");
+console.log(await db.listCollections().toArray());
 //var users = await db.auth.find().exec();
 //users.forEach(async x => 
 //  await x.modify(
@@ -77,4 +78,4 @@ console.log("Added collections");
 //console.log("Updating typesense");
 //await ts.purge();
 console.log("Done");
-await db.destroy();
+//await db.destroy();
