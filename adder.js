@@ -450,6 +450,8 @@ async function adderMergeLogic(
       ];
       return;
     }
+    console.log("Song audioUrl =", songData.audioUrl);
+    console.log("Song url =", songData.url);
 
     modifiedSongs[songKey] = {
       id: songKey,
@@ -465,7 +467,7 @@ async function adderMergeLogic(
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
       duration: 0,
-      audioUrl: songData.url,
+      audioUrl: songData.audioUrl,
       imageUrl: songData.imageUrl,
       added: Date.now(),
       visibleTo: songData.visibleTo,

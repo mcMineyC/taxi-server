@@ -1,375 +1,49 @@
 {
   "songs": [
     {
-      "_id": "678461a26f9ddb7a1a5b2c06",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_a0dbcc73b4c507eeb2ed362111e07b0711e54777c8cde10bacc2cb8593ee3b9c",
-      "added": 1736728993458,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Chips Ahoy Mateys",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "World Bowser (From \"Super Mario 3D World\")",
+      "albumDisplayName": "World Bowser (From \"Super Mario 3D World\")",
+      "artistDisplayName": "Qumu",
       "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
+      "audioUrl": "youtube:KAWkGY6UfxA",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
+      "added": 1737954496344,
       "visibleTo": [
         "all"
       ],
-      "youtubeId": "4WXi0dvjbhY"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c07",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_6a0f482a5cf228097722ba67e7ebd7af34eb842ed6c3129c55fb346e0a58f36b",
-      "added": 1736728993459,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Super VVVVVVeat Boy",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "v5YkZdo452k"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c08",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_83dfcd3a0903418b15dc960773f6f3817aad26875aa3d1407d469b758b6051ae",
-      "added": 1736728993459,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Flicker (feat. Chris Geehan)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "qnN37apySNs"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c09",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_ab3134b3ffb5c8dbe2a85699ce2eb7b40e186854f48a952895af3c962c77b13c",
-      "added": 1736728993459,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "BGC418 (feat. C418)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "mHIQlcFVC0k"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c0a",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_91e23dab6984a6040a4b1730c7dd9c706ddbd7b59febd8afa4ae8f392c2e3248",
-      "added": 1736728993459,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Fight the Current",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "FvpCm6b5qVQ"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c0b",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_16c09b0f2a9056c77e6ea9c23cc816ba5fd467f2868c0b0e091ac451d619f31b",
-      "added": 1736728993459,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Katana Blaster",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "vnS_En5xi_Q"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c0c",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_add6117ea687ac4173c776697bfcaaa981778af20198e28a1264cc6a59c260c6",
-      "added": 1736728993459,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Buzzsaw (feat. Zircon)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "qeR2P_zuU_Y"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c0d",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_14f38ea322c9844ad9c0fba0cf4ba4c8f5f8b936f098d0101e2133d7629a6f98",
-      "added": 1736728993459,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Happiness (feat. Disasterpeace)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "CvZeWXh-Lnc"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c0e",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_0cf5ca53138be122a65c42c91401eb6e3b5866dd5eb1a5c4514e5dac40bc809c",
-      "added": 1736728993459,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Yeah! (feat. Souleye)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "JedGMB9dm1o"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c0f",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_3e81c4067b8d3057e0313f56f61bb31dc666f8a56e78de3b1372188e236c90bc",
-      "added": 1736728993460,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Raindancer",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "PguLNvCcOHQ"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c10",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_0fa84f375e0040f9f00efa9212000d0053b93c49d21ecf0c7baf58b28ccfd54c",
-      "added": 1736728993460,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Fight the Current (Flashy Mix)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "RTn6bWADXus"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c11",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_268282e10c1b6511125e20b64df50656a6f4514a7b6a48b64573ef9e5946acbf",
-      "added": 1736728993460,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Buzzsaw (Just Can't Wait Mix)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "r4p6l0YvxfM"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c12",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_ae83213fd4f29ef8a467e5eeba3d6d803dd95a86c9fe20c6f5af82200b9b7a55",
-      "added": 1736728993460,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Yo Ho Ye Big Giant Chips (Chips Ahoy Mateys)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "cw0tg1K69eY"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c13",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_1833dc72ac836246772ac3e035ed85a682c14c9ba6394054b1764ddfd6dfc253",
-      "added": 1736728993461,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Katana Blaster (Constantly Playing Mix)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "LjUGxgb3PTc"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c14",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_8ba2555f99ef241a0760416456481c75d1747a02195a365abd9bcbabf092b796",
-      "added": 1736728993461,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Antimatter Factory (feat. Alex Brandon)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "SrZ9uQV9yOE"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c15",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_1b066faf3198aa9bba2a37c9b886a81e93513cb49c3fee28a7c62a02b52d0ed2",
-      "added": 1736728993461,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "You Can Have Mine",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "bFmVDAcR-Jo"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c16",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_8b641f495ae16a22b77679782a604640be28be504e9d441c16e90da4400b6537",
-      "added": 1736728993461,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Your Quest is Over (feat. Pongball)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "O_lxc5DHBrc"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c17",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_29ce245327d4b92a8505169061afe8fc079d584e678cfb42acb2d494c46f64c7",
-      "added": 1736728993461,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Big Giant Sea for a Dream (Bonus Track)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "wZir_YuAHYQ"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c18",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_d7d014c9dad652067d2ff82afabbbb8fbbcb49237fb98687b7f3d04a71195cc7",
-      "added": 1736728993461,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Last Hope (Bonus Track)",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "fJ7UxxVFpuI"
-    },
-    {
-      "_id": "678461a26f9ddb7a1a5b2c19",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3_7e3f57651bb1870d3f51cfefab522ef656e42465cd45b3688bff6e853215b8e5",
-      "added": 1736728993462,
-      "addedBy": "jedi",
-      "albumDisplayName": "Impostor Nostalgia",
-      "albumId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Some Things Are Not As They Seem (Impostor Nostalgia trailer) [Bonus Track]",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
-      "visibleTo": [
-        "all"
-      ],
-      "youtubeId": "Z711Hc4Xojw"
+      "addedBy": "jedi"
     }
   ],
   "albums": [
     {
-      "_id": "678461a26f9ddb7a1a5b2c05",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331_3fb5a8abd0561444308d12247f3a8b5f3f36d79956368d5e804e9fed7bb6e8c3",
-      "added": 1736728993458,
-      "addedBy": "jedi",
-      "artistDisplayName": "Big Giant Circles",
-      "artistId": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "displayName": "Impostor Nostalgia",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732bc5bbae12425516e9378be9",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "World Bowser (From \"Super Mario 3D World\")",
+      "artistDisplayName": "Qumu",
       "songCount": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
+      "added": 1737954496344,
       "visibleTo": [
         "all"
-      ]
+      ],
+      "addedBy": "jedi"
     }
   ],
   "artists": [
     {
-      "_id": "678461a26f9ddb7a1a5b2c04",
-      "id": "94c2eddf97b4e8e1d2d2142030ddd50a73ce6bbd9e639498fa9780e04897e331",
-      "added": 1736728993458,
-      "addedBy": "jedi",
-      "albumCount": 0,
-      "displayName": "Big Giant Circles",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb99077b36465aa642785f73c8",
-      "songCount": 0,
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "Qumu",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+      "added": 1737954496344,
       "visibleTo": [
         "all"
-      ]
+      ],
+      "addedBy": "jedi",
+      "songCount": 0,
+      "albumCount": 0
     }
   ]
 }
