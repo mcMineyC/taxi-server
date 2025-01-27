@@ -465,7 +465,7 @@ async function adderMergeLogic(
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
       duration: 0,
-      youtubeId: songData.videoId,
+      audioUrl: songData.url,
       imageUrl: songData.imageUrl,
       added: Date.now(),
       visibleTo: songData.visibleTo,
@@ -547,7 +547,7 @@ function flattenData(input) {
         // Flatten songs
         songs.push({
           displayName: songData.name,
-          videoId: songData.videoId,
+          audioUrl: songData.url,
           imageUrl: songData.imageUrl,
           albumDisplayName: albumName,
           artistDisplayName: artistName,

@@ -19,7 +19,8 @@ const { waitUntil } = require("async-wait-until");
 
 import SpotifyHandler from "./spotify.js";
 //const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
-import db from "./db.js";
+import dbConnection from "./db.js";
+var db = dbConnection.db("taxi");
 import ts from "./typesense_module.js";
 import adder from "./adder.js";
 import utils from "./utils.js";
@@ -1099,8 +1100,8 @@ app.post("/edit/:type/:id", async function (req, res) {
           req.body.artistDisplayName == null
             ? s.artistDisplayName
             : req.body.artistDisplayName,
-        youtubeId:
-          req.body.youtubeId == null ? s.youtubeId : req.body.youtubeId,
+        audioUrl:
+          req.body.audioUrl == null ? s.audioUrl : req.body.audioUrl,
         imageUrl: req.body.imageUrl == null ? s.imageUrl : req.body.imageUrl,
         visibleTo:
           req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,

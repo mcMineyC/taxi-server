@@ -9,5 +9,6 @@ var dbConnection = new MongoClient(
 );
 await dbConnection.connect();
 
-const db = dbConnection.db("taxi");
+//const db = dbConnection.db("taxi"); // cannot do a close with this
+const db = dbConnection;
 export default db;

@@ -21,3 +21,5 @@ var auth = db.collection("auth");
 //  password: "",
 //  roles: ["view", "add", "dj"],
 //})
+await db.close();
+console.log("Done")

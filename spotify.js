@@ -414,7 +414,7 @@ class SpotifyHandler {
               title: track.name
                 .normalize("NFD")
                 .replace(/[\u0300-\u036f]/g, ""),
-              id: youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || "",
+              url: "youtube:" + (youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || ""),
               trackNumber: track.track_number || 0,
             },
           ],
@@ -462,7 +462,7 @@ class SpotifyHandler {
             visibleTo: username,
             songs: youtubeAlbum.songs.map((x, index) => ({
               title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-              id: x.videoId || x.browseId || "",
+              url: "youtube:" + (x.videoId || x.browseId || ""),
               trackNumber: index + 1,
             })),
             type: "album",
@@ -480,56 +480,56 @@ class SpotifyHandler {
     return this.mapFoundResults(found);
   }
 
-  async findSong(id) {
-    const track = await this.api.tracks.get(id);
-    const youtubeInfo = await this.yt.searchSongs(
-      `${track.name} ${track.artists[0].name}`,
-    );
-
-    return {
-      title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-      album: track.album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-      artist: track.artists[0].name
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, ""),
-      albumCoverURL: track.album.images[0].url,
-      songs: [
-        {
-          title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-          id: youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || "",
-          trackNumber: track.track_number,
-        },
-      ],
-      type: "song",
-    };
-  }
-
-  async findAlbum(id) {
-    const album = await this.api.albums.get(id);
-    const youtubeInfo = await this.yt.searchAlbums(
-      `${album.name} ${album.artists[0].name}`,
-    );
-    console.log(youtubeInfo.length, "youtube results found");
-
-    if (youtubeInfo.length === 0) return null;
-
-    const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
-
-    return {
-      title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-      album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-      artist: album.artists[0].name
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, ""),
-      albumCoverURL: album.images[0].url,
-      songs: youtubeAlbum.songs.map((x, index) => ({
-        title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-        id: x.videoId || x.browseId || "",
-        trackNumber: index + 1,
-      })),
-      type: "album",
-    };
-  }
+  //async findYoutubeSong(id) {
+  //  const track = await this.api.tracks.get(id);
+  //  const youtubeInfo = await this.yt.searchSongs(
+  //    `${track.name} ${track.artists[0].name}`,
+  //  );
+  //
+  //  return {
+  //    title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+  //    album: track.album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+  //    artist: track.artists[0].name
+  //      .normalize("NFD")
+  //      .replace(/[\u0300-\u036f]/g, ""),
+  //    albumCoverURL: track.album.images[0].url,
+  //    songs: [
+  //      {
+  //        title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+  //        url: "youtube:" + (youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || ""),
+  //        trackNumber: track.track_number,
+  //      },
+  //    ],
+  //    type: "song",
+  //  };
+  //}
+  //
+  //async findYoutubeAlbum(id) {
+  //  const album = await this.api.albums.get(id);
+  //  const youtubeInfo = await this.yt.searchAlbums(
+  //    `${album.name} ${album.artists[0].name}`,
+  //  );
+  //  console.log(youtubeInfo.length, "youtube results found");
+  //
+  //  if (youtubeInfo.length === 0) return null;
+  //
+  //  const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
+  //
+  //  return {
+  //    title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+  //    album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+  //    artist: album.artists[0].name
+  //      .normalize("NFD")
+  //      .replace(/[\u0300-\u036f]/g, ""),
+  //    albumCoverURL: album.images[0].url,
+  //    songs: youtubeAlbum.songs.map((x, index) => ({
+  //      title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+  //      url: "youtube:" + (x.videoId || x.browseId || ""),
+  //      trackNumber: index + 1,
+  //    })),
+  //    type: "album",
+  //  };
+  //}
 
   mapSpotifyResults(items) {
     return items.map((item) => {
@@ -594,7 +594,7 @@ class SpotifyHandler {
         artist: x.artist || "",
         imageUrl: x.albumCoverURL || x.playlistCoverURL || "",
         type: x.type,
-        songs: x.songs || [],
+        songs: (x.songs || [])
       };
     });
   }

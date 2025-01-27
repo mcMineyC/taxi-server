@@ -1,6 +1,8 @@
-import db from "./db.js";
+import dbConnection from "./db.js";
 import client from "./ts.js";
 import schemas from "./schemas.js";
+
+var db = dbConnection.db("taxi");
 
 export default {
   purge: async () => {
@@ -21,10 +23,10 @@ export default {
         console.log("Error creating collection "+schema.name, e);
       }
     }
-    var songs = await db.songs.find().exec();
-    var albums = await db.albums.find().exec();
-    var artists = await db.artists.find().exec();
-    //var playlists = await db.playlists.find().exec();
+    var songs = await db.collection("songs").find().exec();
+    var albums = await db.collection("albums").find().exec();
+    var artists = await db.collection("artists").find().exec();
+    //var playlists = await db.collection("playlists").find().exec();
 
     await client.collections('taxi-songs').documents().import(songs, {action: "upsert"});
     await client.collections('taxi-albums').documents().import(albums, {action: "upsert"});
