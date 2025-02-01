@@ -370,6 +370,11 @@ app.post("/info/albums", async function (req, res) {
   if (!ignore) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
   }
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
   const data = await db
     .collection("albums")
     .find(query)
@@ -390,6 +395,11 @@ app.post("/info/artists", async function (req, res) {
   if (!ignore) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
   }
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
   const data = await db
     .collection("artists")
     .find(query)
@@ -408,6 +418,12 @@ app.post("/info/songs", async function (req, res) {
   var data = [];
   var query = {};
   if (!ignore) query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
+
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
 
   let options = {
     sort: { added: -1 },
@@ -435,6 +451,12 @@ app.post("/info/artist/:id", async function (req, res) {
   };
   if (!ignore) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
+  }
+
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
   }
   const data = await db.collection("artists").findOne(query);
   res.send({ authed: true, artist: data });
@@ -484,6 +506,12 @@ app.post("/info/albums/by/artist/:id", async function (req, res) {
       fullQuery.$or = [{ visibleTo: user }, { visibleTo: "all" }];
     }
 
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
+
     var abD = await db
       .collection("albums")
       .find(fullQuery)
@@ -498,6 +526,12 @@ app.post("/info/albums/by/artist/:id", async function (req, res) {
     if (!ignore) {
       query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
     }
+
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
 
     albumsData = await db
       .collection("albums")
@@ -522,6 +556,12 @@ app.post("/info/singles/by/artist/:id", async function (req, res) {
 
   if (!ignore) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
+  }
+
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
   }
 
   const data = await db
@@ -563,6 +603,12 @@ app.post("/info/songs/by/album/:id", async function (req, res) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
   }
 
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
+
   const data = await db
     .collection("songs")
     .find(query)
@@ -589,6 +635,12 @@ app.post("/info/songs/by/artist/:id", async function (req, res) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
   }
 
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
+
   const data = await db
     .collection("songs")
     .find(query)
@@ -613,6 +665,12 @@ app.post("/info/songs/batch", async function (req, res) {
   if (!ignore) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
   }
+
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
   // console.log("/info/songs/batch - Querying");
   var data = await db.collection("songs").find(query).toArray();
   // console.log("/info/songs/batch - Query done");
@@ -636,6 +694,12 @@ app.post("/info/songs/:id", async function (req, res) {
   if (!ignore) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
   }
+
+  var privateLibrary = req.query.mine || false;
+  if (privateLibrary) {
+    delete query.$or;
+    query.addedBy = user;
+  }
   const result = await db.collection("songs").findOne(query);
   res.send({ authed: true, song: result ? result : {} });
 });
@@ -648,16 +712,20 @@ app.post("/playlists", async function (req, res) {
 
   var u = await utils.getUser(req.body.authtoken, db);
   var ignore = req.query.ignore || false;
+  var editable = req.query.editable || false;
   var playlists = [];
+  console.log("Editable: " + editable);
 
-  const query = {
+  var query = {
     $or: [
       { owner: u },
       // { allowedCollaborators: u },
       { $or: [{ visibleTo: u }, { visibleTo: "all" }] },
     ],
   };
+  if(editable) query.allowedCollaborators = u;
   const options = req.query.sort == "new" ? { sort: { added: -1 } } : {};
+
 
   playlists = await db
     .collection("playlists")
@@ -719,7 +787,7 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       displayName: req.body.name || "Banana",
       description: req.body.description || "Banana",
       visibleTo: req.body.visibleTo || [u],
-      allowedCollaborators: [u],
+      allowedCollaborators: req.body.allowedCollaborators || [u],
       songs: req.body.songs || [],
       added: Date.now(),
     };
@@ -742,9 +810,10 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
         .collection("playlists")
         .updateOne(
           { id: req.params.playlist },
-          { $set: { owner: u, allowedCollaborators: [u] } },
+          { $set: { owner: u, allowedCollaborators: [p.allowedCollaborators] } },
         );
     } else if (!p.allowedCollaborators.includes(u)) {
+      console.log("\""+u+"\" is not in allowedCollaborators:",p.allowedCollaborators);
       res.send({ authed: false, error: "Not authorized", success: false });
       return;
     }
@@ -757,7 +826,7 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       newdata["displayName"] = p.displayName;
     }
     if (req.body.description !== undefined) {
-      console.log("Description: " + req.body.visibleTo);
+      console.log("Description: " + req.body.description);
       newdata["description"] = req.body.description;
     } else {
       newdata["description"] = p.description;
@@ -777,7 +846,11 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       if (!newdata["allowedCollaborators"].includes(p.owner)) {
         newdata["allowedCollaborators"].push(p.owner);
       }
-      newdata["visibleTo"] = newdata["allowedCollaborators"];
+      var newVisibleTo = new Set(newdata["visibleTo"]);
+      var newCollaborates = new Set(newdata["allowedCollaborators"]);
+      newdata["visibleTo"] = newVisibleTo.union(newCollaborates).values().toArray();
+      console.log("VisibleTo: " + newdata["visibleTo"]);
+      console.log("AllowedCollaborators: " + newdata["allowedCollaborators"]);
     }
     if (
       typeof req.body.songs !== "undefined" &&
@@ -812,7 +885,7 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
 });
 
 app.post("/playlists/remove/:playlist", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken), db) == false) {
+  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
     res.send({ authed: false, songs: [] });
     return;
   }

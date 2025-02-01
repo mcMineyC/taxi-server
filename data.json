@@ -16,6 +16,125 @@
       "visibleTo": [
         "all"
       ]
+    },
+    {
+      "_id": "67984c9f26323b4ba6f14c65",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_438ba8b1a14c1a83aab3f38bd729d580095727a91d2f1d80a81ffde84802ecf1",
+      "added": 1738034335516,
+      "addedBy": "jedi",
+      "albumDisplayName": "World 1",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:3RhihSbn56w",
+      "displayName": "Swings and Roundabouts",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67984c9f26323b4ba6f14c66",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_d4bc9300200255587b064a6deb5a6445bd9279fe79a36808ca035bec20004875",
+      "added": 1738034335516,
+      "addedBy": "jedi",
+      "albumDisplayName": "World 1",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:Ep9CLv3yU6M",
+      "displayName": "At the Public House",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67984c9f26323b4ba6f14c67",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_e4595b47a44bfda5f40d760c98b51231e62815af33f69e76d0c10cd13e860785",
+      "added": 1738034335516,
+      "addedBy": "jedi",
+      "albumDisplayName": "World 1",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:W86O6gNVDz4",
+      "displayName": "Kremnay",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67984c9f26323b4ba6f14c68",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_e7218b5e4a56497509ef63bbad37e594d8f24ac90928ef6ce542b1142e5426fa",
+      "added": 1738034335516,
+      "addedBy": "jedi",
+      "albumDisplayName": "World 1",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:5iy1mXqcGno",
+      "displayName": "Memories",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67984c9f26323b4ba6f14c69",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_f1cd1f25dde294d9225a8437337528b1a3173ec3d0f58d14008027330ae75970",
+      "added": 1738034335516,
+      "addedBy": "jedi",
+      "albumDisplayName": "World 1",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:ieRCFyyrP38",
+      "displayName": "Duval",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "679e96c8e051174dc0096368",
+      "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2",
+      "added": 1738446535699,
+      "addedBy": "connor",
+      "albumDisplayName": "Song of Time",
+      "albumId": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2",
+      "artistDisplayName": "OLESONDER",
+      "artistId": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
+      "audioUrl": "youtube:7skeqC_reKg",
+      "displayName": "Song of Time",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737b6df584f58c3f30c0d99100",
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "679e96c8e051174dc0096369",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
+      "added": 1738446535699,
+      "addedBy": "connor",
+      "albumDisplayName": "Brainstorm",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:ENF8d8Oo7_s",
+      "displayName": "Brainstorm",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27378ab68b144089c5347ae1c39",
+      "visibleTo": [
+        "all"
+      ]
     }
   ],
   "albums": [
@@ -32,6 +151,48 @@
       "visibleTo": [
         "all"
       ]
+    },
+    {
+      "_id": "67984c9f26323b4ba6f14c64",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "added": 1738034335516,
+      "addedBy": "jedi",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "World 1",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "679e96c8e051174dc0096366",
+      "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2",
+      "added": 1738446535699,
+      "addedBy": "connor",
+      "artistDisplayName": "OLESONDER",
+      "artistId": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
+      "displayName": "Song of Time",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737b6df584f58c3f30c0d99100",
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "679e96c8e051174dc0096367",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
+      "added": 1738446535699,
+      "addedBy": "connor",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "displayName": "Brainstorm",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27378ab68b144089c5347ae1c39",
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
     }
   ],
   "artists": [
@@ -43,6 +204,32 @@
       "albumCount": 0,
       "displayName": "Qumu",
       "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "679e96c8e051174dc0096364",
+      "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
+      "added": 1738446535699,
+      "addedBy": "connor",
+      "albumCount": 0,
+      "displayName": "OLESONDER",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb48b055e8c15143d4ff5e3d89",
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "679e96c8e051174dc0096365",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "added": 1738446535699,
+      "addedBy": "connor",
+      "albumCount": 0,
+      "displayName": "Livingston",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebea8265060606ae633c4e1e32",
       "songCount": 0,
       "visibleTo": [
         "all"

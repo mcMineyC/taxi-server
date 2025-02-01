@@ -408,7 +408,7 @@ class SpotifyHandler {
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, ""),
           albumCoverURL: track.imageUrl,
-          visibleTo: username,
+          visibleTo: [username],
           songs: [
             {
               title: track.name
@@ -459,7 +459,7 @@ class SpotifyHandler {
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, ""),
             albumCoverURL: album.imageUrl,
-            visibleTo: username,
+            visibleTo: [username],
             songs: youtubeAlbum.songs.map((x, index) => ({
               title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
               url: "youtube:" + (x.videoId || x.browseId || ""),
@@ -593,6 +593,7 @@ class SpotifyHandler {
         album: x.album || "",
         artist: x.artist || "",
         imageUrl: x.albumCoverURL || x.playlistCoverURL || "",
+        visibleTo: x.visibleTo || ["all"],
         type: x.type,
         songs: (x.songs || [])
       };

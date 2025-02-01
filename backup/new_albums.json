@@ -12,5 +12,47 @@
     "visibleTo": [
       "all"
     ]
+  },
+  {
+    "_id": "67984c9f26323b4ba6f14c64",
+    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+    "added": 1738034335516,
+    "addedBy": "jedi",
+    "artistDisplayName": "Qumu",
+    "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+    "displayName": "World 1",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "679e96c8e051174dc0096366",
+    "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2",
+    "added": 1738446535699,
+    "addedBy": "connor",
+    "artistDisplayName": "OLESONDER",
+    "artistId": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
+    "displayName": "Song of Time",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737b6df584f58c3f30c0d99100",
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "679e96c8e051174dc0096367",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
+    "added": 1738446535699,
+    "addedBy": "connor",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "Brainstorm",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27378ab68b144089c5347ae1c39",
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
   }
 ]

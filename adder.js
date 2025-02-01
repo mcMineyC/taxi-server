@@ -332,7 +332,7 @@ async function adderMergeLogic(
   songKeys = songs.map((e) => e.id);
   // Assuming that `flattenData` function already exists and returns flattened
   // arrays
-  const flattenedData = flattenData(hierearchyData);
+  const flattenedData = flattenData(hierearchyData, user);
   const flattenedSongs = flattenedData.songs;
   const flattenedAlbums = flattenedData.albums;
   const flattenedArtists = flattenedData.artists;
@@ -517,7 +517,7 @@ async function adderMergeLogic(
   };
 }
 
-function flattenData(input) {
+function flattenData(input, user) {
   const artists = [];
   const albums = [];
   const songs = [];
@@ -536,7 +536,7 @@ function flattenData(input) {
         artistDisplayName: artistName,
         imageUrl: albumImageUrl,
         visibleTo:
-          albumData.visibleTo == undefined ? ["all"] : albumData.visibleTo,
+          albumData.visibleTo == undefined ? [user] : albumData.visibleTo,
         songCount: 0,
       });
       if (
@@ -554,7 +554,7 @@ function flattenData(input) {
           albumDisplayName: albumName,
           artistDisplayName: artistName,
           visibleTo:
-            songData.visibleTo == undefined ? ["all"] : songData.visibleTo,
+            songData.visibleTo == undefined ? [user] : songData.visibleTo,
         });
       });
     });
@@ -563,7 +563,7 @@ function flattenData(input) {
       displayName: artistName,
       visibleTo:
         artistData.visibleTo == undefined || artistPublic
-          ? ["all"]
+          ? [user]
           : artistData.visibleTo,
       albumCount: 0,
       songCount: 0,

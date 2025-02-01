@@ -11,5 +11,31 @@
     "visibleTo": [
       "all"
     ]
+  },
+  {
+    "_id": "679e96c8e051174dc0096364",
+    "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
+    "added": 1738446535699,
+    "addedBy": "connor",
+    "albumCount": 0,
+    "displayName": "OLESONDER",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb48b055e8c15143d4ff5e3d89",
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "679e96c8e051174dc0096365",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "added": 1738446535699,
+    "addedBy": "connor",
+    "albumCount": 0,
+    "displayName": "Livingston",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebea8265060606ae633c4e1e32",
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
   }
 ]
