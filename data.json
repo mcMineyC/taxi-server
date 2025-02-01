@@ -1,5 +1,52 @@
 {
-  "songs": [],
-  "albums": [],
-  "artists": []
+  "songs": [
+    {
+      "_id": "679714c0e6e9ebebec2a2403",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
+      "added": 1737954496344,
+      "addedBy": "jedi",
+      "albumDisplayName": "World Bowser (From \"Super Mario 3D World\")",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:KAWkGY6UfxA",
+      "displayName": "World Bowser (From \"Super Mario 3D World\")",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
+      "visibleTo": [
+        "all"
+      ]
+    }
+  ],
+  "albums": [
+    {
+      "_id": "679714c0e6e9ebebec2a2402",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
+      "added": 1737954496344,
+      "addedBy": "jedi",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "World Bowser (From \"Super Mario 3D World\")",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    }
+  ],
+  "artists": [
+    {
+      "_id": "679714c0e6e9ebebec2a2401",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "added": 1737954496344,
+      "addedBy": "jedi",
+      "albumCount": 0,
+      "displayName": "Qumu",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    }
+  ]
 }

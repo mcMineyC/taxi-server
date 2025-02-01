@@ -1,16 +1,80 @@
 {
   "songs": [
     {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_438ba8b1a14c1a83aab3f38bd729d580095727a91d2f1d80a81ffde84802ecf1",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
       "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "World Bowser (From \"Super Mario 3D World\")",
-      "albumDisplayName": "World Bowser (From \"Super Mario 3D World\")",
+      "displayName": "Swings and Roundabouts",
+      "albumDisplayName": "World 1",
       "artistDisplayName": "Qumu",
       "duration": 0,
-      "audioUrl": "youtube:KAWkGY6UfxA",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
-      "added": 1737954496344,
+      "audioUrl": "youtube:3RhihSbn56w",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "added": 1738034335516,
+      "visibleTo": [
+        "all"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_d4bc9300200255587b064a6deb5a6445bd9279fe79a36808ca035bec20004875",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "At the Public House",
+      "albumDisplayName": "World 1",
+      "artistDisplayName": "Qumu",
+      "duration": 0,
+      "audioUrl": "youtube:Ep9CLv3yU6M",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "added": 1738034335516,
+      "visibleTo": [
+        "all"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_e4595b47a44bfda5f40d760c98b51231e62815af33f69e76d0c10cd13e860785",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "Kremnay",
+      "albumDisplayName": "World 1",
+      "artistDisplayName": "Qumu",
+      "duration": 0,
+      "audioUrl": "youtube:W86O6gNVDz4",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "added": 1738034335516,
+      "visibleTo": [
+        "all"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_e7218b5e4a56497509ef63bbad37e594d8f24ac90928ef6ce542b1142e5426fa",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "Memories",
+      "albumDisplayName": "World 1",
+      "artistDisplayName": "Qumu",
+      "duration": 0,
+      "audioUrl": "youtube:5iy1mXqcGno",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "added": 1738034335516,
+      "visibleTo": [
+        "all"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_f1cd1f25dde294d9225a8437337528b1a3173ec3d0f58d14008027330ae75970",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "Duval",
+      "albumDisplayName": "World 1",
+      "artistDisplayName": "Qumu",
+      "duration": 0,
+      "audioUrl": "youtube:ieRCFyyrP38",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "added": 1738034335516,
       "visibleTo": [
         "all"
       ],
@@ -19,13 +83,13 @@
   ],
   "albums": [
     {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
       "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "World Bowser (From \"Super Mario 3D World\")",
+      "displayName": "World 1",
       "artistDisplayName": "Qumu",
       "songCount": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
-      "added": 1737954496344,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+      "added": 1738034335516,
       "visibleTo": [
         "all"
       ],
@@ -34,16 +98,17 @@
   ],
   "artists": [
     {
+      "_id": "679714c0e6e9ebebec2a2401",
       "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "added": 1737954496344,
+      "addedBy": "jedi",
+      "albumCount": 0,
       "displayName": "Qumu",
       "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-      "added": 1737954496344,
+      "songCount": 0,
       "visibleTo": [
         "all"
-      ],
-      "addedBy": "jedi",
-      "songCount": 0,
-      "albumCount": 0
+      ]
     }
   ]
 }

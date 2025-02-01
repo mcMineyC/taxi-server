@@ -81,10 +81,7 @@ app.get("/status", function (_, res) {
 app.post("/signup", async function (req, res) {
   var u = await db
     .collection("auth")
-    .findOne({
-      selector: { authtoken: req.body.authtoken, roles: "recruiter" },
-    })
-    .exec();
+    .findOne({ authtoken: req.body.authtoken, roles: "recruiter" });
   if (u == null) {
     res.send({ authed: false, success: false });
     return;
@@ -92,15 +89,19 @@ app.post("/signup", async function (req, res) {
   var roles = ["view", "add", "dj", "admin", "recruiter"];
   if (u.roles.includes("sudoadmin") && req.body.trusted)
     roles.push("sudoadmin");
+  console.log("Signing up", req.body.name);
 
   var newUser = {
     loginName:
-      req.body.name.substring(0, 1).lowercase() + req.body.name.substring(1),
+      req.body.name.substring(0, 1).toLowerCase() + req.body.name.substring(1),
     displayName: req.body.name,
     password: "",
     authtoken: "",
     roles: roles,
   };
+  if(req.body.password != null){
+    newUser.password = req.body.password;
+  }
   await db.collection("changelog").updateOne(
     {
       time: Date.now(),
@@ -447,14 +448,10 @@ app.post("/info/album/:id", async function (req, res) {
   var user = await utils.getUser(req.body.authtoken, db);
   var ignore = req.query.ignore || false;
 
-  const data = await db.albums
-    .findOne({
-      selector: {
-        id: req.params.id,
-        $or: ignore ? [] : [{ visibleTo: user }, { visibleTo: "all" }],
-      },
-    })
-    .exec();
+  const data = await db.collection("albums").findOne({
+    id: req.params.id,
+    $or: ignore ? [] : [{ visibleTo: user }, { visibleTo: "all" }],
+  });
   res.send({ authed: true, album: data });
 });
 app.post("/info/albums/by/artist/:id", async function (req, res) {
@@ -653,7 +650,13 @@ app.post("/playlists", async function (req, res) {
   var ignore = req.query.ignore || false;
   var playlists = [];
 
-  const query = { $or: [{ owner: u }, { public: true }] };
+  const query = {
+    $or: [
+      { owner: u },
+      // { allowedCollaborators: u },
+      { $or: [{ visibleTo: u }, { visibleTo: "all" }] },
+    ],
+  };
   const options = req.query.sort == "new" ? { sort: { added: -1 } } : {};
 
   playlists = await db
@@ -672,15 +675,13 @@ app.post("/playlists/user/:id", async function (req, res) {
   }
   var u = await utils.getUser(req.body.authtoken, db);
   var ignore = req.query.ignore || false;
-  if (u != req.params.id) {
-    // res.send({authed: false, "error": "Not authorized", "success": false})
-    // return
-  }
 
-  var d = await db
-    .collection("playlists")
-    .find({ owner: req.params.id })
-    .toArray();
+  var query = {
+    owner: req.params.id,
+    $or: [{ visibleTo: u }, { visibleTo: "all" }],
+  };
+
+  var d = await db.collection("playlists").find(query).toArray();
   res.send({ authed: true, playlists: d });
 });
 
@@ -691,15 +692,15 @@ app.post("/playlists/:id", async function (req, res) {
   }
   var u = await utils.getUser(req.body.authtoken, db);
   var ignore = req.query.ignore || false;
-  if (u != req.params.id) {
-    // res.send({authed: false, "error": "Not authorized", "success": false})
-    // return
-  }
 
   var d = await db
     .collection("playlists")
-    .find({ id: req.params.id })
+    .find({
+      id: req.params.id,
+      $or: [{ visibleTo: "all" }, { visibleTo: u }],
+    })
     .toArray();
+
   res.send({ authed: true, playlists: d });
 });
 
@@ -717,7 +718,8 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       owner: u || "testguy",
       displayName: req.body.name || "Banana",
       description: req.body.description || "Banana",
-      public: req.body.public == "true" || false,
+      visibleTo: req.body.visibleTo || [u],
+      allowedCollaborators: [u],
       songs: req.body.songs || [],
       added: Date.now(),
     };
@@ -738,8 +740,11 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
     if (p.owner == undefined || p.owner == null) {
       await db
         .collection("playlists")
-        .updateOne({ id: req.params.playlist }, { $set: { owner: u } });
-    } else if (u != p.owner) {
+        .updateOne(
+          { id: req.params.playlist },
+          { $set: { owner: u, allowedCollaborators: [u] } },
+        );
+    } else if (!p.allowedCollaborators.includes(u)) {
       res.send({ authed: false, error: "Not authorized", success: false });
       return;
     }
@@ -752,16 +757,27 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       newdata["displayName"] = p.displayName;
     }
     if (req.body.description !== undefined) {
-      console.log("Description: " + req.body.public);
+      console.log("Description: " + req.body.visibleTo);
       newdata["description"] = req.body.description;
     } else {
       newdata["description"] = p.description;
     }
-    if (req.body.public !== undefined) {
-      console.log("Public: " + req.body.public);
-      newdata["public"] = JSON.parse(req.body.public);
+    if (req.body.visibleTo !== undefined) {
+      console.log("VisibleTo: " + req.body.visibleTo);
+      if (req.body.visibleTo.includes("all")) {
+        newdata["visibleTo"] = ["all"];
+      } else {
+        newdata["visibleTo"] = req.body.visibleTo;
+      }
     } else {
-      newdata["public"] = p.public;
+      newdata["visibleTo"] = p.visibleTo;
+    }
+    if (req.body.allowedCollaborators !== undefined) {
+      newdata["allowedCollaborators"] = req.body.allowedCollaborators;
+      if (!newdata["allowedCollaborators"].includes(p.owner)) {
+        newdata["allowedCollaborators"].push(p.owner);
+      }
+      newdata["visibleTo"] = newdata["allowedCollaborators"];
     }
     if (
       typeof req.body.songs !== "undefined" &&
@@ -779,7 +795,14 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
   }
   const playlists = await db
     .collection("playlists")
-    .find({ $or: [{ owner: u }, { public: true }] })
+    .find({
+      $or: [
+        { owner: u },
+        // { allowedCollaborators: u },
+        { visibleTo: u },
+        { visibleTo: "all" },
+      ],
+    })
     .toArray();
   res.send({
     authed: true,
@@ -799,7 +822,14 @@ app.post("/playlists/remove/:playlist", async function (req, res) {
   if (p == null) {
     const playlists = await db
       .collection("playlists")
-      .find({ $or: [{ owner: u }, { public: true }] })
+      .find({
+        $or: [
+          { owner: u },
+          // { allowedCollaborators: u },
+          { visibleTo: u },
+          { visibleTo: "all" },
+        ],
+      })
       .toArray();
     res.send({
       authed: true,
@@ -808,14 +838,21 @@ app.post("/playlists/remove/:playlist", async function (req, res) {
     });
     return;
   }
-  if (u != p.owner && u != "testguy") {
+  if (!p.allowedCollaborators.includes(u) && u != "testguy") {
     res.send({ authed: false, error: "Not authorized", success: false });
     return;
   }
   await db.collection("playlists").deleteOne({ id: req.params.playlist });
   const playlists = await db
     .collection("playlists")
-    .find({ $or: [{ owner: u }, { public: true }] })
+    .find({
+      $or: [
+        { owner: u },
+        // { allowedCollaborators: u },
+        { visibleTo: u },
+        { visibleTo: "all" },
+      ],
+    })
     .toArray();
   res.send({
     authed: true,
@@ -1100,8 +1137,7 @@ app.post("/edit/:type/:id", async function (req, res) {
           req.body.artistDisplayName == null
             ? s.artistDisplayName
             : req.body.artistDisplayName,
-        audioUrl:
-          req.body.audioUrl == null ? s.audioUrl : req.body.audioUrl,
+        audioUrl: req.body.audioUrl == null ? s.audioUrl : req.body.audioUrl,
         imageUrl: req.body.imageUrl == null ? s.imageUrl : req.body.imageUrl,
         visibleTo:
           req.body.visibleTo == null ? s.visibleTo : req.body.visibleTo,
