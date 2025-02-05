@@ -371,7 +371,7 @@ async function adderMergeLogic(
       displayName: artistData.displayName
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
-      imageUrl: "",
+      imageUrl: artistData.imageUrl,
       added: Date.now(),
       visibleTo: artistData.visibleTo,
       addedBy: user,
@@ -565,6 +565,7 @@ function flattenData(input, user) {
         artistData.visibleTo == undefined || artistPublic
           ? [user]
           : artistData.visibleTo,
+      imageUrl: artistData.imageUrl,
       albumCount: 0,
       songCount: 0,
     });

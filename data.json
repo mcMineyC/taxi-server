@@ -135,6 +135,57 @@
       "visibleTo": [
         "all"
       ]
+    },
+    {
+      "_id": "679ea185e051174dc009636b",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c_102e455ffb577c7ad395722c4f20053d6cfd66909c8b3d1ccff8009be1de7836",
+      "added": 1738449285085,
+      "addedBy": "connor",
+      "albumDisplayName": "Year 4",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:M7t0C-55nBc",
+      "displayName": "Escape from the City (From \"Sonic Adventure 2\")",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
+      "visibleTo": [
+        "connor"
+      ]
+    },
+    {
+      "_id": "67a3058851b7870013f00661",
+      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
+      "added": 1738737032605,
+      "addedBy": "connor",
+      "albumDisplayName": "LIGHTYEARS",
+      "albumId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
+      "artistDisplayName": "Dirt Monkey",
+      "artistId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
+      "audioUrl": "youtube:5M7Q94nFWBg",
+      "displayName": "LIGHTYEARS",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
+      "visibleTo": [
+        "connor"
+      ]
+    },
+    {
+      "_id": "67a3058851b7870013f00662",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_a8037ebba52e8b73e8002acf49317122b7eabec9a4c48286d3f66d23e29013f8_a8037ebba52e8b73e8002acf49317122b7eabec9a4c48286d3f66d23e29013f8",
+      "added": 1738737032605,
+      "addedBy": "connor",
+      "albumDisplayName": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_a8037ebba52e8b73e8002acf49317122b7eabec9a4c48286d3f66d23e29013f8",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:xUkj5WqxhyQ",
+      "displayName": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e98f12eacdd3186f2b7c25d9",
+      "visibleTo": [
+        "connor"
+      ]
     }
   ],
   "albums": [
@@ -193,6 +244,48 @@
       "visibleTo": [
         "all"
       ]
+    },
+    {
+      "_id": "679ea185e051174dc009636a",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c",
+      "added": 1738449285085,
+      "addedBy": "connor",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "Year 4",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
+      "songCount": 0,
+      "visibleTo": [
+        "connor"
+      ]
+    },
+    {
+      "_id": "67a3058851b7870013f0065f",
+      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
+      "added": 1738737032604,
+      "addedBy": "connor",
+      "artistDisplayName": "Dirt Monkey",
+      "artistId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
+      "displayName": "LIGHTYEARS",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
+      "songCount": 0,
+      "visibleTo": [
+        "connor"
+      ]
+    },
+    {
+      "_id": "67a3058851b7870013f00660",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_a8037ebba52e8b73e8002acf49317122b7eabec9a4c48286d3f66d23e29013f8",
+      "added": 1738737032605,
+      "addedBy": "connor",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e98f12eacdd3186f2b7c25d9",
+      "songCount": 0,
+      "visibleTo": [
+        "connor"
+      ]
     }
   ],
   "artists": [
@@ -233,6 +326,19 @@
       "songCount": 0,
       "visibleTo": [
         "all"
+      ]
+    },
+    {
+      "_id": "67a3058851b7870013f0065e",
+      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
+      "added": 1738737032604,
+      "addedBy": "connor",
+      "albumCount": 0,
+      "displayName": "Dirt Monkey",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb362289b6e7b8e25735b4fc8a",
+      "songCount": 0,
+      "visibleTo": [
+        "connor"
       ]
     }
   ]

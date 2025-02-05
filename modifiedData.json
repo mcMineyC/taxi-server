@@ -1,16 +1,16 @@
 {
   "songs": [
     {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c_102e455ffb577c7ad395722c4f20053d6cfd66909c8b3d1ccff8009be1de7836",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Escape from the City (From \"Sonic Adventure 2\")",
-      "albumDisplayName": "Year 4",
-      "artistDisplayName": "Qumu",
+      "id": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_861eea32ae9990e1fda0eed4a52552c330f0d17043b515a0cce1792aa0ba4e49",
+      "albumId": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistId": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9",
+      "displayName": "Architect",
+      "albumDisplayName": "A Hometown Odyssey",
+      "artistDisplayName": "Livingstoney buddy",
       "duration": 0,
-      "audioUrl": "youtube:M7t0C-55nBc",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
-      "added": 1738449285085,
+      "audioUrl": "youtube:0gF31eURPNA",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "added": 1738737158985,
       "visibleTo": [
         "connor"
       ],
@@ -19,13 +19,13 @@
   ],
   "albums": [
     {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Year 4",
-      "artistDisplayName": "Qumu",
+      "id": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistId": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9",
+      "displayName": "A Hometown Odyssey",
+      "artistDisplayName": "Livingstoney buddy",
       "songCount": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
-      "added": 1738449285085,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "added": 1738737158983,
       "visibleTo": [
         "connor"
       ],
@@ -34,17 +34,16 @@
   ],
   "artists": [
     {
-      "_id": "679714c0e6e9ebebec2a2401",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "added": 1737954496344,
-      "addedBy": "jedi",
-      "albumCount": 0,
-      "displayName": "Qumu",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-      "songCount": 0,
+      "id": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9",
+      "displayName": "Livingstoney buddy",
+      "imageUrl": "https://placehold.co/600x400.png",
+      "added": 1738737158983,
       "visibleTo": [
-        "all"
-      ]
+        "connor"
+      ],
+      "addedBy": "connor",
+      "songCount": 0,
+      "albumCount": 0
     }
   ]
 }

@@ -352,7 +352,7 @@ class SpotifyHandler {
           items = trackItems[mediaType + "s"].items;
         }
 
-        return this.mapSpotifyResults(items);
+        return await this.mapSpotifyResults(items);
       } catch (error) {
         console.error("Spotify search error:", error);
         return [];
@@ -408,6 +408,7 @@ class SpotifyHandler {
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, ""),
           albumCoverURL: track.imageUrl,
+          artistImageUrl: track.artistImageUrl,
           visibleTo: [username],
           songs: [
             {
@@ -429,7 +430,7 @@ class SpotifyHandler {
     if (artists.length > 0) {
       const artistPromises = artists.map(async (artist) => {
         const fullArtist = await this.getFullArtist(artist.id);
-        const abums = this.mapSpotifyResults(fullArtist.albums);
+        const abums = await this.mapSpotifyResults(fullArtist.albums);
         console.log("SpotifyHandler: Fetched artist", artist.name, "adding", abums.length, "albums");
         return abums;
       });
@@ -459,6 +460,7 @@ class SpotifyHandler {
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, ""),
             albumCoverURL: album.imageUrl,
+            artistImageUrl: album.artistImageUrl,
             visibleTo: [username],
             songs: youtubeAlbum.songs.map((x, index) => ({
               title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
@@ -531,8 +533,14 @@ class SpotifyHandler {
   //  };
   //}
 
-  mapSpotifyResults(items) {
-    return items.map((item) => {
+  async mapSpotifyResults(items) {
+    var artistIds = items.map((item) => item.type != "playlist" ? item.artists?.[0]?.id || "" : "").filter((x) => x != "");
+    var artists = await this.api.artists.get(artistIds);
+    artists = artists.map((x) => ({
+      id: x.id || "",
+      imageUrl: x.images[0].url || "",
+    }));
+    var mapped = items.map((item) => {
       if (item.type === "track") {
         return {
           id: item.id || "",
@@ -540,6 +548,7 @@ class SpotifyHandler {
           artist: item.artists?.[0]?.name || "",
           album: item.album?.name || "",
           imageUrl: item.album?.images?.[0]?.url || "",
+          artistImageUrl: artists.find((x) => x.id == item.artists[0].id).imageUrl || "failed",
           type: "song",
         };
       } else if (item.type === "album") {
@@ -549,6 +558,7 @@ class SpotifyHandler {
           album: "",
           artist: item.artists[0].name || "",
           imageUrl: item.images[0].url || "",
+          artistImageUrl: artists.find((x) => x.id == item.artists[0].id).imageUrl || "failed",
           type: "album",
         };
       } else if (item.type === "artist") {
@@ -558,6 +568,7 @@ class SpotifyHandler {
           album: "",
           artist: "",
           imageUrl: item.images?.[0]?.url || "",
+          artistImageUrl: item.images?.[0]?.url || "",
           type: "artist",
         };
       } else if (item.type === "playlist") {
@@ -583,6 +594,7 @@ class SpotifyHandler {
       }
       return item;
     });
+    return mapped;
   }
 
   mapFoundResults(found) {
@@ -593,6 +605,7 @@ class SpotifyHandler {
         album: x.album || "",
         artist: x.artist || "",
         imageUrl: x.albumCoverURL || x.playlistCoverURL || "",
+        artistImageUrl: x.artistImageUrl || "failed",
         visibleTo: x.visibleTo || ["all"],
         type: x.type,
         songs: (x.songs || [])

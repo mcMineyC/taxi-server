@@ -37,5 +37,18 @@
     "visibleTo": [
       "all"
     ]
+  },
+  {
+    "_id": "67a3058851b7870013f0065e",
+    "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
+    "added": 1738737032604,
+    "addedBy": "connor",
+    "albumCount": 0,
+    "displayName": "Dirt Monkey",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb362289b6e7b8e25735b4fc8a",
+    "songCount": 0,
+    "visibleTo": [
+      "connor"
+    ]
   }
 ]
