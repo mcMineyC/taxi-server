@@ -1,54 +1,35 @@
 [
   {
-    "_id": "679714c0e6e9ebebec2a2401",
-    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-    "added": 1737954496344,
-    "addedBy": "jedi",
-    "albumCount": 0,
-    "displayName": "Qumu",
-    "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-    "songCount": 0,
-    "visibleTo": [
-      "all"
-    ]
-  },
-  {
-    "_id": "679e96c8e051174dc0096364",
-    "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
-    "added": 1738446535699,
-    "addedBy": "connor",
-    "albumCount": 0,
-    "displayName": "OLESONDER",
-    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb48b055e8c15143d4ff5e3d89",
-    "songCount": 0,
-    "visibleTo": [
-      "all"
-    ]
-  },
-  {
-    "_id": "679e96c8e051174dc0096365",
+    "_id": "67abb3c4e2acaa6d69089256",
     "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
-    "added": 1738446535699,
+    "added": 1739305924750,
     "addedBy": "connor",
     "albumCount": 0,
     "displayName": "Livingston",
     "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebea8265060606ae633c4e1e32",
+    "inLibrary": [
+      "connor"
+    ],
     "songCount": 0,
     "visibleTo": [
-      "all"
+      "all",
+      "jedi"
     ]
   },
   {
-    "_id": "67a3058851b7870013f0065e",
+    "_id": "67abbfeae2acaa6d69089271",
     "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
-    "added": 1738737032604,
-    "addedBy": "connor",
+    "added": 1739309034419,
+    "addedBy": "jedi",
     "albumCount": 0,
     "displayName": "Dirt Monkey",
     "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb362289b6e7b8e25735b4fc8a",
+    "inLibrary": [
+      "jedi"
+    ],
     "songCount": 0,
     "visibleTo": [
-      "connor"
+      "jedi"
     ]
   }
 ]

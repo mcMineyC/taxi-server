@@ -1,163 +1,346 @@
 {
   "songs": [
     {
-      "_id": "679714c0e6e9ebebec2a2403",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
-      "added": 1737954496344,
-      "addedBy": "jedi",
-      "albumDisplayName": "World Bowser (From \"Super Mario 3D World\")",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:KAWkGY6UfxA",
-      "displayName": "World Bowser (From \"Super Mario 3D World\")",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "67984c9f26323b4ba6f14c65",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_438ba8b1a14c1a83aab3f38bd729d580095727a91d2f1d80a81ffde84802ecf1",
-      "added": 1738034335516,
-      "addedBy": "jedi",
-      "albumDisplayName": "World 1",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:3RhihSbn56w",
-      "displayName": "Swings and Roundabouts",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "67984c9f26323b4ba6f14c66",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_d4bc9300200255587b064a6deb5a6445bd9279fe79a36808ca035bec20004875",
-      "added": 1738034335516,
-      "addedBy": "jedi",
-      "albumDisplayName": "World 1",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:Ep9CLv3yU6M",
-      "displayName": "At the Public House",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "67984c9f26323b4ba6f14c67",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_e4595b47a44bfda5f40d760c98b51231e62815af33f69e76d0c10cd13e860785",
-      "added": 1738034335516,
-      "addedBy": "jedi",
-      "albumDisplayName": "World 1",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:W86O6gNVDz4",
-      "displayName": "Kremnay",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "67984c9f26323b4ba6f14c68",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_e7218b5e4a56497509ef63bbad37e594d8f24ac90928ef6ce542b1142e5426fa",
-      "added": 1738034335516,
-      "addedBy": "jedi",
-      "albumDisplayName": "World 1",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:5iy1mXqcGno",
-      "displayName": "Memories",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "67984c9f26323b4ba6f14c69",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229_f1cd1f25dde294d9225a8437337528b1a3173ec3d0f58d14008027330ae75970",
-      "added": 1738034335516,
-      "addedBy": "jedi",
-      "albumDisplayName": "World 1",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:ieRCFyyrP38",
-      "displayName": "Duval",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "679e96c8e051174dc0096368",
-      "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2",
-      "added": 1738446535699,
+      "_id": "67abb3c4e2acaa6d6908925a",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_20fccfd578d53f51ae2086d20314057a285c430e9bcdf5ee2bc36aee13de325f_20fccfd578d53f51ae2086d20314057a285c430e9bcdf5ee2bc36aee13de325f",
+      "added": 1739305924750,
       "addedBy": "connor",
-      "albumDisplayName": "Song of Time",
-      "albumId": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2",
-      "artistDisplayName": "OLESONDER",
-      "artistId": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
-      "audioUrl": "youtube:7skeqC_reKg",
-      "displayName": "Song of Time",
+      "albumDisplayName": "Otherside",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_20fccfd578d53f51ae2086d20314057a285c430e9bcdf5ee2bc36aee13de325f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:kluT2qLsqco",
+      "displayName": "Otherside",
       "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737b6df584f58c3f30c0d99100",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732001852d3711355e639bc0b9",
+      "inLibrary": [
+        "connor"
+      ],
       "visibleTo": [
-        "all"
+        "all",
+        "jedi"
       ]
     },
     {
-      "_id": "679e96c8e051174dc0096369",
+      "_id": "67abb3c4e2acaa6d6908925b",
       "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
-      "added": 1738446535699,
+      "added": 1739305924751,
       "addedBy": "connor",
       "albumDisplayName": "Brainstorm",
       "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
       "artistDisplayName": "Livingston",
       "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
-      "audioUrl": "youtube:ENF8d8Oo7_s",
+      "audioUrl": "youtube:fomVFqqCjw0",
       "displayName": "Brainstorm",
       "duration": 0,
       "imageUrl": "https://i.scdn.co/image/ab67616d0000b27378ab68b144089c5347ae1c39",
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "679ea185e051174dc009636b",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c_102e455ffb577c7ad395722c4f20053d6cfd66909c8b3d1ccff8009be1de7836",
-      "added": 1738449285085,
-      "addedBy": "connor",
-      "albumDisplayName": "Year 4",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:M7t0C-55nBc",
-      "displayName": "Escape from the City (From \"Sonic Adventure 2\")",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
-      "visibleTo": [
+      "inLibrary": [
         "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
       ]
     },
     {
-      "_id": "67a3058851b7870013f00661",
-      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
-      "added": 1738737032605,
+      "_id": "67abb3c4e2acaa6d6908925c",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_b605350bc00209520b7cd8f546322663356ba630708f71bbf30aead6b3dd608e",
+      "added": 1739305924751,
       "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:UNGRjcnw-ZQ",
+      "displayName": "Introduction",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d6908925d",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_4c764cb6248ef9337fc1c8769d4b74fc1d4c1fff6a9e8d00ca6753a560b3e74b",
+      "added": 1739305924751,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:Kq0M4miVjyw",
+      "displayName": "Shadow",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d6908925e",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_5fcd0160688e28b59194bf0b6b26b6c92f9f49f8eb8e7718e4bac107c76b9758",
+      "added": 1739305924751,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:fwN-UBcjfmc",
+      "displayName": "Surprise!",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d6908925f",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_dabe1d46b4236fd5573f912325a1cdd5be10750542b419073c476148cebfa391",
+      "added": 1739305924751,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:GFhmpVSfnZo",
+      "displayName": "Last Man Standing",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089260",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_2745c17f3ee532c1a27b1f78f4772c75437a13e6eb26f5d6772da1ba6b82cb42",
+      "added": 1739305924751,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:3blHBmmhBZQ",
+      "displayName": "Symphony",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089261",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_e4a3ed328bc4d240a7a887d713a6bb7d165dbafd6d116684470861492e3940d3",
+      "added": 1739305924751,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:LnhE5-ONvOc",
+      "displayName": "Half Life",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089262",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_618484e2c549451830e2b2c19b498d90b4fc8d206174f13c43ed058e6470ee2f",
+      "added": 1739305924751,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:XnGla7_6d3c",
+      "displayName": "Neon",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089263",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_861eea32ae9990e1fda0eed4a52552c330f0d17043b515a0cce1792aa0ba4e49",
+      "added": 1739305924751,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:0gF31eURPNA",
+      "displayName": "Architect",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089264",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_eaf0fe0a362b58490e9d73c9584a36ef7353872dd1663afef4e2099b88bf56bf",
+      "added": 1739305924752,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:RPxLNsGwcZk",
+      "displayName": "Warrior",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089265",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_bdcd897ab8ed585981ac297f3df0ee185c82a7a65c39ef3af8f863354086ef21",
+      "added": 1739305924752,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:HZ_SXTwRqX8",
+      "displayName": "Lifetime",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089266",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_a843fa0bbda9464a562e189eb2c88c7b0ccba2d733890a2d0a195f97cf15fa12",
+      "added": 1739305924752,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:H1j80D02cfc",
+      "displayName": "Royalty",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089267",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_f2feacce5bb672a2b00931db8f4d0bb6af99bf545720b4d96c909c6be8a46a9e",
+      "added": 1739305924752,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:7iSNKxoc1jg",
+      "displayName": "Traitor",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089268",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_d7d3f0fee39ef77f1065d423fbb4472393252e072785d157d19c591cfa666e00",
+      "added": 1739305924752,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:zaxZ_04bJV4",
+      "displayName": "The Ending You Deserve",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abb3c4e2acaa6d69089269",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_4ce6d2de41162b61dddea81f0604b629460e3f697cd56b98c7553badf2ccfe7d",
+      "added": 1739305924752,
+      "addedBy": "connor",
+      "albumDisplayName": "A Hometown Odyssey",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:Ro_TwHM3810",
+      "displayName": "Godspeed",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abbfeae2acaa6d69089273",
+      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
+      "added": 1739309034419,
+      "addedBy": "jedi",
       "albumDisplayName": "LIGHTYEARS",
       "albumId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
       "artistDisplayName": "Dirt Monkey",
@@ -166,179 +349,121 @@
       "displayName": "LIGHTYEARS",
       "duration": 0,
       "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
+      "inLibrary": [
+        "jedi"
+      ],
       "visibleTo": [
-        "connor"
-      ]
-    },
-    {
-      "_id": "67a3058851b7870013f00662",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_a8037ebba52e8b73e8002acf49317122b7eabec9a4c48286d3f66d23e29013f8_a8037ebba52e8b73e8002acf49317122b7eabec9a4c48286d3f66d23e29013f8",
-      "added": 1738737032605,
-      "addedBy": "connor",
-      "albumDisplayName": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_a8037ebba52e8b73e8002acf49317122b7eabec9a4c48286d3f66d23e29013f8",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:xUkj5WqxhyQ",
-      "displayName": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
-      "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e98f12eacdd3186f2b7c25d9",
-      "visibleTo": [
-        "connor"
+        "jedi",
+        "all"
       ]
     }
   ],
   "albums": [
     {
-      "_id": "679714c0e6e9ebebec2a2402",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_9428c9bc4f39d57bab2ee2be09bfcb71661991f45e9c2a72c57a6ce56570da61",
-      "added": 1737954496344,
-      "addedBy": "jedi",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "World Bowser (From \"Super Mario 3D World\")",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
-      "songCount": 0,
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "67984c9f26323b4ba6f14c64",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_cc013fcc03fa9e29f162c55acac36fcb6dd7886080c24573ed080aa18877b229",
-      "added": 1738034335516,
-      "addedBy": "jedi",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "World 1",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
-      "songCount": 0,
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "679e96c8e051174dc0096366",
-      "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9_6d2e00290e382798e8f3b0ce49fa2f8c57a65d975ccfe9818fecba8894397cf2",
-      "added": 1738446535699,
+      "_id": "67abb3c4e2acaa6d69089257",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_20fccfd578d53f51ae2086d20314057a285c430e9bcdf5ee2bc36aee13de325f",
+      "added": 1739305924750,
       "addedBy": "connor",
-      "artistDisplayName": "OLESONDER",
-      "artistId": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
-      "displayName": "Song of Time",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737b6df584f58c3f30c0d99100",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "displayName": "Otherside",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732001852d3711355e639bc0b9",
+      "inLibrary": [
+        "connor"
+      ],
       "songCount": 0,
       "visibleTo": [
-        "all"
+        "all",
+        "jedi"
       ]
     },
     {
-      "_id": "679e96c8e051174dc0096367",
+      "_id": "67abb3c4e2acaa6d69089258",
       "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
-      "added": 1738446535699,
+      "added": 1739305924750,
       "addedBy": "connor",
       "artistDisplayName": "Livingston",
       "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
       "displayName": "Brainstorm",
       "imageUrl": "https://i.scdn.co/image/ab67616d0000b27378ab68b144089c5347ae1c39",
-      "songCount": 0,
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "679ea185e051174dc009636a",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c",
-      "added": 1738449285085,
-      "addedBy": "connor",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Year 4",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
-      "songCount": 0,
-      "visibleTo": [
+      "inLibrary": [
         "connor"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "all",
+        "jedi"
       ]
     },
     {
-      "_id": "67a3058851b7870013f0065f",
-      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
-      "added": 1738737032604,
+      "_id": "67abb3c4e2acaa6d69089259",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
+      "added": 1739305924750,
       "addedBy": "connor",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "displayName": "A Hometown Odyssey",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
+      "inLibrary": [
+        "connor"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "all",
+        "jedi"
+      ]
+    },
+    {
+      "_id": "67abbfeae2acaa6d69089272",
+      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
+      "added": 1739309034419,
+      "addedBy": "jedi",
       "artistDisplayName": "Dirt Monkey",
       "artistId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
       "displayName": "LIGHTYEARS",
       "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
+      "inLibrary": [
+        "jedi"
+      ],
       "songCount": 0,
       "visibleTo": [
-        "connor"
-      ]
-    },
-    {
-      "_id": "67a3058851b7870013f00660",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_a8037ebba52e8b73e8002acf49317122b7eabec9a4c48286d3f66d23e29013f8",
-      "added": 1738737032605,
-      "addedBy": "connor",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e98f12eacdd3186f2b7c25d9",
-      "songCount": 0,
-      "visibleTo": [
-        "connor"
+        "jedi",
+        "all"
       ]
     }
   ],
   "artists": [
     {
-      "_id": "679714c0e6e9ebebec2a2401",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "added": 1737954496344,
-      "addedBy": "jedi",
-      "albumCount": 0,
-      "displayName": "Qumu",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-      "songCount": 0,
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "679e96c8e051174dc0096364",
-      "id": "e75baa3a5344eaceb1e43eb2336a841aacba52791df2f53000a51dd0d279dbb9",
-      "added": 1738446535699,
-      "addedBy": "connor",
-      "albumCount": 0,
-      "displayName": "OLESONDER",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb48b055e8c15143d4ff5e3d89",
-      "songCount": 0,
-      "visibleTo": [
-        "all"
-      ]
-    },
-    {
-      "_id": "679e96c8e051174dc0096365",
+      "_id": "67abb3c4e2acaa6d69089256",
       "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
-      "added": 1738446535699,
+      "added": 1739305924750,
       "addedBy": "connor",
       "albumCount": 0,
       "displayName": "Livingston",
       "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebea8265060606ae633c4e1e32",
+      "inLibrary": [
+        "connor"
+      ],
       "songCount": 0,
       "visibleTo": [
-        "all"
+        "all",
+        "jedi"
       ]
     },
     {
-      "_id": "67a3058851b7870013f0065e",
+      "_id": "67abbfeae2acaa6d69089271",
       "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
-      "added": 1738737032604,
-      "addedBy": "connor",
+      "added": 1739309034419,
+      "addedBy": "jedi",
       "albumCount": 0,
       "displayName": "Dirt Monkey",
       "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb362289b6e7b8e25735b4fc8a",
+      "inLibrary": [
+        "jedi"
+      ],
       "songCount": 0,
       "visibleTo": [
-        "connor"
+        "jedi"
       ]
     }
   ]

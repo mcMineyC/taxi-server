@@ -123,7 +123,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
           socket.emit("message", {
             type: "auth",
             success: false,
-            error: "Spotify authentication required",
+            error: "Spotify authentication required (contact Jedi)",
             authorized: true,
             requiresSpotify: true,
           });
@@ -143,6 +143,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
         });
       }
     } else if (msg.source == "youtube") {
+      socket.emit("findresults", { results: []});
       socket.emit("message", {
         type: "auth",
         success: false,
@@ -166,7 +167,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     if (typeof msg == "string") {
       msg = JSON.parse(msg);
     }
-    //console.log("MSG:", JSON.stringify(msg, null, 2));
+    console.log("MSG:", JSON.stringify(msg, null, 2));
     var artists = [];
     var albums = [];
     var songs = [];
@@ -351,11 +352,7 @@ async function adderMergeLogic(
         // fix for duplicate artists in the same modifiedArtists
         return;
       modifiedArtists[artistKey] = artists[artistKeys.indexOf(artistKey)];
-      if (
-        modifiedArtists[artistKey].visibleTo.includes(user) ||
-        modifiedArtists[artistKey].visibleTo.includes("all")
-      )
-        return;
+
       modifiedArtists[artistKey].visibleTo = [
         ...new Set(
           artists[artistKeys.indexOf(artistKey)].visibleTo.concat(
@@ -363,6 +360,9 @@ async function adderMergeLogic(
           ),
         ),
       ];
+      if(!modifiedArtists[artistKey].inLibrary.includes(user)){
+        modifiedArtists[artistKey].inLibrary.push(user);
+      }
       //addedArtists--;
       return;
     }
@@ -377,6 +377,7 @@ async function adderMergeLogic(
       addedBy: user,
       songCount: 0,
       albumCount: 0,
+      inLibrary: [user],
     };
     artistKeys.push(artistKey);
     addedArtists++;
@@ -389,11 +390,6 @@ async function adderMergeLogic(
       console.log("albumKey already exists for", albumData.displayName);
       if (albums[albumKeys.indexOf(albumKey)] == undefined) return;
       modifiedAlbums[albumKey] = albums[albumKeys.indexOf(albumKey)];
-      if (
-        modifiedAlbums[albumKey].visibleTo.includes(user) ||
-        modifiedAlbums[albumKey].visibleTo.includes("all")
-      )
-        return;
       modifiedAlbums[albumKey].visibleTo = [
         ...new Set(
           albums[albumKeys.indexOf(albumKey)].visibleTo.concat(
@@ -401,6 +397,9 @@ async function adderMergeLogic(
           ),
         ),
       ];
+      if(!modifiedAlbums[albumKey].inLibrary.includes(user)){
+        modifiedAlbums[albumKey].inLibrary.push(user);
+      }
       //addedAlbums--;
       return;
     }
@@ -417,6 +416,7 @@ async function adderMergeLogic(
       imageUrl: albumData.imageUrl,
       added: Date.now(),
       visibleTo: albumData.visibleTo,
+      inLibrary: [user],
       addedBy: user,
     };
     //console.log("album inside flattenedalbums", modifiedAlbums[albumKey]);
@@ -437,11 +437,6 @@ async function adderMergeLogic(
     if (songKeys.includes(songKey)) {
       console.log("songKey already exists for", songData.displayName);
       modifiedSongs[songKey] = songs[songKeys.indexOf(songKey)];
-      if (
-        modifiedSongs[songKey].visibleTo.includes(user) ||
-        modifiedSongs[songKey].visibleTo.includes("all")
-      )
-        return;
 
       modifiedSongs[songKey].visibleTo = [
         ...new Set(
@@ -449,6 +444,9 @@ async function adderMergeLogic(
         ),
       ];
       return;
+      if(!modifiedSongs[songKey].inLibrary.includes(user)){
+        modifiedSongs[songKey].inLibrary.push(user);
+      }
     }
     console.log("Song audioUrl =", songData.audioUrl);
     console.log("Song url =", songData.url);
@@ -471,6 +469,7 @@ async function adderMergeLogic(
       imageUrl: songData.imageUrl,
       added: Date.now(),
       visibleTo: songData.visibleTo,
+      inLibrary: [user],
       addedBy: user,
     };
 
@@ -537,6 +536,7 @@ function flattenData(input, user) {
         imageUrl: albumImageUrl,
         visibleTo:
           albumData.visibleTo == undefined ? [user] : albumData.visibleTo,
+        inLibrary: [user],
         songCount: 0,
       });
       if (
@@ -555,6 +555,7 @@ function flattenData(input, user) {
           artistDisplayName: artistName,
           visibleTo:
             songData.visibleTo == undefined ? [user] : songData.visibleTo,
+          inLibrary: [user],
         });
       });
     });
@@ -565,6 +566,7 @@ function flattenData(input, user) {
         artistData.visibleTo == undefined || artistPublic
           ? [user]
           : artistData.visibleTo,
+      inLibrary: [user],
       imageUrl: artistData.imageUrl,
       albumCount: 0,
       songCount: 0,

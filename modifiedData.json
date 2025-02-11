@@ -1,49 +1,63 @@
 {
   "songs": [
     {
-      "id": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f_861eea32ae9990e1fda0eed4a52552c330f0d17043b515a0cce1792aa0ba4e49",
-      "albumId": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
-      "artistId": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9",
-      "displayName": "Architect",
-      "albumDisplayName": "A Hometown Odyssey",
-      "artistDisplayName": "Livingstoney buddy",
+      "_id": "67abbfeae2acaa6d69089273",
+      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
+      "added": 1739309034419,
+      "addedBy": "jedi",
+      "albumDisplayName": "LIGHTYEARS",
+      "albumId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
+      "artistDisplayName": "Dirt Monkey",
+      "artistId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
+      "audioUrl": "youtube:5M7Q94nFWBg",
+      "displayName": "LIGHTYEARS",
       "duration": 0,
-      "audioUrl": "youtube:0gF31eURPNA",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
-      "added": 1738737158985,
-      "visibleTo": [
-        "connor"
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
+      "inLibrary": [
+        "jedi"
       ],
-      "addedBy": "connor"
+      "visibleTo": [
+        "jedi",
+        "all"
+      ]
     }
   ],
   "albums": [
     {
-      "id": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9_de5939438ea2eccd4ee39e31d471eb6c69694070a35a6a4c522661565f30111f",
-      "artistId": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9",
-      "displayName": "A Hometown Odyssey",
-      "artistDisplayName": "Livingstoney buddy",
-      "songCount": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
-      "added": 1738737158983,
-      "visibleTo": [
-        "connor"
+      "_id": "67abbfeae2acaa6d69089272",
+      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
+      "added": 1739309034419,
+      "addedBy": "jedi",
+      "artistDisplayName": "Dirt Monkey",
+      "artistId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
+      "displayName": "LIGHTYEARS",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
+      "inLibrary": [
+        "jedi"
       ],
-      "addedBy": "connor"
+      "songCount": 0,
+      "visibleTo": [
+        "jedi",
+        "all"
+      ]
     }
   ],
   "artists": [
     {
-      "id": "d07d04f0d02cb22b3ddca70a3665e3d7bd0a6ac90154c1ceab06f0ae2cd6d5f9",
-      "displayName": "Livingstoney buddy",
-      "imageUrl": "https://placehold.co/600x400.png",
-      "added": 1738737158983,
-      "visibleTo": [
-        "connor"
+      "_id": "67abbfeae2acaa6d69089271",
+      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
+      "added": 1739309034419,
+      "addedBy": "jedi",
+      "albumCount": 0,
+      "displayName": "Dirt Monkey",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb362289b6e7b8e25735b4fc8a",
+      "inLibrary": [
+        "jedi"
       ],
-      "addedBy": "connor",
       "songCount": 0,
-      "albumCount": 0
+      "visibleTo": [
+        "jedi"
+      ]
     }
   ]
 }

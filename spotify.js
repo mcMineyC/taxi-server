@@ -409,7 +409,8 @@ class SpotifyHandler {
             .replace(/[\u0300-\u036f]/g, ""),
           albumCoverURL: track.imageUrl,
           artistImageUrl: track.artistImageUrl,
-          visibleTo: [username],
+          visibleTo: ["all"],
+          inLibrary: [username],
           songs: [
             {
               title: track.name
@@ -461,7 +462,8 @@ class SpotifyHandler {
               .replace(/[\u0300-\u036f]/g, ""),
             albumCoverURL: album.imageUrl,
             artistImageUrl: album.artistImageUrl,
-            visibleTo: [username],
+            visibleTo: ["all"],
+            inLibrary: [username],
             songs: youtubeAlbum.songs.map((x, index) => ({
               title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
               url: "youtube:" + (x.videoId || x.browseId || ""),
@@ -479,7 +481,7 @@ class SpotifyHandler {
     }
 
 
-    return this.mapFoundResults(found);
+    return this.mapFoundResults(found, username);
   }
 
   //async findYoutubeSong(id) {
@@ -596,8 +598,9 @@ class SpotifyHandler {
     });
     return mapped;
   }
-
-  mapFoundResults(found) {
+  
+  // THIS IS WHERE YOU PUT THE FINAL RESULTS
+  mapFoundResults(found, user) {
     return found.map((x) => {
       console.log("Found item", x);
       return {
@@ -606,7 +609,8 @@ class SpotifyHandler {
         artist: x.artist || "",
         imageUrl: x.albumCoverURL || x.playlistCoverURL || "",
         artistImageUrl: x.artistImageUrl || "failed",
-        visibleTo: x.visibleTo || ["all"],
+        visibleTo: ["all"],
+        inLibrary: x.inLibrary || [user],
         type: x.type,
         songs: (x.songs || [])
       };

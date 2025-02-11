@@ -99,7 +99,7 @@ app.post("/signup", async function (req, res) {
     authtoken: "",
     roles: roles,
   };
-  if(req.body.password != null){
+  if (req.body.password != null) {
     newUser.password = req.body.password;
   }
   await db.collection("changelog").updateOne(
@@ -373,7 +373,7 @@ app.post("/info/albums", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
   const data = await db
     .collection("albums")
@@ -398,7 +398,7 @@ app.post("/info/artists", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
   const data = await db
     .collection("artists")
@@ -422,7 +422,7 @@ app.post("/info/songs", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
 
   let options = {
@@ -456,7 +456,7 @@ app.post("/info/artist/:id", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
   const data = await db.collection("artists").findOne(query);
   res.send({ authed: true, artist: data });
@@ -506,11 +506,11 @@ app.post("/info/albums/by/artist/:id", async function (req, res) {
       fullQuery.$or = [{ visibleTo: user }, { visibleTo: "all" }];
     }
 
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.addedBy = user;
-  }
+    var privateLibrary = req.query.mine || false;
+    if (privateLibrary) {
+      delete query.$or;
+      query.inLibrary = user;
+    }
 
     var abD = await db
       .collection("albums")
@@ -527,11 +527,11 @@ app.post("/info/albums/by/artist/:id", async function (req, res) {
       query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
     }
 
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.addedBy = user;
-  }
+    var privateLibrary = req.query.mine || false;
+    if (privateLibrary) {
+      delete query.$or;
+      query.inLibrary = user;
+    }
 
     albumsData = await db
       .collection("albums")
@@ -561,7 +561,7 @@ app.post("/info/singles/by/artist/:id", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
 
   const data = await db
@@ -606,7 +606,7 @@ app.post("/info/songs/by/album/:id", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
 
   const data = await db
@@ -638,7 +638,7 @@ app.post("/info/songs/by/artist/:id", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
 
   const data = await db
@@ -669,7 +669,7 @@ app.post("/info/songs/batch", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
   // console.log("/info/songs/batch - Querying");
   var data = await db.collection("songs").find(query).toArray();
@@ -698,7 +698,7 @@ app.post("/info/songs/:id", async function (req, res) {
   var privateLibrary = req.query.mine || false;
   if (privateLibrary) {
     delete query.$or;
-    query.addedBy = user;
+    query.inLibrary = user;
   }
   const result = await db.collection("songs").findOne(query);
   res.send({ authed: true, song: result ? result : {} });
@@ -713,6 +713,7 @@ app.post("/playlists", async function (req, res) {
   var u = await utils.getUser(req.body.authtoken, db);
   var ignore = req.query.ignore || false;
   var editable = req.query.editable || false;
+  var privateLibrary = req.query.mine || false;
   var playlists = [];
   console.log("Editable: " + editable);
 
@@ -723,9 +724,12 @@ app.post("/playlists", async function (req, res) {
       { $or: [{ visibleTo: u }, { visibleTo: "all" }] },
     ],
   };
-  if(editable) query.allowedCollaborators = u;
+  if (editable) query.allowedCollaborators = u;
   const options = req.query.sort == "new" ? { sort: { added: -1 } } : {};
-
+  if (privateLibrary) {
+    delete query.$or;
+    query.$or = [{ owner: u }, { inLibrary: u }];
+  }
 
   playlists = await db
     .collection("playlists")
@@ -743,11 +747,17 @@ app.post("/playlists/user/:id", async function (req, res) {
   }
   var u = await utils.getUser(req.body.authtoken, db);
   var ignore = req.query.ignore || false;
+  var privateLibrary = req.query.mine || false;
 
   var query = {
     owner: req.params.id,
     $or: [{ visibleTo: u }, { visibleTo: "all" }],
   };
+
+  if (privateLibrary) {
+    delete query.$or;
+    query.$or = [{ owner: u }, { inLibrary: u }];
+  }
 
   var d = await db.collection("playlists").find(query).toArray();
   res.send({ authed: true, playlists: d });
@@ -760,14 +770,19 @@ app.post("/playlists/:id", async function (req, res) {
   }
   var u = await utils.getUser(req.body.authtoken, db);
   var ignore = req.query.ignore || false;
+  var privateLibrary = req.query.mine || false;
 
-  var d = await db
-    .collection("playlists")
-    .find({
-      id: req.params.id,
-      $or: [{ visibleTo: "all" }, { visibleTo: u }],
-    })
-    .toArray();
+  var query = {
+    id: req.params.id,
+    $or: [{ visibleTo: "all" }, { visibleTo: u }],
+  };
+
+  if (privateLibrary) {
+    delete query.$or;
+    query.$or = [{ owner: u }, { inLibrary: u }];
+  }
+
+  var d = await db.collection("playlists").find(query).toArray();
 
   res.send({ authed: true, playlists: d });
 });
@@ -787,9 +802,11 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       displayName: req.body.name || "Banana",
       description: req.body.description || "Banana",
       visibleTo: req.body.visibleTo || [u],
+      inLibrary: [u],
       allowedCollaborators: req.body.allowedCollaborators || [u],
       songs: req.body.songs || [],
       added: Date.now(),
+      inLibrary: [u],
     };
     await db
       .collection("playlists")
@@ -806,14 +823,17 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
     console.log("Playlist does not exist. Creating new playlist.");
   } else {
     if (p.owner == undefined || p.owner == null) {
-      await db
-        .collection("playlists")
-        .updateOne(
-          { id: req.params.playlist },
-          { $set: { owner: u, allowedCollaborators: [p.allowedCollaborators] } },
-        );
+      await db.collection("playlists").updateOne(
+        { id: req.params.playlist },
+        {
+          $set: { owner: u, allowedCollaborators: [p.allowedCollaborators] },
+        },
+      );
     } else if (!p.allowedCollaborators.includes(u)) {
-      console.log("\""+u+"\" is not in allowedCollaborators:",p.allowedCollaborators);
+      console.log(
+        '"' + u + '" is not in allowedCollaborators:',
+        p.allowedCollaborators,
+      );
       res.send({ authed: false, error: "Not authorized", success: false });
       return;
     }
@@ -848,7 +868,10 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       }
       var newVisibleTo = new Set(newdata["visibleTo"]);
       var newCollaborates = new Set(newdata["allowedCollaborators"]);
-      newdata["visibleTo"] = newVisibleTo.union(newCollaborates).values().toArray();
+      newdata["visibleTo"] = newVisibleTo
+        .union(newCollaborates)
+        .values()
+        .toArray();
       console.log("VisibleTo: " + newdata["visibleTo"]);
       console.log("AllowedCollaborators: " + newdata["allowedCollaborators"]);
     }
@@ -932,6 +955,64 @@ app.post("/playlists/remove/:playlist", async function (req, res) {
     success: true,
     playlists: playlists,
   });
+});
+
+app.post("/addToLibrary", async function (req, res) {
+  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
+    res.send({ authed: false, success: false });
+    return;
+  }
+
+  var u = await utils.getUser(req.body.authtoken, db);
+
+  const collection = req.body.type + "s";
+  const id = req.body.id;
+
+  const item = await db.collection(collection).findOne({ id: id });
+  if (!item) {
+    res.send({ authed: true, success: false, error: "Item not found" });
+    return;
+  }
+
+  let inLibrary = item.inLibrary || [];
+  if (!inLibrary.includes(u)) {
+    inLibrary.push(u);
+  }
+
+  await db
+    .collection(collection)
+    .updateOne({ id: id }, { $set: { inLibrary: inLibrary } });
+
+  res.send({ authed: true, success: true });
+});
+
+app.post("/removeFromLibrary", async function (req, res) {
+  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
+    res.send({ authed: false, success: false });
+    return;
+  }
+
+  var u = await utils.getUser(req.body.authtoken, db);
+
+  const collection = req.body.type + "s";
+  const id = req.body.id;
+
+  const item = await db.collection(collection).findOne({ id: id });
+  if (!item) {
+    res.send({ authed: true, success: false, error: "Item not found" });
+    return;
+  }
+
+  let inLibrary = item.inLibrary || [];
+  if (inLibrary.includes(u)) {
+    inLibrary = inLibrary.filter((user) => user !== u);
+  }
+
+  await db
+    .collection(collection)
+    .updateOne({ id: id }, { $set: { inLibrary: inLibrary } });
+
+  res.send({ authed: true, success: true });
 });
 
 app.post("/recently-played/:user/add", async function (req, res) {
@@ -1221,7 +1302,7 @@ app.post("/edit/:type/:id", async function (req, res) {
       s = await db.collection("songs").findOne({ id: req.params.id });
       s = JSON.parse(JSON.stringify(s));
       s.type = "song";
-      await ts.updateSong(s);
+      //await ts.updateSong(s);
       await db.collection("changelog").updateOne(
         {
           time: Date.now(),
@@ -1472,7 +1553,14 @@ app.post("/edit/:type/:id/visibility", async (req, res) => {
 
   switch (req.params.type) {
     case "song":
-      data = await db.collection("songs").find({ id: req.params.id }).toArray();
+      var da = await db
+        .collection("songs")
+        .find({ id: req.params.id })
+        .toArray();
+      da.forEach((s) => {
+        s.type = "song";
+        data.push(s);
+      });
       break;
     case "album":
       var songs = await db
@@ -1555,13 +1643,13 @@ app.post("/edit/:type/:id/visibility", async (req, res) => {
 
     switch (d.type) {
       case "song":
-        await ts.updateSong(n);
+        //await ts.updateSong(n);
         break;
       case "album":
-        await ts.updateAlbum(n);
+        //await ts.updateAlbum(n);
         break;
       case "artist":
-        await ts.updateArtist(n);
+        //await ts.updateArtist(n);
         break;
     }
     counter++;
