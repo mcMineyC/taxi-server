@@ -3,6 +3,7 @@ import fs from 'fs';
 import dbConnection from './db.js';
 const db = dbConnection.db("taxi");
 
+//await db.collection("auth").drop();
 await db.collection("songs").drop();
 await db.collection("albums").drop();
 await db.collection("artists").drop();
