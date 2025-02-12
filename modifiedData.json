@@ -1,21 +1,19 @@
 {
   "songs": [
     {
-      "_id": "67abd5c8169fed72f92182de",
-      "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
-      "added": 1739314632058,
-      "addedBy": "jedi",
-      "albumDisplayName": "Memory Bank",
-      "albumId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
-      "artistDisplayName": "Dyro",
-      "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
-      "audioUrl": "youtube:2LnMkxN5ezM",
-      "displayName": "Memory Bank",
+      "_id": "67ac0d0aaa5c55610cd03020",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051_298c1ed9a14c7e60c1360fa78519b6b39f2424471e4eb2487fb4ccebd2557d25",
+      "added": 1739328778150,
+      "addedBy": "abby",
+      "albumDisplayName": "Year 7",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "audioUrl": "youtube:RsZeb7OSek4",
+      "displayName": "Ghost House (From \"Super Mario World\")",
       "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734366c48ae7d8dce239c62c47",
       "inLibrary": [
-        "jedi",
-        "connor",
         "abby"
       ],
       "visibleTo": [
@@ -25,16 +23,15 @@
   ],
   "albums": [
     {
-      "_id": "67abd5c8169fed72f92182dd",
-      "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
-      "added": 1739314632058,
-      "addedBy": "jedi",
-      "artistDisplayName": "Dyro",
-      "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
-      "displayName": "Memory Bank",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
+      "_id": "67abd4bf169fed72f92182d7",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051",
+      "added": 1739314367107,
+      "addedBy": "connor",
+      "artistDisplayName": "Qumu",
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "Year 7",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734366c48ae7d8dce239c62c47",
       "inLibrary": [
-        "jedi",
         "connor",
         "abby"
       ],
@@ -46,22 +43,22 @@
   ],
   "artists": [
     {
-      "_id": "67abd5c8169fed72f92182dc",
-      "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
-      "added": 1739314632057,
-      "addedBy": "jedi",
+      "_id": "67abd4bf169fed72f92182d3",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "added": 1739314367107,
+      "addedBy": "connor",
       "albumCount": 0,
-      "displayName": "Dyro",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb8137545b2db84fd837d04efb",
+      "displayName": "Qumu",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
       "inLibrary": [
-        "jedi",
         "connor",
+        "jedi",
         "abby"
       ],
       "songCount": 0,
       "visibleTo": [
-        "jedi",
         "connor",
+        "jedi",
         "abby"
       ]
     }

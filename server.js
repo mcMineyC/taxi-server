@@ -1054,13 +1054,13 @@ app.post("/addToLibrary", async function (req, res) {
 
     switch (d.type) {
       case "song":
-        //await ts.updateSong(n);
+        await ts.updateSong(d);
         break;
       case "album":
-        //await ts.updateAlbum(n);
+        await ts.updateAlbum(d);
         break;
       case "artist":
-        //await ts.updateArtist(n);
+        await ts.updateArtist(d);
         break;
     }
     console.log(
@@ -1190,13 +1190,13 @@ app.post("/removeFromLibrary", async function (req, res) {
 
     switch (d.type) {
       case "song":
-        //await ts.updateSong(n);
+        await ts.updateSong(d);
         break;
       case "album":
-        //await ts.updateAlbum(n);
+        await ts.updateAlbum(d);
         break;
       case "artist":
-        //await ts.updateArtist(n);
+        await ts.updateArtist(d);
         break;
     }
     console.log(
@@ -1498,7 +1498,7 @@ app.post("/edit/:type/:id", async function (req, res) {
       s = await db.collection("songs").findOne({ id: req.params.id });
       s = JSON.parse(JSON.stringify(s));
       s.type = "song";
-      //await ts.updateSong(s);
+      await ts.updateSong(s);
       await db.collection("changelog").updateOne(
         {
           time: Date.now(),
@@ -1839,13 +1839,13 @@ app.post("/edit/:type/:id/visibility", async (req, res) => {
 
     switch (d.type) {
       case "song":
-        //await ts.updateSong(n);
+        await ts.updateSong(d);
         break;
       case "album":
-        //await ts.updateAlbum(n);
+        await ts.updateAlbum(d);
         break;
       case "artist":
-        //await ts.updateArtist(n);
+        await ts.updateArtist(d);
         break;
     }
     counter++;

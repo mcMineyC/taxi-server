@@ -6,7 +6,7 @@ const typesense = require("typesense");
 const client = new typesense.Client({
   nodes: [
     {
-      host: "192.168.30.36",
+      host: "192.168.196.111",
       port: 8108,
       protocol: "http",
     },

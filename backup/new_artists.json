@@ -42,13 +42,16 @@
     "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
     "inLibrary": [
       "connor",
-      "jedi"
+      "jedi",
+      "abby"
     ],
     "songCount": 0,
     "visibleTo": [
       "connor",
-      "jedi"
-    ]
+      "jedi",
+      "abby"
+    ],
+    "type": "artist"
   },
   {
     "_id": "67abd5c8169fed72f92182dc",

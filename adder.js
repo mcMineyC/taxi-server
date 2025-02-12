@@ -281,10 +281,10 @@ function adderConnection(socket, db, ts, spotifyHandler) {
         },
       })),
     );
-    //console.log("Typesense update");
-    //await ts.updateSongs(modifiedSongs);
-    //await ts.updateAlbums(modifiedAlbums);
-    //await ts.updateArtists(modifiedArtists);
+    console.log("Typesense update");
+    await ts.updateSongs(modifiedSongs);
+    await ts.updateAlbums(modifiedAlbums);
+    await ts.updateArtists(modifiedArtists);
     fs.writeFileSync("./backup/new_songs.json", JSON.stringify(songs, null, 2));
     fs.writeFileSync(
       "./backup/new_albums.json",

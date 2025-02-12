@@ -10,6 +10,7 @@ export default {
       await client.collections("taxi-songs").delete();
       await client.collections("taxi-albums").delete();
       await client.collections("taxi-artists").delete();
+      await client.collections("taxi-playlists").delete();
       await client.collections("taxi-relevance").delete();
     }catch(e){
       console.log("No collections to delete");
@@ -23,9 +24,9 @@ export default {
         console.log("Error creating collection "+schema.name, e);
       }
     }
-    var songs = await db.collection("songs").find().exec();
-    var albums = await db.collection("albums").find().exec();
-    var artists = await db.collection("artists").find().exec();
+    var songs = await db.collection("songs").find().toArray();
+    var albums = await db.collection("albums").find().toArray();
+    var artists = await db.collection("artists").find().toArray();
     //var playlists = await db.collection("playlists").find().exec();
 
     await client.collections('taxi-songs').documents().import(songs, {action: "upsert"});
@@ -37,21 +38,27 @@ export default {
       displayName: x.displayName,
       imageUrl: x.imageUrl,
       type: 'song',
+      addedBy: x.addedBy,
       visibleTo: x.visibleTo,
+      inLibrary: x.inLibrary,
     })), {action: "upsert"});
     await client.collections('taxi-relevance').documents().import(albums.map(x => ({
       id: x.id,
       displayName: x.displayName,
       imageUrl: x.imageUrl,
       type: 'album',
+      addedBy: x.addedBy,
       visibleTo: x.visibleTo,
+      inLibrary: x.inLibrary,
     })), {"action": "upsert"});
     await client.collections('taxi-relevance').documents().import(artists.map(x => ({
       id: x.id,
       displayName: x.displayName,
       imageUrl: x.imageUrl,
       type: 'artist',
+      addedBy: x.addedBy,
       visibleTo: x.visibleTo,
+      inLibrary: x.inLibrary,
     })), {"action": "upsert"});
     //await client.collections('taxi-relevance').documents().import(playlists.map(x => ({
     //  id: x.id,
@@ -86,7 +93,7 @@ export default {
     ]);
   },
   destroy: async () => {
-    await db.destroy();
+    await dbConnection.close();
   },
   searchArtist: async (query) => {
     return (await client.collections('taxi-artists').documents().search({
