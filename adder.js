@@ -361,6 +361,7 @@ async function adderMergeLogic(
         ),
       ];
       if(!modifiedArtists[artistKey].inLibrary.includes(user)){
+        console.log("Adding " + user + " to " + artistData.displayName);
         modifiedArtists[artistKey].inLibrary.push(user);
       }
       //addedArtists--;
@@ -398,6 +399,7 @@ async function adderMergeLogic(
         ),
       ];
       if(!modifiedAlbums[albumKey].inLibrary.includes(user)){
+        console.log("Adding " + user + " to " + albumData.displayName);
         modifiedAlbums[albumKey].inLibrary.push(user);
       }
       //addedAlbums--;
@@ -443,10 +445,11 @@ async function adderMergeLogic(
           songs[songKeys.indexOf(songKey)].visibleTo.concat(songData.visibleTo),
         ),
       ];
-      return;
       if(!modifiedSongs[songKey].inLibrary.includes(user)){
+        console.log("Adding " + user + " to " + songData.displayName);
         modifiedSongs[songKey].inLibrary.push(user);
       }
+      return;
     }
     console.log("Song audioUrl =", songData.audioUrl);
     console.log("Song url =", songData.url);

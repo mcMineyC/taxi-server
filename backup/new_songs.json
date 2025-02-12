@@ -349,10 +349,174 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
     "inLibrary": [
-      "jedi"
+      "jedi",
+      "connor"
     ],
     "visibleTo": [
       "jedi",
+      "connor"
+    ]
+  },
+  {
+    "_id": "67abd4bf169fed72f92182d8",
+    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_770b963f1acc66e7767b599da213f9fc0a375c9d5686cd4158b06746957a3fd8_770b963f1acc66e7767b599da213f9fc0a375c9d5686cd4158b06746957a3fd8",
+    "added": 1739314367107,
+    "addedBy": "connor",
+    "albumDisplayName": "Animal Aboard",
+    "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_770b963f1acc66e7767b599da213f9fc0a375c9d5686cd4158b06746957a3fd8",
+    "artistDisplayName": "Qumu",
+    "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+    "audioUrl": "youtube:in5Mn6FQQ4Q",
+    "displayName": "Animal Aboard",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a10d48fb5c35bdfd92b6b290",
+    "inLibrary": [
+      "connor"
+    ],
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67abd4bf169fed72f92182d9",
+    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c_db6d3f53bb65a989b5961cb676498166d24befaf18160c7eec0be4c48701698a",
+    "added": 1739314367107,
+    "addedBy": "connor",
+    "albumDisplayName": "Year 4",
+    "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_5230a00a23eeac9a15ab4abee5ee09ab4106696af7dd90a5ec241ea71672794c",
+    "artistDisplayName": "Qumu",
+    "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+    "audioUrl": "youtube:Kkclwy1JR8M",
+    "displayName": "Sweden (From \"Minecraft\")",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
+    "inLibrary": [
+      "connor"
+    ],
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67abd4bf169fed72f92182da",
+    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_382631ca3b8ea279586a3b9aa91d690a0a92c725c8783072bb71756a66b05b74_f157ff443f8bb2847002f9099c28b753fe9e8e6f72c397283a9089ee9c89ef37",
+    "added": 1739314367107,
+    "addedBy": "connor",
+    "albumDisplayName": "Year 6",
+    "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_382631ca3b8ea279586a3b9aa91d690a0a92c725c8783072bb71756a66b05b74",
+    "artistDisplayName": "Qumu",
+    "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+    "audioUrl": "youtube:EeYvWKzUfYY",
+    "displayName": "Rainbow Road (From \"Mario Kart 64\")",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27340baf4dd6b252ba0943afdc9",
+    "inLibrary": [
+      "connor"
+    ],
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67abd4bf169fed72f92182db",
+    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051_2ca1d2b2814bd61697b0f23cbe9e1049a8076d9a0aa4cbcd69722516ec36715f",
+    "added": 1739314367108,
+    "addedBy": "connor",
+    "albumDisplayName": "Year 7",
+    "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051",
+    "artistDisplayName": "Qumu",
+    "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+    "audioUrl": "youtube:JSIv4nq0FFA",
+    "displayName": "Train Rush (From \"A Hat in Time\")",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734366c48ae7d8dce239c62c47",
+    "inLibrary": [
+      "connor"
+    ],
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67abd5c8169fed72f92182de",
+    "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+    "added": 1739314632058,
+    "addedBy": "jedi",
+    "albumDisplayName": "Memory Bank",
+    "albumId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+    "artistDisplayName": "Dyro",
+    "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+    "audioUrl": "youtube:2LnMkxN5ezM",
+    "displayName": "Memory Bank",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
+    "inLibrary": [
+      "jedi",
+      "connor",
+      "abby"
+    ],
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67abf114169fed72f92182e0",
+    "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_f70c9cfd10cb60128e0ab07c6b163773fe0fddd5e2c0aa00537fbc88d39315b6_f70c9cfd10cb60128e0ab07c6b163773fe0fddd5e2c0aa00537fbc88d39315b6",
+    "added": 1739321620937,
+    "addedBy": "jedi",
+    "albumDisplayName": "Library Piano (From \"Luigi's Mansion: Dark Moon\")",
+    "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_f70c9cfd10cb60128e0ab07c6b163773fe0fddd5e2c0aa00537fbc88d39315b6",
+    "artistDisplayName": "Qumu",
+    "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+    "audioUrl": "youtube:qmvwm2ITxIM",
+    "displayName": "Library Piano (From \"Luigi's Mansion: Dark Moon\")",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273aeb70da0ae4287b250065293",
+    "inLibrary": [
+      "jedi",
+      "connor"
+    ],
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67abf22d169fed72f92182e3",
+    "id": "d37ebd110ec1813f206f2f339c3c077e77ddbac3ae981174df651ebc1fd56f9b_df848f5fbf054b805d4c1296f63a3c65f1d1f65cabd9e343393bf6ef95505c16_df848f5fbf054b805d4c1296f63a3c65f1d1f65cabd9e343393bf6ef95505c16",
+    "added": 1739321901606,
+    "addedBy": "connor",
+    "albumDisplayName": "Jump Up, Super Star!",
+    "albumId": "d37ebd110ec1813f206f2f339c3c077e77ddbac3ae981174df651ebc1fd56f9b_df848f5fbf054b805d4c1296f63a3c65f1d1f65cabd9e343393bf6ef95505c16",
+    "artistDisplayName": "VGR",
+    "artistId": "d37ebd110ec1813f206f2f339c3c077e77ddbac3ae981174df651ebc1fd56f9b",
+    "audioUrl": "youtube:9puzM73fLFQ",
+    "displayName": "Jump Up, Super Star!",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732f7aadd773c38b9377b5dee1",
+    "inLibrary": [
+      "connor"
+    ],
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67abf2b0169fed72f92182e5",
+    "id": "d37ebd110ec1813f206f2f339c3c077e77ddbac3ae981174df651ebc1fd56f9b_a1814c511490b64754bd3d97ba6bc44a1c90ae675c37ff8ebd74db3215bef4bf_a1814c511490b64754bd3d97ba6bc44a1c90ae675c37ff8ebd74db3215bef4bf",
+    "added": 1739322032417,
+    "addedBy": "connor",
+    "albumDisplayName": "Lost Woods",
+    "albumId": "d37ebd110ec1813f206f2f339c3c077e77ddbac3ae981174df651ebc1fd56f9b_a1814c511490b64754bd3d97ba6bc44a1c90ae675c37ff8ebd74db3215bef4bf",
+    "artistDisplayName": "VGR",
+    "artistId": "d37ebd110ec1813f206f2f339c3c077e77ddbac3ae981174df651ebc1fd56f9b",
+    "audioUrl": "youtube:C_u5FjfOR7w",
+    "displayName": "Lost Woods",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27386286e62963a9b727737ccf5",
+    "inLibrary": [
+      "connor"
+    ],
+    "visibleTo": [
       "all"
     ]
   }

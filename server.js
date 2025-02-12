@@ -711,25 +711,27 @@ app.post("/playlists", async function (req, res) {
   }
 
   var u = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-  var editable = req.query.editable || false;
-  var privateLibrary = req.query.mine || false;
+  var ignore = JSON.parse(req.query.ignore || false);
+  var editable = JSON.parse(req.query.editable || false);
+  var privateLibrary = JSON.parse(req.query.mine || false);
   var playlists = [];
-  console.log("Editable: " + editable);
 
   var query = {
     $or: [
-      { owner: u },
       // { allowedCollaborators: u },
-      { $or: [{ visibleTo: u }, { visibleTo: "all" }] },
+      { visibleTo: u },
+      { visibleTo: "all" },
     ],
   };
-  if (editable) query.allowedCollaborators = u;
+
   const options = req.query.sort == "new" ? { sort: { added: -1 } } : {};
-  if (privateLibrary) {
-    delete query.$or;
+  if (privateLibrary == true) {
     query.$or = [{ owner: u }, { inLibrary: u }];
   }
+  if (editable == true)
+    query = {allowedCollaborators: u};
+  if (ignore == true)
+    query = {};
 
   playlists = await db
     .collection("playlists")
@@ -964,26 +966,133 @@ app.post("/addToLibrary", async function (req, res) {
   }
 
   var u = await utils.getUser(req.body.authtoken, db);
+  var data = [];
+  var ne = {};
 
-  const collection = req.body.type + "s";
-  const id = req.body.id;
+  if (
+    req.body.type != "song" &&
+    req.body.type != "album" &&
+    req.body.type != "artist"
+  ) {
+    res.send({ authed: true, success: false, error: "Invalid type" });
+    return;
+  }
+  console.log("AddToLibraryEndpoint:",req.body)
 
-  const item = await db.collection(collection).findOne({ id: id });
-  if (!item) {
-    res.send({ authed: true, success: false, error: "Item not found" });
+  switch (req.body.type) {
+    case "song":
+      var da = await db
+        .collection("songs")
+        .find({ id: req.body.id })
+        .toArray();
+      da.forEach((s) => {
+        s.type = "song";
+        data.push(s);
+      });
+      break;
+    case "album":
+      var songs = await db
+        .collection("songs")
+        .find({ albumId: req.body.id })
+        .toArray();
+      var da = await db
+        .collection("albums")
+        .find({ id: req.body.id })
+        .toArray();
+      songs.forEach((s) => {
+        s.type = "song";
+        data.push(s);
+      });
+      da.forEach((a) => {
+        a.type = "album";
+        data.push(a);
+      });
+      break;
+    case "artist":
+      var songs = await db
+        .collection("songs")
+        .find({ artistId: req.body.id })
+        .toArray();
+      var albums = await db
+        .collection("albums")
+        .find({ artistId: req.body.id })
+        .toArray();
+      var da = await db
+        .collection("artists")
+        .find({ id: req.body.id })
+        .toArray();
+      songs.forEach((s) => {
+        s.type = "song";
+        data.push(s);
+      });
+      albums.forEach((a) => {
+        a.type = "album";
+        data.push(a);
+      });
+      da.forEach((a) => {
+        a.type = "artist";
+        data.push(a);
+      });
+      break;
+  }
+
+  if (data == null || data.length == 0) {
+    res.send({ authed: true, success: false });
     return;
   }
 
-  let inLibrary = item.inLibrary || [];
-  if (!inLibrary.includes(u)) {
-    inLibrary.push(u);
-  }
+  await Promise.all(data.map(async (d) => {
+    let inLibrary = d.inLibrary || [];
+    if (!inLibrary.includes(u)) {
+      inLibrary.push(u);
+    }
+    d.inLibrary = inLibrary;
 
-  await db
-    .collection(collection)
-    .updateOne({ id: id }, { $set: { inLibrary: inLibrary } });
+    await db
+      .collection(d.type + "s")
+      .updateOne({ id: d.id }, { $set: { inLibrary: inLibrary } });
 
-  res.send({ authed: true, success: true });
+    switch (d.type) {
+      case "song":
+        //await ts.updateSong(n);
+        break;
+      case "album":
+        //await ts.updateAlbum(n);
+        break;
+      case "artist":
+        //await ts.updateArtist(n);
+        break;
+    }
+    console.log(
+      "Finished adding to library ",
+      d.type,
+      ":",
+      d.displayName,
+    );
+  }));
+
+  console.log("Finished updating visibility for", data.length, "elements");
+  res.send({ authed: true, success: true});
+  //
+  //const collection = req.body.type + "s";
+  //const id = req.body.id;
+  //
+  //const item = await db.collection(collection).findOne({ id: id });
+  //if (!item) {
+  //  res.send({ authed: true, success: false, error: "Item not found" });
+  //  return;
+  //}
+  //
+  //let inLibrary = item.inLibrary || [];
+  //if (!inLibrary.includes(u)) {
+  //  inLibrary.push(u);
+  //}
+  //
+  //await db
+  //  .collection(collection)
+  //  .updateOne({ id: id }, { $set: { inLibrary: inLibrary } });
+  //
+  //res.send({ authed: true, success: true });
 });
 
 app.post("/removeFromLibrary", async function (req, res) {
@@ -993,26 +1102,113 @@ app.post("/removeFromLibrary", async function (req, res) {
   }
 
   var u = await utils.getUser(req.body.authtoken, db);
+  var data = [];
+  var ne = {};
 
-  const collection = req.body.type + "s";
-  const id = req.body.id;
+  if (
+    req.body.type != "song" &&
+    req.body.type != "album" &&
+    req.body.type != "artist"
+  ) {
+    res.send({ authed: true, success: false, error: "Invalid type" });
+    return;
+  }
+  console.log("RemoveFromLibraryEndpoint:",req.body)
 
-  const item = await db.collection(collection).findOne({ id: id });
-  if (!item) {
-    res.send({ authed: true, success: false, error: "Item not found" });
+  switch (req.body.type) {
+    case "song":
+      var da = await db
+        .collection("songs")
+        .find({ id: req.body.id })
+        .toArray();
+      da.forEach((s) => {
+        s.type = "song";
+        data.push(s);
+      });
+      break;
+    case "album":
+      var songs = await db
+        .collection("songs")
+        .find({ albumId: req.body.id })
+        .toArray();
+      var da = await db
+        .collection("albums")
+        .find({ id: req.body.id })
+        .toArray();
+      songs.forEach((s) => {
+        s.type = "song";
+        data.push(s);
+      });
+      da.forEach((a) => {
+        a.type = "album";
+        data.push(a);
+      });
+      break;
+    case "artist":
+      var songs = await db
+        .collection("songs")
+        .find({ artistId: req.body.id })
+        .toArray();
+      var albums = await db
+        .collection("albums")
+        .find({ artistId: req.body.id })
+        .toArray();
+      var da = await db
+        .collection("artists")
+        .find({ id: req.body.id })
+        .toArray();
+      songs.forEach((s) => {
+        s.type = "song";
+        data.push(s);
+      });
+      albums.forEach((a) => {
+        a.type = "album";
+        data.push(a);
+      });
+      da.forEach((a) => {
+        a.type = "artist";
+        data.push(a);
+      });
+      break;
+  }
+
+  if (data == null || data.length == 0) {
+    res.send({ authed: true, success: false });
     return;
   }
 
-  let inLibrary = item.inLibrary || [];
-  if (inLibrary.includes(u)) {
-    inLibrary = inLibrary.filter((user) => user !== u);
-  }
+  await Promise.all(data.map(async (d) => {
+    let inLibrary = d.inLibrary || [];
+    if (inLibrary.includes(u)) {
+      inLibrary = inLibrary.filter((user) => user != u);
+    }
+    d.inLibrary = inLibrary;
 
-  await db
-    .collection(collection)
-    .updateOne({ id: id }, { $set: { inLibrary: inLibrary } });
+    await db
+      .collection(d.type + "s")
+      .updateOne({ id: d.id }, { $set: { inLibrary: inLibrary } });
 
-  res.send({ authed: true, success: true });
+    switch (d.type) {
+      case "song":
+        //await ts.updateSong(n);
+        break;
+      case "album":
+        //await ts.updateAlbum(n);
+        break;
+      case "artist":
+        //await ts.updateArtist(n);
+        break;
+    }
+    console.log(
+      "Finished adding to library ",
+      d.type,
+      ":",
+      d.displayName,
+    );
+  }));
+
+  console.log("Finished updating visibility for", data.length, "elements");
+  res.send({ authed: true, success: true});
 });
 
 app.post("/recently-played/:user/add", async function (req, res) {

@@ -1,62 +1,68 @@
 {
   "songs": [
     {
-      "_id": "67abbfeae2acaa6d69089273",
-      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
-      "added": 1739309034419,
+      "_id": "67abd5c8169fed72f92182de",
+      "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+      "added": 1739314632058,
       "addedBy": "jedi",
-      "albumDisplayName": "LIGHTYEARS",
-      "albumId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
-      "artistDisplayName": "Dirt Monkey",
-      "artistId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
-      "audioUrl": "youtube:5M7Q94nFWBg",
-      "displayName": "LIGHTYEARS",
+      "albumDisplayName": "Memory Bank",
+      "albumId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+      "artistDisplayName": "Dyro",
+      "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+      "audioUrl": "youtube:2LnMkxN5ezM",
+      "displayName": "Memory Bank",
       "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
       "inLibrary": [
-        "jedi"
+        "jedi",
+        "connor",
+        "abby"
       ],
       "visibleTo": [
-        "jedi",
         "all"
       ]
     }
   ],
   "albums": [
     {
-      "_id": "67abbfeae2acaa6d69089272",
-      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d_636f9fde06980f2cf90f6f5640fb89d6979f4566541cb097b56748c564529f81",
-      "added": 1739309034419,
+      "_id": "67abd5c8169fed72f92182dd",
+      "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+      "added": 1739314632058,
       "addedBy": "jedi",
-      "artistDisplayName": "Dirt Monkey",
-      "artistId": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
-      "displayName": "LIGHTYEARS",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739f0a67d45ac88c2dedf697c3",
+      "artistDisplayName": "Dyro",
+      "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+      "displayName": "Memory Bank",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
       "inLibrary": [
-        "jedi"
+        "jedi",
+        "connor",
+        "abby"
       ],
       "songCount": 0,
       "visibleTo": [
-        "jedi",
         "all"
       ]
     }
   ],
   "artists": [
     {
-      "_id": "67abbfeae2acaa6d69089271",
-      "id": "cb2cfcc26ce4ccd41b3a1128a5e6d1db530b6173057c301b75102dc9b6b2e30d",
-      "added": 1739309034419,
+      "_id": "67abd5c8169fed72f92182dc",
+      "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+      "added": 1739314632057,
       "addedBy": "jedi",
       "albumCount": 0,
-      "displayName": "Dirt Monkey",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb362289b6e7b8e25735b4fc8a",
+      "displayName": "Dyro",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb8137545b2db84fd837d04efb",
       "inLibrary": [
-        "jedi"
+        "jedi",
+        "connor",
+        "abby"
       ],
       "songCount": 0,
       "visibleTo": [
-        "jedi"
+        "jedi",
+        "connor",
+        "abby"
       ]
     }
   ]

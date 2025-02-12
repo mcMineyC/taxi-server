@@ -7,6 +7,7 @@ await db.collection("songs").drop();
 await db.collection("albums").drop();
 await db.collection("artists").drop();
 await db.collection("playlists").drop();
+await db.collection("recently-played").drop();
 
 console.log("Added collections");
 //var songs = await db.songs.find().exec();
