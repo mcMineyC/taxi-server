@@ -870,7 +870,7 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       }
       var newVisibleTo = newdata["visibleTo"];
       var newCollaborators = newdata["allowedCollaborators"];
-      newVisibleTo = arr.concat(newVisibleTo, newCollaborators.filter((x) => !newVisibleTo.includes(x)));
+      newVisibleTo = newVisibleTo.concat(newVisibleTo, newCollaborators.filter((x) => !newVisibleTo.includes(x)));
       newdata["visibleTo"] = newVisibleTo;
       console.log("VisibleTo: " + newdata["visibleTo"]);
       console.log("AllowedCollaborators: " + newdata["allowedCollaborators"]);
