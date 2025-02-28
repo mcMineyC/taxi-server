@@ -868,12 +868,9 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       if (!newdata["allowedCollaborators"].includes(p.owner)) {
         newdata["allowedCollaborators"].push(p.owner);
       }
-      var newVisibleTo = new Set(newdata["visibleTo"]);
-      var newCollaborates = new Set(newdata["allowedCollaborators"]);
-      newdata["visibleTo"] = newVisibleTo
-        .union(newCollaborates)
-        .values()
-        .toArray();
+      var newVisibleTo = newdata["visibleTo"];
+      var newCollaborators = newdata["allowedCollaborators"];
+      newVisibleTo = arr.concat(newVisibleTo, newCollaborators.filter((x) => !newVisibleTo.includes(x));
       console.log("VisibleTo: " + newdata["visibleTo"]);
       console.log("AllowedCollaborators: " + newdata["allowedCollaborators"]);
     }
