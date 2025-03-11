@@ -558,8 +558,9 @@ class SpotifyHandler {
           const youtubeInfo = await this.yt.searchSongs(
             `${track.name} ${track.artist}`,
           );
+          if (youtubeInfo.length === 0) return null;
           var song = youtubeInfo[0];
-          console.log("tarck", track);
+          //console.log("tarck", track);
           return {
             songPosition: index,
             title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
