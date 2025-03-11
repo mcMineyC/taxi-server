@@ -89,6 +89,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
           msg.mediaType,
           page,
         );
+        console.log("Search results:", results);
         socket.emit("searchresults", { type: msg.mediaType, results: results });
       } catch (error) {
         console.error("Spotify search error:", error);
