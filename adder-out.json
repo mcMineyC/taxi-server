@@ -1,0 +1,186 @@
+{
+  "name": "playlist:11bYDx45e10MHYwYmJlbSs",
+  "album": "GG",
+  "artist": "Mr. McMineyCraft1 (aka Bob the Fred)",
+  "imageUrl": "",
+  "artistImageUrl": "https://www.tonicradio.fr/wp-content/uploads/2019/05/spotify-1759471_1920.jpg",
+  "visibleTo": [
+    "all"
+  ],
+  "inLibrary": [
+    "jedi"
+  ],
+  "type": "playlist",
+  "songs": [
+    {
+      "songPosition": 0,
+      "title": "GG",
+      "album": "mau5ville: Level 2",
+      "artist": "deadmau5",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273d401cb50e77ce06f2d5c06ff",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb89ffabe57a25cedeca3309e7",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:tBigTo5k5J8",
+      "trackNumber": 1,
+      "type": "song"
+    },
+    {
+      "songPosition": 1,
+      "title": "Vanishing Point - Original Mix",
+      "album": "Vanishing Point",
+      "artist": "deadmau5",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273731c8baec7699d30067cf247",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb89ffabe57a25cedeca3309e7",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:BQvIGoBysvo",
+      "trackNumber": 2,
+      "type": "song"
+    },
+    {
+      "songPosition": 2,
+      "title": "Voices",
+      "album": "Over Saturated",
+      "artist": "Tape B",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b2734c4232ab59b1f0fb9c678659",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb88271525b0698d99e6fb7465",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:SnVLtFV1hfM",
+      "trackNumber": 3,
+      "type": "song"
+    },
+    {
+      "songPosition": 3,
+      "title": "Trunk Junk",
+      "album": "Out of Body",
+      "artist": "Mad Zach",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273755a122fde57a599dd3a3151",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb07b5056c940d3b1112d41b08",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:NsmGfPoP7O4",
+      "trackNumber": 4,
+      "type": "song"
+    },
+    {
+      "songPosition": 4,
+      "title": "At Play Vol. 3 DJ Mix - Continuous DJ Mix",
+      "album": "At Play Vol. 3 DJ Mix",
+      "artist": "deadmau5",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273c93852a2186d490c5d79c90c",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb89ffabe57a25cedeca3309e7",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:k9YpLgXr6Zo",
+      "trackNumber": 5,
+      "type": "song"
+    },
+    {
+      "songPosition": 5,
+      "title": "Something Inside Me - deadmau5 Instrumental Remix",
+      "album": "Something Inside Me",
+      "artist": "Melleefresh",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b2732b4b985889d4914bf0ad0e9a",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebe0e3e06f2e5a90b7cbf4d399",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:drNyNgOLlk8",
+      "trackNumber": 6,
+      "type": "song"
+    },
+    {
+      "songPosition": 6,
+      "title": "Turning Point - Original Mix",
+      "album": "Full Circle",
+      "artist": "deadmau5",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273054fd9d5148d8caf1f05ffee",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb89ffabe57a25cedeca3309e7",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:gaK_-kwgPmM",
+      "trackNumber": 7,
+      "type": "song"
+    },
+    {
+      "songPosition": 7,
+      "title": "Some Chords",
+      "album": "Some Chords",
+      "artist": "deadmau5",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273444e75ae9c12f5df5b9570dd",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb89ffabe57a25cedeca3309e7",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:cVHy0rN_GLQ",
+      "trackNumber": 8,
+      "type": "song"
+    },
+    {
+      "songPosition": 8,
+      "title": "XYZ",
+      "album": "XYZ",
+      "artist": "deadmau5",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273e64a596a339de17afd2b2102",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb89ffabe57a25cedeca3309e7",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:qY15crbvCs8",
+      "trackNumber": 9,
+      "type": "song"
+    },
+    {
+      "songPosition": 9,
+      "title": "Dream Speedrun Music - Remix",
+      "album": "Dream Speedrun Music (Remix)",
+      "artist": "Scorpixter",
+      "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b2738c052ae05498f49b0a485649",
+      "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb23ed61113d1431e3e98dba86",
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "url": "youtube:NEzyUeNhb0w",
+      "trackNumber": 10,
+      "type": "song"
+    }
+  ]
+}

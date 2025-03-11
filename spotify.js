@@ -266,6 +266,7 @@ class SpotifyHandler {
         name: playlist.name,
         owner: playlist.owner.display_name,
         imageUrl: playlist.images[0].url,
+        artistImageUrl: "https://www.tonicradio.fr/wp-content/uploads/2019/05/spotify-1759471_1920.jpg",
         description: playlist.description,
         isPublic: playlist.public,
         tracks: await this.mapSpotifyResults(allTracks),
@@ -499,33 +500,46 @@ class SpotifyHandler {
     }
 
     if(playlists.length > 0){
-      const playlistPromises = playlists.map(async (playlist) => {
-        const playlist = await this.getFullPlaylist(playlist.id);
+      const playlistPromises = playlists.map(async (list) => {
+        const playlist = await this.getFullPlaylist(list.id);
         var songPromises = playlist.tracks.map(async (track, index) => {
           const youtubeInfo = await this.yt.searchSongs(
             `${track.name} ${track.artist}`,
           );
           var song = youtubeInfo[0];
+          console.log("tarck",track);
           return {
+            songPosition: index,
             title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-            album: track.album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-            artist: track.artists[0].name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-            albumCoverURL: track.album.images[0].url,
-            artistImageUrl: track.artists[0].images[0].url,
+            album: track.album.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+            artist: track.artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+            albumCoverURL: track.imageUrl,
+            artistImageUrl: track.artistImageUrl,
             visibleTo: ["all"],
             inLibrary: [username],
-            songs: [
-              {
-                title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-                url: "youtube:" + (song.videoId || song.browseId || ""),
-                trackNumber: index + 1,
-              },
-            ],
+            url: "youtube:" + (song.videoId || song.browseId || ""),
+            trackNumber: track.track_number || index + 1,
             type: "song",
           }
         });
-      var songResults = await Promise.all(songPromises);
-      songResults = songResults.filter((r) => r !== null);
+        var songResults = await Promise.all(songPromises);
+        songResults = songResults.filter((r) => r !== null);
+        return {
+          name: "playlist:" + playlist.id,
+          album: playlist.name,
+          artist: playlist.owner,
+          imageUrl: playlist.imageUrl,
+          artistImageUrl: playlist.artistImageUrl,
+          description: playlist.description,
+          isPublic: playlist.isPublic,
+          songs: songResults.sort((a, b) => a.songPosition - b.songPosition),
+          type: "playlist",
+        };
+      });
+      var playlistResults = await Promise.all(playlistPromises);
+      found.push(...playlistResults.filter((r) => r !== null));
+    }
+    console.log("SpotifyHandler.findItems: Found", found.length, "results");
 
     return this.mapFoundResults(found, username);
   }
@@ -599,6 +613,7 @@ class SpotifyHandler {
           album: item.album?.name || "",
           imageUrl: item.album?.images?.[0]?.url || "",
           artistImageUrl: artists.find((x) => x.id == item.artists[0].id).imageUrl || "failed",
+          trackNumber: item.track_number,
           type: "song",
         };
       } else if (item.type === "album") {
@@ -652,7 +667,7 @@ class SpotifyHandler {
   // THIS IS WHERE YOU REFORMAT THE FINAL RESULTS
   mapFoundResults(found, user) {
     return found.map((x) => {
-      console.log("Found item", x);
+      console.log("SpotifyHandler.mapFoundResults: Found item", x);
       return {
         name: x.title || x.name || "",
         album: x.album || "",
