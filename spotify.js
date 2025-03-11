@@ -208,8 +208,8 @@ class SpotifyHandler {
 
   async getPlaylist(playlistId) {
     return this.executeUserAction(async () => {
-      var res = (await this.api.playlists.getPlaylist(playlistId));
-      res.type = "playlist"
+      var res = await this.api.playlists.getPlaylist(playlistId);
+      res.type = "playlist";
       return res;
     });
   }
@@ -266,7 +266,8 @@ class SpotifyHandler {
         name: playlist.name,
         owner: playlist.owner.display_name,
         imageUrl: playlist.images[0].url,
-        artistImageUrl: "https://www.tonicradio.fr/wp-content/uploads/2019/05/spotify-1759471_1920.jpg",
+        artistImageUrl:
+          "https://www.tonicradio.fr/wp-content/uploads/2019/05/spotify-1759471_1920.jpg",
         description: playlist.description,
         isPublic: playlist.public,
         tracks: await this.mapSpotifyResults(allTracks),
@@ -313,6 +314,51 @@ class SpotifyHandler {
         albums: allAlbums,
         type: "artist",
       };
+    });
+  }
+
+  // Maximum number of items per Spotify API request
+  static MAX_BATCH_SIZE = 50;
+
+  // Batch API request wrapper for multiple IDs
+  async batchApiRequest(apiMethod, ids) {
+    const results = [];
+    // Process in batches of MAX_BATCH_SIZE
+    for (let i = 0; i < ids.length; i += SpotifyHandler.MAX_BATCH_SIZE) {
+      const batchIds = ids.slice(i, i + SpotifyHandler.MAX_BATCH_SIZE);
+      const batchResults = await apiMethod(batchIds);
+      results.push(...batchResults);
+    }
+    return results;
+  }
+
+  // Wrapper for tracks.get to handle pagination
+  async getTracks(trackIds) {
+    return this.executeUserAction(async () => {
+      return await this.batchApiRequest(
+        async (ids) => await this.api.tracks.get(ids),
+        trackIds,
+      );
+    });
+  }
+
+  // Wrapper for albums.get to handle pagination
+  async getAlbums(albumIds) {
+    return this.executeUserAction(async () => {
+      return await this.batchApiRequest(
+        async (ids) => await this.api.albums.get(ids),
+        albumIds,
+      );
+    });
+  }
+
+  // Wrapper for artists.get to handle pagination
+  async getArtists(artistIds) {
+    return this.executeUserAction(async () => {
+      return await this.batchApiRequest(
+        async (ids) => await this.api.artists.get(ids),
+        artistIds,
+      );
     });
   }
 
@@ -420,12 +466,8 @@ class SpotifyHandler {
         //console.log(track)
         return {
           title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-          album: track.album
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, ""),
-          artist: track.artist
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, ""),
+          album: track.album.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          artist: track.artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
           albumCoverURL: track.imageUrl,
           artistImageUrl: track.artistImageUrl,
           visibleTo: ["all"],
@@ -435,7 +477,9 @@ class SpotifyHandler {
               title: track.name
                 .normalize("NFD")
                 .replace(/[\u0300-\u036f]/g, ""),
-              url: "youtube:" + (youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || ""),
+              url:
+                "youtube:" +
+                (youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || ""),
               trackNumber: track.track_number || 0,
             },
           ],
@@ -445,7 +489,7 @@ class SpotifyHandler {
       const songResults = await Promise.all(songPromises);
       found.push(...songResults);
     }
-    
+
     // Batch fetch artists
     if (artists.length > 0) {
       const artistPromises = artists.map(async (artist) => {
@@ -455,10 +499,18 @@ class SpotifyHandler {
         return abums;
       });
       const artistResults = await Promise.all(artistPromises);
-      console.log("SpotifyHandler: Fetched artists, adding", artistResults[0].length, "artist albums");
-      artistResults.forEach((aAlbums) => albums = [albums, ...aAlbums]);
+      console.log(
+        "SpotifyHandler: Fetched artists, adding",
+        artistResults[0].length,
+        "artist albums",
+      );
+      artistResults.forEach((aAlbums) => (albums = [albums, ...aAlbums]));
     }
-    console.log("SpotifyHandler: going to iterate over", albums.length, "albums");
+    console.log(
+      "SpotifyHandler: going to iterate over",
+      albums.length,
+      "albums",
+    );
 
     // Batch fetch albums
     if (albums.length > 0) {
@@ -470,9 +522,9 @@ class SpotifyHandler {
         if (youtubeInfo.length === 0) return null;
 
         const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
-        console.log("ALBUM: ",album)
+        console.log("ALBUM: ", album);
 
-        try{
+        try {
           return {
             title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
             album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
@@ -490,7 +542,7 @@ class SpotifyHandler {
             })),
             type: "album",
           };
-        }catch(e){
+        } catch (e) {
           console.log("Error with album", album, e);
           return null;
         }
@@ -499,7 +551,7 @@ class SpotifyHandler {
       found.push(...albumResults.filter((r) => r !== null));
     }
 
-    if(playlists.length > 0){
+    if (playlists.length > 0) {
       const playlistPromises = playlists.map(async (list) => {
         const playlist = await this.getFullPlaylist(list.id);
         var songPromises = playlist.tracks.map(async (track, index) => {
@@ -507,12 +559,14 @@ class SpotifyHandler {
             `${track.name} ${track.artist}`,
           );
           var song = youtubeInfo[0];
-          console.log("tarck",track);
+          console.log("tarck", track);
           return {
             songPosition: index,
             title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
             album: track.album.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
-            artist: track.artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+            artist: track.artist
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, ""),
             albumCoverURL: track.imageUrl,
             artistImageUrl: track.artistImageUrl,
             visibleTo: ["all"],
@@ -520,7 +574,7 @@ class SpotifyHandler {
             url: "youtube:" + (song.videoId || song.browseId || ""),
             trackNumber: track.track_number || index + 1,
             type: "song",
-          }
+          };
         });
         var songResults = await Promise.all(songPromises);
         songResults = songResults.filter((r) => r !== null);
@@ -597,9 +651,18 @@ class SpotifyHandler {
 
   async mapSpotifyResults(items) {
     console.log("mapSpotifyResults:", items.length, "items to be mapped");
-    var artistIds = items.map((item) => item.type != "playlist" ? item.artists?.[0]?.id || "" : "").filter((x) => x != "");
+    var artistIds = items
+      .map((item) =>
+        item.type != "playlist" ? item.artists?.[0]?.id || "" : "",
+      )
+      .filter((x) => x != "");
     var artists = [];
-    if (artistIds.length > 0) artists = await this.api.artists.get(artistIds);
+
+    // Use the batched request helper for artists
+    if (artistIds.length > 0) {
+      artists = await this.getArtists(artistIds);
+    }
+
     artists = artists.map((x) => ({
       id: x.id || "",
       imageUrl: x.images[0].url || "",
@@ -612,7 +675,9 @@ class SpotifyHandler {
           artist: item.artists?.[0]?.name || "",
           album: item.album?.name || "",
           imageUrl: item.album?.images?.[0]?.url || "",
-          artistImageUrl: artists.find((x) => x.id == item.artists[0].id).imageUrl || "failed",
+          artistImageUrl:
+            artists.find((x) => x.id == item.artists[0].id)?.imageUrl ||
+            "failed",
           trackNumber: item.track_number,
           type: "song",
         };
@@ -623,7 +688,9 @@ class SpotifyHandler {
           album: "",
           artist: item.artists[0].name || "",
           imageUrl: item.images[0].url || "",
-          artistImageUrl: artists.find((x) => x.id == item.artists[0].id).imageUrl || "failed",
+          artistImageUrl:
+            artists.find((x) => x.id == item.artists[0].id)?.imageUrl ||
+            "failed",
           type: "album",
         };
       } else if (item.type === "artist") {
@@ -644,7 +711,8 @@ class SpotifyHandler {
           album: "",
           artist: item.owner.display_name || "",
           imageUrl: item.images[0].url || "",
-          artistImageUrl: "https://www.tonicradio.fr/wp-content/uploads/2019/05/spotify-1759471_1920.jpg",
+          artistImageUrl:
+            "https://www.tonicradio.fr/wp-content/uploads/2019/05/spotify-1759471_1920.jpg",
           //tracks: item.tracks.map((x) => ({
           //  name: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
           //  album: x.album.name
@@ -663,7 +731,7 @@ class SpotifyHandler {
     });
     return mapped;
   }
-  
+
   // THIS IS WHERE YOU REFORMAT THE FINAL RESULTS
   mapFoundResults(found, user) {
     return found.map((x) => {
@@ -683,7 +751,7 @@ class SpotifyHandler {
         visibleTo: ["all"],
         inLibrary: x.inLibrary || [user],
         type: x.type,
-        songs: (x.songs || [])
+        songs: x.songs || [],
       };
     });
   }
