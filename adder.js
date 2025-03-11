@@ -132,7 +132,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
         }
 
         const found = await spotifyHandler.findItems(msg.selected, user);
-        fs.writeFileSync("adder-out.json", JSON.stringify(found[0], null, 2));
+        //fs.writeFileSync("adder-out.json", JSON.stringify(found[0], null, 2));
         console.log("AdderConnection: Found items:", found);
         socket.emit("findresults", { results: found, isPlaylist: found.length == 1 && found[0].type == "playlist" });
       } catch (error) {

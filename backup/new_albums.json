@@ -138,8 +138,7 @@
     "songCount": 0,
     "visibleTo": [
       "all"
-    ],
-    "type": "album"
+    ]
   },
   {
     "_id": "67abd5c8169fed72f92182dd",
@@ -212,5 +211,23 @@
     "visibleTo": [
       "all"
     ]
+  },
+  {
+    "_id": "67d0a00254e97af895b9df68",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "added": 1741725698241,
+    "addedBy": "jedi",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "A Hometown Odyssey (The Story Continues)",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ],
+    "type": "album"
   }
 ]

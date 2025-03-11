@@ -525,15 +525,15 @@ class SpotifyHandler {
         var songResults = await Promise.all(songPromises);
         songResults = songResults.filter((r) => r !== null);
         return {
-          name: "playlist:" + playlist.id,
-          album: playlist.name,
-          artist: playlist.owner,
+          id: "spotify:" + playlist.id,
+          name: playlist.name,
+          owner: playlist.owner,
           imageUrl: playlist.imageUrl,
-          artistImageUrl: playlist.artistImageUrl,
+          ownerImageUrl: playlist.artistImageUrl,
           description: playlist.description,
           isPublic: playlist.isPublic,
           songs: songResults.sort((a, b) => a.songPosition - b.songPosition),
-          type: "playlist",
+          type: "foundplaylist",
         };
       });
       var playlistResults = await Promise.all(playlistPromises);
@@ -668,6 +668,12 @@ class SpotifyHandler {
   mapFoundResults(found, user) {
     return found.map((x) => {
       console.log("SpotifyHandler.mapFoundResults: Found item", x);
+      if (x.type == "foundplaylist") {
+        x.type = "playlist";
+        x.visibleTo = ["all"];
+        x.inLibrary = x.inLibrary || [user];
+        return x;
+      }
       return {
         name: x.title || x.name || "",
         album: x.album || "",

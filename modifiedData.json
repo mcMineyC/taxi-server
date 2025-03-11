@@ -1,20 +1,460 @@
 {
   "songs": [
     {
-      "_id": "67ac0d0aaa5c55610cd03020",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051_298c1ed9a14c7e60c1360fa78519b6b39f2424471e4eb2487fb4ccebd2557d25",
-      "added": 1739328778150,
-      "addedBy": "abby",
-      "albumDisplayName": "Year 7",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "audioUrl": "youtube:RsZeb7OSek4",
-      "displayName": "Ghost House (From \"Super Mario World\")",
+      "_id": "67d0a00254e97af895b9df69",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_7da52d87ce0fce929f2d637f5d714058bd74a45496b2c539af532e9340ce27b5",
+      "added": 1741725698241,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:HyQv53yWL7M",
+      "displayName": "The Game",
       "duration": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734366c48ae7d8dce239c62c47",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
       "inLibrary": [
-        "abby"
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df6a",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_d7ec4cdf7d782929f53c3800dd3f3e86cb3f901fd6b6be3ff1e734f03e0b39cd",
+      "added": 1741725698241,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:yCTY3daisG0",
+      "displayName": "Nightlight",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df6b",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
+      "added": 1741725698241,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:fomVFqqCjw0",
+      "displayName": "Brainstorm",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df6c",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_fae1c6f105d6fca1cc2d2a72f0d1d36e378b3ff3f331a02c96434bd66ca912cf",
+      "added": 1741725698241,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:ymtDQQZ7OOE",
+      "displayName": "Reverse",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df6d",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_f534ed976dc8838f13bb15cd2eb51bb48099a845ad95089627072682a6ddbb54",
+      "added": 1741725698241,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:8YzPH0idqMI",
+      "displayName": "Glow",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df6e",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_fbd3d293afc6392625c38b335ca126b23987fd9617844e0bd60cdb6593cc5c8e",
+      "added": 1741725698241,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:QbtuuBAX52A",
+      "displayName": "Haunt Me",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df6f",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_e93a0afd38eba395d51de1c3fd970f5443b946705bb9e9d527d266f7f1220238",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:unsFFIDYoHE",
+      "displayName": "Millionaire",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df70",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_2efc08def5d0834e1277e7269001e54bbec9f646bc45ae47d59df564d98fd8e7",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:dH-x6SbR7oU",
+      "displayName": "Gravedigger",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df71",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_1290063e4312b4522bac0a535f88c59ffd0f3dc5bb0e6be12e412096ae3c29df",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:EzyWDf1Cmlk",
+      "displayName": "Look Mom I Can Fly",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df72",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_b605350bc00209520b7cd8f546322663356ba630708f71bbf30aead6b3dd608e",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:tMfV0H_chzo",
+      "displayName": "Introduction",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df73",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_4c764cb6248ef9337fc1c8769d4b74fc1d4c1fff6a9e8d00ca6753a560b3e74b",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:Kq0M4miVjyw",
+      "displayName": "Shadow",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df74",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_5fcd0160688e28b59194bf0b6b26b6c92f9f49f8eb8e7718e4bac107c76b9758",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:-JKfj4joW_Y",
+      "displayName": "Surprise!",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df75",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_dabe1d46b4236fd5573f912325a1cdd5be10750542b419073c476148cebfa391",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:GFhmpVSfnZo",
+      "displayName": "Last Man Standing",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df76",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_2745c17f3ee532c1a27b1f78f4772c75437a13e6eb26f5d6772da1ba6b82cb42",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:3NeyPoBQnkA",
+      "displayName": "Symphony",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df77",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_e4a3ed328bc4d240a7a887d713a6bb7d165dbafd6d116684470861492e3940d3",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:LnhE5-ONvOc",
+      "displayName": "Half Life",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df78",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_618484e2c549451830e2b2c19b498d90b4fc8d206174f13c43ed058e6470ee2f",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:O4rCNMl106E",
+      "displayName": "Neon",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df79",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_861eea32ae9990e1fda0eed4a52552c330f0d17043b515a0cce1792aa0ba4e49",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:NyHfqT3JoSQ",
+      "displayName": "Architect",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df7a",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_eaf0fe0a362b58490e9d73c9584a36ef7353872dd1663afef4e2099b88bf56bf",
+      "added": 1741725698242,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:tSlCVK8rXx4",
+      "displayName": "Warrior",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df7b",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_bdcd897ab8ed585981ac297f3df0ee185c82a7a65c39ef3af8f863354086ef21",
+      "added": 1741725698243,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:mUV5eZnWY3w",
+      "displayName": "Lifetime",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df7c",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_a843fa0bbda9464a562e189eb2c88c7b0ccba2d733890a2d0a195f97cf15fa12",
+      "added": 1741725698243,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:IyQAPq6DMTM",
+      "displayName": "Royalty",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df7d",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_f2feacce5bb672a2b00931db8f4d0bb6af99bf545720b4d96c909c6be8a46a9e",
+      "added": 1741725698243,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:7iSNKxoc1jg",
+      "displayName": "Traitor",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df7e",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_d7d3f0fee39ef77f1065d423fbb4472393252e072785d157d19c591cfa666e00",
+      "added": 1741725698243,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:1N_2X744gyg",
+      "displayName": "The Ending You Deserve",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
+      ],
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "67d0a00254e97af895b9df7f",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_4ce6d2de41162b61dddea81f0604b629460e3f697cd56b98c7553badf2ccfe7d",
+      "added": 1741725698243,
+      "addedBy": "jedi",
+      "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+      "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "audioUrl": "youtube:sPad3yEAyaY",
+      "displayName": "Godspeed",
+      "duration": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+      "inLibrary": [
+        "jedi"
       ],
       "visibleTo": [
         "all"
@@ -23,17 +463,16 @@
   ],
   "albums": [
     {
-      "_id": "67abd4bf169fed72f92182d7",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_b608e138b6126d8b4a53aa30052ce8863f8c56c6a6b137a8800dc353683ef051",
-      "added": 1739314367107,
-      "addedBy": "connor",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Year 7",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734366c48ae7d8dce239c62c47",
+      "_id": "67d0a00254e97af895b9df68",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+      "added": 1741725698241,
+      "addedBy": "jedi",
+      "artistDisplayName": "Livingston",
+      "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "displayName": "A Hometown Odyssey (The Story Continues)",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
       "inLibrary": [
-        "connor",
-        "abby"
+        "jedi"
       ],
       "songCount": 0,
       "visibleTo": [
@@ -43,23 +482,21 @@
   ],
   "artists": [
     {
-      "_id": "67abd4bf169fed72f92182d3",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "added": 1739314367107,
+      "_id": "67abb3c4e2acaa6d69089256",
+      "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+      "added": 1739305924750,
       "addedBy": "connor",
       "albumCount": 0,
-      "displayName": "Qumu",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+      "displayName": "Livingston",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebea8265060606ae633c4e1e32",
       "inLibrary": [
         "connor",
-        "jedi",
-        "abby"
+        "jedi"
       ],
       "songCount": 0,
       "visibleTo": [
-        "connor",
-        "jedi",
-        "abby"
+        "all",
+        "jedi"
       ]
     }
   ]
