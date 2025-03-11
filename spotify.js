@@ -576,8 +576,10 @@ class SpotifyHandler {
             type: "song",
           };
         });
+        console.log("SpotifyHandler.findItems: Waiting on song promises");
         var songResults = await Promise.all(songPromises);
         songResults = songResults.filter((r) => r !== null);
+        console.log("SpotifyHandler.findItems: Song promises resolved");
         return {
           id: "spotify:" + playlist.id,
           name: playlist.name,
@@ -590,8 +592,10 @@ class SpotifyHandler {
           type: "foundplaylist",
         };
       });
+      console.log("SpotifyHandler.findItems: Waiting on playlist promises");
       var playlistResults = await Promise.all(playlistPromises);
       found.push(...playlistResults.filter((r) => r !== null));
+      console.log("SpotifyHandler.findItems: Playlist promises resolved");
     }
     console.log("SpotifyHandler.findItems: Found", found.length, "results");
 
