@@ -9,6 +9,7 @@ const util = require("util");
 import crypto from "crypto";
 const exec = util.promisify(require("child_process").exec);
 const { waitUntil } = require("async-wait-until");
+import { EventEmitter } from "events";
 
 async function getArtistImageUrl(name, backupImageUrl) {
   console.log("Getting image for " + name);
@@ -179,17 +180,44 @@ async function batchDeleteItems(data, user, db, ts) {
     await db.collection(x.type + "s").deleteOne({ id: x.id });
     iterated++;
   });
-  await waitUntil(
-    () => {
-      return iterated == data.length;
-    },
-    { timeout: Number.POSITIVE_INFINITY },
-  );
+  const {eventStream, allSettledPromise} = trackProgressEvent(data.map(x => db.collection(x.type+"s").deleteOne({id: x.id})));
+  eventStream.on('progress', e => console.log(`Progress: ${e.completed}/${e.total}`));
+  await allSettledPromise;
   console.log("Finished deleting items");
 }
 
 const spotifyUrlRegex =
   /https:\/\/open\.spotify\.com\/(track|album|artist|playlist)\/([^?]*)(\?si=.*)?/;
+
+
+function trackProgressEvent(promises) {
+    const emitter = new EventEmitter();
+    let completed = 0;
+    const total = promises.length;
+    const results = [];
+
+    const wrappedPromises = promises.map(async (p, index) => {
+        try {
+            const result = await p;
+            results[index] = { status: 'fulfilled', value: result };
+            completed++;
+            emitter.emit('progress', { completed, total });
+            return result;
+        } catch (error) {
+            results[index] = { status: 'rejected', reason: error };
+            completed++;
+            emitter.emit('progress', { completed, total });
+            throw error;
+        }
+    });
+
+    const allSettledPromise = Promise.allSettled(wrappedPromises).then(() => {
+        emitter.emit('done', results);
+        return results;
+    });
+    
+    return { emitter: emitter, promise: allSettledPromise };
+}
 
 export default {
   hash: hash,
@@ -201,4 +229,5 @@ export default {
   deleteAlbum: deleteAlbum,
   deleteArtist: deleteArtist,
   spotifyUrlRegex: spotifyUrlRegex,
+  trackProgressEvent: trackProgressEvent,
 };

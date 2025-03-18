@@ -45,7 +45,8 @@
     "displayName": "A Hometown Odyssey",
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "songCount": 0,
     "visibleTo": [
@@ -81,12 +82,14 @@
     "displayName": "Animal Aboard",
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a10d48fb5c35bdfd92b6b290",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "songCount": 0,
     "visibleTo": [
       "all"
-    ]
+    ],
+    "type": "album"
   },
   {
     "_id": "67abd4bf169fed72f92182d5",
@@ -98,12 +101,14 @@
     "displayName": "Year 4",
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "songCount": 0,
     "visibleTo": [
       "all"
-    ]
+    ],
+    "type": "album"
   },
   {
     "_id": "67abd4bf169fed72f92182d6",
@@ -115,12 +120,14 @@
     "displayName": "Year 6",
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b27340baf4dd6b252ba0943afdc9",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "songCount": 0,
     "visibleTo": [
       "all"
-    ]
+    ],
+    "type": "album"
   },
   {
     "_id": "67abd4bf169fed72f92182d7",
@@ -133,12 +140,14 @@
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734366c48ae7d8dce239c62c47",
     "inLibrary": [
       "connor",
-      "abby"
+      "abby",
+      "jedi"
     ],
     "songCount": 0,
     "visibleTo": [
       "all"
-    ]
+    ],
+    "type": "album"
   },
   {
     "_id": "67abd5c8169fed72f92182dd",
@@ -175,7 +184,8 @@
     "songCount": 0,
     "visibleTo": [
       "all"
-    ]
+    ],
+    "type": "album"
   },
   {
     "_id": "67abf22d169fed72f92182e2",
@@ -227,7 +237,6 @@
     "songCount": 0,
     "visibleTo": [
       "all"
-    ],
-    "type": "album"
+    ]
   }
 ]

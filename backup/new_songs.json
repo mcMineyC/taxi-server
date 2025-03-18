@@ -55,7 +55,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -76,7 +77,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -97,7 +99,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -118,7 +121,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -139,7 +143,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -160,7 +165,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -181,7 +187,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -202,7 +209,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -223,7 +231,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -244,7 +253,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -265,7 +275,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -286,7 +297,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -307,7 +319,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -328,7 +341,8 @@
     "duration": 0,
     "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739e29fcb2a0b61b2b11bf7332",
     "inLibrary": [
-      "connor"
+      "connor",
+      "jedi"
     ],
     "visibleTo": [
       "all",
@@ -559,8 +573,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df6a",
@@ -580,8 +593,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df6b",
@@ -601,8 +613,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df6c",
@@ -622,8 +633,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df6d",
@@ -643,8 +653,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df6e",
@@ -664,8 +673,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df6f",
@@ -685,8 +693,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df70",
@@ -706,8 +713,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df71",
@@ -727,8 +733,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df72",
@@ -748,8 +753,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df73",
@@ -769,8 +773,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df74",
@@ -790,8 +793,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df75",
@@ -811,8 +813,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df76",
@@ -832,8 +833,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df77",
@@ -853,8 +853,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df78",
@@ -874,8 +873,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df79",
@@ -895,8 +893,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df7a",
@@ -916,8 +913,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df7b",
@@ -937,8 +933,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df7c",
@@ -958,8 +953,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df7d",
@@ -979,8 +973,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df7e",
@@ -1000,8 +993,7 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   },
   {
     "_id": "67d0a00254e97af895b9df7f",
@@ -1021,7 +1013,6 @@
     ],
     "visibleTo": [
       "all"
-    ],
-    "type": "song"
+    ]
   }
 ]

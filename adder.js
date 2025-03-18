@@ -131,9 +131,16 @@ function adderConnection(socket, db, ts, spotifyHandler) {
           return;
         }
 
-        const found = await spotifyHandler.findItems(msg.selected, user);
+        const found = await spotifyHandler.findItems(msg.selected, user, (progress) => {
+          console.log("Progress:", progress.completed, "/", progress.total);
+          socket.emit("findprogress", {
+            completed: progress.completed,
+            total: progress.total,
+          });
+        });
         //fs.writeFileSync("adder-out.json", JSON.stringify(found[0], null, 2));
-        console.log("AdderConnection: Found items:", found);
+        console.log("AdderConnection: Found items:", found.length);
+        fs.writeFileSync("find-out.json", JSON.stringify(found, null, 2));
         socket.emit("findresults", { results: found, isPlaylist: found.length == 1 && found[0].type == "playlist" });
       } catch (error) {
         console.error("Error finding items:", error);
@@ -169,7 +176,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     if (typeof msg == "string") {
       msg = JSON.parse(msg);
     }
-    console.log("MSG:", JSON.stringify(msg, null, 2));
+    //console.log("MSG:", JSON.stringify(msg, null, 2));
     var artists = [];
     var albums = [];
     var songs = [];
@@ -190,6 +197,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     //);
 
     // Create dictionaries to track modified songs, albums, and artists
+    fs.writeFileSync("adder-in.json", JSON.stringify(msg, null, 2));
     const mergedOutput = await adderMergeLogic(
       artists,
       albums,
@@ -197,6 +205,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       msg.hierarchy,
       user,
     );
+    fs.writeFileSync("adder-out.json", JSON.stringify(mergedOutput, null, 2));
     var modifiedArtists = mergedOutput.artists;
     var modifiedAlbums = mergedOutput.albums;
     var modifiedSongs = mergedOutput.songs;
@@ -438,10 +447,11 @@ async function adderMergeLogic(
         songData.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
       );
 
-    if (songKeys.includes(songKey)) {
+    if (songKeys.includes(songKey) && modifiedSongs[songKeys.indexOf(songKey)] != undefined){
       console.log("songKey already exists for", songData.displayName);
+      console.log(songKey, "==", modifiedSongs[songKeys.indexOf(songKey)], "index:length", songKeys.indexOf(songKey), songKeys.length);
       modifiedSongs[songKey] = songs[songKeys.indexOf(songKey)];
-
+      try{
       modifiedSongs[songKey].visibleTo = [
         ...new Set(
           songs[songKeys.indexOf(songKey)].visibleTo.concat(songData.visibleTo),
@@ -450,6 +460,11 @@ async function adderMergeLogic(
       if(!modifiedSongs[songKey].inLibrary.includes(user)){
         console.log("Adding " + user + " to " + songData.displayName);
         modifiedSongs[songKey].inLibrary.push(user);
+      }
+      }catch(e){
+        console.log("error", e);
+        console.log(JSON.stringify(songData, null, 2));
+        throw e;
       }
       return;
     }

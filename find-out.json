@@ -1,0 +1,4341 @@
+[
+  {
+    "name": "Year 7",
+    "album": "Year 7",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734366c48ae7d8dce239c62c47",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Train Rush (From \"A Hat in Time\")",
+        "url": "youtube:RBuZFJKquh0",
+        "trackNumber": 1
+      },
+      {
+        "title": "Zelda's Lullaby (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:SOOHlZ2v_cU",
+        "trackNumber": 2
+      },
+      {
+        "title": "Athletic Theme (From \"Super Mario World\")",
+        "url": "youtube:W9urNCVWnh8",
+        "trackNumber": 3
+      },
+      {
+        "title": "Ecruteak City / Cianwood City (From \"Pokemon Gold and Silver\")",
+        "url": "youtube:r6z-ZfEDl9k",
+        "trackNumber": 4
+      },
+      {
+        "title": "Awake Now",
+        "url": "youtube:H_L74R5UPc4",
+        "trackNumber": 5
+      },
+      {
+        "title": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
+        "url": "youtube:9XMHcltjjC4",
+        "trackNumber": 6
+      },
+      {
+        "title": "Overworld (From \"Super Mario World 2: Yoshi's Island\")",
+        "url": "youtube:cRMDZfSQFj4",
+        "trackNumber": 7
+      },
+      {
+        "title": "Gourmet Race (From \"Kirby Super Star\")",
+        "url": "youtube:OjPx9sogY9M",
+        "trackNumber": 8
+      },
+      {
+        "title": "Brinstar - Red Soil (From \"Super Metroid\")",
+        "url": "youtube:VKYComF206o",
+        "trackNumber": 9
+      },
+      {
+        "title": "Dire, Dire Docks (From \"Super Mario 64\")",
+        "url": "youtube:j7YG5ojRDFM",
+        "trackNumber": 10
+      },
+      {
+        "title": "Sootopolis City (From \"Pokemon Ruby and Sapphire\")",
+        "url": "youtube:gLgeYoDgAjo",
+        "trackNumber": 11
+      },
+      {
+        "title": "Need to Find a Way",
+        "url": "youtube:VTcgQRFeJtk",
+        "trackNumber": 12
+      },
+      {
+        "title": "Ghost Gulping (From \"Paper Mario\")",
+        "url": "youtube:yNoQKOSVCx8",
+        "trackNumber": 13
+      },
+      {
+        "title": "Piranha Plant's Lullaby (From \"Super Mario 64\")",
+        "url": "youtube:vwfQSJMkoUk",
+        "trackNumber": 14
+      },
+      {
+        "title": "Mute City (From \"F-Zero\")",
+        "url": "youtube:XqFtfRyCwi4",
+        "trackNumber": 15
+      },
+      {
+        "title": "Mad Monster Mansion (From \"Banjo-Kazooie\")",
+        "url": "youtube:N3Ytitq9BjQ",
+        "trackNumber": 16
+      },
+      {
+        "title": "Ghost House (From \"Super Mario World\")",
+        "url": "youtube:jgeSS0fjJoo",
+        "trackNumber": 17
+      },
+      {
+        "title": "Pigstep (From \"Minecraft\")",
+        "url": "youtube:u-CCZ9whk9M",
+        "trackNumber": 18
+      },
+      {
+        "title": "Lost Woods (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:o8BDB92Esk4",
+        "trackNumber": 19
+      },
+      {
+        "title": "Song of Healing (From \"The Legend of Zelda: Majora's Mask\")",
+        "url": "youtube:mAFSBpPxkok",
+        "trackNumber": 20
+      },
+      {
+        "title": "Freezy Flake Galaxy (From \"Super Mario Galaxy 2\")",
+        "url": "youtube:NpC9BRVx-Oc",
+        "trackNumber": 21
+      }
+    ]
+  },
+  {
+    "name": "Year 6",
+    "album": "Year 6",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27340baf4dd6b252ba0943afdc9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "All-Star Rest Area (From \"Super Smash Bros. Melee\")",
+        "url": "youtube:YEyrDMVRo44",
+        "trackNumber": 1
+      },
+      {
+        "title": "Flower Garden (From \"Super Mario World 2: Yoshi's Island\")",
+        "url": "youtube:PN3QFRt5KY0",
+        "trackNumber": 2
+      },
+      {
+        "title": "Violet City / Olivine City (From \"Pokemon Gold and Silver\")",
+        "url": "youtube:2oQt0Uu7-2o",
+        "trackNumber": 3
+      },
+      {
+        "title": "Ricco Harbor (From \"Super Mario Sunshine\")",
+        "url": "youtube:xu8BYz2pKAs",
+        "trackNumber": 4
+      },
+      {
+        "title": "Coconut Mall (From \"Mario Kart Wii\")",
+        "url": "youtube:kleaVWJESuA",
+        "trackNumber": 5
+      },
+      {
+        "title": "Today's Results (From \"Pikmin\")",
+        "url": "youtube:OHN7GhNuZ0E",
+        "trackNumber": 6
+      },
+      {
+        "title": "Big Blue (From \"F-Zero\")",
+        "url": "youtube:gOqIPvqn1YU",
+        "trackNumber": 7
+      },
+      {
+        "title": "Powerful Mario (From \"Super Mario 64\")",
+        "url": "youtube:kAU_UyA4ALU",
+        "trackNumber": 8
+      },
+      {
+        "title": "Toy Box Battle (From \"Kingdom Hearts III\")",
+        "url": "youtube:eE6vw1qLGFE",
+        "trackNumber": 9
+      },
+      {
+        "title": "#8 regret (From \"Splatoon 2: Octo Expansion\")",
+        "url": "youtube:Ny1LgMJ2G8U",
+        "trackNumber": 10
+      },
+      {
+        "title": "Super Bell Hill (From \"Super Mario 3D World\")",
+        "url": "youtube:COqMmN7Cffo",
+        "trackNumber": 11
+      },
+      {
+        "title": "Spiral Mountain (From \"Banjo-Kazooie\")",
+        "url": "youtube:BzLbjBOSkx8",
+        "trackNumber": 12
+      },
+      {
+        "title": "Burning Town (From \"Shantae\")",
+        "url": "youtube:VEtabHPTVHs",
+        "trackNumber": 13
+      },
+      {
+        "title": "The Wind Can Be Still (Winter) [From \"Stardew Valley\"]",
+        "url": "youtube:cAIjxR9H4sg",
+        "trackNumber": 14
+      },
+      {
+        "title": "Koopa's Theme (From \"Super Mario 64\")",
+        "url": "youtube:iqvAVqh5LGM",
+        "trackNumber": 15
+      },
+      {
+        "title": "New Donk City (From \"Super Mario Odyssey\")",
+        "url": "youtube:O0V8Y0q2tMQ",
+        "trackNumber": 16
+      },
+      {
+        "title": "I Am",
+        "url": "youtube:XwvXA14mYbw",
+        "trackNumber": 17
+      },
+      {
+        "title": "Grunty's Lair (From \"Banjo-Kazooie\")",
+        "url": "youtube:pQ0zOkGAPaw",
+        "trackNumber": 18
+      },
+      {
+        "title": "E. Gadd's Lab (From \"Luigi's Mansion\")",
+        "url": "youtube:Qfir-aBf1Ko",
+        "trackNumber": 19
+      },
+      {
+        "title": "Hateno Village (From \"The Legend of Zelda: Breath of the Wild\")",
+        "url": "youtube:tXaCs4WQWo0",
+        "trackNumber": 20
+      },
+      {
+        "title": "Fodlan Winds (From \"Fire Emblem: Three Houses\")",
+        "url": "youtube:d59m-yVtiSg",
+        "trackNumber": 21
+      },
+      {
+        "title": "Goldenrod City (From \"Pokemon Gold & Silver\")",
+        "url": "youtube:SVKBpAORiAs",
+        "trackNumber": 22
+      },
+      {
+        "title": "Click Clock Wood (Winter) [From \"Banjo-Kazooie\"]",
+        "url": "youtube:Q3D4VrYItko",
+        "trackNumber": 23
+      },
+      {
+        "title": "Rainbow Road (From \"Mario Kart 64\")",
+        "url": "youtube:94E-qYyKF48",
+        "trackNumber": 24
+      }
+    ]
+  },
+  {
+    "name": "Year 5",
+    "album": "Year 5",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ef4527a3aab9f434ae2cfe61",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Love Is in the Air (From \"Yoshi's Story\")",
+        "url": "youtube:IYGAg-qF9gQ",
+        "trackNumber": 1
+      },
+      {
+        "title": "Title Theme (From \"Jazz Jackrabbit\")",
+        "url": "youtube:mgz7-V35q-E",
+        "trackNumber": 2
+      },
+      {
+        "title": "Staff Roll (From \"Super Mario 64\")",
+        "url": "youtube:z1XxUCz-e9k",
+        "trackNumber": 3
+      },
+      {
+        "title": "Pokemon Center (From \"Pokemon Red and Blue\")",
+        "url": "youtube:phbQDW0XrdQ",
+        "trackNumber": 4
+      },
+      {
+        "title": "Beneath the Mask (From \"Persona 5\")",
+        "url": "youtube:yNN1h3ia-BE",
+        "trackNumber": 5
+      },
+      {
+        "title": "Mii Channel (From \"Nintendo Wii Mii Channel\")",
+        "url": "youtube:hQFtG3QeNRA",
+        "trackNumber": 6
+      },
+      {
+        "title": "Kaepora Gaebora (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:pQ0ZX8At-kY",
+        "trackNumber": 7
+      },
+      {
+        "title": "Waluigi Pinball / Wario Stadium (From \"Mario Kart DS\")",
+        "url": "youtube:-Zl_TIv7drg",
+        "trackNumber": 8
+      },
+      {
+        "title": "Wind Scene (From \"Chrono Trigger\")",
+        "url": "youtube:WR-DVXmRBkQ",
+        "trackNumber": 9
+      },
+      {
+        "title": "Green Hill Zone (From \"Sonic the Hedgehog\")",
+        "url": "youtube:oNC5SO4NhSk",
+        "trackNumber": 10
+      },
+      {
+        "title": "Verdanturf Town (From \"Pokemon Ruby and Sapphire\")",
+        "url": "youtube:V_pbVXjBnSo",
+        "trackNumber": 11
+      },
+      {
+        "title": "Fly Octo Fly ~ Ebb & Flow (From \"Splatoon 2: Octo Expansion\")",
+        "url": "youtube:Rdx_b7YrWsE",
+        "trackNumber": 12
+      },
+      {
+        "title": "Dragon Roost Island (From \"The Legend of Zelda: The Wind Waker\")",
+        "url": "youtube:2Q967M5KixM",
+        "trackNumber": 13
+      },
+      {
+        "title": "Birabuto Kingdom (From \"Super Mario Land\")",
+        "url": "youtube:tOxhfS7KT_o",
+        "trackNumber": 14
+      },
+      {
+        "title": "Hyrule Field (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:OHsiwYU_pcI",
+        "trackNumber": 15
+      },
+      {
+        "title": "Green Greens (From \"Kirby's Dream Land\")",
+        "url": "youtube:JFCKPL5qMK0",
+        "trackNumber": 16
+      },
+      {
+        "title": "World Bowser (From \"Super Mario 3D World\")",
+        "url": "youtube:le2gIwYx0Qo",
+        "trackNumber": 17
+      },
+      {
+        "title": "Lavender Town (From \"Pokemon Red and Blue\")",
+        "url": "youtube:g8ql9lvJ0KE",
+        "trackNumber": 18
+      },
+      {
+        "title": "Frantic Factory (From \"Donkey Kong 64\")",
+        "url": "youtube:UO82XG7kJ3Y",
+        "trackNumber": 19
+      },
+      {
+        "title": "Go. K.K. Rider! (From \"Animal Crossing\")",
+        "url": "youtube:GYEZJiaLNNM",
+        "trackNumber": 20
+      },
+      {
+        "title": "Final Battle! (Rival) (From \"Pokemon Red and Blue\")",
+        "url": "youtube:PQ3Eu8wA6J0",
+        "trackNumber": 21
+      },
+      {
+        "title": "Steam Gardens (From \"Super Mario Odyssey\")",
+        "url": "youtube:h5BA0m2F29E",
+        "trackNumber": 22
+      },
+      {
+        "title": "Walrus Cove (From \"Diddy Kong Racing\")",
+        "url": "youtube:JqrURkW2nEw",
+        "trackNumber": 23
+      }
+    ]
+  },
+  {
+    "name": "Year 4",
+    "album": "Year 4",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f83a4a752cf4c9345994752",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Overworld (From \"Super Mario World\")",
+        "url": "youtube:usSyRuh8TAs",
+        "trackNumber": 1
+      },
+      {
+        "title": "Calamari Inkantation (From \"Splatoon\")",
+        "url": "youtube:s11qj-hzWjo",
+        "trackNumber": 2
+      },
+      {
+        "title": "Kass' Theme (From \"The Legend of Zelda: Breath of the Wild\")",
+        "url": "youtube:mY_AhrCfK7g",
+        "trackNumber": 3
+      },
+      {
+        "title": "Mr. Resetti's Theme (From \"Animal Crossing\")",
+        "url": "youtube:fSOCGrsY2Us",
+        "trackNumber": 4
+      },
+      {
+        "title": "Overworld (From \"Super Mario Bros. 3\")",
+        "url": "youtube:mS9isgwVBrM",
+        "trackNumber": 5
+      },
+      {
+        "title": "Darkmoon Caverns (From \"Diddy Kong Racing\")",
+        "url": "youtube:euesv9LEdwo",
+        "trackNumber": 6
+      },
+      {
+        "title": "Grunty's Furnace Fun (From \"Banjo-Kazooie\")",
+        "url": "youtube:fzvx46e3ZDQ",
+        "trackNumber": 7
+      },
+      {
+        "title": "Inside the Castle Walls (From \"Super Mario 64\")",
+        "url": "youtube:77PW1gc4G2Q",
+        "trackNumber": 8
+      },
+      {
+        "title": "King Dedede's Theme (From \"Kirby Super Star\")",
+        "url": "youtube:VaUX4GWNex0",
+        "trackNumber": 9
+      },
+      {
+        "title": "Click Clock Wood (Spring) [From \"Banjo-Kazooie\"]",
+        "url": "youtube:9tt1ywm06bM",
+        "trackNumber": 10
+      },
+      {
+        "title": "Gerudo Valley (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:HdkIP-07Ue0",
+        "trackNumber": 11
+      },
+      {
+        "title": "Overworld (From \"Super Mario Bros. 2\")",
+        "url": "youtube:ZyX0C-zRVZU",
+        "trackNumber": 12
+      },
+      {
+        "title": "Jump Up, Super Star! (From \"Super Mario Odyssey\")",
+        "url": "youtube:MTxMh6qu6Mw",
+        "trackNumber": 13
+      },
+      {
+        "title": "Sweden (From \"Minecraft\")",
+        "url": "youtube:ye3v3R07pCk",
+        "trackNumber": 14
+      },
+      {
+        "title": "Escape from the City (From \"Sonic Adventure 2\")",
+        "url": "youtube:pZ11_Iv9a-Y",
+        "trackNumber": 15
+      },
+      {
+        "title": "Slider (From \"Super Mario 64\")",
+        "url": "youtube:iYm6pknZLiQ",
+        "trackNumber": 16
+      },
+      {
+        "title": "National Park (From \"Pokemon Gold and Silver\")",
+        "url": "youtube:GtxZJnDZZg0",
+        "trackNumber": 17
+      },
+      {
+        "title": "Prince Sidon (From \"The Legend of Zelda: Breath of the Wild\")",
+        "url": "youtube:gMklK5Eh13U",
+        "trackNumber": 18
+      },
+      {
+        "title": "Library Piano (From \"Luigi's Mansion: Dark Moon\")",
+        "url": "youtube:Xokx96yxEws",
+        "trackNumber": 19
+      },
+      {
+        "title": "Die House (From \"Cuphead\")",
+        "url": "youtube:qJmxrnioSrE",
+        "trackNumber": 20
+      },
+      {
+        "title": "Luma (From \"Super Mario Galaxy\")",
+        "url": "youtube:5Y_-G4NDi-g",
+        "trackNumber": 21
+      },
+      {
+        "title": "Realm Overworld (From \"The Legend of Zelda: Spirit Tracks\")",
+        "url": "youtube:BVK-x0Gnbog",
+        "trackNumber": 22
+      },
+      {
+        "title": "Overworld Day (From \"Terraria\")",
+        "url": "youtube:rHxHqhTcAys",
+        "trackNumber": 23
+      },
+      {
+        "title": "Frappe Snowland / Sherbet Land (From \"Mario Kart 64\")",
+        "url": "youtube:sKtaEp0gOVw",
+        "trackNumber": 24
+      },
+      {
+        "title": "Snow Mountain (From \"Super Mario 64\")",
+        "url": "youtube:4_hoscdtefI",
+        "trackNumber": 25
+      }
+    ]
+  },
+  {
+    "name": "Year 3",
+    "album": "Year 3",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733f595848a71a4edb4da60395",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Athletic Theme (From \"Super Mario Bros. 3\") (Cover Version)",
+        "url": "youtube:f5ACkTmHoSI",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Year 2",
+    "album": "Year 2",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732c1a0c8501012a0e9bf59a51",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Calling the Four Giants",
+        "url": "youtube:wyROmE4WkL4",
+        "trackNumber": 1
+      },
+      {
+        "title": "Redial (From \"Bomberman Hero\")",
+        "url": "youtube:z8ZITqp019Q",
+        "trackNumber": 2
+      },
+      {
+        "title": "Intro (From \"The Duel: Test Drive 2\")",
+        "url": "youtube:AAESVKOweoY",
+        "trackNumber": 3
+      },
+      {
+        "title": "Bob-Omb Battlefield",
+        "url": "youtube:8raQUS6Daoo",
+        "trackNumber": 4
+      },
+      {
+        "title": "Corneria",
+        "url": "youtube:BDTSAlI2Vj4",
+        "trackNumber": 5
+      },
+      {
+        "title": "Memories of Green",
+        "url": "youtube:sqrn-rYjeFE",
+        "trackNumber": 6
+      },
+      {
+        "title": "Witchyworld (From \"Banjo-Tooie\")",
+        "url": "youtube:x6j6MybIN94",
+        "trackNumber": 7
+      },
+      {
+        "title": "Frosty Village (From \"Diddy Kong Racing\")",
+        "url": "youtube:oFSD3NEqQeE",
+        "trackNumber": 8
+      }
+    ]
+  },
+  {
+    "name": "Year 1",
+    "album": "Year 1",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737033ec6bdf6074ac3e100ebc",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Snowbelle City (From \"Pokemon X & Y\")",
+        "url": "youtube:4nwhvedB4tc",
+        "trackNumber": 1
+      },
+      {
+        "title": "Professor Sycamore’s Theme (From \"Pokemon X & Y\")",
+        "url": "youtube:N0Ms5mljCFw",
+        "trackNumber": 2
+      },
+      {
+        "title": "Battle! (Champion) [From \"Pokemon Gold & Silver\"]",
+        "url": "youtube:0MtIeT1GGjc",
+        "trackNumber": 3
+      },
+      {
+        "title": "Rusty Bucket Bay (From \"Banjo-Kazooie\")",
+        "url": "youtube:qzyYTMJdeqQ",
+        "trackNumber": 4
+      },
+      {
+        "title": "Gobi’s Valley (From \"Banjo-Kazooie\")",
+        "url": "youtube:JSYOM9zRiYo",
+        "trackNumber": 5
+      },
+      {
+        "title": "Bowser’s Theme (From \"Mario Party\")",
+        "url": "youtube:AS9Qmb8ftVM",
+        "trackNumber": 6
+      },
+      {
+        "title": "Main Theme (N sanity Beach) [From \"Crash Bandicoot\"]",
+        "url": "youtube:R-PnS9mgvdE",
+        "trackNumber": 7
+      },
+      {
+        "title": "Luigi's Mansion",
+        "url": "youtube:80hBcnnuyHg",
+        "trackNumber": 8
+      }
+    ]
+  },
+  {
+    "name": "World 2: The Lost Levels",
+    "album": "World 2: The Lost Levels",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737b71e4d0796d9ea2ff905bf4",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Never Forget",
+        "url": "youtube:MMesb76Sj8s",
+        "trackNumber": 1
+      },
+      {
+        "title": "Gnarly Gnome",
+        "url": "youtube:JxFEUqMKzAs",
+        "trackNumber": 2
+      },
+      {
+        "title": "The Anteater (Bonus Track)",
+        "url": "youtube:qOr1_ZHrO3c",
+        "trackNumber": 3
+      },
+      {
+        "title": "Electro Swank (Bonus Track)",
+        "url": "youtube:uurLuAc2SCQ",
+        "trackNumber": 4
+      },
+      {
+        "title": "Hard Reset",
+        "url": "youtube:axWrvjkRtS4",
+        "trackNumber": 5
+      },
+      {
+        "title": "Remember Always",
+        "url": "youtube:2PnEzHZ1PPY",
+        "trackNumber": 6
+      }
+    ]
+  },
+  {
+    "name": "World 1",
+    "album": "World 1",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ab98dae23e8a022c7cc00f43",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Swings and Roundabouts",
+        "url": "youtube:3RhihSbn56w",
+        "trackNumber": 1
+      },
+      {
+        "title": "At the Public House",
+        "url": "youtube:Ep9CLv3yU6M",
+        "trackNumber": 2
+      },
+      {
+        "title": "Kremnay",
+        "url": "youtube:W86O6gNVDz4",
+        "trackNumber": 3
+      },
+      {
+        "title": "Memories",
+        "url": "youtube:5iy1mXqcGno",
+        "trackNumber": 4
+      },
+      {
+        "title": "Duval",
+        "url": "youtube:ieRCFyyrP38",
+        "trackNumber": 5
+      }
+    ]
+  },
+  {
+    "name": "Main Theme (Wii Shop Channel) [From “Wii Channels”]",
+    "album": "Main Theme (Wii Shop Channel) [From “Wii Channels”]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cb003f532e1118932c31359e",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Main Theme (Wii Shop Channel) [From “Wii Channels”]",
+        "url": "youtube:KJtOWi4S4Wo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Please Select Player (From \"Super Mario Bros. 2\") [Cover Version]",
+    "album": "Please Select Player (From \"Super Mario Bros. 2\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732399c3f0b8fdef724d608304",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Please Select Player (From \"Super Mario Bros. 2\") (Cover Version)",
+        "url": "youtube:_4fqgfDqWqE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Title Theme (From \"Wii Sports\") [Cover Version]",
+    "album": "Title Theme (From \"Wii Sports\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737cd3b0f9c96562730c1de3ce",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Title Theme (From \"Wii Sports\") (Cover Version)",
+        "url": "youtube:C7zAr2zSAqE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "nintendogs (From \"nintendogs\") [Cover Version]",
+    "album": "nintendogs (From \"nintendogs\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735dd6e9501def2845c2ecbd08",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "nintendogs (From \"nintendogs\") (Cover Version)",
+        "url": "youtube:sIAWRKS7J_A",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Maple Treeway (\"Wii Maple Treeway\" from \"Mario Kart 8 Deluxe\") [Cover Version]",
+    "album": "Maple Treeway (\"Wii Maple Treeway\" from \"Mario Kart 8 Deluxe\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738770f6fc6f2e972b6c919eb5",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Maple Treeway (\"Wii Maple Treeway\" from \"Mario Kart 8 Deluxe\") (Cover Version)",
+        "url": "youtube:NzD2--IliDg",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Snowball Park (From \"Super Mario 3D World\") [Cover Version]",
+    "album": "Snowball Park (From \"Super Mario 3D World\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c3ac8e6073d25ed0d779808b",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Snowball Park (From \"Super Mario 3D World\") (Cover Version)",
+        "url": "youtube:jdRk5cUGnhE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Poke Mart (From \"Pokemon Ruby & Sapphire\") [Cover Version]",
+    "album": "Poke Mart (From \"Pokemon Ruby & Sapphire\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735b7576f9b12ffe9bcb02f78c",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Poke Mart (From \"Pokemon Ruby & Sapphire\") (Cover Version)",
+        "url": "youtube:UXKmGjt0T70",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Animal Aboard",
+    "album": "Animal Aboard",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a10d48fb5c35bdfd92b6b290",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Animal Aboard",
+        "url": "youtube:GKSCWY5wixk",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Grassland Theme (From \"Super Mario Bros. Wonder\") [Cover Version]",
+    "album": "Grassland Theme (From \"Super Mario Bros. Wonder\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273fc4ce9acd2a6b6f135f9e1d1",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Grassland Theme (From \"Super Mario Bros. Wonder\") (Cover Version)",
+        "url": "youtube:5ej0x2t2CYY",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Song of Storms (\"Windmill Hut\" From \"The Legend of Zelda: Ocarina of Time\") [Cover Version]",
+    "album": "Song of Storms (\"Windmill Hut\" From \"The Legend of Zelda: Ocarina of Time\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27352a4ffd6cdda1772f3f356bb",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Song of Storms (\"Windmill Hut\" From \"The Legend of Zelda: Ocarina of Time\") (Cover Version)",
+        "url": "youtube:eJMpOW9DDeg",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Athletic Theme (From \"Super Mario Bros. 3\") [Cover Version]",
+    "album": "Athletic Theme (From \"Super Mario Bros. 3\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2730e621f6fe6242b901b788373",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Athletic Theme (From \"Super Mario Bros. 3\") (Cover Version)",
+        "url": "youtube:f5ACkTmHoSI",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Jungle Japes (From \"Donkey Kong 64\") [Cover Version]",
+    "album": "Jungle Japes (From \"Donkey Kong 64\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738d481bfd293f9533a8d27e05",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Jungle Japes (From \"Donkey Kong 64\") (Cover Version)",
+        "url": "youtube:jDeHuYhpato",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Driftveil City (From \"Pokemon Black & White\") [Cover Version]",
+    "album": "Driftveil City (From \"Pokemon Black & White\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736e38962468956adeaf125123",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Driftveil City (From \"Pokemon Black & White\") (Cover Version)",
+        "url": "youtube:ObTVP0LVnmA",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Lumiose City (From \"Pokemon X & Y\") [Cover Version]",
+    "album": "Lumiose City (From \"Pokemon X & Y\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273524c65e502dcc1a3be6d2808",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Lumiose City (From \"Pokemon X & Y\") (Cover Version)",
+        "url": "youtube:-KqssSeihU0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "On the Beach (From \"Yoshi's Story\") [Cover Version]",
+    "album": "On the Beach (From \"Yoshi's Story\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273eb374451a932f312e5cec24b",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "On the Beach (From \"Yoshi's Story\") (Cover Version)",
+        "url": "youtube:G5oadcqpgig",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Rosalina in the Observatory (From \"Super Mario Galaxy\") [Cover Version]",
+    "album": "Rosalina in the Observatory (From \"Super Mario Galaxy\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273bd32e3af2fcc4cb97a1862f9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Rosalina in the Observatory (From \"Super Mario Galaxy\") (Cover Version)",
+        "url": "youtube:0CRoyKWjR8I",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Battle! (Champion) (From \"Pokemon Gold & Silver\") [2023 Cover Version]",
+    "album": "Battle! (Champion) (From \"Pokemon Gold & Silver\") [2023 Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27351f32e912622ef520b409af3",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Battle! (Champion) (From \"Pokemon Gold & Silver\") (2023 Cover Version)",
+        "url": "youtube:3HHvEdwI-VI",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Rottytops (From \"Shantae and the Pirate's Curse\") [Cover Version]",
+    "album": "Rottytops (From \"Shantae and the Pirate's Curse\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734596cd72de4c18146946129a",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Rottytops (From \"Shantae and the Pirate's Curse\") (Cover Version)",
+        "url": "youtube:hN75tM7cfYA",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Merry-Go-Round (From \"Super Mario 64\") [Cover Version]",
+    "album": "Merry-Go-Round (From \"Super Mario 64\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f07eb83ddc963f68f97a70dd",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Merry-Go-Round (From \"Super Mario 64\") (Cover Version)",
+        "url": "youtube:FjC1ocvv1As",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Aquatic Ambiance (From \"Donkey Kong Country\") [Cover Version]",
+    "album": "Aquatic Ambiance (From \"Donkey Kong Country\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b575635c34b4a675d9f633bd",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Aquatic Ambiance (From \"Donkey Kong Country\") (Cover Version)",
+        "url": "youtube:92hDJYrt_wg",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Route 10 (From \"Pokemon Black & White\") [Cover Version]",
+    "album": "Route 10 (From \"Pokemon Black & White\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735aa65585bfb492271b3c38f3",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Route 10 (From \"Pokemon Black & White\") (Cover Version)",
+        "url": "youtube:VuORU1RUWDQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Daisy Circuit (From \"Mario Kart Wii\") [Cover Version]",
+    "album": "Daisy Circuit (From \"Mario Kart Wii\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739fac84ae78c9eff68e535028",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Daisy Circuit (From \"Mario Kart Wii\") (Cover Version)",
+        "url": "youtube:1RRveZ1OgO0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Among Familiar Faces",
+    "album": "Among Familiar Faces",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734e5c964d7bd80101771b551d",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Among Familiar Faces",
+        "url": "youtube:lzcO7Nzwhq4",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "May (From \"Pokemon Ruby and Sapphire\") [Cover Version]",
+    "album": "May (From \"Pokemon Ruby and Sapphire\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273520efa81fad00488af4c7f39",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "May (From \"Pokemon Ruby and Sapphire\") (Cover Version)",
+        "url": "youtube:tbK5PRrvnF0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "LonLon Ranch (From \"Legend of Zelda: Ocarina of Time\") [Cover Version]",
+    "album": "LonLon Ranch (From \"Legend of Zelda: Ocarina of Time\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731a5411be91e3747545f459db",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "LonLon Ranch (From \"Legend of Zelda: Ocarina of Time\") (Cover Version)",
+        "url": "youtube:CFy4srTfRg0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Overworld (From \"Super Mario Bros.\")",
+    "album": "Overworld (From \"Super Mario Bros.\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273077746dfdcab6c116742c90f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Overworld (From \"Super Mario Bros.\")",
+        "url": "youtube:BkluiXUDy6o",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Mario Kart 64 Theme (From \"Mario Kart 64\") [Cover Version]",
+    "album": "Mario Kart 64 Theme (From \"Mario Kart 64\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27360e7d241252ff015a99c2cb9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Mario Kart 64 Theme (From \"Mario Kart 64\") (Cover Version)",
+        "url": "youtube:Nz_VaOZndxA",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Route 1 (From \"Pokemon Red and Blue\") [Cover Version]",
+    "album": "Route 1 (From \"Pokemon Red and Blue\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273de167f7e0bf087d23991285f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Route 1 (From \"Pokemon Red and Blue\") (Cover Version)",
+        "url": "youtube:VIBQg2IwJTE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "K.K. Cruisin' (From \"Animal Crossing\") [Cover Version]",
+    "album": "K.K. Cruisin' (From \"Animal Crossing\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27315af666b010cc6c76170053b",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "K.K. Cruisin' (From \"Animal Crossing\") (Cover Version)",
+        "url": "youtube:eyf0B6Y9sLY",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Ultimate Koopa (From \"Super Mario 64\") [Cover Version]",
+    "album": "Ultimate Koopa (From \"Super Mario 64\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27397c3e7955de1c77877f834e4",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Ultimate Koopa (From \"Super Mario 64\") (Cover Version)",
+        "url": "youtube:9l_wNixnS4I",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Welcome Horizons (From \"Animal Crossing: New Horizons\")",
+    "album": "Welcome Horizons (From \"Animal Crossing: New Horizons\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d21fef3a20ab03fd4261ef35",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Welcome Horizons (From \"Animal Crossing: New Horizons\")",
+        "url": "youtube:hCeJQUJ7DMU",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Now or Never (From \"Splatoon\") [Cover Version]",
+    "album": "Now or Never (From \"Splatoon\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273aa3c18635854ddcd483f7893",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Now or Never (From \"Splatoon\") (Cover Version)",
+        "url": "youtube:8C-c3GCCcfo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Onett (From \"Earthbound\") [Cover Version]",
+    "album": "Onett (From \"Earthbound\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27359b1436d26d794a41d8701f3",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Onett (From \"Earthbound\") (Cover Version)",
+        "url": "youtube:LUvyFKPn0Bw",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "K.K. Birthday (From \"Animal Crossing: New Leaf\") [Cover Version]",
+    "album": "K.K. Birthday (From \"Animal Crossing: New Leaf\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735038792ec4e1541902e9831e",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "K.K. Birthday (From \"Animal Crossing: New Leaf\") (Cover Version)",
+        "url": "youtube:sGzIPm9_ReM",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Athletic Theme (From \"Yoshi's Island\") [Cover Version]",
+    "album": "Athletic Theme (From \"Yoshi's Island\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b933579ab0b55a67f37c29b7",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Athletic Theme (From \"Yoshi's Island\") (Cover Version)",
+        "url": "youtube:jigKJ8p15z8",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Adrift",
+    "album": "Adrift",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ffc46c00d6c4496aed2348a3",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Adrift",
+        "url": "youtube:-MwIUPqruqI",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Flying Battery Zone (Act 1) (From \"Sonic & Knuckles\") [Cover Version]",
+    "album": "Flying Battery Zone (Act 1) (From \"Sonic & Knuckles\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c7f33fcef4c0e65b2ba1ccf3",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Flying Battery Zone (Act 1) (From \"Sonic & Knuckles\") (Cover Version)",
+        "url": "youtube:de_CmiSCvOw",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Break Free (Lead the Way) (From \"Super Mario Odyssey\") [Cover Version]",
+    "album": "Break Free (Lead the Way) (From \"Super Mario Odyssey\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a3a449b680db552fca1aff9d",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Break Free (Lead the Way) (From \"Super Mario Odyssey\") (Cover Version)",
+        "url": "youtube:a1QwYkbiEI0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "To the Other Side",
+    "album": "To the Other Side",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cb204dc0abcf6c6565f0f1ae",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "I Am",
+        "url": "youtube:XwvXA14mYbw",
+        "trackNumber": 1
+      },
+      {
+        "title": "Awake Now",
+        "url": "youtube:H_L74R5UPc4",
+        "trackNumber": 2
+      },
+      {
+        "title": "Need to Find a Way",
+        "url": "youtube:VTcgQRFeJtk",
+        "trackNumber": 3
+      },
+      {
+        "title": "To the Other Side",
+        "url": "youtube:UVlHCrXYPw8",
+        "trackNumber": 4
+      }
+    ]
+  },
+  {
+    "name": "Jubilife City (From \"Pokemon Diamond and Pearl\") [Cover Version]",
+    "album": "Jubilife City (From \"Pokemon Diamond and Pearl\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ba019653403c25044fa7ca5d",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Jubilife City (From \"Pokemon Diamond and Pearl\") (Cover Version)",
+        "url": "youtube:Msffq_VMX54",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Your Affection (From \"Persona 4\") [Cover Version]",
+    "album": "Your Affection (From \"Persona 4\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ccd3e89235cc45fc0aec1d63",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Your Affection (From \"Persona 4\") (Cover Version)",
+        "url": "youtube:Da6zlI0Cn1s",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "PROTO",
+    "album": "PROTO",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27308fb320548dfbbae3238684f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "PROTO",
+        "url": "youtube:bfQgzxOhdzo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Koopa Troopa Beach (From \"Mario Kart 64\") [Cover Version]",
+    "album": "Koopa Troopa Beach (From \"Mario Kart 64\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273444e4deb166a469c43f90b64",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Koopa Troopa Beach (From \"Mario Kart 64\") (Cover Version)",
+        "url": "youtube:tFikgP2VWQ0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Overworld (From \"New Super Mario Bros\") [Cover Version]",
+    "album": "Overworld (From \"New Super Mario Bros\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a87a087d33cee9df157e1090",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Overworld (From \"New Super Mario Bros\") (Cover Version)",
+        "url": "youtube:8CkUd88WFus",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Route 209 (Day) (From \"Pokemon Diamond and Pearl\") [Cover Version]",
+    "album": "Route 209 (Day) (From \"Pokemon Diamond and Pearl\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e064ace91010b65d95be2433",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Route 209 (Day) (From \"Pokemon Diamond and Pearl\") (Cover Version)",
+        "url": "youtube:Nk-HWJXns3U",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "The Roost (From \"Animal Crossing: Wild World\") [Cover Version]",
+    "album": "The Roost (From \"Animal Crossing: Wild World\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737512ebf43e4e31cac19a6c6c",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "The Roost (From \"Animal Crossing: Wild World\") (Cover Version)",
+        "url": "youtube:tdgEnZ5KxUQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Kraid's Lair (From \"Metroid\") [Cover Version]",
+    "album": "Kraid's Lair (From \"Metroid\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c1ac0abd5f8493e156179642",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Kraid's Lair (From \"Metroid\") (Cover Version)",
+        "url": "youtube:jBfVI1d47gk",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "File Select (From \"Super Mario 64\") [Cover Version]",
+    "album": "File Select (From \"Super Mario 64\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27383e215d5f909c559639a068c",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "File Select (From \"Super Mario 64\") (Cover Version)",
+        "url": "youtube:kvE9Wrv2mt0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Azalea Town (From \"Pokemon Gold and Silver\") [Cover Version]",
+    "album": "Azalea Town (From \"Pokemon Gold and Silver\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732a1982f21995a0e332285d0a",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Azalea Town (From \"Pokemon Gold and Silver\") (Cover Version)",
+        "url": "youtube:9pQRRRdQlJo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Underground (From \"Super Mario World 2: Yoshi's Island\") [Cover Version]",
+    "album": "Underground (From \"Super Mario World 2: Yoshi's Island\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736b9fdc078b6ad17053f00715",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Underground (From \"Super Mario World 2: Yoshi's Island\") (Cover Version)",
+        "url": "youtube:_ulBZmL6JwE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "At Doom's Gate (From \"Doom\") [Cover Version]",
+    "album": "At Doom's Gate (From \"Doom\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273454fa154e16d23907ebaedf5",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "At Doom's Gate (From \"Doom\") (Cover Version)",
+        "url": "youtube:moh8u6dTpVw",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Toad's Factory (From \"Mario Kart Wii\") [Cover Version]",
+    "album": "Toad's Factory (From \"Mario Kart Wii\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273381b617a385d1473f910e109",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Toad's Factory (From \"Mario Kart Wii\") (Cover Version)",
+        "url": "youtube:kFObnJeevk0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Kakariko Village (From \"The Legend of Zelda: Ocarina of Time\") [Cover Version]",
+    "album": "Kakariko Village (From \"The Legend of Zelda: Ocarina of Time\") [Cover Version]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e57367795795810394219fbf",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Kakariko Village (From \"The Legend of Zelda: Ocarina of Time\") (Cover Version)",
+        "url": "youtube:FlbkKQBAW7k",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Accumula Town (From \"Pokemon Black and White\")",
+    "album": "Accumula Town (From \"Pokemon Black and White\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736597d03490e41baa9d5d4ce0",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Accumula Town (From \"Pokemon Black and White\")",
+        "url": "youtube:qOaLWRJpTWk",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Buoy Base Galaxy (From \"Super Mario Galaxy\") [Cover]",
+    "album": "Buoy Base Galaxy (From \"Super Mario Galaxy\") [Cover]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27326e8bda73c4c094755e1da20",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Buoy Base Galaxy (From \"Super Mario Galaxy\") (Cover)",
+        "url": "youtube:Rv3SOWZjT3A",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Treasure Trove Cove (From \"Banjo-Kazooie\") [Cover]",
+    "album": "Treasure Trove Cove (From \"Banjo-Kazooie\") [Cover]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27366fc538cdc07d596d144ca47",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Treasure Trove Cove (From \"Banjo-Kazooie\") (Cover)",
+        "url": "youtube:l7d2djlOuvg",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Freezy Flake Galaxy (From \"Super Mario Galaxy 2\")",
+    "album": "Freezy Flake Galaxy (From \"Super Mario Galaxy 2\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f3219cca041eaeb713830d50",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Freezy Flake Galaxy (From \"Super Mario Galaxy 2\")",
+        "url": "youtube:NpC9BRVx-Oc",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Meta Knight's Revenge (From \"Kirby Super Star\")",
+    "album": "Meta Knight's Revenge (From \"Kirby Super Star\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27318c3424e89c6047f1f48f396",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Meta Knight's Revenge (From \"Kirby Super Star\")",
+        "url": "youtube:wWgYwu4irvQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Pallet Town (From \"Pokemon Red and Blue\")",
+    "album": "Pallet Town (From \"Pokemon Red and Blue\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273162d3d29b1a6adfcd9769ac8",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "pallet town",
+        "url": "youtube:DwfbkhwKjwE",
+        "trackNumber": 1
+      },
+      {
+        "title": "pokemon center",
+        "url": "youtube:Tx87663ecq0",
+        "trackNumber": 2
+      },
+      {
+        "title": "cycling",
+        "url": "youtube:X7KU5X5bpPU",
+        "trackNumber": 3
+      },
+      {
+        "title": "cinnabar island",
+        "url": "youtube:fnwJnTBWMXw",
+        "trackNumber": 4
+      },
+      {
+        "title": "oak's lab",
+        "url": "youtube:9X0btkKmcq0",
+        "trackNumber": 5
+      },
+      {
+        "title": "surf",
+        "url": "youtube:PCAvi2xNfkA",
+        "trackNumber": 6
+      },
+      {
+        "title": "route 1",
+        "url": "youtube:atqaQA2Rcpk",
+        "trackNumber": 7
+      },
+      {
+        "title": "goldenrod city",
+        "url": "youtube:UbYFEos5i3M",
+        "trackNumber": 8
+      },
+      {
+        "title": "fallarbor town",
+        "url": "youtube:-QJVAdqMAyY",
+        "trackNumber": 9
+      },
+      {
+        "title": "celadon city",
+        "url": "youtube:TYsfXGUc_nQ",
+        "trackNumber": 10
+      },
+      {
+        "title": "viridian city",
+        "url": "youtube:bfzUdfCd9Pk",
+        "trackNumber": 11
+      }
+    ]
+  },
+  {
+    "name": "Floral Fury (From \"Cuphead\")",
+    "album": "Floral Fury (From \"Cuphead\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27352690922b6e56a64c80309a8",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Floral Fury (From \"Cuphead\")",
+        "url": "youtube:Y3HbRzIysmM",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "To the Other Side",
+    "album": "To the Other Side",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273fdbac5185e5f1a7bb4d4dcb0",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "I Am",
+        "url": "youtube:XwvXA14mYbw",
+        "trackNumber": 1
+      },
+      {
+        "title": "Awake Now",
+        "url": "youtube:H_L74R5UPc4",
+        "trackNumber": 2
+      },
+      {
+        "title": "Need to Find a Way",
+        "url": "youtube:VTcgQRFeJtk",
+        "trackNumber": 3
+      },
+      {
+        "title": "To the Other Side",
+        "url": "youtube:UVlHCrXYPw8",
+        "trackNumber": 4
+      }
+    ]
+  },
+  {
+    "name": "Song of Healing (From \"The Legend of Zelda: Majora's Mask\")",
+    "album": "Song of Healing (From \"The Legend of Zelda: Majora's Mask\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736f5578cf5342a5616a55bc49",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Song of Healing (From \"The Legend of Zelda: Majora's Mask\")",
+        "url": "youtube:mAFSBpPxkok",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Lost Woods (From \"The Legend of Zelda: Ocarina of Time\")",
+    "album": "Lost Woods (From \"The Legend of Zelda: Ocarina of Time\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737771e94faa3d8ed4ef40b038",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Lost Woods (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:o8BDB92Esk4",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Pigstep (From \"Minecraft\")",
+    "album": "Pigstep (From \"Minecraft\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a4e7f5badda43493724e5216",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Pigstep (From \"Minecraft\")",
+        "url": "youtube:u-CCZ9whk9M",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Ghost House (From \"Super Mario World\")",
+    "album": "Ghost House (From \"Super Mario World\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273edb05230b6c304b5058cd820",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Ghost House (From \"Super Mario World\")",
+        "url": "youtube:jgeSS0fjJoo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Mad Monster Mansion (From \"Banjo-Kazooie\")",
+    "album": "Mad Monster Mansion (From \"Banjo-Kazooie\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738be0ea188c594b1afbde1779",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Mad Monster Mansion (From \"Banjo-Kazooie\")",
+        "url": "youtube:N3Ytitq9BjQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Mute City (From \"F-Zero\")",
+    "album": "Mute City (From \"F-Zero\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27391728f623d3a439d86029b51",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Mute City (From \"F-Zero\")",
+        "url": "youtube:XqFtfRyCwi4",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Piranha Plant's Lullaby (From \"Super Mario 64\")",
+    "album": "Piranha Plant's Lullaby (From \"Super Mario 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdef2bbe8a52c10256152307",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Piranha Plant's Lullaby (From \"Super Mario 64\")",
+        "url": "youtube:vwfQSJMkoUk",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Ghost Gulping (From \"Paper Mario\")",
+    "album": "Ghost Gulping (From \"Paper Mario\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d7785095a19812d1452b0043",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Ghost Gulping (From \"Paper Mario\")",
+        "url": "youtube:yNoQKOSVCx8",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Need to Find a Way",
+    "album": "Need to Find a Way",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736f8e00ccf74e309e315b5bed",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Need to Find a Way",
+        "url": "youtube:VTcgQRFeJtk",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Sootopolis City (From \"Pokemon Ruby and Sapphire\")",
+    "album": "Sootopolis City (From \"Pokemon Ruby and Sapphire\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f10c75620f99494066c5dad9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Sootopolis City (From \"Pokemon Ruby and Sapphire\")",
+        "url": "youtube:gLgeYoDgAjo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Dire, Dire Docks (From \"Super Mario 64\")",
+    "album": "Dire, Dire Docks (From \"Super Mario 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273744c114f3ecc17b47d1ff34a",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Dire, Dire Docks (From \"Super Mario 64\")",
+        "url": "youtube:j7YG5ojRDFM",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Brinstar - Red Soil (From \"Super Metroid\")",
+    "album": "Brinstar - Red Soil (From \"Super Metroid\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27370c48846356d252cddd8739f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Brinstar - Red Soil (From \"Super Metroid\")",
+        "url": "youtube:VKYComF206o",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Gourmet Race (From \"Kirby Super Star\")",
+    "album": "Gourmet Race (From \"Kirby Super Star\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27387d3cc4ee271b26f2fdc481a",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Gourmet Race (From \"Kirby Super Star\")",
+        "url": "youtube:OjPx9sogY9M",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Overworld (From \"Super Mario World 2: Yoshi's Island\")",
+    "album": "Overworld (From \"Super Mario World 2: Yoshi's Island\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27324470dda69de72156927bb50",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Overworld (From \"Super Mario World 2: Yoshi's Island\")",
+        "url": "youtube:cRMDZfSQFj4",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
+    "album": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e98f12eacdd3186f2b7c25d9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Bubblegum K.K. (From \"Animal Crossing: New Leaf\")",
+        "url": "youtube:xUkj5WqxhyQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Awake Now",
+    "album": "Awake Now",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a98c5c0da90bd86dcea03e4f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Awake Now",
+        "url": "youtube:H_L74R5UPc4",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Ecruteak City / Cianwood City (From \"Pokemon Gold and Silver\")",
+    "album": "Ecruteak City / Cianwood City (From \"Pokemon Gold and Silver\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2730b6abf3a3730f1537a48450c",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Ecruteak City / Cianwood City (From \"Pokemon Gold and Silver\")",
+        "url": "youtube:r6z-ZfEDl9k",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Athletic Theme (From \"Super Mario World\")",
+    "album": "Athletic Theme (From \"Super Mario World\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731595a0bd485134306b348653",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Athletic Theme (From \"Super Mario World\")",
+        "url": "youtube:W9urNCVWnh8",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Zelda's Lullaby (From \"The Legend of Zelda: Ocarina of Time\")",
+    "album": "Zelda's Lullaby (From \"The Legend of Zelda: Ocarina of Time\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273068b9e582764c4ae7b47ec34",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Zelda's Lullaby (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:SOOHlZ2v_cU",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Train Rush (From \"A Hat in Time\")",
+    "album": "Train Rush (From \"A Hat in Time\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732fdbfdd1b4fe3e0138ab45ba",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Train Rush (From \"A Hat in Time\")",
+        "url": "youtube:RBuZFJKquh0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "K.K. Disco (From \"Animal Crossing: New Leaf\")",
+    "album": "K.K. Disco (From \"Animal Crossing: New Leaf\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732822e902cd085c78b6e933a6",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "K.K. Disco (From \"Animal Crossing: New Leaf\")",
+        "url": "youtube:5rB1_dsZ4ZU",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Click Clock Wood (Winter) [From \"Banjo-Kazooie\"]",
+    "album": "Click Clock Wood (Winter) [From \"Banjo-Kazooie\"]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734c83648c53d97b19dc7e1628",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Click Clock Wood (Winter) [From \"Banjo-Kazooie\"]",
+        "url": "youtube:Q3D4VrYItko",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Rainbow Road (From \"Mario Kart 64\")",
+    "album": "Rainbow Road (From \"Mario Kart 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273767719b56fc3093ff535e576",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Rainbow Road (From \"Mario Kart 64\")",
+        "url": "youtube:94E-qYyKF48",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Goldenrod City (From \"Pokemon Gold & Silver\")",
+    "album": "Goldenrod City (From \"Pokemon Gold & Silver\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738dde25a2351ef8eaa4026e5a",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Goldenrod City (From \"Pokemon Gold & Silver\")",
+        "url": "youtube:SVKBpAORiAs",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Fodlan Winds (From \"Fire Emblem: Three Houses\")",
+    "album": "Fodlan Winds (From \"Fire Emblem: Three Houses\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273daf22e80a62bf509a96856fa",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Fodlan Winds (From \"Fire Emblem: Three Houses\")",
+        "url": "youtube:d59m-yVtiSg",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Vannalemon Orchestra Medley",
+    "album": "Vannalemon Orchestra Medley",
+    "artist": "Vannamelon",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735ed27aa3432f52d276a41f65",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb36a1c82c052f8fdfc08848f6",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Exhale (from \"Celeste\") (Piano Version)",
+        "url": "youtube:IWW_kTHD51M",
+        "trackNumber": 1
+      },
+      {
+        "title": "Snowdin Town (from \"Undertale\") (Piano Version)",
+        "url": "youtube:KidbQe-NiGc",
+        "trackNumber": 2
+      },
+      {
+        "title": "Luma (from \"Super Mario Galaxy\") (Piano Version)",
+        "url": "youtube:vMZVSsxvIEc",
+        "trackNumber": 3
+      },
+      {
+        "title": "Verdanturf Town (from \"Pokemon: Ruby & Sapphire\") (Piano Version)",
+        "url": "youtube:2PRZP2CG0kk",
+        "trackNumber": 4
+      },
+      {
+        "title": "Revali's Theme (from \"Zelda: Breath of the Wild\") (Piano Version)",
+        "url": "youtube:78I5Amz-MnQ",
+        "trackNumber": 5
+      },
+      {
+        "title": "Toy Day (from \"Animal Crossing: New Horizons\") (Piano Version)",
+        "url": "youtube:734EjTnqYSo",
+        "trackNumber": 6
+      },
+      {
+        "title": "Resting Grounds (from \"Hollow Knight\") (Piano Version)",
+        "url": "youtube:cTUosQd7G3M",
+        "trackNumber": 7
+      },
+      {
+        "title": "To a New Adventure! (from \"Mario & Luigi: Bowser's Inside Story\") (Piano Version)",
+        "url": "youtube:RM6Lphravl0",
+        "trackNumber": 8
+      }
+    ]
+  },
+  {
+    "name": "Hateno Village (From \"The Legend of Zelda: Breath of the Wild\")",
+    "album": "Hateno Village (From \"The Legend of Zelda: Breath of the Wild\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273396d45713eb44ab59299fd45",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Hateno Village (From \"The Legend of Zelda: Breath of the Wild\")",
+        "url": "youtube:tXaCs4WQWo0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "E. Gadd's Lab (From \"Luigi's Mansion\")",
+    "album": "E. Gadd's Lab (From \"Luigi's Mansion\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27369df8e1ad28bca63d6e785e0",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "E. Gadd's Lab (From \"Luigi's Mansion\")",
+        "url": "youtube:Qfir-aBf1Ko",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Grunty's Lair (From \"Banjo-Kazooie\")",
+    "album": "Grunty's Lair (From \"Banjo-Kazooie\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27326011453226cc66987dc6c44",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Grunty's Lair (From \"Banjo-Kazooie\")",
+        "url": "youtube:pQ0zOkGAPaw",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "I Am",
+    "album": "I Am",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735c665b4cdfa586167b658e96",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "I Am",
+        "url": "youtube:XwvXA14mYbw",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "New Donk City (From \"Super Mario Odyssey\")",
+    "album": "New Donk City (From \"Super Mario Odyssey\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27366d4e307b891281aee6ec27f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "New Donk City (From \"Super Mario Odyssey\")",
+        "url": "youtube:O0V8Y0q2tMQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Koopa's Theme (From \"Super Mario 64\")",
+    "album": "Koopa's Theme (From \"Super Mario 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731fddd3523a44e593f15728c3",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Koopa's Theme (From \"Super Mario 64\")",
+        "url": "youtube:iqvAVqh5LGM",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "The Wind Can Be Still (Winter) [From \"Stardew Valley\"]",
+    "album": "The Wind Can Be Still (Winter) [From \"Stardew Valley\"]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b40aa50e6c7aefe382fb7737",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "The Wind Can Be Still (Winter) [From \"Stardew Valley\"]",
+        "url": "youtube:cAIjxR9H4sg",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Burning Town (From \"Shantae\")",
+    "album": "Burning Town (From \"Shantae\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733e9da183fbc35d015c73785f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Burning Town (From \"Shantae\")",
+        "url": "youtube:VEtabHPTVHs",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Spiral Mountain (From \"Banjo-Kazooie\")",
+    "album": "Spiral Mountain (From \"Banjo-Kazooie\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737006b1d5eb772f4b5b1e9137",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Spiral Mountain (From \"Banjo-Kazooie\")",
+        "url": "youtube:BzLbjBOSkx8",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Super Bell Hill (From \"Super Mario 3D World\")",
+    "album": "Super Bell Hill (From \"Super Mario 3D World\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27386399e3adc0d9ea6f0af6076",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Super Bell Hill (From \"Super Mario 3D World\")",
+        "url": "youtube:COqMmN7Cffo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "#8 regret (From \"Splatoon 2: Octo Expansion\")",
+    "album": "#8 regret (From \"Splatoon 2: Octo Expansion\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273923a85f7d7205fca7391675e",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "#8 regret (From \"Splatoon 2: Octo Expansion\")",
+        "url": "youtube:pCZHFlrbC3M",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Toy Box Battle (From \"Kingdom Hearts III\")",
+    "album": "Toy Box Battle (From \"Kingdom Hearts III\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273054cccfc9fc9f89a81e9630b",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Toy Box Battle (From \"Kingdom Hearts III\")",
+        "url": "youtube:eE6vw1qLGFE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Powerful Mario (From \"Super Mario 64\")",
+    "album": "Powerful Mario (From \"Super Mario 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273aeaeb40407581bdc7249308c",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Powerful Mario (From \"Super Mario 64\")",
+        "url": "youtube:kAU_UyA4ALU",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Big Blue (From \"F-Zero\")",
+    "album": "Big Blue (From \"F-Zero\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738d98376d2dde50fa26ca047b",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Big Blue (From \"F-Zero\")",
+        "url": "youtube:gOqIPvqn1YU",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Today's Results (From \"Pikmin\")",
+    "album": "Today's Results (From \"Pikmin\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735d76186eebb412aa6b6bcb06",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Today's Results (From \"Pikmin\")",
+        "url": "youtube:OHN7GhNuZ0E",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Coconut Mall (From \"Mario Kart Wii\")",
+    "album": "Coconut Mall (From \"Mario Kart Wii\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273031dfeafe9cadbb39fd3ee0d",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Coconut Mall (From \"Mario Kart Wii\")",
+        "url": "youtube:kleaVWJESuA",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Ricco Harbor (From \"Super Mario Sunshine\")",
+    "album": "Ricco Harbor (From \"Super Mario Sunshine\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27331eb7b2d795b7817cef7edfc",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Ricco Harbor (From \"Super Mario Sunshine\")",
+        "url": "youtube:xu8BYz2pKAs",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Violet City / Olivine City (From \"Pokemon Gold and Silver\")",
+    "album": "Violet City / Olivine City (From \"Pokemon Gold and Silver\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27330a0ab86c44e08b9a7b9a8d7",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Violet City / Olivine City (From \"Pokemon Gold and Silver\")",
+        "url": "youtube:2oQt0Uu7-2o",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Flower Garden (From \"Super Mario World 2: Yoshi's Island\")",
+    "album": "Flower Garden (From \"Super Mario World 2: Yoshi's Island\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27357c37631871c4d7a985ad928",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Flower Garden (From \"Super Mario World 2: Yoshi's Island\")",
+        "url": "youtube:PN3QFRt5KY0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "All-Star Rest Area (From \"Super Smash Bros. Melee\")",
+    "album": "All-Star Rest Area (From \"Super Smash Bros. Melee\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27399d7320a34edb5d4ef22410a",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "All-Star Rest Area (From \"Super Smash Bros. Melee\")",
+        "url": "youtube:YEyrDMVRo44",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Walrus Cove (From \"Diddy Kong Racing\")",
+    "album": "Walrus Cove (From \"Diddy Kong Racing\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733ffed7b2fa2d024094b06be2",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Walrus Cove (From \"Diddy Kong Racing\")",
+        "url": "youtube:JqrURkW2nEw",
+        "trackNumber": 1
+      },
+      {
+        "title": "Frosty Village (From \"Diddy Kong Racing\")",
+        "url": "youtube:oFSD3NEqQeE",
+        "trackNumber": 2
+      }
+    ]
+  },
+  {
+    "name": "Steam Gardens (From \"Super Mario Odyssey\")",
+    "album": "Steam Gardens (From \"Super Mario Odyssey\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273aa82bf3985397b4d2c74c32f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Steam Gardens (From \"Super Mario Odyssey\")",
+        "url": "youtube:h5BA0m2F29E",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Final Battle! (Rival) (From \"Pokemon Red and Blue\")",
+    "album": "Final Battle! (Rival) (From \"Pokemon Red and Blue\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a231a8623393a2fd7b86c534",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Final Battle! (Rival) (From \"Pokemon Red and Blue\")",
+        "url": "youtube:PQ3Eu8wA6J0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Go. K.K. Rider! (From \"Animal Crossing\")",
+    "album": "Go. K.K. Rider! (From \"Animal Crossing\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738758e9719e77b5377306639e",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Go. K.K. Rider! (From \"Animal Crossing\")",
+        "url": "youtube:zlzBU4EMg3g",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Frantic Factory (From \"Donkey Kong 64\")",
+    "album": "Frantic Factory (From \"Donkey Kong 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273969ade01e93190e786a13eae",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Frantic Factory (From \"Donkey Kong 64\")",
+        "url": "youtube:UO82XG7kJ3Y",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Lavender Town (From \"Pokemon Red and Blue\")",
+    "album": "Lavender Town (From \"Pokemon Red and Blue\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738d52f7550b2853b8b328bbc4",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Lavender Town (From \"Pokemon Red and Blue\")",
+        "url": "youtube:g8ql9lvJ0KE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "World Bowser (From \"Super Mario 3D World\")",
+    "album": "World Bowser (From \"Super Mario 3D World\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273171b935c3e07af41d8c3bdf3",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "World Bowser (From \"Super Mario 3D World\")",
+        "url": "youtube:le2gIwYx0Qo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Green Greens (From \"Kirby's Dream Land\")",
+    "album": "Green Greens (From \"Kirby's Dream Land\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731c6530d48f81e402e01d03c6",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Green Greens (From \"Kirby's Dream Land\")",
+        "url": "youtube:JFCKPL5qMK0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Hyrule Field (From \"The Legend of Zelda: Ocarina of Time\")",
+    "album": "Hyrule Field (From \"The Legend of Zelda: Ocarina of Time\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e44aac4b030b96d3ec83fcb5",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Hyrule Field (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:OHsiwYU_pcI",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Birabuto Kingdom (From \"Super Mario Land\")",
+    "album": "Birabuto Kingdom (From \"Super Mario Land\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27360c239689632c774708688ac",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Birabuto Kingdom (From \"Super Mario Land\")",
+        "url": "youtube:tOxhfS7KT_o",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Dragon Roost Island (From \"The Legend of Zelda: The Wind Waker\")",
+    "album": "Dragon Roost Island (From \"The Legend of Zelda: The Wind Waker\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27380e071592bcffd1aa3693d1a",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Dragon Roost Island (From \"The Legend of Zelda: The Wind Waker\")",
+        "url": "youtube:2Q967M5KixM",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Fly Octo Fly ~ Ebb & Flow (From \"Splatoon 2: Octo Expansion\")",
+    "album": "Fly Octo Fly ~ Ebb & Flow (From \"Splatoon 2: Octo Expansion\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ed3b56299e39645d2bd39b2f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Fly Octo Fly ~ Ebb & Flow (From \"Splatoon 2: Octo Expansion\")",
+        "url": "youtube:Rdx_b7YrWsE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Verdanturf Town (From \"Pokemon Ruby and Sapphire\")",
+    "album": "Verdanturf Town (From \"Pokemon Ruby and Sapphire\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a7d72b65ca0aff480f79551b",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Verdanturf Town (From \"Pokemon Ruby and Sapphire\")",
+        "url": "youtube:5vjwRo6Mb1M",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Green Hill Zone (From \"Sonic the Hedgehog\")",
+    "album": "Green Hill Zone (From \"Sonic the Hedgehog\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732cb822dc87e7d72423240d69",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Green Hill Zone (From \"Sonic the Hedgehog\")",
+        "url": "youtube:oNC5SO4NhSk",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Waluigi Pinball / Wario Stadium (From \"Mario Kart DS\")",
+    "album": "Waluigi Pinball / Wario Stadium (From \"Mario Kart DS\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27327f02b8e0af7efb3370e0c16",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Waluigi Pinball / Wario Stadium (From \"Mario Kart DS\")",
+        "url": "youtube:-Zl_TIv7drg",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Kaepora Gaebora (From \"The Legend of Zelda: Ocarina of Time\")",
+    "album": "Kaepora Gaebora (From \"The Legend of Zelda: Ocarina of Time\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734a4eb1845b8fd55073dc2c7e",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Kaepora Gaebora (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:pQ0ZX8At-kY",
+        "trackNumber": 1
+      },
+      {
+        "title": "Mr. Resetti's Theme (From \"Animal Crossing\")",
+        "url": "youtube:fSOCGrsY2Us",
+        "trackNumber": 2
+      }
+    ]
+  },
+  {
+    "name": "Mii Channel (From \"Nintendo Wii Mii Channel\")",
+    "album": "Mii Channel (From \"Nintendo Wii Mii Channel\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736d65e34ef9109e37cda55c51",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Mii Channel (From \"Nintendo Wii Mii Channel\")",
+        "url": "youtube:hQFtG3QeNRA",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Beneath the Mask (From \"Persona 5\")",
+    "album": "Beneath the Mask (From \"Persona 5\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27324bf55b1fe00d2a8e64ef3d9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Beneath the Mask (From \"Persona 5\")",
+        "url": "youtube:yNN1h3ia-BE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Pokemon Center (From \"Pokemon Red and Blue\")",
+    "album": "Pokemon Center (From \"Pokemon Red and Blue\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d5515eaee47e40288b476c20",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Pokemon Center (From \"Pokemon Red and Blue\")",
+        "url": "youtube:phbQDW0XrdQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Staff Roll (From \"Super Mario 64\")",
+    "album": "Staff Roll (From \"Super Mario 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733e0a09c3ef4e1e02f8d30dc0",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Staff Roll (From \"Super Mario 64\")",
+        "url": "youtube:z1XxUCz-e9k",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Title Theme (From \"Jazz Jackrabbit\")",
+    "album": "Title Theme (From \"Jazz Jackrabbit\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27370e19a93bdb8901cf2c632f5",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Title Theme (From \"Jazz Jackrabbit\")",
+        "url": "youtube:mgz7-V35q-E",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Love Is in the Air (From \"Yoshi's Story\")",
+    "album": "Love Is in the Air (From \"Yoshi's Story\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733545fceedad9cd4a806d73a9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Love Is in the Air (From \"Yoshi's Story\")",
+        "url": "youtube:IYGAg-qF9gQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Snow Mountain (From \"Super Mario 64\")",
+    "album": "Snow Mountain (From \"Super Mario 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27317fe8dafdda0dd089d54ec09",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Snow Mountain (From \"Super Mario 64\")",
+        "url": "youtube:4_hoscdtefI",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Frappe Snowland / Sherbet Land (From \"Mario Kart 64\")",
+    "album": "Frappe Snowland / Sherbet Land (From \"Mario Kart 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27300c4d7a3b6a4a4dd641a302f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Frappe Snowland / Sherbet Land (From \"Mario Kart 64\")",
+        "url": "youtube:sKtaEp0gOVw",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Overworld Day (From \"Terraria\")",
+    "album": "Overworld Day (From \"Terraria\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c36a857eed16688ffb5d58b5",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Overworld Day (From \"Terraria\")",
+        "url": "youtube:rHxHqhTcAys",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Realm Overworld (From \"The Legend of Zelda: Spirit Tracks\")",
+    "album": "Realm Overworld (From \"The Legend of Zelda: Spirit Tracks\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c23caa7cd78d458c46f2bc5f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Realm Overworld (From \"The Legend of Zelda: Spirit Tracks\")",
+        "url": "youtube:BVK-x0Gnbog",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Die House (From \"Cuphead\")",
+    "album": "Die House (From \"Cuphead\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e670945842d126ef18d74f71",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Die House (From \"Cuphead\")",
+        "url": "youtube:qJmxrnioSrE",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Luma (From \"Super Mario Galaxy\")",
+    "album": "Luma (From \"Super Mario Galaxy\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273af1967d1b26dae0dd758e0e0",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Luma (From \"Super Mario Galaxy\")",
+        "url": "youtube:g-uApFBqMuY",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Library Piano (From \"Luigi's Mansion: Dark Moon\")",
+    "album": "Library Piano (From \"Luigi's Mansion: Dark Moon\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273aeb70da0ae4287b250065293",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Library Piano (From \"Luigi's Mansion: Dark Moon\")",
+        "url": "youtube:Xokx96yxEws",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Prince Sidon (From \"The Legend of Zelda: Breath of the Wild\")",
+    "album": "Prince Sidon (From \"The Legend of Zelda: Breath of the Wild\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738fd2ed6c445f7237fc31cc5d",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Prince Sidon (From \"The Legend of Zelda: Breath of the Wild\")",
+        "url": "youtube:gMklK5Eh13U",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Vampire Killer (From \"Castlevania\") / Beginning (From \"Castlevania III: Dracula's Curse\")",
+    "album": "Vampire Killer (From \"Castlevania\") / Beginning (From \"Castlevania III: Dracula's Curse\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736266669a9e907b7dbc4127c0",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Vampire Killer (From \"Castlevania\") / Beginning (From \"Castlevania III: Dracula's Curse\")",
+        "url": "youtube:buTtWGI1KgI",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "National Park (From \"Pokemon Gold and Silver\")",
+    "album": "National Park (From \"Pokemon Gold and Silver\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d20914d15a0d1a8dd9b20711",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "National Park (From \"Pokemon Gold and Silver\")",
+        "url": "youtube:GtxZJnDZZg0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Slider (From \"Super Mario 64\")",
+    "album": "Slider (From \"Super Mario 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27395ddf4ec8390c5948e8cf33b",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Slider (From \"Super Mario 64\")",
+        "url": "youtube:iYm6pknZLiQ",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Escape from the City (From \"Sonic Adventure 2\")",
+    "album": "Escape from the City (From \"Sonic Adventure 2\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b756454e920dfdea2c09d71d",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Escape from the City (From \"Sonic Adventure 2\")",
+        "url": "youtube:pZ11_Iv9a-Y",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Sweden (From \"Minecraft\")",
+    "album": "Sweden (From \"Minecraft\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733911070967374143b99372d4",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Sweden (From \"Minecraft\")",
+        "url": "youtube:ye3v3R07pCk",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Overworld (From \"Super Mario Bros. 2\")",
+    "album": "Overworld (From \"Super Mario Bros. 2\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735220d95946cd96fb19f2f8cc",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Overworld (From \"Super Mario Bros. 2\")",
+        "url": "youtube:ZyX0C-zRVZU",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Jump Up, Super Star! (From \"Super Mario Odyssey\")",
+    "album": "Jump Up, Super Star! (From \"Super Mario Odyssey\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273040c8e4ba31e11a1e7b9905c",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Jump Up, Super Star! (From \"Super Mario Odyssey\")",
+        "url": "youtube:MTxMh6qu6Mw",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Gerudo Valley (From \"The Legend of Zelda: Ocarina of Time\")",
+    "album": "Gerudo Valley (From \"The Legend of Zelda: Ocarina of Time\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737d9747ca945586103dbf1ea9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Gerudo Valley (From \"The Legend of Zelda: Ocarina of Time\")",
+        "url": "youtube:HdkIP-07Ue0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Click Clock Wood (Spring) [From \"Banjo-Kazooie\"]",
+    "album": "Click Clock Wood (Spring) [From \"Banjo-Kazooie\"]",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27306944156875daf7370f73e8d",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Click Clock Wood (Spring) [From \"Banjo-Kazooie\"]",
+        "url": "youtube:9tt1ywm06bM",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "King Dedede's Theme (From \"Kirby Super Star\")",
+    "album": "King Dedede's Theme (From \"Kirby Super Star\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735f624c8051294bc92dfeb9d0",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "King Dedede's Theme (From \"Kirby Super Star\")",
+        "url": "youtube:VaUX4GWNex0",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Inside the Castle Walls (From \"Super Mario 64\")",
+    "album": "Inside the Castle Walls (From \"Super Mario 64\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732dcb24a43a3f022f0a5c8040",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Inside the Castle Walls (From \"Super Mario 64\")",
+        "url": "youtube:77PW1gc4G2Q",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Darkmoon Caverns (From \"Diddy Kong Racing\")",
+    "album": "Darkmoon Caverns (From \"Diddy Kong Racing\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b3eadd987f3841a7e9e54791",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Darkmoon Caverns (From \"Diddy Kong Racing\")",
+        "url": "youtube:euesv9LEdwo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Overworld (From \"Super Mario Bros. 3\")",
+    "album": "Overworld (From \"Super Mario Bros. 3\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27379643a43a465d5401bf2c74f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Overworld (From \"Super Mario Bros. 3\")",
+        "url": "youtube:mS9isgwVBrM",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Calamari Inkantation (From \"Splatoon\")",
+    "album": "Calamari Inkantation (From \"Splatoon\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273fb264bab14589b6a1cb3b353",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Calamari Inkantation (From \"Splatoon\")",
+        "url": "youtube:Tr8flcTvBPo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Overworld (From \"Super Mario World\")",
+    "album": "Overworld (From \"Super Mario World\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27385d82c361b8cc69fdfee122f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Overworld (From \"Super Mario World\")",
+        "url": "youtube:usSyRuh8TAs",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Outset Island (From \"The Legend of Zelda: The Wind Waker\")",
+    "album": "Outset Island (From \"The Legend of Zelda: The Wind Waker\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cbe4f4c6e21c9857941ee615",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Outset Island (From \"The Legend of Zelda: The Wind Waker\")",
+        "url": "youtube:B_LyMKEvuHs",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Cynthia: Champion Cynthia (From \"Pokemon Diamond and Pearl\") / Battle! Champion (From \"Pokemon Diamond and Pearl\")",
+    "album": "Cynthia: Champion Cynthia (From \"Pokemon Diamond and Pearl\") / Battle! Champion (From \"Pokemon Diamond and Pearl\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735afaf167df5e80811cf4d5a6",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Cynthia: Champion Cynthia (From \"Pokemon Diamond and Pearl\") / Battle! Champion (From \"Pokemon Diamond and Pearl\")",
+        "url": "youtube:BnKBk2HwIRo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Dragonborn (From \"The Elder Scrolls V: Skyrim\")",
+    "album": "Dragonborn (From \"The Elder Scrolls V: Skyrim\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273aadef37d9d19c82472ac50bf",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Dragonborn (From \"The Elder Scrolls V: Skyrim\")",
+        "url": "youtube:ZJJkKjIp3bA",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Gusty Garden Galaxy (From \"Super Mario Galaxy\")",
+    "album": "Gusty Garden Galaxy (From \"Super Mario Galaxy\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27302bb48f42aaa0b9da37e395f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Gusty Garden Galaxy (From \"Super Mario Galaxy\")",
+        "url": "youtube:KgJtpH3_4Hk",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Home (From \"Rune Factory Frontier\")",
+    "album": "Home (From \"Rune Factory Frontier\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734fb5d4c3a02824944781770d",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Home (From \"Rune Factory Frontier\")",
+        "url": "youtube:qw10NNgrFfs",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Dearly Beloved (From \"Kingdom Hearts II\")",
+    "album": "Dearly Beloved (From \"Kingdom Hearts II\")",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732b576ef608d0f9ee938b458f",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Dearly Beloved (From \"Kingdom Hearts II\")",
+        "url": "youtube:X6Ijq-7HuwA",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Delfino Plaza",
+    "album": "Delfino Plaza",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f33d759306044c2f7c72d299",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Delfino Plaza",
+        "url": "youtube:j6L1V6_odKs",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Midna's Lament",
+    "album": "Midna's Lament",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273be79b27e9bf999a13a1b08ab",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Midna's Lament",
+        "url": "youtube:lWWNEb_h_dM",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Calling the Four Giants",
+    "album": "Calling the Four Giants",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f48f042cf864d92e76a483e9",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Calling the Four Giants",
+        "url": "youtube:wyROmE4WkL4",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Bob-Omb Battlefield",
+    "album": "Bob-Omb Battlefield",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27377456930ea04313b9a557799",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Bob-Omb Battlefield",
+        "url": "youtube:8raQUS6Daoo",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Corneria",
+    "album": "Corneria",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c8ebe8ece38c2d34eb152563",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Corneria",
+        "url": "youtube:BDTSAlI2Vj4",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Luigi's Mansion",
+    "album": "Luigi's Mansion",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731eb09c4ba0f24bd81c5d7ca2",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Luigi's Mansion",
+        "url": "youtube:80hBcnnuyHg",
+        "trackNumber": 1
+      }
+    ]
+  },
+  {
+    "name": "Memories of Green",
+    "album": "Memories of Green",
+    "artist": "Qumu",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27323cb9bc6b88010dc25673292",
+    "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+    "visibleTo": [
+      "all"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "album",
+    "songs": [
+      {
+        "title": "Memories of Green",
+        "url": "youtube:_YpOrvSEjSE",
+        "trackNumber": 1
+      }
+    ]
+  }
+]

@@ -394,9 +394,9 @@ class SpotifyHandler {
             //items = [await this.getPlaylist(id)];
             //return {"type": "playlist", results: []};
             var playlist = await this.getPlaylist(id);
-            console.log(playlist);
+            //console.log(playlist);
             const mappedPlaylist = await this.mapSpotifyResults([playlist]);
-            console.log(mappedPlaylist);
+            //console.log(mappedPlaylist);
             return mappedPlaylist;
           }
         } else if (["track", "album", "artist"].includes(mediaType)) {
@@ -428,7 +428,7 @@ class SpotifyHandler {
     this.userToken = null;
   }
 
-  async findItems(selected, username) {
+  async findItems(selected, username, progressCallback) {
     const found = [];
     var toProcess = [];
 
@@ -486,7 +486,9 @@ class SpotifyHandler {
           type: "song",
         };
       });
-      const songResults = await Promise.all(songPromises);
+      var trackableProgress = utils.trackProgressEvent(songPromises);
+      trackableProgress.emitter.on("progress", progressCallback);
+      const songResults = (await trackableProgress.promise).filter((p) => p.status == "fulfilled" && p.value !== null).map((p) => p.value);
       found.push(...songResults);
     }
 
@@ -498,12 +500,15 @@ class SpotifyHandler {
         //console.log("SpotifyHandler: Fetched artist", artist.name, "adding", abums.length, "albums");
         return abums;
       });
-      const artistResults = await Promise.all(artistPromises);
-      console.log(
-        "SpotifyHandler: Fetched artists, adding",
-        artistResults[0].length,
-        "artist albums",
-      );
+      const trackableProgress = utils.trackProgressEvent(artistPromises);
+      trackableProgress.emitter.on("progress", progressCallback);
+      const artistResults = (await trackableProgress.promise).filter((p) => p.status == "fulfilled" && p.value !== null).map((p) => p.value);
+      //const artistResults = await Promise.all(artistPromises);
+      //console.log(
+      //  "SpotifyHandler: Fetched artists, adding",
+      //  artistResults[0].length,
+      //  "artist albums",
+      //);
       artistResults.forEach((aAlbums) => (albums = [albums, ...aAlbums]));
     }
     console.log(
@@ -522,7 +527,7 @@ class SpotifyHandler {
         if (youtubeInfo.length === 0) return null;
 
         const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
-        console.log("ALBUM: ", album);
+        //console.log("ALBUM: ", album);
 
         try {
           return {
@@ -547,8 +552,11 @@ class SpotifyHandler {
           return null;
         }
       });
-      const albumResults = await Promise.all(albumPromises);
-      found.push(...albumResults.filter((r) => r !== null));
+      //const albumResults = await Promise.all(albumPromises);
+      var trackableProgress = utils.trackProgressEvent(albumPromises);
+      trackableProgress.emitter.on("progress", progressCallback);
+      const albumResults = (await trackableProgress.promise).filter((p) => p.status == "fulfilled" && p.value != null).map((p) => p.value);
+      found.push(...albumResults);
     }
 
     if (playlists.length > 0) {
@@ -578,7 +586,10 @@ class SpotifyHandler {
           };
         });
         console.log("SpotifyHandler.findItems: Waiting on song promises");
-        var songResults = await Promise.all(songPromises);
+        var trackableProgress = utils.trackProgressEvent(songPromises);
+        trackableProgress.emitter.on("progress", progressCallback);
+        var songResults = (await trackableProgress.promise).filter((r) => r !== null && r.status == "fulfilled").map(r => r.value);
+
         songResults = songResults.filter((r) => r !== null);
         console.log("SpotifyHandler.findItems: Song promises resolved");
         return {
@@ -709,7 +720,7 @@ class SpotifyHandler {
           type: "artist",
         };
       } else if (item.type === "playlist") {
-        console.log(item);
+        //console.log(item);
         return {
           id: item.id || "",
           name: item.name || "",
@@ -740,10 +751,11 @@ class SpotifyHandler {
   // THIS IS WHERE YOU REFORMAT THE FINAL RESULTS
   mapFoundResults(found, user) {
     return found.map((x) => {
-      console.log("SpotifyHandler.mapFoundResults: Found item", x);
+      //console.log("SpotifyHandler.mapFoundResults: Found item", x);
       if (x.type == "foundplaylist") {
         x.type = "playlist";
         x.visibleTo = ["all"];
+        x.allowedCollaborators = [user];
         x.inLibrary = x.inLibrary || [user];
         return x;
       }

@@ -15,8 +15,7 @@
     "visibleTo": [
       "all",
       "jedi"
-    ],
-    "type": "artist"
+    ]
   },
   {
     "_id": "67abbfeae2acaa6d69089271",
@@ -52,7 +51,8 @@
       "connor",
       "jedi",
       "abby"
-    ]
+    ],
+    "type": "artist"
   },
   {
     "_id": "67abd5c8169fed72f92182dc",

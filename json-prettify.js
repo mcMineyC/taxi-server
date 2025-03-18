@@ -1,0 +1,13 @@
+import fs from 'fs';
+var filename = process.argv[2];
+var outputFilename = process.argv[3];
+console.log("Prettifying", filename);
+console.log("Reading file");
+var fileContents = fs.readFileSync(filename, 'utf-8');
+console.log("Parsing");
+var json = JSON.parse(fileContents);
+console.log("Prettifying");
+var output = JSON.stringify(json, null, 2);
+console.log("Writing file");
+fs.writeFileSync(outputFilename || filename, output, 'utf-8');
+console.log("Done");
