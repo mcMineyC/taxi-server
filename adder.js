@@ -485,6 +485,7 @@ async function adderMergeLogic(
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
       duration: 0,
+      trackNumber: 0,
       audioUrl: songData.audioUrl,
       imageUrl: songData.imageUrl,
       added: Date.now(),

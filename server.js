@@ -614,6 +614,7 @@ app.post("/info/songs/by/album/:id", async function (req, res) {
     .find(query)
     .sort({ trackNumber: 1 })
     .toArray();
+  console.log(data);
 
   console.log("Sending songs");
   res.send({ authed: true, songs: data });
@@ -1230,6 +1231,11 @@ app.post("/recently-played/:user", async function (req, res) {
     res.send({ authed: false, played: [] });
     return;
   }
+  var limit = 256
+  if (typeof req.query.limit == "int" || typeof req.query.limit == "string") {
+    limit = parseInt(req.query.limit);
+  }
+
   var played = await db
     .collection("played")
     .findOne({ owner: req.params.user });
@@ -1237,8 +1243,10 @@ app.post("/recently-played/:user", async function (req, res) {
     res.send({ played: [], authed: true, success: true });
     return;
   }
+  var preppedPlayed = played.songs.filter((n) => n).filter((n) => n != "idklol");
+  preppedPlayed = preppedPlayed.slice(0, limit);
   res.send({
-    played: played.songs.filter((n) => n).filter((n) => n != "idklol") || [],
+    played: preppedPlayed || [],
     authed: true,
     success: true,
   });

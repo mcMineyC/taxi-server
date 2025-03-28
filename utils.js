@@ -52,17 +52,21 @@ async function addToRecentlyPlayed(user, songId, db) {
   var recent = await db.collection("played").findOne({ owner: user });
   if (recent != null && recent.songs[recent.songs.length - 1] == songId) return;
   console.log("Adding to recent: ", user, songId);
-  var newRecent = { owner: user, songs: [] };
+  songId = songId.toString();
+  if (songId == "undefined") return;
+  var song = await db.collection("songs").findOne({ id: songId });
+  console.log("Song: ", song);
+  var newRecent = { owner: user, songs: [song] };
   if (recent == null) {
     console.log("Recent is null");
-    newRecent = { owner: user, songs: [songId] };
+    newRecent = { owner: user, songs: [song] };
   } else {
     newRecent.songs = recent.songs;
-    if (recent.songs.length >= 10) {
+    if (recent.songs.length >= 256) {
       console.log("Too long");
       newRecent.songs.splice(0, 1);
     }
-    newRecent.songs.push(songId);
+    newRecent.songs.push(song);
   }
   await db
     .collection("played")
