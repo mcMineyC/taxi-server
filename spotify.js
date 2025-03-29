@@ -480,7 +480,7 @@ class SpotifyHandler {
               url:
                 "youtube:" +
                 (youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || ""),
-              trackNumber: track.track_number || 0,
+              trackNumber: track.track_number || -2,
             },
           ],
           type: "song",
@@ -544,7 +544,7 @@ class SpotifyHandler {
               title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
               url: "youtube:" + (x.videoId || x.browseId || ""),
               trackNumber: index + 1,
-            })),
+            })).sort((a, b) => a.trackNumber - b.trackNumber),
             type: "album",
           };
         } catch (e) {
@@ -581,7 +581,7 @@ class SpotifyHandler {
             visibleTo: ["all"],
             inLibrary: [username],
             url: "youtube:" + (song.videoId || song.browseId || ""),
-            trackNumber: track.track_number || index + 1,
+            trackNumber: track.track_number || -2,
             type: "song",
           };
         });

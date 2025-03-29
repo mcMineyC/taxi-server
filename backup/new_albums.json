@@ -1,1 +1,240 @@
-[]
+[
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee4",
+    "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Dyro",
+    "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+    "displayName": "Memory Bank",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee5",
+    "id": "27272eb1174d533483157b0fab2106fedbf5dea8487449ab8badd40dd61fb7ca_54fb636380fa6abc133f1ebec7b7fb63ae079670acfeb8c5c29f5c9c6fdc2884",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Dirty Rush & Gregor Es",
+    "artistId": "27272eb1174d533483157b0fab2106fedbf5dea8487449ab8badd40dd61fb7ca",
+    "displayName": "Brass",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273647e4b3f8949416e20bf7b98",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee6",
+    "id": "1e06dee19176888dc93c498a0c6d49e992f57fba32684030f19f072649fc74b1_b400a89c83fd5e51dad7b868f954bffb9068ec92e3d862680e00be21dd23172d",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Galexis",
+    "artistId": "1e06dee19176888dc93c498a0c6d49e992f57fba32684030f19f072649fc74b1",
+    "displayName": "Equinox",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27391546b093366e998b7eb4e32",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee7",
+    "id": "e7a4df86fef8b3993f065c1838f20c05de1f1375209fc49b65942e7e8ba92c79_abd149214539d9f222d25de6358735b9fa0efd3956f66102b2c119ae2d9f6348",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "EarthLife",
+    "artistId": "e7a4df86fef8b3993f065c1838f20c05de1f1375209fc49b65942e7e8ba92c79",
+    "displayName": "India",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e6e675553aaf38316084fe6c",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee8",
+    "id": "ebd980ab289332c8595959e6a5e4d6aa879c80541cd2f5b3457e9f9fab9aa608_66a3afae1562b6ae01f3d6ff5678d66d697991a86ed127050a04b9024e116d85",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Teset",
+    "artistId": "ebd980ab289332c8595959e6a5e4d6aa879c80541cd2f5b3457e9f9fab9aa608",
+    "displayName": "Egress",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273271d63d25423aa85e97d9163",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee9",
+    "id": "973e81f473c6a2d4a88e9e67100753ad848249ea194045f3953553f731f2c082_00d60e31a4e6b8344d4201f25a6a7dee770713107f6d097abb01559d32b17f26",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Haddadi Von Engst",
+    "artistId": "973e81f473c6a2d4a88e9e67100753ad848249ea194045f3953553f731f2c082",
+    "displayName": "Run",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731716c03ebbfa18b8dac72134",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282eea",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "A Hometown Odyssey (The Story Continues)",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282eeb",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_08e801243614272297396f61442b7a5fc014b79480835553ab3f1ec75b8c742a",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "The Author",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737f114594c1e0fc87e74a25f6",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282eec",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "An Unlikely Origin Story",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739352d40590af809e9c297cbd",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282eed",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_20fccfd578d53f51ae2086d20314057a285c430e9bcdf5ee2bc36aee13de325f",
+    "added": 1743106415606,
+    "addedBy": "jedi",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "Otherside",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732001852d3711355e639bc0b9",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282eee",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_1290063e4312b4522bac0a535f88c59ffd0f3dc5bb0e6be12e412096ae3c29df",
+    "added": 1743106415606,
+    "addedBy": "jedi",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "Look Mom I Can Fly",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273bd2b1340bdb53ddbe496641b",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282eef",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_8e33279bdb3eca490efa4b33897039df48d7121cf1aec7a922f619dd035a08b2",
+    "added": 1743106415606,
+    "addedBy": "jedi",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "Hurricane",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d793a4a838e17317abc95cbb",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef0",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_2efc08def5d0834e1277e7269001e54bbec9f646bc45ae47d59df564d98fd8e7",
+    "added": 1743106415606,
+    "addedBy": "jedi",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "displayName": "Gravedigger",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738751127c8a41db06cb0e2276",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6550b",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "added": 1743211473561,
+    "addedBy": "jedi",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "displayName": "Wanderstop",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "all"
+    ]
+  }
+]

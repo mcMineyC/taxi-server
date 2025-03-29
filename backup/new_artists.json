@@ -1,1 +1,130 @@
-[]
+[
+  {
+    "_id": "67e5b16ff9a3b5fc5b282edd",
+    "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "Dyro",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb8137545b2db84fd837d04efb",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "jedi"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ede",
+    "id": "27272eb1174d533483157b0fab2106fedbf5dea8487449ab8badd40dd61fb7ca",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "Dirty Rush & Gregor Es",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebcbec888b1b26825e08aa8cf4",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "jedi"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282edf",
+    "id": "1e06dee19176888dc93c498a0c6d49e992f57fba32684030f19f072649fc74b1",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "Galexis",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb4279e626905babea8370dd11",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "jedi"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee0",
+    "id": "e7a4df86fef8b3993f065c1838f20c05de1f1375209fc49b65942e7e8ba92c79",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "EarthLife",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb732c4c2192446c7eb24ddb92",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "jedi"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee1",
+    "id": "ebd980ab289332c8595959e6a5e4d6aa879c80541cd2f5b3457e9f9fab9aa608",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "Teset",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb4205aaab1895c49349103474",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "jedi"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee2",
+    "id": "973e81f473c6a2d4a88e9e67100753ad848249ea194045f3953553f731f2c082",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "Haddadi Von Engst",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebeebffff08878f3feb689c8c3",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "jedi"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ee3",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "Livingston",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebea8265060606ae633c4e1e32",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "jedi"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6550a",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "added": 1743211473561,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "C418",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eba9b8234e3071836212561d19",
+    "inLibrary": [
+      "jedi"
+    ],
+    "songCount": 0,
+    "visibleTo": [
+      "jedi"
+    ]
+  }
+]

@@ -50,23 +50,24 @@ async function getUser(authtoken, db) {
 async function addToRecentlyPlayed(user, songId, db) {
   // TODO NEED TO FIX
   var recent = await db.collection("played").findOne({ owner: user });
-  if (recent != null && recent.songs[recent.songs.length - 1] == songId) return;
+  if (recent != null && recent.songs[0].id == songId) return;
   console.log("Adding to recent: ", user, songId);
   songId = songId.toString();
   if (songId == "undefined") return;
   var song = await db.collection("songs").findOne({ id: songId });
+  if (song == null) return;
   console.log("Song: ", song);
-  var newRecent = { owner: user, songs: [song] };
+  var newRecent = {owner: user};
   if (recent == null) {
     console.log("Recent is null");
-    newRecent = { owner: user, songs: [song] };
+    newRecent.songs = [song];
   } else {
     newRecent.songs = recent.songs;
     if (recent.songs.length >= 256) {
       console.log("Too long");
-      newRecent.songs.splice(0, 1);
+      newRecent.songs.shift();
     }
-    newRecent.songs.push(song);
+    newRecent.songs.unshift(song);
   }
   await db
     .collection("played")

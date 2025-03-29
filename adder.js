@@ -485,7 +485,7 @@ async function adderMergeLogic(
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, ""),
       duration: 0,
-      trackNumber: 0,
+      trackNumber: songData.trackNumber || -1,
       audioUrl: songData.audioUrl,
       imageUrl: songData.imageUrl,
       added: Date.now(),
@@ -577,6 +577,7 @@ function flattenData(input, user) {
           visibleTo:
             songData.visibleTo == undefined ? [user] : songData.visibleTo,
           inLibrary: [user],
+          trackNumber: songData.trackNumber,
         });
       });
     });

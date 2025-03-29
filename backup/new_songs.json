@@ -1,1 +1,2732 @@
-[]
+[
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef1",
+    "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+    "added": 1743106415606,
+    "addedBy": "jedi",
+    "albumDisplayName": "Memory Bank",
+    "albumId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+    "artistDisplayName": "Dyro",
+    "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+    "audioUrl": "youtube:2LnMkxN5ezM",
+    "displayName": "Memory Bank",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef2",
+    "id": "27272eb1174d533483157b0fab2106fedbf5dea8487449ab8badd40dd61fb7ca_54fb636380fa6abc133f1ebec7b7fb63ae079670acfeb8c5c29f5c9c6fdc2884_54fb636380fa6abc133f1ebec7b7fb63ae079670acfeb8c5c29f5c9c6fdc2884",
+    "added": 1743106415607,
+    "addedBy": "jedi",
+    "albumDisplayName": "Brass",
+    "albumId": "27272eb1174d533483157b0fab2106fedbf5dea8487449ab8badd40dd61fb7ca_54fb636380fa6abc133f1ebec7b7fb63ae079670acfeb8c5c29f5c9c6fdc2884",
+    "artistDisplayName": "Dirty Rush & Gregor Es",
+    "artistId": "27272eb1174d533483157b0fab2106fedbf5dea8487449ab8badd40dd61fb7ca",
+    "audioUrl": "youtube:9w5OAUuGu8w",
+    "displayName": "Brass",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273647e4b3f8949416e20bf7b98",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef3",
+    "id": "1e06dee19176888dc93c498a0c6d49e992f57fba32684030f19f072649fc74b1_b400a89c83fd5e51dad7b868f954bffb9068ec92e3d862680e00be21dd23172d_b400a89c83fd5e51dad7b868f954bffb9068ec92e3d862680e00be21dd23172d",
+    "added": 1743106415607,
+    "addedBy": "jedi",
+    "albumDisplayName": "Equinox",
+    "albumId": "1e06dee19176888dc93c498a0c6d49e992f57fba32684030f19f072649fc74b1_b400a89c83fd5e51dad7b868f954bffb9068ec92e3d862680e00be21dd23172d",
+    "artistDisplayName": "Galexis",
+    "artistId": "1e06dee19176888dc93c498a0c6d49e992f57fba32684030f19f072649fc74b1",
+    "audioUrl": "youtube:CN1pyoUIalQ",
+    "displayName": "Equinox",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27391546b093366e998b7eb4e32",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef4",
+    "id": "e7a4df86fef8b3993f065c1838f20c05de1f1375209fc49b65942e7e8ba92c79_abd149214539d9f222d25de6358735b9fa0efd3956f66102b2c119ae2d9f6348_abd149214539d9f222d25de6358735b9fa0efd3956f66102b2c119ae2d9f6348",
+    "added": 1743106415607,
+    "addedBy": "jedi",
+    "albumDisplayName": "India",
+    "albumId": "e7a4df86fef8b3993f065c1838f20c05de1f1375209fc49b65942e7e8ba92c79_abd149214539d9f222d25de6358735b9fa0efd3956f66102b2c119ae2d9f6348",
+    "artistDisplayName": "EarthLife",
+    "artistId": "e7a4df86fef8b3993f065c1838f20c05de1f1375209fc49b65942e7e8ba92c79",
+    "audioUrl": "youtube:SvSAzZz0mv0",
+    "displayName": "India",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e6e675553aaf38316084fe6c",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef5",
+    "id": "ebd980ab289332c8595959e6a5e4d6aa879c80541cd2f5b3457e9f9fab9aa608_66a3afae1562b6ae01f3d6ff5678d66d697991a86ed127050a04b9024e116d85_fe689170440f9903428015b2a4cd6526d892d6eeb796c9508f3516b456dfad0e",
+    "added": 1743106415608,
+    "addedBy": "jedi",
+    "albumDisplayName": "Egress",
+    "albumId": "ebd980ab289332c8595959e6a5e4d6aa879c80541cd2f5b3457e9f9fab9aa608_66a3afae1562b6ae01f3d6ff5678d66d697991a86ed127050a04b9024e116d85",
+    "artistDisplayName": "Teset",
+    "artistId": "ebd980ab289332c8595959e6a5e4d6aa879c80541cd2f5b3457e9f9fab9aa608",
+    "audioUrl": "youtube:mb1cWtUpU5I",
+    "displayName": "Bloom",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273271d63d25423aa85e97d9163",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef6",
+    "id": "973e81f473c6a2d4a88e9e67100753ad848249ea194045f3953553f731f2c082_00d60e31a4e6b8344d4201f25a6a7dee770713107f6d097abb01559d32b17f26_00d60e31a4e6b8344d4201f25a6a7dee770713107f6d097abb01559d32b17f26",
+    "added": 1743106415608,
+    "addedBy": "jedi",
+    "albumDisplayName": "Run",
+    "albumId": "973e81f473c6a2d4a88e9e67100753ad848249ea194045f3953553f731f2c082_00d60e31a4e6b8344d4201f25a6a7dee770713107f6d097abb01559d32b17f26",
+    "artistDisplayName": "Haddadi Von Engst",
+    "artistId": "973e81f473c6a2d4a88e9e67100753ad848249ea194045f3953553f731f2c082",
+    "audioUrl": "youtube:i_WRDX18o54",
+    "displayName": "Run",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731716c03ebbfa18b8dac72134",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef7",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_7da52d87ce0fce929f2d637f5d714058bd74a45496b2c539af532e9340ce27b5",
+    "added": 1743106415609,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:HyQv53yWL7M",
+    "displayName": "The Game",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef8",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_d7ec4cdf7d782929f53c3800dd3f3e86cb3f901fd6b6be3ff1e734f03e0b39cd",
+    "added": 1743106415609,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:yCTY3daisG0",
+    "displayName": "Nightlight",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282ef9",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_914af5cb1d8bc7e77f5ecfd089f51dfa70bd446b5b3058537595c430af6a62e8",
+    "added": 1743106415610,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:fomVFqqCjw0",
+    "displayName": "Brainstorm",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282efa",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_fae1c6f105d6fca1cc2d2a72f0d1d36e378b3ff3f331a02c96434bd66ca912cf",
+    "added": 1743106415610,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:ymtDQQZ7OOE",
+    "displayName": "Reverse",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282efb",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_f534ed976dc8838f13bb15cd2eb51bb48099a845ad95089627072682a6ddbb54",
+    "added": 1743106415610,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:8YzPH0idqMI",
+    "displayName": "Glow",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282efc",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_fbd3d293afc6392625c38b335ca126b23987fd9617844e0bd60cdb6593cc5c8e",
+    "added": 1743106415611,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:QbtuuBAX52A",
+    "displayName": "Haunt Me",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282efd",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_e93a0afd38eba395d51de1c3fd970f5443b946705bb9e9d527d266f7f1220238",
+    "added": 1743106415611,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:unsFFIDYoHE",
+    "displayName": "Millionaire",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282efe",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_2efc08def5d0834e1277e7269001e54bbec9f646bc45ae47d59df564d98fd8e7",
+    "added": 1743106415611,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:dH-x6SbR7oU",
+    "displayName": "Gravedigger",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282eff",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_1290063e4312b4522bac0a535f88c59ffd0f3dc5bb0e6be12e412096ae3c29df",
+    "added": 1743106415611,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:EzyWDf1Cmlk",
+    "displayName": "Look Mom I Can Fly",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f00",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_b605350bc00209520b7cd8f546322663356ba630708f71bbf30aead6b3dd608e",
+    "added": 1743106415611,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:tMfV0H_chzo",
+    "displayName": "Introduction",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f01",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_4c764cb6248ef9337fc1c8769d4b74fc1d4c1fff6a9e8d00ca6753a560b3e74b",
+    "added": 1743106415611,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:Kq0M4miVjyw",
+    "displayName": "Shadow",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f02",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_5fcd0160688e28b59194bf0b6b26b6c92f9f49f8eb8e7718e4bac107c76b9758",
+    "added": 1743106415611,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:-JKfj4joW_Y",
+    "displayName": "Surprise!",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f03",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_dabe1d46b4236fd5573f912325a1cdd5be10750542b419073c476148cebfa391",
+    "added": 1743106415611,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:GFhmpVSfnZo",
+    "displayName": "Last Man Standing",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f04",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_2745c17f3ee532c1a27b1f78f4772c75437a13e6eb26f5d6772da1ba6b82cb42",
+    "added": 1743106415612,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:3NeyPoBQnkA",
+    "displayName": "Symphony",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f05",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_e4a3ed328bc4d240a7a887d713a6bb7d165dbafd6d116684470861492e3940d3",
+    "added": 1743106415612,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:LnhE5-ONvOc",
+    "displayName": "Half Life",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f06",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_618484e2c549451830e2b2c19b498d90b4fc8d206174f13c43ed058e6470ee2f",
+    "added": 1743106415612,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:O4rCNMl106E",
+    "displayName": "Neon",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f07",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_861eea32ae9990e1fda0eed4a52552c330f0d17043b515a0cce1792aa0ba4e49",
+    "added": 1743106415612,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:NyHfqT3JoSQ",
+    "displayName": "Architect",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f08",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_eaf0fe0a362b58490e9d73c9584a36ef7353872dd1663afef4e2099b88bf56bf",
+    "added": 1743106415612,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:tSlCVK8rXx4",
+    "displayName": "Warrior",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f09",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_bdcd897ab8ed585981ac297f3df0ee185c82a7a65c39ef3af8f863354086ef21",
+    "added": 1743106415612,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:mUV5eZnWY3w",
+    "displayName": "Lifetime",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f0a",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_a843fa0bbda9464a562e189eb2c88c7b0ccba2d733890a2d0a195f97cf15fa12",
+    "added": 1743106415612,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:IyQAPq6DMTM",
+    "displayName": "Royalty",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f0b",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_f2feacce5bb672a2b00931db8f4d0bb6af99bf545720b4d96c909c6be8a46a9e",
+    "added": 1743106415613,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:7iSNKxoc1jg",
+    "displayName": "Traitor",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f0c",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_d7d3f0fee39ef77f1065d423fbb4472393252e072785d157d19c591cfa666e00",
+    "added": 1743106415613,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:1N_2X744gyg",
+    "displayName": "The Ending You Deserve",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f0d",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f_4ce6d2de41162b61dddea81f0604b629460e3f697cd56b98c7553badf2ccfe7d",
+    "added": 1743106415613,
+    "addedBy": "jedi",
+    "albumDisplayName": "A Hometown Odyssey (The Story Continues)",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_7ebd42d183198bd117ca62c7b8f42160717f4c6f7ccef9f98f1ce58e4b43df3f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:sPad3yEAyaY",
+    "displayName": "Godspeed",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6c9241d596cfa2731d83962",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f0e",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_08e801243614272297396f61442b7a5fc014b79480835553ab3f1ec75b8c742a_08e801243614272297396f61442b7a5fc014b79480835553ab3f1ec75b8c742a",
+    "added": 1743106415613,
+    "addedBy": "jedi",
+    "albumDisplayName": "The Author",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_08e801243614272297396f61442b7a5fc014b79480835553ab3f1ec75b8c742a",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:lbfa8x9K6NA",
+    "displayName": "The Author",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737f114594c1e0fc87e74a25f6",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f0f",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80_095d425e2c9d0d010e6a6eb699a1672dde19359984d17cd602002f8efc2c65eb",
+    "added": 1743106415613,
+    "addedBy": "jedi",
+    "albumDisplayName": "An Unlikely Origin Story",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:10zQhoOJEaU",
+    "displayName": "Superkid",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739352d40590af809e9c297cbd",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f10",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80_52360dd6a09a8f196ce8cb8a536f7b08beb64540585c6ea8df8c8908f0e41040",
+    "added": 1743106415613,
+    "addedBy": "jedi",
+    "albumDisplayName": "An Unlikely Origin Story",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:AWmBVzpK6gE",
+    "displayName": "The Giver",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739352d40590af809e9c297cbd",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f11",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80_ef97a66f04394990d341c2a51eab11d6490d90f92318b50cc02988bd5fde0d88",
+    "added": 1743106415613,
+    "addedBy": "jedi",
+    "albumDisplayName": "An Unlikely Origin Story",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:l7IjITknG6k",
+    "displayName": "Hercules",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739352d40590af809e9c297cbd",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f12",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80_8335e4c92c40556ab31f1bc57faab0a2563d89f720a8e6740fee674ea79df3c9",
+    "added": 1743106415614,
+    "addedBy": "jedi",
+    "albumDisplayName": "An Unlikely Origin Story",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:ASN-WVP2kMA",
+    "displayName": "Echo",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739352d40590af809e9c297cbd",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f13",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80_9dee1c0ed39ef4e2686f974b5d574531fa5091be91e7ea72875e763278293ad4",
+    "added": 1743106415614,
+    "addedBy": "jedi",
+    "albumDisplayName": "An Unlikely Origin Story",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:nA03QK2-Oik",
+    "displayName": "Atlas",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739352d40590af809e9c297cbd",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f14",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80_66d584383aaa9c3215c83dbfd76dcb4a8be4e9f2dc761fec21d7b347e8538778",
+    "added": 1743106415614,
+    "addedBy": "jedi",
+    "albumDisplayName": "An Unlikely Origin Story",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:uWTQA81Krak",
+    "displayName": "Icarus",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739352d40590af809e9c297cbd",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f15",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80_f0e49253af923deede3b748b79f968d9d05b63284a87efec788343d77b84eb2a",
+    "added": 1743106415614,
+    "addedBy": "jedi",
+    "albumDisplayName": "An Unlikely Origin Story",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_55907281d1de51583baa1c48f8b78f18df6069cb77fd2d662d939d121bd82c80",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:9Lf86wMuxS4",
+    "displayName": "Toy Soldier",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739352d40590af809e9c297cbd",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f16",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_20fccfd578d53f51ae2086d20314057a285c430e9bcdf5ee2bc36aee13de325f_20fccfd578d53f51ae2086d20314057a285c430e9bcdf5ee2bc36aee13de325f",
+    "added": 1743106415614,
+    "addedBy": "jedi",
+    "albumDisplayName": "Otherside",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_20fccfd578d53f51ae2086d20314057a285c430e9bcdf5ee2bc36aee13de325f",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:kluT2qLsqco",
+    "displayName": "Otherside",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732001852d3711355e639bc0b9",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f17",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_1290063e4312b4522bac0a535f88c59ffd0f3dc5bb0e6be12e412096ae3c29df_1290063e4312b4522bac0a535f88c59ffd0f3dc5bb0e6be12e412096ae3c29df",
+    "added": 1743106415615,
+    "addedBy": "jedi",
+    "albumDisplayName": "Look Mom I Can Fly",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_1290063e4312b4522bac0a535f88c59ffd0f3dc5bb0e6be12e412096ae3c29df",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:EzyWDf1Cmlk",
+    "displayName": "Look Mom I Can Fly",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273bd2b1340bdb53ddbe496641b",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f18",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_8e33279bdb3eca490efa4b33897039df48d7121cf1aec7a922f619dd035a08b2_8e33279bdb3eca490efa4b33897039df48d7121cf1aec7a922f619dd035a08b2",
+    "added": 1743106415615,
+    "addedBy": "jedi",
+    "albumDisplayName": "Hurricane",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_8e33279bdb3eca490efa4b33897039df48d7121cf1aec7a922f619dd035a08b2",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:7gIkMtaNmkM",
+    "displayName": "Hurricane",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d793a4a838e17317abc95cbb",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e5b16ff9a3b5fc5b282f19",
+    "id": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_2efc08def5d0834e1277e7269001e54bbec9f646bc45ae47d59df564d98fd8e7_2efc08def5d0834e1277e7269001e54bbec9f646bc45ae47d59df564d98fd8e7",
+    "added": 1743106415615,
+    "addedBy": "jedi",
+    "albumDisplayName": "Gravedigger",
+    "albumId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb_2efc08def5d0834e1277e7269001e54bbec9f646bc45ae47d59df564d98fd8e7",
+    "artistDisplayName": "Livingston",
+    "artistId": "5314cc5ec1a0215a41076678d785b45be431871a1a602397e32fb29799b294bb",
+    "audioUrl": "youtube:dH-x6SbR7oU",
+    "displayName": "Gravedigger",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738751127c8a41db06cb0e2276",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 0,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6550c",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_b605350bc00209520b7cd8f546322663356ba630708f71bbf30aead6b3dd608e",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:q0-h7dd-_tE",
+    "displayName": "Introduction",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 1,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6550d",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_a58882ed2bcc505c449a18f8452e8e62acf74ab82c843f8b6d995a68bff6c17d",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:K72uTkUEpV0",
+    "displayName": "The Fighter",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 2,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6550e",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_ae4c8903193d33c4b56ed91bca35044e70be6e158b570073cfcefb90bce1b557",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:L9yY9fx3lNM",
+    "displayName": "Dusk Rush",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 3,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6550f",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_817c8d01e5373d591530c70c542f935cf18007b2063531fd381d0f5da71cbfb5",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:bikt5_hm2TU",
+    "displayName": "Unknowable",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 4,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65510",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_ab6409ea44dc3dd3ab1495f882504802bfa9294cbd9bb79acf1588571a01f369",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:H2LKNtFsHB0",
+    "displayName": "Twilight Breeze",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 5,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65511",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_45fa72ebe2e8afdc1d4d0bd09e05740453acbb7d6b895ea745bc93995b851232",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:kMOOt2X5OT8",
+    "displayName": "Wanderstop Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 6,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65512",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_285d69f0c5d1a00bb2eccde0cb4c93367b3e94955acff9fabd895f81a0c45c59",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:pA6dIGlLvxQ",
+    "displayName": "Clipboard",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 7,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65513",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_7b186aaf815451ab3e721bb76dd8520e11c31a6f4b35688c8ffdf1a560625a06",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:OoQR_msBqoY",
+    "displayName": "Vigilance",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 8,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65514",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_9eba77d4d676b844853024f2983a3f9a3aa063f6e3c71087af79ae6eb9c6ab75",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:F7CIkkzKGtQ",
+    "displayName": "Reinvigorating Weight",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 9,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65515",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_9dd19ef2733debd0ddadaec33a7dfbd355786c42bd1316b1193f09195e32cf16",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:NRvO6rQVolw",
+    "displayName": "Wanderstop Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 10,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65516",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_d5f9d9a85a3cc15592f02e8908d3c604103d5cf5bc8f08f8841ae7578d1ab008",
+    "added": 1743213296442,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:nkSnUQbkHAY",
+    "displayName": "Waterwheel",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 11,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65517",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_9f6dff45e08d3b998bbbfe17013ceae5165c44de4291a318e6e57e7e1c51c710",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:XZilog7sI6I",
+    "displayName": "Wanderstop Part 3",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 12,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65518",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_fabcfe46bf1b25e8a569babf7a9418d0579c4edbb2110d2f38e33801a1e31b3e",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:3t7cgwqGL1I",
+    "displayName": "The Forest",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 13,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65519",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_b063c0de5012c2fa8df7e30c1d86ffdfbd296de810e79e2e6155c589bf44dd34",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:Hp6dFCxXHEQ",
+    "displayName": "Photogrammetry",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 14,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6551a",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_26039ae72eeae0679ba34f0f707d21c4b6107fa1394bdc732fc16a5359494a74",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:IMKXVI_-yyw",
+    "displayName": "Earl Grey Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 15,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6551b",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_8d77768365ddba0edb3595e715a97fae2a9f1180a862ce9f223476407f4b862d",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:G4Wx8fz7jZs",
+    "displayName": "Cloak",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 16,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6551c",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_a5d359debcf7d629daabb719e492e12f8ae8d0eae782c8fdbd46549ae3690641",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:csITYQZHTWA",
+    "displayName": "Earl Grey Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 17,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6551d",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_ce6068872cb9483aab5639d9bcf8432dfede19250e17130c97a40e0d4841a4f0",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:ZxlUyvz4JgI",
+    "displayName": "Fence Height Apparitions",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 18,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6551e",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_cfdced0c8ff8ef4a2f9e867a80969c035dc35b360a7eb45270a8943b4d7291c6",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:IRpCULdZ5M4",
+    "displayName": "Broom",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 19,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6551f",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_bc7b26b1a9d2b091bdd1b1c3d2838ca99a66abf89cb9eb54ed4a5326c1a89f67",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:I-waMVkz6CU",
+    "displayName": "Earl Grey Part 3",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 20,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65520",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_2eae49a865779882c9166226df18907c7972969208174223b38c2492fc508367",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:Nr8cG7riO9c",
+    "displayName": "Warm Candles",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 21,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65521",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_da460b00d05701ff2f3afe5e18b53df8f62574c0dce6d9dccf56e891cee22e69",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:3hbVKD2wZXs",
+    "displayName": "Camomille Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 22,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65522",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_f27f13d02192a36a48f55fa51fce1218fdf6a1ed3797c7e4e2991302ac4e7388",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:I-SZU1YPrXM",
+    "displayName": "Pose",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 23,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65523",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_a5bfd205239d12a835ff20ae8995bf0c1f75b0b47bc5c9fc4813e5ba2eed9e07",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:gZLnqf_8az4",
+    "displayName": "Camomille Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 24,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65524",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_784023e3b6213b374efd4ab0bb76cb666ef744fd71f4e0a94b567e3306977a38",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:v0Ph1XrJFD4",
+    "displayName": "Eucalyptus Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 25,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65525",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_e2453072d3dc152e27887a1519a8b53f7722a17b49850442b4c31e2744d92f47",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:B3PdAJzABCE",
+    "displayName": "Ancient Community",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 26,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65526",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_67cf6a7d80a5565b89e1703e0147d2843326b2b98cdd5328b46df6ac64fb786c",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:jCJL_1bwMeg",
+    "displayName": "Foot Jam",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 27,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65527",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_d74b5e33b849813a2eeee5e4fbe58d0330611b887a1489d1657076c826db4f19",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:v2kQ1moHJEU",
+    "displayName": "Eucalyptus Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 28,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65528",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_22c90b340c7460eceb7a0ce33b21c6736df60e31dd9537a6e6bd5a8fcca5b7e3",
+    "added": 1743213296443,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:vEEx3Y2VN30",
+    "displayName": "Polaroid",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 29,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65529",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_9a52f0a0c7bd07b9955a647020111a41a8ae60fae10f7968e083b7b4acda955a",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:CvLQT_Eycsg",
+    "displayName": "Eucalyptus Part 3",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 30,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6552a",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_8c51601f17cbe2181d2d595b5f23da4541199b47480c0c99d9364ca1388d23af",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:FvCbvMKw0gE",
+    "displayName": "Proud",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 31,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6552b",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_e020e3c67bd0c31227720bd8eb2c3a777d162e0987e8fd8438b007c170266476",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:LJE7oKshvXg",
+    "displayName": "Release",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 32,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6552c",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_19dd83f117525b931fccdafe808aaa6939af792ee549f359eff13fac0d622f5d",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:8n4rxmukmdg",
+    "displayName": "Yellow",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 33,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6552d",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_37bf02bbdd8aba1434ca006f9f785ee664822d32d1561e2a618b840f4b08d132",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:zPMh4Pp6Xco",
+    "displayName": "Patience",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 34,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6552e",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_89cf174428f58d603e5a069ae04f6b88fe4ea8a22d18bca2f07654bc421ba291",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:VJiX_0UcyDc",
+    "displayName": "Ginger Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 35,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6552f",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_6e0b22a7cbc02ac3fa07d45e2880b7696aaebeb29574dce81789e570570c9002",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:QCq3ZldvKZ8",
+    "displayName": "Dividends",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 36,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65530",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_d4318208a3f7449b9734cb66ce2a60de02ed67f214cd4305f2dbe739dc9bfdbf",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:hw8NzopTDtY",
+    "displayName": "The Arena",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 37,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65531",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_3c2f620cbf7ab8b6eb80e0b67c83bef7debabea99d2d36ff031a7a5dc36945c0",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:6b7fAHoBbT4",
+    "displayName": "Ginger Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 38,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65532",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_c07513328104b15e2b3be00a018a690231b1fdf8fa441b5103182b3d8199aa55",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:RXqHoMn9Wn0",
+    "displayName": "Determination",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 39,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65533",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_139066bc3432a0e1b41bb25f0386d4cfbad28d846a3af7d974035661a9dc1789",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:tARDGFctTxg",
+    "displayName": "Chocolatl Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 40,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65534",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_38a7fb6d2bb8f93ca2ecebfc9f73ba71415f4a50c9895b4a30b03c6ab5a03ed2",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:14PBNsX-5n8",
+    "displayName": "Warmth and Respect",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 41,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65535",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_0bf9b07d72c8b48ff057d3d7b20a95027ae1d54ec46f15f40d43ffd80222a278",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:7za131rF8yY",
+    "displayName": "Chocolatl Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 42,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65536",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_49c92586862fb9d95c62938fe9e38d5b8a1cf6f4aeaeb43b0a4fd106e66d7ece",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:8DnZkDXlMXo",
+    "displayName": "Income Deductions",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 43,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65537",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_e44486c5f8b171c1f180fa32fe419cfebac55873f9eb9d558dc2acdc4aa64905",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:I7hJ8pz6T3M",
+    "displayName": "Chocolatl Part 3",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 44,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65538",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_70486f408be0b54b81ba69aa445bf29bdf4c3e1db937578dfeaf0413eba2a2ae",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:YslWGVue_r8",
+    "displayName": "Serpentine Advance",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 45,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65539",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_bc7d7eba303efa94350c58f07cec748a53d670382015ba99128622a7b31d1fe6",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:Rv19ciRy_Nk",
+    "displayName": "Peppermint Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 46,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6553a",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_a7abe9960a1a4ead865b8b48c2476b5edddf26ba8257e720115955aede9357aa",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:BR9YlT_PUmk",
+    "displayName": "Peppermint Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 47,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6553b",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_eaaa80ff6c4af4b408e6bc2d86387bc75d04123e6538312a5a50369954352631",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:inP5qpNkCtI",
+    "displayName": "The Trial",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 48,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6553c",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_a956c266d88ebfa3638f02395f8b4a9063cef68a6a8d5d9761c46e10e74f3788",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:Z9Y-0ysG4iM",
+    "displayName": "Peppermint Part 3",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 49,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6553d",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_f86f2b1ba0e23925a8691aa70862d108aa97d3b6601987ca133560050b26f158",
+    "added": 1743213296444,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:Zt_GS8N0g_E",
+    "displayName": "Warmth and Recollection",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 50,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6553e",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_4368b2929a2e3fc04f9878eeddf0aee2f198a1922df8b2ca7688ea188b0c22c5",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:GIuhW27beEI",
+    "displayName": "The House",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 51,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6553f",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_d96a5fca5a6c7c7a3faa878035575951a2e039095f0d8975111d37feda6df5e0",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:NMtoizC12wE",
+    "displayName": "Repetition Relay",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 52,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65540",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_a5d13400d4e8c165dc11a648e55c074029be9e356770707f57964c99657406a0",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:DOrr3oTNKR8",
+    "displayName": "Cinnamon Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 53,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65541",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_7cc81d2a58fce957c06d284d8792d669516e92b88f5e33025e2cfa7eaa5c3559",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:t2wBn0YZgA0",
+    "displayName": "Cinnamon Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 54,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65542",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_705cf8efe8eb4267456a2d758b7de02f20636939ce2ae7bfcb79e91baa8d05d8",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:R1nVHC37-aI",
+    "displayName": "Proton 4",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 55,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65543",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_bfc7b1482905697b4646a96572248bc13ffb38e32a435d35be2840e454ac53be",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:9EyntRyuwBc",
+    "displayName": "Cinnamon Part 3",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 56,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65544",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_4ac0210a60f097b35e79668071e53944feec95a84937a58424415a9aded11217",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:1fowcglco7Y",
+    "displayName": "Ursa Major",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 57,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65545",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_894c7230ece4eddb222917a32c75b1eae23a2a6d86b37748318c5f69cd0afd9b",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:02R3s4GkXm8",
+    "displayName": "Business Dance",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 58,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65546",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_be2e0d24357585ffaf19a7113bc63a77a2c762e3eb36ad5bc2cba738698d7a17",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:QcuSmUE0GOo",
+    "displayName": "Cinnamon Part 4",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 59,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65547",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_5cca92c9eadecf68eaffe55ddb5dbebb340ee6c2e11c2a2e3779efdd45b14fe0",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:3RGzZAwOtiE",
+    "displayName": "The Everything",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 60,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65548",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_94d8a69f68124b7192db06ede9fa8b583e71aac5ad9fd195f17ad968c7f5183c",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:j-Owd2jaJZc",
+    "displayName": "Business Jamboree",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 61,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65549",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_e3eafd897c73cc0031c2f873833ed2006771475af913aaec0d459743589467e7",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:lkJz2exqOEM",
+    "displayName": "Cinnamon Part 5",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 62,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6554a",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_4d715520f00ac8ad79686a6882928ca018a5a795092970e76dfef2d9d9ce1e95",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:Jd4dX05IkYU",
+    "displayName": "Gemini Blue",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 63,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6554b",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_d9c82cf2d09b0dbc751b0dc4f595a3793ffaa2a6aaa073c4440bf4f6f0f4aad3",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:fzKuEjHOhVI",
+    "displayName": "Cinnamon Part 6",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 64,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6554c",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_baf59d9d789a3aa820804eb10b869a7ab2e2ef2e9c926ac97f4d4b3bd0d37286",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:KCvxAam3T9U",
+    "displayName": "Cassiopeia Structure",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 65,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6554d",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_e2196a9dd6b6a8e455c3e7f52f3c46fc25adf055d8e1cd156fcd7e6fc84f5199",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:JCu_6Aj3YVM",
+    "displayName": "Cinnamon Part 7",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 66,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6554e",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_edef9e9a887621cd249d3d279fd116a79f17e6cf1defb9521974acd1002cdb01",
+    "added": 1743213296445,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:uzy9_cpu9FE",
+    "displayName": "Business Trigonometry",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 67,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6554f",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_239a80c28df7f3be7281e79445b0ae93dbeb5ada256537520edb4527811a6ecc",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:IA5InFLX8_g",
+    "displayName": "Mirrors",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 68,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65550",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_829806b01a1af86989753f670f6bd7e98203e1f1802e96d419277719dbff3270",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:ALX4Z688zM4",
+    "displayName": "Downward Dog",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 69,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65551",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_f68137af08244ea24b8bce3c4ff12b27d644695ab96fa14a332203ee7a0e0057",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:r16SlKAugDM",
+    "displayName": "Matcha Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 70,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65552",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_0f2f95189af8a5759327bcab20c18fd7cfd23620c415c6b66d7b91ed52db166d",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:8exZi9xdFa0",
+    "displayName": "Sticks and Leaves",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 71,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65553",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_85df1ee654eb9df33f5af1b8d715c1e2ebdc21ce3972cb7a20db96a86a6f46f8",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:NuZp66_BgdI",
+    "displayName": "Matcha Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 72,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65554",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_4e97eeedf59fc6a8c761092847c795e5c6230f6150df1e98fd183e856436bb58",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:XLgWC3U1UXU",
+    "displayName": "Illustration Theory",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 73,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65555",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_39e58d79157d5cf873774e8c55f1b173c2b6e5a0a51ed3808ced2c1413b4e894",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:9UX5xDrvuaA",
+    "displayName": "Matcha Part 3",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 74,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65556",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_bb846881f6a5075c967bbb8f21d724b7deb626e0e04fd38fcaae3e6ed1026446",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:DaHiac2WosQ",
+    "displayName": "Entropy",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 75,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65557",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_3dc80ae1b777c75a10cd064f20b1115473f6f8690e8ddf0bcf88f4d582ebb303",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:O_Bf8ei4uWk",
+    "displayName": "Pumpkin Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 76,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65558",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_c1b643b2e0ed29bfd9662a9646b39b9c5597b2d06d5d518e4267e2f524d24281",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:n8iFVMGc9kc",
+    "displayName": "The Big Machine",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 77,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65559",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_c06ac625f920fb96c49c39f137a91d25c1eae8a4cef14a946423e83b220f59ec",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:Vbn8ncOt2c8",
+    "displayName": "Pumpkin Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 78,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6555a",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_b3b5e6670bbb6e4d2315800ef733d06a769539acb2b0990caf87869692fcbac1",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:ggkxvnMwmKE",
+    "displayName": "Undisputed",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 79,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6555b",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_96395c09cdd508923a269c4eda63d5d5ae1de24a2ec301f15d25556db011e467",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:KNDZhKi-gt8",
+    "displayName": "Oolong Part 1",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 80,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6555c",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_b3ef1c0713aa4a70605606ff532fb934a3ed3bd7abf3162d9971e784e1ab714b",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:GRrRxtk3dYE",
+    "displayName": "Toothbrush Control",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 81,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6555d",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_ade9248e0132b4112c81e94cce392e1068029bac214f23c79d10693e781a16f1",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:dPqoPGMjH00",
+    "displayName": "Trust",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 82,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6555e",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_ed732b1cce98995b0f73bca88880ed3fe6242d5212e7279a7f54aeb181faef7d",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:HQaW9jZJLfA",
+    "displayName": "Oolong Part 2",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 83,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd6555f",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_42afad6b6ddd2ec8f8cd1c408db04729a4c1d25e64d7488fa909d8d42cd97884",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:s4QyYN7OqW8",
+    "displayName": "Glowing Cereal",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 84,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65560",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_0cbb6d978fd7379352eb027888b50b5bce878cd6b1ef9b2ef27aa60c6ab45a74",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:iiW8-5J-SEw",
+    "displayName": "Oolong Part 3",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 85,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65561",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_42d3c0fcc004543b9cc6d2dbe722a626455b11333a331a0a487c5288f3a61bbd",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:x1ih0Br2lAY",
+    "displayName": "The Concept of Friendship",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 86,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65562",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_55eec962638ae6a684d9d01aed92fa049ca68fe1dc70ac0d8b27d6ae5a094456",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:alGDm1HGo6Q",
+    "displayName": "In-crued Interest",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 87,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65563",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_71f842709c213935bef6ec897f2827aea5a187d6a99ff05c4482f47441775dd6",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:OFSavowCqq4",
+    "displayName": "Boredom",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 88,
+    "visibleTo": [
+      "all"
+    ]
+  },
+  {
+    "_id": "67e74bd1c09c1cb30dd65564",
+    "id": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324_438a61d455f73aedb872035b0f9870aad8bf859256523847dc2c89eda1ff9b2d",
+    "added": 1743213296446,
+    "addedBy": "jedi",
+    "albumDisplayName": "Wanderstop",
+    "albumId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc_8170e3a140e91258956916ae58cb798566439a3cb7bc6b839a6cd41fe9ca6324",
+    "artistDisplayName": "C418",
+    "artistId": "f072fe786b2e2f65da2c5e2543208a4c4b0302348dac56589b77bf13a306a4dc",
+    "audioUrl": "youtube:oIC1-gwNpv4",
+    "displayName": "Farewell",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdabf1f47d77660f36940679",
+    "inLibrary": [
+      "jedi"
+    ],
+    "trackNumber": 89,
+    "visibleTo": [
+      "all"
+    ]
+  }
+]

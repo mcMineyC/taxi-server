@@ -645,7 +645,7 @@ app.post("/info/songs/by/artist/:id", async function (req, res) {
   const data = await db
     .collection("songs")
     .find(query)
-    .sort({ artistId: 1, albumId: 1 })
+    .sort({ artistId: 1, albumId: 1, trackNumber: 1 })
     .toArray();
 
   res.send({ authed: true, songs: data });
