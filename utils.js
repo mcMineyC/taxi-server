@@ -65,7 +65,7 @@ async function addToRecentlyPlayed(user, songId, db) {
     newRecent.songs = recent.songs;
     if (recent.songs.length >= 256) {
       console.log("Too long");
-      newRecent.songs.shift();
+      newRecent.songs.pop();
     }
     newRecent.songs.unshift(song);
   }
