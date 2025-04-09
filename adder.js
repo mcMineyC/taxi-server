@@ -162,6 +162,28 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     }
   });
 
+  socket.on("addcheck", async (msg) => {
+    if (!authed) {
+      socket.emit("message", {
+        type: "auth",
+        success: false,
+        error: "Invalid authtoken",
+        authorized: false,
+      });
+      return;
+    }
+    console.log("Adder.js: Checking for conflicts");
+    if (typeof msg == "string") {
+      msg = JSON.parse(msg);
+    }
+    if(type == "normal"){
+      var changes = await getChanges(msg.hierarchy);
+      socket.emit("addconflict", {changes: changes});
+    }else if(type == "playlist"){
+
+    }
+  })
+
   socket.on("add", async (msg) => {
     if (!authed) {
       socket.emit("message", {
@@ -315,6 +337,163 @@ function adderConnection(socket, db, ts, spotifyHandler) {
         songs: addedSongs,
       },
     });
+  });
+}
+
+// get changes as result of merge, overwriting as default
+async function mergeNewData(oldData, newData){
+  var artists = oldData.artists.reduce((map, val) => {map[val.id] = val}, {});
+  var albums = oldData.albums.reduce((map, val) => {map[val.id] = val}, {});
+  var songs = oldData.songs.reduce((map, val) => {map[val.id] = val}, {});
+  var changes = [];
+  var artistKeys = Object.keys(artists);
+  var albumKeys = Object.keys(albums);
+  var songKeys = Object.keys(songs);
+  var addedArtists, addedAlbums, addedSongs = 0;
+
+  newData.artists.forEach((artist) => {
+    const artistKey = utils.hash(artist.displayName);
+    const oldArtist = artists[artistKey];
+    if(!artistKeys.includes(artistKey)){ // this is a new artist to us
+      changes.push({
+        changeType: "add",
+        id: artistKey,
+        displayName: artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+        imageUrl: artist.imageUrl,
+        added: Date.now(),
+        visibleTo: artist.visibleTo || ["all"],
+        addedBy: user,
+        songCount: 0,
+        albumCount: 0,
+        inLibrary: [user],
+      });
+      artistKeys.push(artistKey);
+      addedArtists++;
+    }else{ // this is an existing artist and we have a key for it
+      var same =
+        artistKey == oldArtist.id &&
+        artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "") == oldArtist.displayName &&
+        artist.imageUrl == oldArtist.imageUrl &&
+        // artist.visibleTo.every((x) => oldArtist.visibleTo.includes(x)) &&
+        artist.songCount == oldArtist.songCount;
+      if(!same){ // artist changed
+        changes.push({
+          changeType: "meaningfulUpdate",
+          id: artistKey,
+          displayName: artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          imageUrl: artist.imageUrl,
+          addedBy: oldArtist.addedBy,
+          added: oldArtist.added,
+          visibleTo: [...new Set([...artists[artistKey].visibleTo, ...artist.visibleTo])],
+          songCount: 0,
+          albumCount: 0,
+          inLibrary: [...new Set([...artists[artistKey].inLibrary, user])],
+        });
+      }else{ // artist info is the same, just update the user-specific fields
+        changes.push({
+          changeType: "mundaneUpdate",
+          id: artistKey,
+          visibleTo: [...new Set([...artists[artistKey].visibleTo, ...artist.visibleTo])],
+          inLibrary: [...new Set([...artists[artistKey].inLibrary, user])],
+        })
+      }
+    }
+  });
+  newData.albums.forEach((album) => {
+    const artistKey = utils.hash(artist.displayName);
+    const oldArtist = artists[artistKey];
+    if(!artistKeys.includes(artistKey)){ // this is a new artist to us
+      changes.push({
+        changeType: "add",
+        id: artistKey,
+        displayName: artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+        imageUrl: artist.imageUrl,
+        added: Date.now(),
+        visibleTo: artist.visibleTo || ["all"],
+        addedBy: user,
+        songCount: 0,
+        albumCount: 0,
+        inLibrary: [user],
+      });
+      artistKeys.push(artistKey);
+      addedArtists++;
+    }else{ // this is an existing artist and we have a key for it
+      var same =
+        artistKey == oldArtist.id &&
+        artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "") == oldArtist.displayName &&
+        artist.imageUrl == oldArtist.imageUrl &&
+        // artist.visibleTo.every((x) => oldArtist.visibleTo.includes(x)) &&
+        artist.songCount == oldArtist.songCount;
+      if(!same){ // artist changed
+        changes.push({
+          changeType: "meaningfulUpdate",
+          id: artistKey,
+          displayName: artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          imageUrl: artist.imageUrl,
+          addedBy: oldArtist.addedBy,
+          added: oldArtist.added,
+          visibleTo: [...new Set([...artists[artistKey].visibleTo, ...artist.visibleTo])],
+          songCount: 0,
+          albumCount: 0,
+          inLibrary: [...new Set([...artists[artistKey].inLibrary, user])],
+        });
+      }else{ // artist info is the same, just update the user-specific fields
+        changes.push({
+          changeType: "mundaneUpdate",
+          id: artistKey,
+          visibleTo: [...new Set([...artists[artistKey].visibleTo, ...artist.visibleTo])],
+          inLibrary: [...new Set([...artists[artistKey].inLibrary, user])],
+        })
+      }
+    }
+  });
+  newData.songs.forEach((song) => {
+    const songKey = utils.hash(song.artistDisplayName) + "_" + utils.hash(song.albumDisplayName) + "_" + utils.hash(song.displayName);
+    const oldArtist = artists[artistKey];
+    if(!artistKeys.includes(artistKey)){ // this is a new artist to us
+      changes.push({
+        changeType: "add",
+        id: artistKey,
+        displayName: artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+        imageUrl: artist.imageUrl,
+        added: Date.now(),
+        visibleTo: artist.visibleTo || ["all"],
+        addedBy: user,
+        songCount: 0,
+        albumCount: 0,
+        inLibrary: [user],
+      });
+      artistKeys.push(artistKey);
+      addedArtists++;
+    }else{ // this is an existing artist and we have a key for it
+      var same =
+        artistKey == oldArtist.id &&
+        artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, "") == oldArtist.displayName &&
+        artist.imageUrl == oldArtist.imageUrl &&
+        // artist.visibleTo.every((x) => oldArtist.visibleTo.includes(x)) &&
+        artist.songCount == oldArtist.songCount;
+      if(!same){ // artist changed
+        changes.push({
+          changeType: "meaningfulUpdate",
+          id: artistKey,
+          displayName: artist.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+          imageUrl: artist.imageUrl,
+          addedBy: oldArtist.addedBy,
+          added: oldArtist.added,
+          visibleTo: [...new Set([...artists[artistKey].visibleTo, ...artist.visibleTo])],
+          songCount: 0,
+          albumCount: 0,
+          inLibrary: [...new Set([...artists[artistKey].inLibrary, user])],
+        });
+      }else{ // artist info is the same, just update the user-specific fields
+        changes.push({
+          changeType: "mundaneUpdate",
+          id: artistKey,
+          visibleTo: [...new Set([...artists[artistKey].visibleTo, ...artist.visibleTo])],
+          inLibrary: [...new Set([...artists[artistKey].inLibrary, user])],
+        })
+      }
+    }
   });
 }
 
