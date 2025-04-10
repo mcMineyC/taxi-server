@@ -1,0 +1,44 @@
+{
+  "song": {
+    "_id": "67e5b16ff9a3b5fc5b282ef1",
+    "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+    "added": 1743106415606,
+    "addedBy": "jedi",
+    "albumDisplayName": "Memory Bank",
+    "albumId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+    "artistDisplayName": "Dyro",
+    "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+    "audioUrl": "youtube:2LnMkxN5ezM",
+    "displayName": "Memory Bank",
+    "duration": 0,
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
+    "inLibrary": ["jedi"],
+    "trackNumber": 0,
+    "visibleTo": ["all"]
+  },
+  "album": {
+    "_id": "67e5b16ff9a3b5fc5b282ee4",
+    "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e_46bb1e7e52a87c06c2be19fd0c04cd0192379d25e04debf332e2c5cedf9cbb7b",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "artistDisplayName": "Dyro",
+    "artistId": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+    "displayName": "Memory Bank",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736decf0578b4f339d701f7559",
+    "inLibrary": ["jedi"],
+    "songCount": 0,
+    "visibleTo": ["all"]
+  },
+  "artist": {
+    "_id": "67e5b16ff9a3b5fc5b282edd",
+    "id": "7c941fe2d439a9b1fdd1afe26519f11a08d896e730d91084804cddecddbb444e",
+    "added": 1743106415605,
+    "addedBy": "jedi",
+    "albumCount": 0,
+    "displayName": "Dyro",
+    "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb8137545b2db84fd837d04efb",
+    "inLibrary": ["jedi"],
+    "songCount": 0,
+    "visibleTo": ["jedi"]
+  }
+}

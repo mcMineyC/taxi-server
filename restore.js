@@ -35,39 +35,33 @@ try {
   );
 
   // Upsert data into collections
-  await db
-    .collection("songs")
-    .bulkWrite(
-      data.songs.map((song) => ({
-        updateOne: {
-          filter: { _id: song._id },
-          update: { $set: song },
-          upsert: true,
-        },
-      })),
-    );
-  await db
-    .collection("albums")
-    .bulkWrite(
-      data.albums.map((album) => ({
-        updateOne: {
-          filter: { _id: album._id },
-          update: { $set: album },
-          upsert: true,
-        },
-      })),
-    );
-  await db
-    .collection("artists")
-    .bulkWrite(
-      data.artists.map((artist) => ({
-        updateOne: {
-          filter: { _id: artist._id },
-          update: { $set: artist },
-          upsert: true,
-        },
-      })),
-    );
+  await db.collection("songs").bulkWrite(
+    data.songs.map((song) => ({
+      updateOne: {
+        filter: { id: song.id },
+        update: { $set: song },
+        upsert: true,
+      },
+    })),
+  );
+  await db.collection("albums").bulkWrite(
+    data.albums.map((album) => ({
+      updateOne: {
+        filter: { id: album.id },
+        update: { $set: album },
+        upsert: true,
+      },
+    })),
+  );
+  await db.collection("artists").bulkWrite(
+    data.artists.map((artist) => ({
+      updateOne: {
+        filter: { id: artist.id },
+        update: { $set: artist },
+        upsert: true,
+      },
+    })),
+  );
 
   await dbCon.close();
   console.log("Data import completed successfully");
