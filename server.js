@@ -92,7 +92,8 @@ app.get("/kusc/streams/:id/audio", async function (req, res) {
   try{
     var url = await kusc.getStreamUrl(req.params.id, req.query.type || "AAC96");
     res.redirect(url);
-    next();
+    //next();
+    return;
   }catch(e){
     res.status(501).send("There was an error processing your request.  Did you double check your stream id and/or type?");
   }
