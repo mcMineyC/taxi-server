@@ -131,17 +131,24 @@ function adderConnection(socket, db, ts, spotifyHandler) {
           return;
         }
 
-        const found = await spotifyHandler.findItems(msg.selected, user, (progress) => {
-          console.log("Progress:", progress.completed, "/", progress.total);
-          socket.emit("findprogress", {
-            completed: progress.completed,
-            total: progress.total,
-          });
-        });
+        const found = await spotifyHandler.findItems(
+          msg.selected,
+          user,
+          (progress) => {
+            console.log("Progress:", progress.completed, "/", progress.total);
+            socket.emit("findprogress", {
+              completed: progress.completed,
+              total: progress.total,
+            });
+          },
+        );
         //fs.writeFileSync("adder-out.json", JSON.stringify(found[0], null, 2));
         console.log("AdderConnection: Found items:", found.length);
         fs.writeFileSync("find-out.json", JSON.stringify(found, null, 2));
-        socket.emit("findresults", { results: found, isPlaylist: found.length == 1 && found[0].type == "playlist" });
+        socket.emit("findresults", {
+          results: found,
+          isPlaylist: found.length == 1 && found[0].type == "playlist",
+        });
       } catch (error) {
         console.error("Error finding items:", error);
         socket.emit("message", {
@@ -152,7 +159,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
         });
       }
     } else if (msg.source == "youtube") {
-      socket.emit("findresults", { results: []});
+      socket.emit("findresults", { results: [] });
       socket.emit("message", {
         type: "auth",
         success: false,
@@ -176,7 +183,10 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     if (typeof msg == "string") {
       msg = JSON.parse(msg);
     }
+
+    fs.writeFileSync("adder-in.json", JSON.stringify(msg, null, 2));
     //console.log("MSG:", JSON.stringify(msg, null, 2));
+
     var artists = [];
     var albums = [];
     var songs = [];
@@ -189,26 +199,34 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     songs = JSON.parse(JSON.stringify(songs));
     artists = JSON.parse(JSON.stringify(artists));
     albums = JSON.parse(JSON.stringify(albums));
-    // Assuming that `flattenData` function already exists and returns flattened
-    // arrays
-    //
-    //const { flattenedSongs, flattenedAlbums, flattenedArtists } = flattenData(
-    //  msg.items,
-    //);
 
+    var newArtists = [];
+    var newAlbums = [];
+    var newSongs = [];
+    if (msg.playlist != null) {
+      const flattenedData = flattenData(hierearchyData, user);
+      newArtists = flattenedData.songs;
+      newAlbums = flattenedData.albums;
+      newArtists = flattenedData.artists;
+    } else {
+      return;
+    }
     // Create dictionaries to track modified songs, albums, and artists
-    fs.writeFileSync("adder-in.json", JSON.stringify(msg, null, 2));
     const mergedOutput = await adderMergeLogic(
       artists,
       albums,
       songs,
-      msg.hierarchy,
+      newArtists,
+      newAlbums,
+      newSongs,
       user,
     );
     fs.writeFileSync("adder-out.json", JSON.stringify(mergedOutput, null, 2));
     var modifiedArtists = mergedOutput.artists;
     var modifiedAlbums = mergedOutput.albums;
     var modifiedSongs = mergedOutput.songs;
+    var modifiedPlaylists = mergedOutput.playlists || [];
+    if (modifiedPlaylists != []) console.log(" - Creating playlist(s)");
     addedArtists = mergedOutput.artistCount;
     addedAlbums = mergedOutput.albumCount;
     addedSongs = mergedOutput.songCount;
@@ -247,65 +265,12 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       2,
     );
     fs.writeFileSync("modifiedData.json", json);
-
-    console.log("DB upsert");
-    // Delete _id field from objects before updating
-    const artistsToUpdate = modifiedArtists.map((artist) => {
-      const { _id, ...artistWithoutId } = artist;
-      return artistWithoutId;
-    });
-    const albumsToUpdate = modifiedAlbums.map((album) => {
-      const { _id, ...albumWithoutId } = album;
-      return albumWithoutId;
-    });
-    const songsToUpdate = modifiedSongs.map((song) => {
-      const { _id, ...songWithoutId } = song;
-      return songWithoutId;
-    });
-
-    await db.collection("artists").bulkWrite(
-      artistsToUpdate.map((artist) => ({
-        updateOne: {
-          filter: { id: artist.id },
-          update: { $set: artist },
-          upsert: true,
-        },
-      })),
+    await persistChanges(
+      modifiedArtists,
+      modifiedAlbums,
+      modifiedSongs,
+      modifiedPlaylists,
     );
-
-    await db.collection("albums").bulkWrite(
-      albumsToUpdate.map((album) => ({
-        updateOne: {
-          filter: { id: album.id },
-          update: { $set: album },
-          upsert: true,
-        },
-      })),
-    );
-
-    await db.collection("songs").bulkWrite(
-      songsToUpdate.map((song) => ({
-        updateOne: {
-          filter: { id: song.id },
-          update: { $set: song },
-          upsert: true,
-        },
-      })),
-    );
-    console.log("Typesense update");
-    await ts.updateSongs(modifiedSongs);
-    await ts.updateAlbums(modifiedAlbums);
-    await ts.updateArtists(modifiedArtists);
-    fs.writeFileSync("./backup/new_songs.json", JSON.stringify(songs, null, 2));
-    fs.writeFileSync(
-      "./backup/new_albums.json",
-      JSON.stringify(albums, null, 2),
-    );
-    fs.writeFileSync(
-      "./backup/new_artists.json",
-      JSON.stringify(artists, null, 2),
-    );
-
     console.log("Finished adding songs, albums and artists.");
     socket.emit("addresult", {
       success: true,
@@ -322,7 +287,9 @@ async function adderMergeLogic(
   oldArtists,
   oldAlbums,
   oldSongs,
-  hierearchyData,
+  flattenedSongs,
+  flattenedAlbums,
+  flattenedArtists,
   user,
 ) {
   console.log("Into merge logic");
@@ -344,10 +311,6 @@ async function adderMergeLogic(
   songKeys = songs.map((e) => e.id);
   // Assuming that `flattenData` function already exists and returns flattened
   // arrays
-  const flattenedData = flattenData(hierearchyData, user);
-  const flattenedSongs = flattenedData.songs;
-  const flattenedAlbums = flattenedData.albums;
-  const flattenedArtists = flattenedData.artists;
   //console.log(flattenedArtists);
 
   // Create dictionaries to track modified songs, albums, and artists
@@ -371,7 +334,7 @@ async function adderMergeLogic(
           ),
         ),
       ];
-      if(!modifiedArtists[artistKey].inLibrary.includes(user)){
+      if (!modifiedArtists[artistKey].inLibrary.includes(user)) {
         console.log("Adding " + user + " to " + artistData.displayName);
         modifiedArtists[artistKey].inLibrary.push(user);
       }
@@ -409,7 +372,7 @@ async function adderMergeLogic(
           ),
         ),
       ];
-      if(!modifiedAlbums[albumKey].inLibrary.includes(user)){
+      if (!modifiedAlbums[albumKey].inLibrary.includes(user)) {
         console.log("Adding " + user + " to " + albumData.displayName);
         modifiedAlbums[albumKey].inLibrary.push(user);
       }
@@ -447,21 +410,33 @@ async function adderMergeLogic(
         songData.displayName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
       );
 
-    if (songKeys.includes(songKey) && modifiedSongs[songKeys.indexOf(songKey)] != undefined){
+    if (
+      songKeys.includes(songKey) &&
+      modifiedSongs[songKeys.indexOf(songKey)] != undefined
+    ) {
       console.log("songKey already exists for", songData.displayName);
-      console.log(songKey, "==", modifiedSongs[songKeys.indexOf(songKey)], "index:length", songKeys.indexOf(songKey), songKeys.length);
+      console.log(
+        songKey,
+        "==",
+        modifiedSongs[songKeys.indexOf(songKey)],
+        "index:length",
+        songKeys.indexOf(songKey),
+        songKeys.length,
+      );
       modifiedSongs[songKey] = songs[songKeys.indexOf(songKey)];
-      try{
-      modifiedSongs[songKey].visibleTo = [
-        ...new Set(
-          songs[songKeys.indexOf(songKey)].visibleTo.concat(songData.visibleTo),
-        ),
-      ];
-      if(!modifiedSongs[songKey].inLibrary.includes(user)){
-        console.log("Adding " + user + " to " + songData.displayName);
-        modifiedSongs[songKey].inLibrary.push(user);
-      }
-      }catch(e){
+      try {
+        modifiedSongs[songKey].visibleTo = [
+          ...new Set(
+            songs[songKeys.indexOf(songKey)].visibleTo.concat(
+              songData.visibleTo,
+            ),
+          ),
+        ];
+        if (!modifiedSongs[songKey].inLibrary.includes(user)) {
+          console.log("Adding " + user + " to " + songData.displayName);
+          modifiedSongs[songKey].inLibrary.push(user);
+        }
+      } catch (e) {
         console.log("error", e);
         console.log(JSON.stringify(songData, null, 2));
         throw e;
@@ -596,6 +571,70 @@ function flattenData(input, user) {
   });
 
   return { artists: artists, albums: albums, songs: songs };
+}
+
+async function persistChanges(modifiedArtists, modifiedAlbums, modifiedSongs) {
+  console.log("DB upsert");
+  // Delete _id field from objects before updating
+  const artistsToUpdate = modifiedArtists.map((artist) => {
+    const { _id, ...artistWithoutId } = artist;
+    return artistWithoutId;
+  });
+  const albumsToUpdate = modifiedAlbums.map((album) => {
+    const { _id, ...albumWithoutId } = album;
+    return albumWithoutId;
+  });
+  const songsToUpdate = modifiedSongs.map((song) => {
+    const { _id, ...songWithoutId } = song;
+    return songWithoutId;
+  });
+
+  await db.collection("artists").bulkWrite(
+    artistsToUpdate.map((artist) => ({
+      updateOne: {
+        filter: { id: artist.id },
+        update: { $set: artist },
+        upsert: true,
+      },
+    })),
+  );
+
+  await db.collection("albums").bulkWrite(
+    albumsToUpdate.map((album) => ({
+      updateOne: {
+        filter: { id: album.id },
+        update: { $set: album },
+        upsert: true,
+      },
+    })),
+  );
+
+  await db.collection("songs").bulkWrite(
+    songsToUpdate.map((song) => ({
+      updateOne: {
+        filter: { id: song.id },
+        update: { $set: song },
+        upsert: true,
+      },
+    })),
+  );
+  console.log("Typesense update");
+  await ts.updateSongs(songsToUpdate);
+  await ts.updateAlbums(albumsToUpdate);
+  await ts.updateArtists(artistsToUpdate);
+  // Save as json for easy debugging
+  fs.writeFileSync(
+    "./backup/new_songs.json",
+    JSON.stringify(songsToUpdate, null, 2),
+  );
+  fs.writeFileSync(
+    "./backup/new_albums.json",
+    JSON.stringify(albumsToUpdate, null, 2),
+  );
+  fs.writeFileSync(
+    "./backup/new_artists.json",
+    JSON.stringify(artistsToUpdate, null, 2),
+  );
 }
 
 export default {
