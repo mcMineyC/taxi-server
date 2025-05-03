@@ -21,6 +21,7 @@
     "fluent-ffmpeg": "^2.1.2",
     "fs-extra": "^11.2.0",
     "jsmediatags": "^3.9.7",
+    "kusc_api": "^1.0.3",
     "morgan": "^1.10.0",
     "music-metadata": "^7.14.0",
     "python-shell": "^5.0.0",
@@ -43,7 +44,12 @@
     "fake-indexeddb": "^6.0.0"
   },
   "nodemonConfig": {
-    "ignore": ["**/backup/**", "**/old/**", "**/data.json", "**/userToken.json"],
+    "ignore": [
+      "**/backup/**",
+      "**/old/**",
+      "**/data.json",
+      "**/userToken.json"
+    ],
     "ext": "js,mjs,cjs,ts,tsx,jsx"
   }
 }
