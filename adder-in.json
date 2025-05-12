@@ -1,53 +1,191 @@
 {
-  "hierarchy": [
-    {
-      "name": "Qumu",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-      "visibleTo": [
-        "all"
-      ],
-      "albums": [
-        {
-          "name": "Pokemon Center (From \"Pokemon Red and Blue\")",
-          "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d5515eaee47e40288b476c20",
-          "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-          "visibleTo": [
-            "all"
-          ],
-          "songs": [
-            {
-              "name": "Pokemon Center (From \"Pokemon Red and Blue\")",
-              "url": "youtube:hGXOjrfpMHo",
-              "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d5515eaee47e40288b476c20",
-              "visibleTo": [
-                "all"
-              ],
-              "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-              "trackNumber": -2
-            }
-          ]
-        },
-        {
-          "name": "Aquatic Ambiance (From \"Donkey Kong Country\") [Cover Version]",
-          "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b575635c34b4a675d9f633bd",
-          "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-          "visibleTo": [
-            "all"
-          ],
-          "songs": [
-            {
-              "name": "Aquatic Ambiance (From \"Donkey Kong Country\") - Cover Version",
-              "url": "youtube:MwO98xJsaYw",
-              "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b575635c34b4a675d9f633bd",
-              "visibleTo": [
-                "all"
-              ],
-              "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-              "trackNumber": -2
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "playlist": {
+    "name": "minor case of crippling sadness",
+    "id": "spotify:3TpPBXYwZmcOd539kaXedV",
+    "owner": "Mr. McMineyCraft1 (aka Bob the Fred)",
+    "ownerImageUrl": "https://www.tonicradio.fr/wp-content/uploads/2019/05/spotify-1759471_1920.jpg",
+    "imageUrl": "https://mosaic.scdn.co/640/ab67616d00001e023cc3517aead1f19f7a503151ab67616d00001e0250ea433465b51df6d43194fdab67616d00001e02592f2c1391f439c6f7cd35c5ab67616d00001e02836e31330fbf127d9ed669a9",
+    "visibleTo": [
+      "all"
+    ],
+    "allowedCollaborators": [
+      "jedi"
+    ],
+    "inLibrary": [
+      "jedi"
+    ],
+    "type": "playlist",
+    "songs": [
+      {
+        "id": "4pyIuEQo27lFOEMBJagRAv",
+        "title": "Up + Up",
+        "album": "Up + Up",
+        "artist": "Colton Dixon",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273836e31330fbf127d9ed669a9",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebde3ae71d126f8573672ec292",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:td1ZTxCrdic",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "7u67t6j872bK1tDbMUjnMz",
+        "title": "Miracles",
+        "album": "Devil Is A Liar",
+        "artist": "Colton Dixon",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273592f2c1391f439c6f7cd35c5",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebde3ae71d126f8573672ec292",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:GNKez9xBUuU",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "2RxEX1W0GSQRcQEmwut9OA",
+        "title": "Hold Her",
+        "album": "Burn The Ships",
+        "artist": "for KING & COUNTRY",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb26aac7f6e1c5978e7c924d85",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:b-JF74gDc6g",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "6qNSq6OKjNgXAn3Kj9HBKf",
+        "title": "Burn The Ships",
+        "album": "Burn The Ships",
+        "artist": "for KING & COUNTRY",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb26aac7f6e1c5978e7c924d85",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:Qke7WmZaiLA",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "7lPM8uXuIO5MDWv6L0TPaZ",
+        "title": "Fight On, Fighter",
+        "album": "Burn The Ships",
+        "artist": "for KING & COUNTRY",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb26aac7f6e1c5978e7c924d85",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:7bi-dmilgaE",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "5ecN8ysoiyCrdGmUyyEOba",
+        "title": "Never Give Up",
+        "album": "Burn The Ships",
+        "artist": "for KING & COUNTRY",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb26aac7f6e1c5978e7c924d85",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:LMumPIdFcxU",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "2VXNUklng1AswoKNgjiKJy",
+        "title": "Promised Land",
+        "album": "Promised Land",
+        "artist": "TobyMac",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b2733cc3517aead1f19f7a503151",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb0f02deacc1cfdb22aabb3a49",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:8O9lyWNfecw",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "3Dzso9Q2WwupEclqgxBZht",
+        "title": "Pumped Up Kicks",
+        "album": "Pumped Up Kicks",
+        "artist": "Madism",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b2734134bc0197bdceef89ddcd70",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebc67824a5c3ea66aa24a02fbd",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:_FPAJBOcPds",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "2zHDxp4sgzVj7jdoSiQQd2",
+        "title": "Open Landscapes",
+        "album": "Open Landscapes",
+        "artist": "Jaskaroth",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273fb53a234caab0189df161c0a",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb6a4858c2772a986d9411fd8c",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:J134G4KQQ2k",
+        "trackNumber": -2,
+        "type": "song"
+      },
+      {
+        "id": "1bhSnPeBGo1cSPgjDZXujj",
+        "title": "Bacall",
+        "album": "Noir",
+        "artist": "Blue Noir",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b2730b9b6344f05ed495a167fbbb",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebe5000f7aef5010711871d62a",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:Tf77qwVKT6k",
+        "trackNumber": -2,
+        "type": "song"
+      }
+    ]
+  }
 }

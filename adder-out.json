@@ -1,88 +1,54 @@
 {
   "artists": [
     {
+      "_id": "67e7557dc09c1cb30dd65566",
       "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "added": 1743213949125,
+      "addedBy": "jedi",
+      "albumCount": 0,
       "displayName": "Qumu",
       "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
-      "added": 1743213949125,
-      "visibleTo": [
+      "inLibrary": [
         "jedi"
       ],
-      "addedBy": "jedi",
       "songCount": 0,
-      "albumCount": 0,
-      "inLibrary": [
+      "visibleTo": [
         "jedi"
       ]
     }
   ],
   "albums": [
     {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_2a17d1caa6d7501482cb3aa30e64f410b616ee62fd2dd3757b2d0c1f8aeac319",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Pokemon Center (From \"Pokemon Red and Blue\")",
+      "_id": "682165c196f288cf6ef6023c",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_382631ca3b8ea279586a3b9aa91d690a0a92c725c8783072bb71756a66b05b74",
+      "added": 1747019201721,
+      "addedBy": "jedi",
       "artistDisplayName": "Qumu",
-      "songCount": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d5515eaee47e40288b476c20",
-      "added": 1743213949125,
-      "visibleTo": [
-        "all"
-      ],
+      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
+      "displayName": "Year 6",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27340baf4dd6b252ba0943afdc9",
       "inLibrary": [
         "jedi"
       ],
-      "addedBy": "jedi"
-    },
-    {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_e89f0db838a756e3cabecd474341cc84fc219e072d0c8d24832a65a9220a2446",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Aquatic Ambiance (From \"Donkey Kong Country\") [Cover Version]",
-      "artistDisplayName": "Qumu",
       "songCount": 0,
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b575635c34b4a675d9f633bd",
-      "added": 1743213949125,
       "visibleTo": [
         "all"
-      ],
-      "inLibrary": [
-        "jedi"
-      ],
-      "addedBy": "jedi"
+      ]
     }
   ],
   "songs": [
     {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_2a17d1caa6d7501482cb3aa30e64f410b616ee62fd2dd3757b2d0c1f8aeac319_2a17d1caa6d7501482cb3aa30e64f410b616ee62fd2dd3757b2d0c1f8aeac319",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_2a17d1caa6d7501482cb3aa30e64f410b616ee62fd2dd3757b2d0c1f8aeac319",
+      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_382631ca3b8ea279586a3b9aa91d690a0a92c725c8783072bb71756a66b05b74_f157ff443f8bb2847002f9099c28b753fe9e8e6f72c397283a9089ee9c89ef37",
+      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_382631ca3b8ea279586a3b9aa91d690a0a92c725c8783072bb71756a66b05b74",
       "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Pokemon Center (From \"Pokemon Red and Blue\")",
-      "albumDisplayName": "Pokemon Center (From \"Pokemon Red and Blue\")",
+      "displayName": "Rainbow Road (From \"Mario Kart 64\")",
+      "albumDisplayName": "Year 6",
       "artistDisplayName": "Qumu",
       "duration": 0,
       "trackNumber": -2,
-      "audioUrl": "youtube:hGXOjrfpMHo",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d5515eaee47e40288b476c20",
-      "added": 1743213949126,
-      "visibleTo": [
-        "all"
-      ],
-      "inLibrary": [
-        "jedi"
-      ],
-      "addedBy": "jedi"
-    },
-    {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_e89f0db838a756e3cabecd474341cc84fc219e072d0c8d24832a65a9220a2446_326925f23d26331b92f0ef53b110e3041fc8d084c5a5365c036db8f544fe4e0c",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_e89f0db838a756e3cabecd474341cc84fc219e072d0c8d24832a65a9220a2446",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Aquatic Ambiance (From \"Donkey Kong Country\") - Cover Version",
-      "albumDisplayName": "Aquatic Ambiance (From \"Donkey Kong Country\") [Cover Version]",
-      "artistDisplayName": "Qumu",
-      "duration": 0,
-      "trackNumber": -2,
-      "audioUrl": "youtube:MwO98xJsaYw",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b575635c34b4a675d9f633bd",
-      "added": 1743213949126,
+      "audioUrl": "youtube:EeYvWKzUfYY",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27340baf4dd6b252ba0943afdc9",
+      "added": 1747019723980,
       "visibleTo": [
         "all"
       ],
@@ -92,7 +58,7 @@
       "addedBy": "jedi"
     }
   ],
-  "artistCount": 1,
-  "albumCount": 2,
-  "songCount": 2
+  "artistCount": 0,
+  "albumCount": 0,
+  "songCount": 0
 }

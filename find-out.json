@@ -9,6 +9,7 @@
     "isPublic": true,
     "songs": [
       {
+        "id": "4pyIuEQo27lFOEMBJagRAv",
         "songPosition": 0,
         "title": "Up + Up",
         "album": "Up + Up",
@@ -26,6 +27,7 @@
         "type": "song"
       },
       {
+        "id": "7u67t6j872bK1tDbMUjnMz",
         "songPosition": 1,
         "title": "Miracles",
         "album": "Devil Is A Liar",
@@ -43,6 +45,7 @@
         "type": "song"
       },
       {
+        "id": "2RxEX1W0GSQRcQEmwut9OA",
         "songPosition": 2,
         "title": "Hold Her",
         "album": "Burn The Ships",
@@ -60,6 +63,7 @@
         "type": "song"
       },
       {
+        "id": "6qNSq6OKjNgXAn3Kj9HBKf",
         "songPosition": 3,
         "title": "Burn The Ships",
         "album": "Burn The Ships",
@@ -77,6 +81,7 @@
         "type": "song"
       },
       {
+        "id": "7lPM8uXuIO5MDWv6L0TPaZ",
         "songPosition": 4,
         "title": "Fight On, Fighter",
         "album": "Burn The Ships",
@@ -94,6 +99,7 @@
         "type": "song"
       },
       {
+        "id": "5ecN8ysoiyCrdGmUyyEOba",
         "songPosition": 5,
         "title": "Never Give Up",
         "album": "Burn The Ships",
@@ -111,6 +117,7 @@
         "type": "song"
       },
       {
+        "id": "2VXNUklng1AswoKNgjiKJy",
         "songPosition": 6,
         "title": "Promised Land",
         "album": "Promised Land",
@@ -128,6 +135,7 @@
         "type": "song"
       },
       {
+        "id": "3Dzso9Q2WwupEclqgxBZht",
         "songPosition": 7,
         "title": "Pumped Up Kicks",
         "album": "Pumped Up Kicks",
@@ -145,6 +153,7 @@
         "type": "song"
       },
       {
+        "id": "2zHDxp4sgzVj7jdoSiQQd2",
         "songPosition": 8,
         "title": "Open Landscapes",
         "album": "Open Landscapes",
@@ -162,6 +171,7 @@
         "type": "song"
       },
       {
+        "id": "1bhSnPeBGo1cSPgjDZXujj",
         "songPosition": 9,
         "title": "Bacall",
         "album": "Noir",

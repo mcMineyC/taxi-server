@@ -193,9 +193,11 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     var addedArtists = 0;
     var addedAlbums = 0;
     var addedSongs = 0;
+    console.log("Fetching from db");
     songs = await db.collection("songs").find().toArray();
     artists = await db.collection("artists").find().toArray();
     albums = await db.collection("albums").find().toArray();
+    console.log("Fetched");
     songs = JSON.parse(JSON.stringify(songs));
     artists = JSON.parse(JSON.stringify(artists));
     albums = JSON.parse(JSON.stringify(albums));
@@ -204,12 +206,19 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     var newAlbums = [];
     var newSongs = [];
     if (msg.playlist != null) {
-      const flattenedData = flattenData(hierearchyData, user);
-      newArtists = flattenedData.songs;
+      console.log("Flattening data");
+      const flattenedData = flattenData(hierarchyData.playlist.songs, user);
+      newSongs = flattenedData.songs;
       newAlbums = flattenedData.albums;
       newArtists = flattenedData.artists;
+      console.log(newArtists);
     } else {
-      return;
+      const flattenedData = flattenData(msg.hierarchy, user);
+      newSongs = flattenedData.songs;
+      newAlbums = flattenedData.albums;
+      newArtists = flattenedData.artists;
+      // console.log("Break at adding");
+      // return;
     }
     // Create dictionaries to track modified songs, albums, and artists
     const mergedOutput = await adderMergeLogic(
@@ -270,6 +279,8 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       modifiedAlbums,
       modifiedSongs,
       modifiedPlaylists,
+      db,
+      ts,
     );
     console.log("Finished adding songs, albums and artists.");
     socket.emit("addresult", {
@@ -287,9 +298,9 @@ async function adderMergeLogic(
   oldArtists,
   oldAlbums,
   oldSongs,
-  flattenedSongs,
-  flattenedAlbums,
   flattenedArtists,
+  flattenedAlbums,
+  flattenedSongs,
   user,
 ) {
   console.log("Into merge logic");
@@ -401,6 +412,7 @@ async function adderMergeLogic(
   });
 
   flattenedSongs.forEach((songData) => {
+    console.log(songData);
     const artistKey = utils.hash(songData.artistDisplayName);
     const albumKey = artistKey + "_" + utils.hash(songData.albumDisplayName);
     const songKey =
@@ -545,7 +557,7 @@ function flattenData(input, user) {
         // Flatten songs
         songs.push({
           displayName: songData.name,
-          audioUrl: songData.url,
+          audioUrl: songData.audioUrl,
           imageUrl: songData.imageUrl,
           albumDisplayName: albumName,
           artistDisplayName: artistName,
@@ -573,9 +585,17 @@ function flattenData(input, user) {
   return { artists: artists, albums: albums, songs: songs };
 }
 
-async function persistChanges(modifiedArtists, modifiedAlbums, modifiedSongs) {
+async function persistChanges(
+  modifiedArtists,
+  modifiedAlbums,
+  modifiedSongs,
+  modifiedPlaylists,
+  db,
+  ts,
+) {
   console.log("DB upsert");
   // Delete _id field from objects before updating
+  console.log(modifiedArtists);
   const artistsToUpdate = modifiedArtists.map((artist) => {
     const { _id, ...artistWithoutId } = artist;
     return artistWithoutId;
