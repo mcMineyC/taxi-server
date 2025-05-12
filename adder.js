@@ -207,7 +207,8 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     var newSongs = [];
     if (msg.playlist != null) {
       console.log("Flattening data");
-      const flattenedData = flattenData(hierarchyData.playlist.songs, user);
+      const flattenedData = flattenData(msg.playlist.songs, user); // data is kinda flattened
+      // note: write custom function to turn find result into arrays
       newSongs = flattenedData.songs;
       newAlbums = flattenedData.albums;
       newArtists = flattenedData.artists;
