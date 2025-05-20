@@ -185,6 +185,23 @@
         "url": "youtube:Tf77qwVKT6k",
         "trackNumber": -2,
         "type": "song"
+      },
+      {
+        "id": "2h1o9D6ZwydtI4XfexJkbn",
+        "title": "Getting Started",
+        "album": "When You Speak",
+        "artist": "Jeremy Camp",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b2739c45ccff474ecf08467166d4",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5eb3bd064dabbb3a3f607a3c2d4",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:-5sYkDmR6nI",
+        "trackNumber": -2,
+        "type": "song"
       }
     ]
   }

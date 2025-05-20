@@ -530,7 +530,7 @@ function flattenData(input, user) {
   const albums = [];
   const songs = [];
   //console.log(`Flattening ${input} items...`);
-
+  console.log(input);
   input.forEach((artistData) => {
     var artistPublic = false;
     // Flatten artist
