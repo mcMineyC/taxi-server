@@ -193,7 +193,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       type: "song",
       songs: [
         {
-          title: song.name || "junk",
+          title: song.title || "junk",
           url: song.url,
           trackNumber: song.trackNumber,
           externalId: song.externalId,
@@ -329,14 +329,14 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       2,
     );
     fs.writeFileSync("modifiedData.json", json);
-    await persistChanges(
-      modifiedArtists,
-      modifiedAlbums,
-      modifiedSongs,
-      modifiedPlaylists,
-      db,
-      ts,
-    );
+    // await persistChanges(
+    //   modifiedArtists,
+    //   modifiedAlbums,
+    //   modifiedSongs,
+    //   modifiedPlaylists,
+    //   db,
+    //   ts,
+    // );
     console.log("Finished adding songs, albums and artists.");
     socket.emit("addresult", {
       success: true,
@@ -620,6 +620,7 @@ function flattenData(input, user) {
             songData.visibleTo == undefined ? [user] : songData.visibleTo,
           inLibrary: [user],
           trackNumber: songData.trackNumber,
+          externalId: songData.externalId,
         });
       });
     });
@@ -714,6 +715,7 @@ async function persistChanges(
 
 export default {
   flattenData: flattenData,
+  persistChanges: persistChanges,
   adderMergeLogic: adderMergeLogic,
   adderConnection: adderConnection,
   clientId: clientID,

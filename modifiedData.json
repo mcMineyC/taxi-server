@@ -1,17 +1,217 @@
 {
   "songs": [
     {
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_382631ca3b8ea279586a3b9aa91d690a0a92c725c8783072bb71756a66b05b74_f157ff443f8bb2847002f9099c28b753fe9e8e6f72c397283a9089ee9c89ef37",
-      "albumId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_382631ca3b8ea279586a3b9aa91d690a0a92c725c8783072bb71756a66b05b74",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Rainbow Road (From \"Mario Kart 64\")",
-      "albumDisplayName": "Year 6",
-      "artistDisplayName": "Qumu",
+      "id": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447_fdbc5f2a5e1f656ab7fd1b8acf37a11cf3cfe3e73dd4406efa5f8475d5e0d7fe_fdbc5f2a5e1f656ab7fd1b8acf37a11cf3cfe3e73dd4406efa5f8475d5e0d7fe",
+      "albumId": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447_fdbc5f2a5e1f656ab7fd1b8acf37a11cf3cfe3e73dd4406efa5f8475d5e0d7fe",
+      "artistId": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447",
+      "displayName": "Up + Up",
+      "albumDisplayName": "Up + Up",
+      "artistDisplayName": "Colton Dixon",
       "duration": 0,
       "trackNumber": -2,
-      "audioUrl": "youtube:EeYvWKzUfYY",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27340baf4dd6b252ba0943afdc9",
-      "added": 1747019723980,
+      "audioUrl": "youtube:td1ZTxCrdic",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273836e31330fbf127d9ed669a9",
+      "added": 1747796187078,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447_9c71594b59e744e524f3bbda7896cf9807beaead9b49abbfeeb535c9f43643cd_ded1a621388e1b6a149739c187e53217b25ca4622e2fbe0beae6dc4ee3a07d19",
+      "albumId": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447_9c71594b59e744e524f3bbda7896cf9807beaead9b49abbfeeb535c9f43643cd",
+      "artistId": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447",
+      "displayName": "Miracles",
+      "albumDisplayName": "Devil Is A Liar",
+      "artistDisplayName": "Colton Dixon",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:GNKez9xBUuU",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273592f2c1391f439c6f7cd35c5",
+      "added": 1747796187079,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58_e44e82ac31c0b4482b2ad616624f169e4de69408c5a458f911dec98f10be1b78",
+      "albumId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58",
+      "artistId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303",
+      "displayName": "Hold Her",
+      "albumDisplayName": "Burn The Ships",
+      "artistDisplayName": "for KING & COUNTRY",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:b-JF74gDc6g",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+      "added": 1747796187079,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58",
+      "albumId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58",
+      "artistId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303",
+      "displayName": "Burn The Ships",
+      "albumDisplayName": "Burn The Ships",
+      "artistDisplayName": "for KING & COUNTRY",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:Qke7WmZaiLA",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+      "added": 1747796187079,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58_4fe6d35f45896f38f4a3c5d212f3d742bb0c8d74f4e43238a2c98ed52ae2e4fe",
+      "albumId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58",
+      "artistId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303",
+      "displayName": "Fight On, Fighter",
+      "albumDisplayName": "Burn The Ships",
+      "artistDisplayName": "for KING & COUNTRY",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:7bi-dmilgaE",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+      "added": 1747796187080,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58_4c565373ac802f0c33c0431c9249910a91da5b30ef0e8d8b49cae39cb0b2d0c3",
+      "albumId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58",
+      "artistId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303",
+      "displayName": "Never Give Up",
+      "albumDisplayName": "Burn The Ships",
+      "artistDisplayName": "for KING & COUNTRY",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:LMumPIdFcxU",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+      "added": 1747796187080,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "b1c955d8f116e992171cb366aa663414d6a8b9d4adc6e9158ae431206f9f2e4a_387543743ac94342069ea4d1fcdf6417531bbd0d8f10ee40b050b833b2ad2765_387543743ac94342069ea4d1fcdf6417531bbd0d8f10ee40b050b833b2ad2765",
+      "albumId": "b1c955d8f116e992171cb366aa663414d6a8b9d4adc6e9158ae431206f9f2e4a_387543743ac94342069ea4d1fcdf6417531bbd0d8f10ee40b050b833b2ad2765",
+      "artistId": "b1c955d8f116e992171cb366aa663414d6a8b9d4adc6e9158ae431206f9f2e4a",
+      "displayName": "Promised Land",
+      "albumDisplayName": "Promised Land",
+      "artistDisplayName": "TobyMac",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:8O9lyWNfecw",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733cc3517aead1f19f7a503151",
+      "added": 1747796187080,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "c28551e9558ce358f5e33d918340f3552b98b2fa63b9256c7de601f0df747927_e2904fa28bedd9ee5666f0840585bf2ff042b6c01d34e8ad4429536288f6f2cf_e2904fa28bedd9ee5666f0840585bf2ff042b6c01d34e8ad4429536288f6f2cf",
+      "albumId": "c28551e9558ce358f5e33d918340f3552b98b2fa63b9256c7de601f0df747927_e2904fa28bedd9ee5666f0840585bf2ff042b6c01d34e8ad4429536288f6f2cf",
+      "artistId": "c28551e9558ce358f5e33d918340f3552b98b2fa63b9256c7de601f0df747927",
+      "displayName": "Pumped Up Kicks",
+      "albumDisplayName": "Pumped Up Kicks",
+      "artistDisplayName": "Madism",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:_FPAJBOcPds",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734134bc0197bdceef89ddcd70",
+      "added": 1747796187080,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "025400a5467a962203830f7e5ef0addcb603c3494c132e039f2f82251dfa2af8_6baf6876acc195a95d2d48979f4a24154c396d1a1f51a3bc57837fdc88ee6529_6baf6876acc195a95d2d48979f4a24154c396d1a1f51a3bc57837fdc88ee6529",
+      "albumId": "025400a5467a962203830f7e5ef0addcb603c3494c132e039f2f82251dfa2af8_6baf6876acc195a95d2d48979f4a24154c396d1a1f51a3bc57837fdc88ee6529",
+      "artistId": "025400a5467a962203830f7e5ef0addcb603c3494c132e039f2f82251dfa2af8",
+      "displayName": "Open Landscapes",
+      "albumDisplayName": "Open Landscapes",
+      "artistDisplayName": "Jaskaroth",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:J134G4KQQ2k",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273fb53a234caab0189df161c0a",
+      "added": 1747796187080,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "6f65443f5a5a2cd4fcd41a8633e520a9e3df12a31cb9c693302b405a4b711b71_363e04e91a4c97d82e356bdcabe6466ed390def3cb19da54f3942c5405a27be8_d0456ddbecd7284a136bc520721b66f7ac286f5c85840ed8327b1ef249e0d048",
+      "albumId": "6f65443f5a5a2cd4fcd41a8633e520a9e3df12a31cb9c693302b405a4b711b71_363e04e91a4c97d82e356bdcabe6466ed390def3cb19da54f3942c5405a27be8",
+      "artistId": "6f65443f5a5a2cd4fcd41a8633e520a9e3df12a31cb9c693302b405a4b711b71",
+      "displayName": "Bacall",
+      "albumDisplayName": "Noir",
+      "artistDisplayName": "Blue Noir",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:Tf77qwVKT6k",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2730b9b6344f05ed495a167fbbb",
+      "added": 1747796187080,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "id": "bfa3fd97f38715d06c9dfc22fb3ab51660c0c49d8ca362467b2cce901ce48124_3f302691c4f0edf85fd6fcc0ced2a7f63e6beadd62b32c6f9c2cc0317a6c0268_d00eca1bae6742803906ab42a831e8b5396d15b6573ea13c139ec31631208ec1",
+      "albumId": "bfa3fd97f38715d06c9dfc22fb3ab51660c0c49d8ca362467b2cce901ce48124_3f302691c4f0edf85fd6fcc0ced2a7f63e6beadd62b32c6f9c2cc0317a6c0268",
+      "artistId": "bfa3fd97f38715d06c9dfc22fb3ab51660c0c49d8ca362467b2cce901ce48124",
+      "displayName": "Getting Started",
+      "albumDisplayName": "When You Speak",
+      "artistDisplayName": "Jeremy Camp",
+      "duration": 0,
+      "trackNumber": -2,
+      "audioUrl": "youtube:-5sYkDmR6nI",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739c45ccff474ecf08467166d4",
+      "added": 1747796187081,
       "visibleTo": [
         "all"
       ],
@@ -23,14 +223,132 @@
   ],
   "albums": [
     {
-      "_id": "682165c196f288cf6ef6023c",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d_382631ca3b8ea279586a3b9aa91d690a0a92c725c8783072bb71756a66b05b74",
-      "added": 1747019201721,
+      "_id": "682d3f32335ecfad66af3bdf",
+      "id": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447_fdbc5f2a5e1f656ab7fd1b8acf37a11cf3cfe3e73dd4406efa5f8475d5e0d7fe",
+      "added": 1747795762758,
       "addedBy": "jedi",
-      "artistDisplayName": "Qumu",
-      "artistId": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "displayName": "Year 6",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27340baf4dd6b252ba0943afdc9",
+      "artistDisplayName": "Colton Dixon",
+      "artistId": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447",
+      "displayName": "Up + Up",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273836e31330fbf127d9ed669a9",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3be0",
+      "id": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447_9c71594b59e744e524f3bbda7896cf9807beaead9b49abbfeeb535c9f43643cd",
+      "added": 1747795762758,
+      "addedBy": "jedi",
+      "artistDisplayName": "Colton Dixon",
+      "artistId": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447",
+      "displayName": "Devil Is A Liar",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273592f2c1391f439c6f7cd35c5",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3be1",
+      "id": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303_99c5dcd9abb5ba6eb29b6c583e98ef30e1e2f94c15665e35f0004063c0ec3c58",
+      "added": 1747795762758,
+      "addedBy": "jedi",
+      "artistDisplayName": "for KING & COUNTRY",
+      "artistId": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303",
+      "displayName": "Burn The Ships",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b27350ea433465b51df6d43194fd",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3be2",
+      "id": "b1c955d8f116e992171cb366aa663414d6a8b9d4adc6e9158ae431206f9f2e4a_387543743ac94342069ea4d1fcdf6417531bbd0d8f10ee40b050b833b2ad2765",
+      "added": 1747795762758,
+      "addedBy": "jedi",
+      "artistDisplayName": "TobyMac",
+      "artistId": "b1c955d8f116e992171cb366aa663414d6a8b9d4adc6e9158ae431206f9f2e4a",
+      "displayName": "Promised Land",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733cc3517aead1f19f7a503151",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3be3",
+      "id": "c28551e9558ce358f5e33d918340f3552b98b2fa63b9256c7de601f0df747927_e2904fa28bedd9ee5666f0840585bf2ff042b6c01d34e8ad4429536288f6f2cf",
+      "added": 1747795762758,
+      "addedBy": "jedi",
+      "artistDisplayName": "Madism",
+      "artistId": "c28551e9558ce358f5e33d918340f3552b98b2fa63b9256c7de601f0df747927",
+      "displayName": "Pumped Up Kicks",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734134bc0197bdceef89ddcd70",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3be4",
+      "id": "025400a5467a962203830f7e5ef0addcb603c3494c132e039f2f82251dfa2af8_6baf6876acc195a95d2d48979f4a24154c396d1a1f51a3bc57837fdc88ee6529",
+      "added": 1747795762758,
+      "addedBy": "jedi",
+      "artistDisplayName": "Jaskaroth",
+      "artistId": "025400a5467a962203830f7e5ef0addcb603c3494c132e039f2f82251dfa2af8",
+      "displayName": "Open Landscapes",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273fb53a234caab0189df161c0a",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "all"
+      ]
+    },
+    {
+      "id": "6f65443f5a5a2cd4fcd41a8633e520a9e3df12a31cb9c693302b405a4b711b71_363e04e91a4c97d82e356bdcabe6466ed390def3cb19da54f3942c5405a27be8",
+      "artistId": "6f65443f5a5a2cd4fcd41a8633e520a9e3df12a31cb9c693302b405a4b711b71",
+      "displayName": "Noir",
+      "artistDisplayName": "Blue Noir",
+      "songCount": 0,
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2730b9b6344f05ed495a167fbbb",
+      "added": 1747796187078,
+      "visibleTo": [
+        "all"
+      ],
+      "inLibrary": [
+        "jedi"
+      ],
+      "addedBy": "jedi"
+    },
+    {
+      "_id": "682d3f32335ecfad66af3be6",
+      "id": "bfa3fd97f38715d06c9dfc22fb3ab51660c0c49d8ca362467b2cce901ce48124_3f302691c4f0edf85fd6fcc0ced2a7f63e6beadd62b32c6f9c2cc0317a6c0268",
+      "added": 1747795762759,
+      "addedBy": "jedi",
+      "artistDisplayName": "Jeremy Camp",
+      "artistId": "bfa3fd97f38715d06c9dfc22fb3ab51660c0c49d8ca362467b2cce901ce48124",
+      "displayName": "When You Speak",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739c45ccff474ecf08467166d4",
       "inLibrary": [
         "jedi"
       ],
@@ -42,13 +360,109 @@
   ],
   "artists": [
     {
-      "_id": "67e7557dc09c1cb30dd65566",
-      "id": "43f11e48bc0546d4529cd792b94636d4eba3b1deedca185fc2e62670a7a31a7d",
-      "added": 1743213949125,
+      "_id": "682d3f32335ecfad66af3bd8",
+      "id": "0e63ec699b3bba41d4ded633f4c82fa929420889c1183cc18473fafc9e4c2447",
+      "added": 1747795762757,
       "addedBy": "jedi",
       "albumCount": 0,
-      "displayName": "Qumu",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebdffc3d0e6fc685b3cb032c65",
+      "displayName": "Colton Dixon",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebde3ae71d126f8573672ec292",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "jedi"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3bd9",
+      "id": "ea20f830549c742275a490ab1cff17e13e2820e4c158f8d99e2948d93c916303",
+      "added": 1747795762757,
+      "addedBy": "jedi",
+      "albumCount": 0,
+      "displayName": "for KING & COUNTRY",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb26aac7f6e1c5978e7c924d85",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "jedi"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3bda",
+      "id": "b1c955d8f116e992171cb366aa663414d6a8b9d4adc6e9158ae431206f9f2e4a",
+      "added": 1747795762757,
+      "addedBy": "jedi",
+      "albumCount": 0,
+      "displayName": "TobyMac",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb0f02deacc1cfdb22aabb3a49",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "jedi"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3bdb",
+      "id": "c28551e9558ce358f5e33d918340f3552b98b2fa63b9256c7de601f0df747927",
+      "added": 1747795762757,
+      "addedBy": "jedi",
+      "albumCount": 0,
+      "displayName": "Madism",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebc67824a5c3ea66aa24a02fbd",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "jedi"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3bdc",
+      "id": "025400a5467a962203830f7e5ef0addcb603c3494c132e039f2f82251dfa2af8",
+      "added": 1747795762758,
+      "addedBy": "jedi",
+      "albumCount": 0,
+      "displayName": "Jaskaroth",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb6a4858c2772a986d9411fd8c",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "jedi"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3bdd",
+      "id": "6f65443f5a5a2cd4fcd41a8633e520a9e3df12a31cb9c693302b405a4b711b71",
+      "added": 1747795762758,
+      "addedBy": "jedi",
+      "albumCount": 0,
+      "displayName": "Blue Noir",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5ebe5000f7aef5010711871d62a",
+      "inLibrary": [
+        "jedi"
+      ],
+      "songCount": 0,
+      "visibleTo": [
+        "jedi"
+      ]
+    },
+    {
+      "_id": "682d3f32335ecfad66af3bde",
+      "id": "bfa3fd97f38715d06c9dfc22fb3ab51660c0c49d8ca362467b2cce901ce48124",
+      "added": 1747795762758,
+      "addedBy": "jedi",
+      "albumCount": 0,
+      "displayName": "Jeremy Camp",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000e5eb3bd064dabbb3a3f607a3c2d4",
       "inLibrary": [
         "jedi"
       ],
