@@ -293,6 +293,7 @@ class SpotifyHandler {
         );
         // Song structure
         return {
+          externalId: track.id || "no id",
           title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
           album: track.album.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
           artist: track.artist.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
@@ -308,7 +309,8 @@ class SpotifyHandler {
               url:
                 "youtube:" +
                 (youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || ""),
-              trackNumber: track.track_number || -2,
+              trackNumber: youtubeInfo[0].track_number || -2,
+              externalId: track.id || "no id",
             },
           ],
           type: "song",
@@ -371,8 +373,9 @@ class SpotifyHandler {
         const youtubeAlbum = await this.yt.getAlbum(youtubeInfo[0].albumId);
 
         try {
-          // NOTE: may be useful to wrap all things with this
+          // NOTE: may be useful to wrap all things with try-catch
           return {
+            externalId: album.externalId,
             title: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
             album: album.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
             artist: album.artist
@@ -384,6 +387,7 @@ class SpotifyHandler {
             inLibrary: [username],
             songs: youtubeAlbum.songs
               .map((x, index) => ({
+                externalId: "youtube:"+(x.videoId||x.browseId),
                 title: x.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
                 url: "youtube:" + (x.videoId || x.browseId || ""),
                 trackNumber: index + 1,
@@ -414,7 +418,7 @@ class SpotifyHandler {
       // Create a list of playlist promises
       const playlistPromises = playlists.map(async (list) => {
         // Fetch entire playlist (needed for >100 songs)
-        const playlist = await this.getFullPlaylist(list.id);
+        const playlist = await this.getFullPlaylist(list.externalId);
         // Create song promises
         var songPromises = playlist.tracks.map(async (track, index) => {
           const youtubeInfo = await this.yt.searchSongs(
@@ -423,7 +427,7 @@ class SpotifyHandler {
           if (youtubeInfo.length === 0) return null; // We didn't find any songs
           var song = youtubeInfo[0];
           return {
-            id: track.id || "",
+            externalId: track.externalId || "",
             songPosition: index,
             title: track.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
             album: track.album.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
@@ -435,7 +439,7 @@ class SpotifyHandler {
             visibleTo: ["all"],
             inLibrary: [username],
             url: "youtube:" + (song.videoId || song.browseId || ""),
-            trackNumber: track.track_number || -2, // BUG we have no track_number for some reason
+            trackNumber: youtubeInfo[0].track_number || -2, // BUG we have no track_number for some reason
             type: "song",
           };
         });
@@ -452,7 +456,7 @@ class SpotifyHandler {
 
         // Return playlist object with hydrated songs
         return {
-          id: "spotify:" + playlist.id,
+          externalId: playlist.id,
           name: playlist.name,
           owner: playlist.owner,
           imageUrl: playlist.imageUrl,
@@ -555,7 +559,7 @@ class SpotifyHandler {
     var mapped = items.map((item) => {
       if (item.type === "track") {
         return {
-          id: item.id || "failed at map 1",
+          externalId: item.id || "failed at map 1",
           name: item.name || "",
           artist: item.artists?.[0]?.name || "",
           album: item.album?.name || "",
@@ -568,7 +572,7 @@ class SpotifyHandler {
         };
       } else if (item.type === "album") {
         return {
-          id: item.id || "",
+          externalId: item.id || "failed at map 1",
           name: item.name || "",
           album: "",
           artist: item.artists[0].name || "",
@@ -580,7 +584,7 @@ class SpotifyHandler {
         };
       } else if (item.type === "artist") {
         return {
-          id: item.id || "",
+          externalId: item.id || "failed at map 1",
           name: item.name || "",
           album: "",
           artist: "",
@@ -591,7 +595,7 @@ class SpotifyHandler {
       } else if (item.type === "playlist") {
         //console.log(item);
         return {
-          id: item.id || "",
+          externalId: item.id || "failed at map 1",
           name: item.name || "",
           album: "",
           artist: item.owner.display_name || "",
@@ -629,6 +633,7 @@ class SpotifyHandler {
         return x;
       }
       return {
+        externalId: x.externalId || "no external id at map",
         id: x.id || "",
         name: x.title || x.name || "",
         album: x.album || "",

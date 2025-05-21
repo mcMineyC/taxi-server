@@ -168,6 +168,60 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       });
     }
   });
+  socket.on("playlist", async (msg) => {
+    if (!authed) {
+      socket.emit("message", {
+        type: "auth",
+        success: false,
+        error: "Invalid authtoken",
+        authorized: false,
+      });
+      return;
+    }
+    if (typeof msg == "string") {
+      msg = JSON.parse(msg);
+    }
+    var mapped = msg.songs.map(song => ({
+      externalId: "songs don't get extern album ids",
+      name: "not used",
+      artist: song.artist,
+      album: song.album,
+      imageUrl: song.albumCoverURL,
+      artistImageUrl: song.artistImageUrl,
+      visibleTo: song.visibleTo,
+      inLibrary: song.inLibrary,
+      type: "song",
+      songs: [
+        {
+          title: song.name || "junk",
+          url: song.url,
+          trackNumber: song.trackNumber,
+          externalId: song.externalId,
+        }
+      ]
+    }));
+    socket.emit("findresults", {results: mapped});
+    /*
+      {
+        "externalId": "4pyIuEQo27lFOEMBJagRAv",
+        "songPosition": 0,
+        "title": "Up + Up",
+        "album": "Up + Up",
+        "artist": "Colton Dixon",
+        "albumCoverURL": "https://i.scdn.co/image/ab67616d0000b273836e31330fbf127d9ed669a9",
+        "artistImageUrl": "https://i.scdn.co/image/ab6761610000e5ebde3ae71d126f8573672ec292",
+        "visibleTo": [
+          "all"
+        ],
+        "inLibrary": [
+          "jedi"
+        ],
+        "url": "youtube:td1ZTxCrdic",
+        "trackNumber": -2,
+        "type": "song"
+      },
+    */
+  })
 
   socket.on("add", async (msg) => {
     if (!authed) {
