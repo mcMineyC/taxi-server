@@ -329,14 +329,14 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       2,
     );
     fs.writeFileSync("modifiedData.json", json);
-    // await persistChanges(
-    //   modifiedArtists,
-    //   modifiedAlbums,
-    //   modifiedSongs,
-    //   modifiedPlaylists,
-    //   db,
-    //   ts,
-    // );
+    await persistChanges(
+      modifiedArtists,
+      modifiedAlbums,
+      modifiedSongs,
+      modifiedPlaylists,
+      db,
+      ts,
+    );
     console.log("Finished adding songs, albums and artists.");
     socket.emit("addresult", {
       success: true,
@@ -534,6 +534,7 @@ async function adderMergeLogic(
       visibleTo: songData.visibleTo,
       inLibrary: [user],
       addedBy: user,
+      externalId: songData.externalId,
     };
 
     if (!songKeys.includes(songKey)) {

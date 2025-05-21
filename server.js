@@ -690,15 +690,20 @@ app.post("/info/songs/batch", async function (req, res) {
   console.log("/info/songs/batch - Authed");
   var user = await utils.getUser(req.body.authtoken, db);
   var ignore = req.query.ignore || false;
-  var query = {
-    id: { $in: req.body.ids },
-  };
+  var externalIds = !(typeof(req.body.externalIds) == "undefined");
+  var query = {};
+  if(req.body.ids){
+    query.id = { $in: req.body.ids };
+  }else if(externalIds){
+    console.log("/info/songs/batch - using "+req.body.externalIds.length+" externalIds");
+    query.externalId = { $in: req.body.externalIds };
+  }
   if (!ignore) {
     query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
   }
 
   var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
+  if (privateLibrary == true) {
     delete query.$or;
     query.inLibrary = user;
   }
@@ -707,7 +712,10 @@ app.post("/info/songs/batch", async function (req, res) {
   // console.log("/info/songs/batch - Query done");
   var results = {};
   // console.log("/info/songs/batch - Mapping");
-  data.forEach((d) => (results[d.id] = d));
+  if(externalIds == false)
+    data.forEach((d) => (results[d.id] = d));
+  else
+    data.forEach((d) => (results[d.externalId] = d.id));
   // console.log("/info/songs/batch - Sending results");
   res.send({ authed: true, results: results });
 });
@@ -830,10 +838,10 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
   if (req.params.playlist == "create") {
     console.log("Creating new playlist");
     const newPlaylist = {
-      id: utils.hash(req.body.name),
+      id: utils.hash(u) + "_" + utils.hash(req.body.name),
       owner: u || "testguy",
       displayName: req.body.name || "Banana",
-      description: req.body.description || "Banana",
+      description: req.body.description || "nil",
       visibleTo: req.body.visibleTo || [u],
       inLibrary: [u],
       allowedCollaborators: req.body.allowedCollaborators || [u],
