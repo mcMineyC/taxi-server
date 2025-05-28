@@ -458,10 +458,10 @@ class SpotifyHandler {
         return {
           externalId: playlist.id,
           name: playlist.name,
+          description: playlist.description,
           owner: playlist.owner,
           imageUrl: playlist.imageUrl,
           ownerImageUrl: playlist.artistImageUrl,
-          description: playlist.description,
           isPublic: playlist.isPublic,
           songs: songResults.sort((a, b) => a.songPosition - b.songPosition),
           type: "foundplaylist",

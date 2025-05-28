@@ -161,7 +161,7 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     } else if (msg.source == "youtube") {
       socket.emit("findresults", { results: [] });
       socket.emit("message", {
-        type: "auth",
+        type: "error",
         success: false,
         error: "Not implemented",
         authorized: true,
@@ -181,7 +181,9 @@ function adderConnection(socket, db, ts, spotifyHandler) {
     if (typeof msg == "string") {
       msg = JSON.parse(msg);
     }
+    console.log(msg.songs[0].visibleTo)
     var mapped = msg.songs.map(song => ({
+      type: "song", // this is interpreted as an album for some reason idk
       externalId: "songs don't get extern album ids",
       name: "not used",
       artist: song.artist,
@@ -190,7 +192,6 @@ function adderConnection(socket, db, ts, spotifyHandler) {
       artistImageUrl: song.artistImageUrl,
       visibleTo: song.visibleTo,
       inLibrary: song.inLibrary,
-      type: "song",
       songs: [
         {
           title: song.title || "junk",
