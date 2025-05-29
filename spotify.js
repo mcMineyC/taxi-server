@@ -133,6 +133,14 @@ class SpotifyHandler {
     });
   }
 
+  async getArtistImageUrlFromName(artistName){
+    return this.executeUserAction(async () => {
+      var artist = (await this.api.search(artistName, ["artist"]));
+      artist = artist.artists.items[0];
+      return artist.images[0].url
+    });
+  }
+
   // Maximum number of items per Spotify API request
   static MAX_BATCH_SIZE = 50;
 

@@ -355,6 +355,15 @@ app.post("/info/users", async function (req, res) {
   res.send({ authed: true, success: true, users: results });
 });
 
+// app.post("/info/usernames", async function (req, res) {
+//   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
+//     res.send({ authed: false, error: "Invalid authtoken", success: false });
+//     return;
+//   }
+//   var users = await db.collection("auth").find().toArray();
+//   res.send({ authed: true, usernames: users.map((u) => u.loginName) });
+// });
+
 app.post("/info/users/:username", async function (req, res) {
   var u = await db
     .collection("auth")
@@ -878,52 +887,27 @@ app.post("/playlists/modify/:playlist", async function (req, res) {
       res.send({ authed: false, error: "Not authorized", success: false });
       return;
     }
-    var newdata = {};
+    var newdata = req.body;
+    delete newdata.authtoken;
     console.log("Attempting to modify playlist " + req.params.playlist);
-    if (req.body.name !== undefined) {
-      console.log("Name: " + req.body.name);
-      newdata["displayName"] = req.body.name;
-    } else {
-      newdata["displayName"] = p.displayName;
-    }
-    if (req.body.description !== undefined) {
-      console.log("Description: " + req.body.description);
-      newdata["description"] = req.body.description;
-    } else {
-      newdata["description"] = p.description;
-    }
-    if (req.body.visibleTo !== undefined) {
+    if (newdata.visibleTo !== undefined) {
       console.log("VisibleTo: " + req.body.visibleTo);
       if (req.body.visibleTo.includes("all")) {
         newdata["visibleTo"] = ["all"];
-      } else {
-        newdata["visibleTo"] = req.body.visibleTo;
       }
-    } else {
-      newdata["visibleTo"] = p.visibleTo;
     }
     if (req.body.allowedCollaborators !== undefined) {
-      newdata["allowedCollaborators"] = req.body.allowedCollaborators;
       if (!newdata["allowedCollaborators"].includes(p.owner)) {
         newdata["allowedCollaborators"].push(p.owner);
       }
       var newVisibleTo = newdata["visibleTo"];
       var newCollaborators = newdata["allowedCollaborators"];
-      newVisibleTo = newVisibleTo.concat(newVisibleTo, newCollaborators.filter((x) => !newVisibleTo.includes(x)));
+      newVisibleTo = newVisibleTo.concat(newCollaborators.filter((x) => !newVisibleTo.includes(x)));
       newdata["visibleTo"] = newVisibleTo;
       console.log("VisibleTo: " + newdata["visibleTo"]);
       console.log("AllowedCollaborators: " + newdata["allowedCollaborators"]);
     }
-    if (
-      typeof req.body.songs !== "undefined" &&
-      req.body.songs != null &&
-      req.body.songs.length > 0
-    ) {
-      newdata["songs"] = req.body.songs;
-    } else {
-      newdata["songs"] = p.songs;
-    }
-    console.log("Patching existing playlist");
+    console.log("Patching existing playlist using query: "+JSON.stringify(newdata,null,2));
     await db
       .collection("playlists")
       .updateOne({ id: req.params.playlist }, { $set: newdata });
@@ -1273,6 +1257,17 @@ app.post("/recently-played/:user", async function (req, res) {
   if (typeof req.query.limit == "int" || typeof req.query.limit == "string") {
     limit = parseInt(req.query.limit);
   }
+  const result = await db
+    .collection("auth")
+    .findOne({ authtoken: req.body.authtoken });
+  var username = "";
+  var authed = await (async () => {
+    if (!result) {
+      return Promise.resolve(false);
+    }
+    username = result.loginName;
+    return Promise.resolve(true);
+  })();
 
   var played = await db
     .collection("played")
@@ -1281,7 +1276,7 @@ app.post("/recently-played/:user", async function (req, res) {
     res.send({ played: [], authed: true, success: true });
     return;
   }
-  var preppedPlayed = played.songs.filter((n) => n).filter((n) => n != "idklol");
+  var preppedPlayed = played.songs.filter((n) => n).filter((n) => n != "idklol" && (n.visibleTo.includes("all") || n.visibleTo.includes(username)));
   preppedPlayed = preppedPlayed.slice(0, limit);
   res.send({
     played: preppedPlayed || [],
@@ -1952,14 +1947,16 @@ app.post("/edit/:type/:id/delete", async (req, res) => {
   res.send({ authed: true, success: true });
 });
 
-app.post("/info/usernames", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, error: "Invalid authtoken", success: false });
+
+app.post("/utils/getArtistImageFromName", async (req, res) => {
+  if((await utils.checkAuth(req.body.authtoken, db)) == false){
+    res.send({"authed": false, "error": "Invalid authtoken", url: ""});
     return;
   }
-  var users = await db.collection("auth").find().toArray();
-  res.send({ authed: true, usernames: users.map((u) => u.loginName) });
-});
+  var url = await spotifyHandler.getArtistImageUrlFromName(req.body.query);
+  res.send({authed: true, error: "", url: url});
+})
+
 
 io.on("connection", (socket) => {
   adder.adderConnection(socket, db, ts, spotifyHandler);
