@@ -588,10 +588,9 @@ function flattenData(input, user) {
   //console.log(`Flattening ${input} items...`);
   console.log(input);
   input.forEach((artistData) => {
-    var artistPublic = false;
     // Flatten artist
     const artistName = artistData.name;
-    artistData.albums.forEach((albumData) => {
+    Object.values(artistData.albums).forEach((albumData) => {
       // Flatten albums
       const albumName = albumData.name;
       const albumImageUrl = albumData.imageUrl;
@@ -604,13 +603,8 @@ function flattenData(input, user) {
         inLibrary: [user],
         songCount: 0,
       });
-      if (
-        albumData.visibleTo != undefined &&
-        albumData.visibleTo.includes("all")
-      )
-        artistPublic = true;
 
-      albumData.songs.forEach((songData) => {
+      Object.values(albumData.songs).forEach((songData) => {
         // Flatten songs
         songs.push({
           displayName: songData.name,
@@ -630,9 +624,7 @@ function flattenData(input, user) {
     artists.push({
       displayName: artistName,
       visibleTo:
-        artistData.visibleTo == undefined || artistPublic
-          ? [user]
-          : artistData.visibleTo,
+        artistData.visibleTo || ["all"],
       inLibrary: [user],
       imageUrl: artistData.imageUrl,
       albumCount: 0,
