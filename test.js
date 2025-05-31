@@ -1,7 +1,17 @@
-import db from './db.js';
+import dbCon from './db.js';
 import ts from "./typesense_module.js";
+const db = dbCon.db("taxi");
 console.log("Added collections");
-console.log(await db.listCollections().toArray());
+console.table(await Promise.all((await db.listCollections().toArray()).map(async (c) => ({
+    name: c.name,
+    count: await db.collection(c.name).countDocuments()
+}))));
+// const regressionTimestamp = 1748545860000; // Unix timestamp in millis of "Thursday, May 29, 2025 12:11:00 PM GMT-07:00"
+// console.log(await db.collection("songs").deleteMany({added: {$gt: regressionTimestamp}}))
+// console.log(await db.collection("albums").deleteMany({added: {$gt: regressionTimestamp}}))
+// console.log(await db.collection("artists").deleteMany({added: {$gt: regressionTimestamp}}))
+// console.log(await db.collection("playlists").deleteMany({added: {$gt: regressionTimestamp}}))
+dbCon.close()
 //var users = await db.auth.find().exec();
 //users.forEach(async x => 
 //  await x.modify(
