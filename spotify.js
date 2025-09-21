@@ -187,7 +187,7 @@ class SpotifyHandler {
   }
 
   // Search with user context
-  async search(query, mediaType, page = 0) {
+  async search(query, mediaType, page = 0, rawData = false) {
     // Execute all actions with token and retry
     return this.executeUserAction(async () => {
       try {
@@ -246,9 +246,11 @@ class SpotifyHandler {
           );
           items = trackItems[mediaType + "s"].items;
         }
-
         //Throw it in the transformer to prettify it
-        return await this.mapSpotifyResults(items);
+        if(!rawData)
+          return await this.mapSpotifyResults(items);
+        else
+          return items;
       } catch (error) {
         console.error("Spotify search error:", error);
         return [];
@@ -299,6 +301,7 @@ class SpotifyHandler {
         const youtubeInfo = await this.yt.searchSongs(
           `${track.name} ${track.artist}`,
         );
+        console.debug(`${track.youtubeInfo[0].name} - track number ${youtubeInfo}`);
         // Song structure
         return {
           externalId: track.id || "no id",
@@ -317,7 +320,7 @@ class SpotifyHandler {
               url:
                 "youtube:" +
                 (youtubeInfo[0]?.videoId || youtubeInfo[0]?.browseId || ""),
-              trackNumber: youtubeInfo[0].track_number || -2,
+              trackNumber: track.track_number || -2,
               externalId: track.id || "no id",
             },
           ],
@@ -447,7 +450,7 @@ class SpotifyHandler {
             visibleTo: ["all"],
             inLibrary: [username],
             url: "youtube:" + (song.videoId || song.browseId || ""),
-            trackNumber: youtubeInfo[0].track_number || -2, // BUG we have no track_number for some reason
+            trackNumber: track.track_number || -2, // BUG we have no track_number for some reason
             type: "song",
           };
         });
@@ -545,7 +548,7 @@ class SpotifyHandler {
    };
   }
 */
-
+  // Magic transformer
   async mapSpotifyResults(items) {
     console.log("mapSpotifyResults:", items.length, "items to be mapped");
     var artistIds = items

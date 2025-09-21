@@ -1,11 +1,30 @@
 import dbCon from './db.js';
-import ts from "./typesense_module.js";
+// import ts from "./typesense_module.js";
+// import YTMusic from "ytmusic-api";
+// const yt = new YTMusic();
+// await yt.initialize();
+import SpotifyHandler from './spotify.js';
+import adder from "./adder.js";
+const spotifyHandler = new SpotifyHandler(
+  adder.clientId,
+  adder.clientSecret,
+  "http://localhost:8080/callback",
+);
+await spotifyHandler.initialize();
 const db = dbCon.db("taxi");
 console.log("Added collections");
-console.table(await Promise.all((await db.listCollections().toArray()).map(async (c) => ({
-    name: c.name,
-    count: await db.collection(c.name).countDocuments()
-}))));
+// console.table(await Promise.all((await db.listCollections().toArray()).map(async (c) => ({
+//     name: c.name,
+//     count: await db.collection(c.name).countDocuments()
+// }))));
+var results = await spotifyHandler.search("qumu", "all", 0, true);
+// results = results.filter((r) => r.type == "SONG");
+// results = results.map((r) => ({
+//     type: r.type,
+//     name: r.name,
+//     image: JSON.stringify(r.thumbnails),
+// }))
+console.table(results);
 // const regressionTimestamp = 1748545860000; // Unix timestamp in millis of "Thursday, May 29, 2025 12:11:00 PM GMT-07:00"
 // console.log(await db.collection("songs").deleteMany({added: {$gt: regressionTimestamp}}))
 // console.log(await db.collection("albums").deleteMany({added: {$gt: regressionTimestamp}}))
