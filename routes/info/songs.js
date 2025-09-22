@@ -2,7 +2,8 @@ import express from "express";
 const router = express.Router();
 
 export default (db) => {
-  router.post("/info/songs", async function (req, res) {
+  // /info/songs/ - Get all songs, with optional limit and mine filter
+  router.post("/", async function (req, res) {
     var user = req.user;
     var ignore = req.query.ignore || false;
     var data = [];
@@ -29,49 +30,8 @@ export default (db) => {
     res.send({ authed: true, songs: data });
   });
 
-  router.post("/info/singles/by/artist/:id", async function (req, res) {
-    var user = req.user;
-    var ignore = req.query.ignore || false;
-
-    var query = {
-      artistId: req.params.id,
-      songCount: 1,
-    };
-
-    if (!ignore) {
-      query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-    }
-
-    var privateLibrary = req.query.mine || false;
-    if (privateLibrary) {
-      delete query.$or;
-      query.inLibrary = user;
-    }
-
-    const data = await db
-      .collection("albums")
-      .find(query)
-      .sort({ added: -1 })
-      .toArray();
-
-    var songsQuery = {
-      albumId: { $in: data.map((a) => a.id) },
-    };
-
-    if (!ignore) {
-      songsQuery.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-    }
-
-    const songsData = await db
-      .collection("songs")
-      .find(songsQuery)
-      .sort({ added: -1 })
-      .toArray();
-
-    res.send({ authed: true, songs: songsData });
-  });
-
-  router.post("/info/songs/by/album/:id", async function (req, res) {
+  // /info/songs/by/album/:id - Get all songs from a specific album
+  router.post("/by/album/:id", async function (req, res) {
     var user = req.user;
     var ignore = req.query.ignore || false;
 
@@ -100,7 +60,8 @@ export default (db) => {
     res.send({ authed: true, songs: data });
   });
 
-  router.post("/info/songs/by/artist/:id", async function (req, res) {
+  // /info/songs/by/artist/:id - Get all songs from a specific artist
+  router.post("/by/artist/:id", async function (req, res) {
     var user = req.user;
     var ignore = req.query.ignore || false;
 
@@ -127,7 +88,8 @@ export default (db) => {
     res.send({ authed: true, songs: data });
   });
 
-  router.post("/info/songs/batch", async function (req, res) {
+  // /info/songs/batch - Get songs by a list of IDs or externalIds
+  router.post("/batch", async function (req, res) {
     var user = req.user;
     var ignore = req.query.ignore || false;
     var externalIds = !(typeof(req.body.externalIds) == "undefined");
@@ -160,7 +122,8 @@ export default (db) => {
     res.send({ authed: true, results: results });
   });
 
-  router.post("/info/songs/:id", async function (req, res) {
+  // /info/songs/:id - Get a specific song by ID
+  router.post("/:id", async function (req, res) {
     var user = req.user;
     var ignore = req.query.ignore || false;
     var query = {

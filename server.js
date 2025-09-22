@@ -17,7 +17,6 @@ const { Server } = require("socket.io");
 import crypto from "crypto";
 const { waitUntil } = require("async-wait-until");
 
-import kusc from "kusc_api";
 
 import SpotifyHandler from "./spotify.js";
 //const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
@@ -26,6 +25,14 @@ var db = dbConnection.db("taxi");
 import ts from "./typesense_module.js";
 import adder from "./adder.js";
 import utils from "./utils.js";
+
+import infoRouter from "./routes/info/info.js";
+import utilRouter from "./routes/api/api.js";
+import adminRouter from "./routes/admin/admin.js";
+import socialRouter from "./routes/social/social.js";
+
+import standardAuthMiddleware from "./authMiddleware/standardAuth.js";
+
 console.log("Added collections");
 
 const spotifyHandler = new SpotifyHandler(
@@ -48,67 +55,14 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms"),
 );
-//const spotify = new Spotify(adder.clientId, adder.clientSecret);
-// const api = SpotifyApi.withClientCredentials(
-//   adder.clientId,
-//   adder.clientSecret,
-// ); // Outdated now!
 
-// app.use('/',express.static(path.join(__dirname, 'static')));
-
-app.post("/latestCommit", async function (_, res) {
-  exec("git rev-parse HEAD", (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`);
-      res.send({ commit: "error" });
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      res.send({ commit: "error" });
-      return;
-    }
-    res.send({ commit: stdout.replace("\n", "") });
-  });
-});
-
-app.post("/status", function (_, res) {
-  res.send({ status: "ok" });
-});
-app.get("/status", function (_, res) {
-  res.send({ status: "ok" });
-});
+app.use("/info", standardAuthMiddleware(db), infoRouter(db));
+// app.use("/admin", standardAuthMiddleware, adminRouter(db, spotifyHandler));  // Admin needs special auth
+app.use("/social", standardAuthMiddleware(db), socialRouter(db));
 
 
-// KUSC stream handling
+app.use("/api", apiRouter(db, spotifyHandler)); // Special auth for api
 
-app.get("/kusc/streams", async function (req, res) {
-  try{
-    res.send(await kusc.getStreams());
-  }catch (e){
-    res.status(501).send("There was an error...");
-  }
-})
-
-app.get("/kusc/streams/:id/audio", async function (req, res) {
-  try{
-    var url = await kusc.getStreamUrl(req.params.id, req.query.type || "AAC96");
-    res.redirect(url);
-    //next();
-    return;
-  }catch(e){
-    res.status(501).send("There was an error processing your request.  Did you double check your stream id and/or type?");
-  }
-})
-
-app.get("/kusc/streams/:id/metadata", async function (req, res) {
-  try{
-    var info = await kusc.getCurrentMetadata(req.params.id);
-    res.send(info);
-  }catch(e){
-    res.status(501).send("There was an error processing your request.  Did you double check your stream id?");
-  }
-})
 
 
 // Auth
@@ -405,332 +359,15 @@ app.post("/info/users/:username", async function (req, res) {
   });
 });
 
-app.post("/info/albums", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, albums: [] });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-
-  var query = {};
-  if (!ignore) {
-    query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-  const data = await db
-    .collection("albums")
-    .find(query)
-    .sort({ artistId: 1, added: 1 })
-    .toArray();
-  res.send({ authed: true, albums: data });
-});
-
-app.post("/info/artists", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, artists: [] });
-    return;
-  }
-
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-  var query = {};
-  if (!ignore) {
-    query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-  const data = await db
-    .collection("artists")
-    .find(query)
-    .sort({ displayName: 1 })
-    .toArray();
-  res.send({ authed: true, artists: data });
-});
+// Artists
 
 
-app.post("/info/artist/:id", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, artist: {} });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-  var query = {
-    id: req.params.id,
-  };
-  if (!ignore) {
-    query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
 
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-  const data = await db.collection("artists").findOne(query);
-  res.send({ authed: true, artist: data });
-});
+// Albums
 
-app.post("/info/album/:id", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, album: {} });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
 
-  const data = await db.collection("albums").findOne({
-    id: req.params.id,
-    $or: ignore ? [] : [{ visibleTo: user }, { visibleTo: "all" }],
-  });
-  res.send({ authed: true, album: data });
-});
 
-app.post("/info/albums/by/artist/:id", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, albums: [] });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-
-  var albumsData = [];
-  if (req.query.excludeSingles == "true") {
-    const query = {
-      artistId: req.params.id,
-      songCount: 1,
-    };
-    const data = await db
-      .collection("albums")
-      .find(query)
-      .sort({ added: -1 })
-      .toArray();
-
-    var excludeIds = data.map((a) => a.id);
-    console.log(data.map((a) => a.id));
-
-    var fullQuery = {
-      artistId: req.params.id,
-    };
-    if (!ignore) {
-      fullQuery.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-    }
-
-    var privateLibrary = req.query.mine || false;
-    if (privateLibrary) {
-      delete query.$or;
-      query.inLibrary = user;
-    }
-
-    var abD = await db
-      .collection("albums")
-      .find(fullQuery)
-      .sort({ added: -1 })
-      .toArray();
-
-    albumsData = abD.filter((a) => !excludeIds.includes(a.id));
-  } else {
-    var query = {
-      artistId: req.params.id,
-    };
-    if (!ignore) {
-      query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-    }
-
-    var privateLibrary = req.query.mine || false;
-    if (privateLibrary) {
-      delete query.$or;
-      query.inLibrary = user;
-    }
-
-    albumsData = await db
-      .collection("albums")
-      .find(query)
-      .sort({ added: -1 })
-      .toArray();
-  }
-  res.send({ authed: true, albums: albumsData });
-});
-
-app.post("/info/singles/by/artist/:id", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, songs: [] });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-
-  var query = {
-    artistId: req.params.id,
-    songCount: 1,
-  };
-
-  if (!ignore) {
-    query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
-
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-
-  const data = await db
-    .collection("albums")
-    .find(query)
-    .sort({ added: -1 })
-    .toArray();
-
-  var songsQuery = {
-    albumId: { $in: data.map((a) => a.id) },
-  };
-
-  if (!ignore) {
-    songsQuery.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
-
-  const songsData = await db
-    .collection("songs")
-    .find(songsQuery)
-    .sort({ added: -1 })
-    .toArray();
-
-  res.send({ authed: true, songs: songsData });
-});
-
-app.post("/info/songs/by/album/:id", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, songs: [] });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-
-  var query = {
-    albumId: req.params.id,
-  };
-
-  if (!ignore) {
-    query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
-
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-
-  const data = await db
-    .collection("songs")
-    .find(query)
-    .sort({ trackNumber: 1 })
-    .toArray();
-  console.log(data);
-
-  console.log("Sending songs");
-  res.send({ authed: true, songs: data });
-});
-
-app.post("/info/songs/by/artist/:id", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, songs: [] });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-
-  var query = {
-    artistId: req.params.id,
-  };
-
-  if (!ignore) {
-    query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
-
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-
-  const data = await db
-    .collection("songs")
-    .find(query)
-    .sort({ artistId: 1, albumId: 1, trackNumber: 1 })
-    .toArray();
-
-  res.send({ authed: true, songs: data });
-});
-
-app.post("/info/songs/batch", async function (req, res) {
-  console.log("/info/songs/batch - Checking auth");
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, results: {} });
-    return;
-  }
-  console.log("/info/songs/batch - Authed");
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-  var externalIds = !(typeof(req.body.externalIds) == "undefined");
-  var query = {};
-  if(req.body.ids){
-    query.id = { $in: req.body.ids };
-  }else if(externalIds){
-    console.log("/info/songs/batch - using "+req.body.externalIds.length+" externalIds");
-    query.externalId = { $in: req.body.externalIds };
-  }
-  if (!ignore) {
-    query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
-
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary == true) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-  // console.log("/info/songs/batch - Querying");
-  var data = await db.collection("songs").find(query).toArray();
-  // console.log("/info/songs/batch - Query done");
-  var results = {};
-  // console.log("/info/songs/batch - Mapping");
-  if(externalIds == false)
-    data.forEach((d) => (results[d.id] = d));
-  else
-    data.forEach((d) => (results[d.externalId] = d.id));
-  // console.log("/info/songs/batch - Sending results");
-  res.send({ authed: true, results: results });
-});
-
-app.post("/info/songs/:id", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, songs: [] });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-  var query = {
-    id: req.params.id,
-  };
-  if (!ignore) {
-    query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-  }
-
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-  const result = await db.collection("songs").findOne(query);
-  res.send({ authed: true, song: result ? result : {} });
-});
+// Playlists
 
 app.post("/playlists", async function (req, res) {
   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
@@ -959,6 +596,9 @@ app.post("/playlists/remove/:playlist", async function (req, res) {
     playlists: playlists,
   });
 });
+
+
+ // Library management
 
 app.post("/addToLibrary", async function (req, res) {
   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
@@ -1212,6 +852,8 @@ app.post("/removeFromLibrary", async function (req, res) {
   res.send({ authed: true, success: true});
 });
 
+
+// Personal music data
 app.post("/recently-played/:user/add", async function (req, res) {
   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
     res.send({ authed: false, success: false });
@@ -1308,6 +950,9 @@ app.post("/favorites/:user/add", async function (req, res) {
     .updateOne({ owner: user }, { $set: favorite }, { upsert: true });
   res.send({ authed: true, success: true });
 });
+
+
+// Search
 
 app.post("/search", async function (req, res) {
   var allowedSearchTypes = ["song", "album", "artist"];
@@ -1479,6 +1124,9 @@ app.post("/searchAll", async function (req, res) {
 //  res.send({"authed": true, "bugs": bugs});
 //});
 
+
+
+// Editing (Admin only)
 app.post("/edit/:type/:id", async function (req, res) {
   var u = await db.collection("auth").findOne({
     authtoken: req.body.authtoken,
@@ -1928,14 +1576,6 @@ app.post("/edit/:type/:id/delete", async (req, res) => {
   res.send({ authed: true, success: true });
 });
 
-app.post("/utils/getArtistImageFromName", async (req, res) => {
-  if((await utils.checkAuth(req.body.authtoken, db)) == false){
-    res.send({"authed": false, "error": "Invalid authtoken", url: ""});
-    return;
-  }
-  var url = await spotifyHandler.getArtistImageUrlFromName(req.body.query);
-  res.send({authed: true, error: "", url: url});
-})
 
 io.on("connection", (socket) => {
   adder.adderConnection(socket, db, ts, spotifyHandler);
