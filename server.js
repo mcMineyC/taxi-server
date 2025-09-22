@@ -52,7 +52,7 @@ app.use(
 // const api = SpotifyApi.withClientCredentials(
 //   adder.clientId,
 //   adder.clientSecret,
-// );
+// ); // Outdated now!
 
 // app.use('/',express.static(path.join(__dirname, 'static')));
 
@@ -75,10 +75,12 @@ app.post("/latestCommit", async function (_, res) {
 app.post("/status", function (_, res) {
   res.send({ status: "ok" });
 });
-
 app.get("/status", function (_, res) {
   res.send({ status: "ok" });
 });
+
+
+// KUSC stream handling
 
 app.get("/kusc/streams", async function (req, res) {
   try{
@@ -108,7 +110,10 @@ app.get("/kusc/streams/:id/metadata", async function (req, res) {
   }
 })
 
-app.post("/signup", async function (req, res) {
+
+// Auth
+
+app.post("/auth/signup", async function (req, res) {
   var u = await db
     .collection("auth")
     .findOne({ authtoken: req.body.authtoken, roles: "recruiter" });
@@ -160,7 +165,7 @@ app.post("/signup", async function (req, res) {
   res.send({ authed: true, success: true });
 });
 
-app.post("/auth", async function (req, res) {
+app.post("/auth/login", async function (req, res) {
   var authed = false;
   var authtoken = "";
   var result = await db
@@ -227,7 +232,7 @@ app.post("/auth", async function (req, res) {
   });
 });
 
-app.post("/authtoken", async function (req, res) {
+app.post("/auth/token", async function (req, res) {
   const result = await db
     .collection("auth")
     .findOne({ authtoken: req.body.authtoken });
@@ -268,7 +273,7 @@ app.post("/authtoken", async function (req, res) {
   });
 });
 
-app.post("/username", async function (req, res) {
+app.post("/auth/username", async function (req, res) {
   const result = await db
     .collection("auth")
     .findOne({ authtoken: req.body.authtoken });
@@ -289,6 +294,9 @@ app.post("/username", async function (req, res) {
   }
   res.send({ authorized: authed, authtoken: authtoken, username: username });
 });
+
+
+// User info
 
 app.post("/info/users/:username/roles", async function (req, res) {
   var u = await db.collection("auth").findOne({
@@ -447,36 +455,6 @@ app.post("/info/artists", async function (req, res) {
   res.send({ authed: true, artists: data });
 });
 
-app.post("/info/songs", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, songs: [] });
-    return;
-  }
-  var user = await utils.getUser(req.body.authtoken, db);
-  var ignore = req.query.ignore || false;
-  var data = [];
-  var query = {};
-  if (!ignore) query.$or = [{ visibleTo: user }, { visibleTo: "all" }];
-
-  var privateLibrary = req.query.mine || false;
-  if (privateLibrary) {
-    delete query.$or;
-    query.inLibrary = user;
-  }
-
-  let options = {
-    sort: { added: -1 },
-  };
-
-  if (typeof req.query.limit == "int" || typeof req.query.limit == "string") {
-    options.limit = parseInt(req.query.limit);
-  }
-
-  data = await db.collection("songs").find(query, options).toArray();
-  // console.log(data[0]);
-  console.log("Sending songs");
-  res.send({ authed: true, songs: data });
-});
 
 app.post("/info/artist/:id", async function (req, res) {
   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
@@ -515,6 +493,7 @@ app.post("/info/album/:id", async function (req, res) {
   });
   res.send({ authed: true, album: data });
 });
+
 app.post("/info/albums/by/artist/:id", async function (req, res) {
   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
     res.send({ authed: false, albums: [] });
@@ -580,6 +559,7 @@ app.post("/info/albums/by/artist/:id", async function (req, res) {
   }
   res.send({ authed: true, albums: albumsData });
 });
+
 app.post("/info/singles/by/artist/:id", async function (req, res) {
   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
     res.send({ authed: false, songs: [] });
@@ -1457,36 +1437,37 @@ app.post("/searchAll", async function (req, res) {
   });
 });
 
-app.post("/checklist", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, error: "Invalid authtoken", todo: [] });
-    return;
-  }
+// app.post("/checklist", async function (req, res) {
+//   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
+//     res.send({ authed: false, error: "Invalid authtoken", todo: [] });
+//     return;
+//   }
+//
+//   var todo = await db.collection("checklist").find().toArray();
+//   res.send({ authed: true, todos: todo });
+//   console.log("sent todos", todo.length);
+// });
+//
+// app.post("/checklist/add", async function (req, res) {
+//   if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
+//     res.send({ authed: false, error: "Invalid authtoken", success: false });
+//     return;
+//   }
+//
+//   var todo = {
+//     id: (await db.collection("checklist").find().toArray()).length + 1,
+//     name: req.body.name,
+//     requestedBy: req.body.requestedBy,
+//     description: req.body.description || "No description",
+//     completed: false,
+//   };
+//
+//   await db
+//     .collection("checklist")
+//     .updateOne({ id: todo.id }, { $set: todo }, { upsert: true });
+//   res.send({ authed: true, todo: todo, success: true });
+// });
 
-  var todo = await db.collection("checklist").find().toArray();
-  res.send({ authed: true, todos: todo });
-  console.log("sent todos", todo.length);
-});
-
-app.post("/checklist/add", async function (req, res) {
-  if ((await utils.checkAuth(req.body.authtoken, db)) == false) {
-    res.send({ authed: false, error: "Invalid authtoken", success: false });
-    return;
-  }
-
-  var todo = {
-    id: (await db.collection("checklist").find().toArray()).length + 1,
-    name: req.body.name,
-    requestedBy: req.body.requestedBy,
-    description: req.body.description || "No description",
-    completed: false,
-  };
-
-  await db
-    .collection("checklist")
-    .updateOne({ id: todo.id }, { $set: todo }, { upsert: true });
-  res.send({ authed: true, todo: todo, success: true });
-});
 
 //app.post('/bugs', async function(req, res){
 //  if((await utils.checkAuth(req.body.authtoken, db)) == false){
@@ -1947,7 +1928,6 @@ app.post("/edit/:type/:id/delete", async (req, res) => {
   res.send({ authed: true, success: true });
 });
 
-
 app.post("/utils/getArtistImageFromName", async (req, res) => {
   if((await utils.checkAuth(req.body.authtoken, db)) == false){
     res.send({"authed": false, "error": "Invalid authtoken", url: ""});
@@ -1956,7 +1936,6 @@ app.post("/utils/getArtistImageFromName", async (req, res) => {
   var url = await spotifyHandler.getArtistImageUrlFromName(req.body.query);
   res.send({authed: true, error: "", url: url});
 })
-
 
 io.on("connection", (socket) => {
   adder.adderConnection(socket, db, ts, spotifyHandler);
